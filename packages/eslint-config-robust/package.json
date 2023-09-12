@@ -1,0 +1,23 @@
+{
+  "name": "eslint-config-robust",
+  "description": "ESLint config for Robust",
+  "version": "0.1.0",
+  "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules dist CHANGELOG.md"
+  },
+  "dependencies": {
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-config-turbo": "latest"
+  },
+  "peerDependencies": {
+    "typescript": ">=5.2.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

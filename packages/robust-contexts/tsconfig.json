@@ -1,0 +1,11 @@
+{
+	"extends": "@robust-ui/tsconfig/node16",
+	"include": [
+		".",
+	],
+	"exclude": [
+		"dist",
+		"build",
+		"node_modules"
+	]
+}
