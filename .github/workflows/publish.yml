@@ -56,16 +56,20 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create @dev release
+      - name: Git checkout main
+        if: steps.changesets.outputs.published != 'true'
+        run: git checkout main
+
+      - name: Create version dev
+        if: steps.changesets.outputs.published != 'true'
+        run: pnpm version:dev
+
+      - name: Create release Pull Request or publish to NPM
         if: steps.changesets.outputs.published != 'true'
         id: changesets-dev
         uses: changesets/action@v1
         with:
-          publish: |
-            git checkout main
-            pnpm version:dev
-            pnpm release:dev
-          version: dev
+          publish: pnpm release:dev
           commit: "ci(changesets): version packages"
           setupGitUser: true
         env:
