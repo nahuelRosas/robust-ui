@@ -16,3 +16,7 @@ export interface SliderProps extends BaseProps {
   imgProp?: ImageProps;
   previewImgProp?: ImageProps;
 }
+
+export type ForwardRefExoticSlider = Omit<SliderProps, "ref"> &
+  React.RefAttributes<unknown> &
+  SliderProps;

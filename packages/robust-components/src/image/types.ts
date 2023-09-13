@@ -9,3 +9,7 @@ export interface ImageProps extends BaseProps {
   ratio?: string;
   isRounded?: boolean;
 }
+
+export type ForwardRefExoticImage = Omit<ImageProps, "ref"> &
+  React.RefAttributes<unknown> &
+  ImageProps;
