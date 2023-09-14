@@ -2,9 +2,22 @@
 
 Robust is a system for generating React components with real-time CSS injection. It is programmed in TypeScript, providing type safety and enhanced developer experience.
 
-## Installation
+# Installation
 
-You can install Robust by downloading it from the [GitHub repository](https://github.com/nahuelRosas/Robust.git). After downloading, use [pnpm](https://pnpm.io/) to install the dependencies. The `prepare` script defined in the `package.json` file will automatically build all the files within the `packages` folder.
+You can install Robust using either npm or pnpm. To do this, run one of the following commands:
+
+Using npm:
+
+```bash
+npm install @robust-ui/nextjs
+```
+
+Using pnpm:
+```bash
+pnpm install @robust-ui/nextjs
+```
+
+Alternatively, you can also download Robust from the GitHub repository and manually install the dependencies. The prepare script defined in the package.json file will automatically build all the files within the packages folder.
 
 ## Usage
 
@@ -47,78 +60,202 @@ Please note that this usage example is specific to Next.js, and the functionalit
 The following components are available in Robust as of July 5th:
 
 ```
-├── drawer
-│   ├── complements
-│   │   ├── DrawerBody
+├── button
+│   │   │   └── index.tsx
+│   │   ├── drawer
+│   │   │   ├── complements
+│   │   │   │   ├── DrawerBody
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   └── types.ts
+│   │   │   │   ├── DrawerCloseButton
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   └── types.ts
+│   │   │   │   ├── DrawerFooter
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   └── types.ts
+│   │   │   │   ├── DrawerHeader
+│   │   │   │   │   ├── index.tsx
+│   │   │   │   │   └── types.ts
+│   │   │   │   └── index.ts
+│   │   │   ├── index.tsx
+│   │   │   ├── options
+│   │   │   │   ├── placement.ts
+│   │   │   │   └── size.ts
+│   │   │   └── types.ts
+│   │   ├── form
+│   │   │   ├── form
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── formControl
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   └── index.ts
+│   │   ├── header
 │   │   │   ├── index.tsx
 │   │   │   └── types.ts
-│   │   ├── DrawerCloseButton
+│   │   ├── icon
+│   │   │   ├── circle
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── defs
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── filter
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── g
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── icons
+│   │   │   │   ├── clock
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── close
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── dev
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── dotsSixVertical
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── error
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── expandMore
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── fallbackIcon
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── fill
+│   │   │   │   │   ├── arrowLeftFill
+│   │   │   │   │   │   └── index.tsx
+│   │   │   │   │   ├── arrowRightFill
+│   │   │   │   │   │   └── index.tsx
+│   │   │   │   │   ├── basics
+│   │   │   │   │   │   ├── index.ts
+│   │   │   │   │   │   └── star
+│   │   │   │   │   │       └── index.tsx
+│   │   │   │   │   ├── githubFill
+│   │   │   │   │   │   └── index.tsx
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── globe
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── home
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── menu
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── pc
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── pc2
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── socialMedia
+│   │   │   │   │   ├── index.ts
+│   │   │   │   │   ├── linkedin
+│   │   │   │   │   │   └── index.tsx
+│   │   │   │   │   └── x-twitter
+│   │   │   │   │       └── index.tsx
+│   │   │   │   ├── tick
+│   │   │   │   │   └── index.tsx
+│   │   │   │   └── x
+│   │   │   │       └── index.tsx
+│   │   │   ├── index.tsx
+│   │   │   ├── path
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── pattern
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── rect
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── types.ts
+│   │   │   └── use
+│   │   │       ├── index.tsx
+│   │   │       └── types.ts
+│   │   ├── image
 │   │   │   ├── index.tsx
 │   │   │   └── types.ts
-│   │   ├── DrawerFooter
-│   │   │   ├── index.tsx
-│   │   │   └── types.ts
-│   │   ├── DrawerHeader
-│   │   │   ├── index.tsx
-│   │   │   └── types.ts
-│   │   └── index.ts
-│   ├── index.tsx
-│   ├── options
-│   │   ├── placement.ts
-│   │   └── size.ts
-│   └── types.ts
-├── header
-│   ├── index.tsx
-│   └── types.ts
-├── icon
-│   ├── circle
-│   │   ├── index.tsx
-│   │   └── types.ts
-│   ├── g
-│   │   ├── index.tsx
-│   │   └──
-
- types.ts
-│   ├── icons
-│   │   ├── close
-│   │   │   └── index.tsx
-│   │   ├── dotsSixVertical
-│   │   │   └── index.tsx
-│   │   ├── expandMore
-│   │   │   └── index.tsx
-│   │   ├── fallbackIcon
-│   │   │   └── index.tsx
-│   │   ├── githubFill
-│   │   │   └── index.tsx
 │   │   ├── index.ts
-│   │   └── menu
-│   │       └── index.tsx
-│   ├── index.tsx
-│   ├── path
-│   │   ├── index.tsx
-│   │   └── types.ts
-│   └── types.ts
-├── index.ts
-├── layout
-│   ├── flex
-│   │   ├── index.tsx
-│   │   └── types.ts
-│   └── index.tsx
-├── link
-│   ├── index.tsx
-│   └── types.ts
-├── menu
-│   ├── index.tsx
-│   └── types.ts
-├── types.ts
-└── typography
-    ├── index.ts
-    ├── span
-    │   ├── index.tsx
-    │   └── types.ts
-    └── text
-        ├── index.tsx
-        └── types.ts
+│   │   ├── input
+│   │   │   ├── index.tsx
+│   │   │   └── types.ts
+│   │   ├── layout
+│   │   │   ├── block
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── flex
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── grid
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── index.tsx
+│   │   │   └── scroller
+│   │   │       ├── index.tsx
+│   │   │       ├── scrollerInner.tsx
+│   │   │       └── types.ts
+│   │   ├── link
+│   │   │   ├── index.tsx
+│   │   │   └── types.ts
+│   │   ├── menu
+│   │   │   ├── index.tsx
+│   │   │   └── types.ts
+│   │   ├── slider
+│   │   │   ├── index.tsx
+│   │   │   └── types.ts
+│   │   ├── spinner
+│   │   │   ├── index.tsx
+│   │   │   ├── models.ts
+│   │   │   └── types.ts
+│   │   ├── terminal
+│   │   │   ├── command
+│   │   │   │   ├── aboutPage
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── calc
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── contact
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── help
+│   │   │   │   │   └── index.tsx
+│   │   │   │   ├── index.tsx
+│   │   │   │   ├── types.ts
+│   │   │   │   └── welcome
+│   │   │   │       └── index.tsx
+│   │   │   ├── functions
+│   │   │   │   ├── evaluateExpression
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── handleKeyDown
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── handleSubmit
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── processInput
+│   │   │   │   │   └── index.ts
+│   │   │   │   ├── updateIsValidCommand
+│   │   │   │   │   └── index.ts
+│   │   │   │   └── updateSuggestedCommands
+│   │   │   │       └── index.ts
+│   │   │   ├── index.tsx
+│   │   │   ├── termForm
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── terminalReducer
+│   │   │   │   ├── index.ts
+│   │   │   │   └── types.ts
+│   │   │   ├── termInfo
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   ├── termOutput
+│   │   │   │   ├── index.tsx
+│   │   │   │   └── types.ts
+│   │   │   └── types.ts
+│   │   ├── types.ts
+│   │   └── typography
+│   │       ├── index.ts
+│   │       ├── span
+│   │       │   ├── index.tsx
+│   │       │   └── types.ts
+│   │       ├── text
+│   │       │   ├── index.tsx
+│   │       │   └── types.ts
+│   │       └── textMultiStyle
+│   │           ├── index.tsx
+│   │           └── types.ts
 ```
 
 ## Features
