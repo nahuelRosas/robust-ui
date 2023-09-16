@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/components",
   "description": "Robust UI Components",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
