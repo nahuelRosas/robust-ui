@@ -7,7 +7,7 @@
 export function randomColor(
   { seed, format }: { seed?: string; format?: "hex" | "hsl" } = {
     format: "hsl",
-  }
+  },
 ): string {
   // XORShift random number generator
   function xorShift(seed: string) {

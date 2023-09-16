@@ -1,4 +1,4 @@
-import {  useRef } from "react";
+import { useRef } from "react";
 import { RecoveryGlobalState } from "../recoveryGlobalState";
 import { updateValueGlobalState } from "../updateValueGlobalState";
 import { FunctionType, SetterGlobalStateProps } from "./types";

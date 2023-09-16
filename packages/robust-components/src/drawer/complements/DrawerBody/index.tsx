@@ -14,7 +14,8 @@ function Factory({ children, ...props }: DrawerBodyProps) {
       alignItems="flexStart"
       optimizedWidth
       optimizedHeight
-      {...props}>
+      {...props}
+    >
       {children}
     </Flex>
   );

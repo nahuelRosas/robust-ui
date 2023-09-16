@@ -4,7 +4,7 @@ import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
 
 export function useFrameworkDetection(): string | null {
   const [detectedFramework, setDetectedFramework] = useState<string | null>(
-    null
+    null,
   );
 
   useIsomorphicLayoutEffect(() => {

@@ -161,7 +161,7 @@ const StyleComponent = forwardRef<unknown, BaseProps & T>(function (
     children,
     ...props
   },
-  ref
+  ref,
 ): JSX.Element | null {
   // Function body...
 });

@@ -18,7 +18,8 @@ export function G({ children, stroke, strokeLinecap, ...props }: GProps) {
       componentName="G-SVG"
       stroke={stroke}
       strokeLinecap={strokeLinecap}
-      {...props}>
+      {...props}
+    >
       {children}
     </ComponentG>
   );

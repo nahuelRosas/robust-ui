@@ -8,7 +8,7 @@ import { GlobalState, Action, SetValueAction } from "./types";
  */
 export function GlobalStateReducer(
   state: GlobalState,
-  action: unknown
+  action: unknown,
 ): GlobalState {
   switch ((action as Action).type) {
     case "SET_GLOBAL_STATE_VALUE":

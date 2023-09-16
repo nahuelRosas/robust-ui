@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["next/core-web-vitals", "turbo", "prettier"],
+  extends: ["next/core-web-vitals", "turbo", "prettier", "react"],
   rules: {
     "@next/next/no-html-link-for-pages": "off",
   },
@@ -13,6 +13,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  
   globals: {
     NODE_ENV: "readonly",
   },

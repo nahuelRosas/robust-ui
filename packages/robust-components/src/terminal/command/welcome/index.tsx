@@ -17,13 +17,15 @@ function Factory() {
       flexDirection="column"
       fontSize="0.8em"
       optimizedWidth
-      justifyContent="center">
+      justifyContent="center"
+    >
       <Span
         fontFamily="Courier"
         alignSelf="inherit"
         fontSize="1.5em"
         m="0%"
-        p="0%">
+        p="0%"
+      >
         Welcome to
       </Span>
       <Span
@@ -33,7 +35,8 @@ function Factory() {
         fontSize="0.9em"
         m="0%"
         whiteSpace="pre-wrap"
-        p="0%">
+        p="0%"
+      >
         {Title}
       </Span>
     </Flex>

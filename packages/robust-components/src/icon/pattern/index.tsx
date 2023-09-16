@@ -29,7 +29,8 @@ export function Pattern({
       cy={cy}
       r={r}
       fill={fill}
-      {...props}>
+      {...props}
+    >
       {children}
     </ComponentPattern>
   );

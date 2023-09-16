@@ -21,7 +21,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticDrawer> =
       passClose = false,
       ...props
     },
-    ref
+    ref,
   ) {
     const condition = placement === "top" || placement === "bottom" ? "Y" : "X";
 
@@ -68,13 +68,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticDrawer> =
       if (passClose && React.isValidElement(child)) {
         if (child.type.toString().includes("DrawerBody")) {
           const children = React.Children.toArray(
-            child.props.children
+            child.props.children,
           ) as React.ReactElement<
             any,
             string | React.JSXElementConstructor<any>
           >[];
           const newChildren = children.map((child) =>
-            cloneElementWithCloseFunction({ child })
+            cloneElementWithCloseFunction({ child }),
           );
 
           return React.cloneElement(child, {}, newChildren);
@@ -100,7 +100,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticDrawer> =
           open ? `transform 300ms ease-out` : `transform 300ms ease-in`
         }
         {...Placement[placement]}
-        {...props}>
+        {...props}
+      >
         {toggleOpen && <DrawerCloseButton toggleOpen={toggleOpen} />}
         {clonedChildren}
       </Component>

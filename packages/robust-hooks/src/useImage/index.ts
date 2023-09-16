@@ -74,7 +74,7 @@ export function useImage({
     image.onload = (event) => {
       setStatus("loaded");
       setImagesLoaded((imagesLoaded) =>
-        imagesLoaded.includes(src) ? imagesLoaded : [...imagesLoaded, src]
+        imagesLoaded.includes(src) ? imagesLoaded : [...imagesLoaded, src],
       );
       cleanupImage();
       if (onLoad) {

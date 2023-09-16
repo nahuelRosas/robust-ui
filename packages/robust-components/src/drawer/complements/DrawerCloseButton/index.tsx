@@ -10,7 +10,8 @@ function Factory({ children, toggleOpen, ...props }: DrawerCloseButtonProps) {
       onClick={toggleOpen}
       alignSelf="flexEnd"
       position="fixed"
-      {...props}>
+      {...props}
+    >
       {children}
     </Icon>
   );

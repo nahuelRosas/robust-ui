@@ -28,7 +28,7 @@ export function replaceCSSSelectors({
         const currentValues = updatedCSS.match(selectorRegex);
         const valueRegex = new RegExp(
           `${replacementValues.join("").replace(/ /g, "")}`,
-          "ismg"
+          "ismg",
         );
 
         const cleanCurrentValues = (currentValues || [])
@@ -38,7 +38,7 @@ export function replaceCSSSelectors({
         if (!cleanCurrentValues.match(valueRegex)) {
           updatedCSS = updatedCSS.replace(
             selectorRegex,
-            `${selector}{${cleanCurrentValues} ${replacementValues.join(" ")}}`
+            `${selector}{${cleanCurrentValues} ${replacementValues.join(" ")}}`,
           );
         }
       } else if (process === "replace") {
@@ -47,7 +47,7 @@ export function replaceCSSSelectors({
         const replacementString = replacementValues.join("");
         updatedCSS = updatedCSS.replace(
           selectorRegex,
-          `${selector}${replacementString}`
+          `${selector}${replacementString}`,
         );
       } else if (process === "remove") {
         const currentValues = updatedCSS.match(selectorRegex);

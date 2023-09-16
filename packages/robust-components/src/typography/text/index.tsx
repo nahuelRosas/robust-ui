@@ -22,7 +22,8 @@ function Factory({
       lineHeight="normal"
       padding="1rem"
       ref={ref}
-      {...props}>
+      {...props}
+    >
       {children}
     </Component>
   );

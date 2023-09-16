@@ -16,7 +16,8 @@ function Factory({ children, ref, ...props }: SpanProps) {
       lineHeight="normal"
       textRendering="optimizeLegibility"
       ref={ref}
-      {...props}>
+      {...props}
+    >
       {children}
     </Component>
   );

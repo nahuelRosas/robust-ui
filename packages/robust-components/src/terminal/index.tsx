@@ -25,13 +25,13 @@ function Factory({ customCommands = [], ...props }: TerminalProps) {
 
   const [state, dispatch] = useReducer<React.Reducer<State, Action>>(
     terminalReducer,
-    initialState
+    initialState,
   );
   const processInput = ProcessInput({ dispatch });
 
   const allCommands = useMemo(
     () => [...commands, ...customCommands],
-    [customCommands]
+    [customCommands],
   );
   const updateSuggestedCommands = UpdateSuggestedCommands({
     dispatch,
@@ -62,7 +62,7 @@ function Factory({ customCommands = [], ...props }: TerminalProps) {
       dispatch({ type: "SET_INPUT_VALUE", payload: inputValue });
       updateSuggestedCommands(inputCommand);
     },
-    [processInput, updateSuggestedCommands]
+    [processInput, updateSuggestedCommands],
   );
 
   const handleContainerClick = useCallback(() => {
@@ -86,7 +86,8 @@ function Factory({ customCommands = [], ...props }: TerminalProps) {
       height="100%"
       onClick={handleContainerClick}
       ref={containerRef}
-      {...props}>
+      {...props}
+    >
       <TermOutput state={state} allCommands={allCommands} />
       <TermForm
         inputRef={inputRef}

@@ -9,7 +9,7 @@ export function completeBreakpoints({
 }): string | PartialRecord<keyof typeof BreakPoints, string> {
   try {
     const hasValidBreakpoints = Object.keys(inputObject).some((key) =>
-      BreakPoints.hasOwnProperty(key)
+      BreakPoints.hasOwnProperty(key),
     );
 
     if (!hasValidBreakpoints) {

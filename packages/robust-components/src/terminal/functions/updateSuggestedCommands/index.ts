@@ -18,7 +18,7 @@ export function UpdateSuggestedCommands({
         .map(({ cmd }) => cmd);
       dispatch({ type: "SET_SUGGESTED_COMMANDS", payload: filteredCommands });
     },
-    [allCommands, dispatch]
+    [allCommands, dispatch],
   );
 
   return updateSuggestedCommands;

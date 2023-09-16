@@ -84,7 +84,7 @@ export const cssGenerators = {
     const { colors, deg } = propValue as LinearColorArguments;
     if (colors && colors.length)
       return `background: linear-gradient(${deg || "90deg"}, ${colors.join(
-        ", "
+        ", ",
       )});`;
     else if (typeof propValue === "string") return `background: ${propValue};`;
   },

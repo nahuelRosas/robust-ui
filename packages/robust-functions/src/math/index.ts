@@ -1,1 +1,1 @@
-export * from "./inSphere"
+export * from "./inSphere";

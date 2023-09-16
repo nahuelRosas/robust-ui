@@ -72,7 +72,7 @@ function Factory({
      */
     const changeLanguage = useCallback(
       function (
-        newLanguage: React.SetStateAction<keyof typeof Language>
+        newLanguage: React.SetStateAction<keyof typeof Language>,
       ): void {
         if (typeof newLanguage === "function") {
           setLanguage((prevState) => {
@@ -85,7 +85,7 @@ function Factory({
         }
         setLanguage(newLanguage);
       },
-      [language]
+      [language],
     );
     /**
      * Toggle the dark mode based on the specified value.
@@ -93,7 +93,7 @@ function Factory({
      * @param {boolean} darkMode - The new value for dark mode.
      */
     const toggleDarkMode = useCallback(function (
-      darkMode: boolean | ((prevState: boolean) => boolean)
+      darkMode: boolean | ((prevState: boolean) => boolean),
     ): void {
       setIsDarkMode(darkMode);
     }, []);
@@ -197,7 +197,8 @@ function Factory({
           }}
           scrollbarColor="rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.2)"
           scrollbarWidth="thin"
-          {...props}>
+          {...props}
+        >
           {children}
         </Provider>
       </RobustGlobalContext.Provider>

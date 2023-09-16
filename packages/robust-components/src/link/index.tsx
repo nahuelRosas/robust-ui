@@ -64,7 +64,8 @@ function Factory({
           : background
       }
       variant={useColors && colorization ? true : false}
-      {...props}>
+      {...props}
+    >
       {children}
     </Component>
   );

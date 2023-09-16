@@ -3,7 +3,7 @@ import { useIsomorphicLayoutEffect } from "../useIsomorphicLayoutEffect";
 
 export function useResizeListener(
   handleResize: () => void,
-  debouncedHandleResize: ReturnType<typeof debounce>
+  debouncedHandleResize: ReturnType<typeof debounce>,
 ): void {
   useIsomorphicLayoutEffect(
     function (): () => void {
@@ -15,6 +15,6 @@ export function useResizeListener(
         window.removeEventListener("resize", debouncedHandleResize);
       };
     },
-    [debouncedHandleResize, handleResize]
+    [debouncedHandleResize, handleResize],
   );
 }

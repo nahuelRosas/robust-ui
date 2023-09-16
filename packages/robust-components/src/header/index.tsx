@@ -19,7 +19,8 @@ export function Header({ children, ref, ...props }: HeaderProps) {
       width="initial"
       height="fitContent"
       ref={ref}
-      {...props}>
+      {...props}
+    >
       {children}
     </Component>
   );

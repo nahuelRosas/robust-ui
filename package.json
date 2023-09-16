@@ -9,8 +9,8 @@
     "build": "turbo run build",
     "build:packages": "turbo run build --filter=!./apps/*",
     "dev": "turbo run dev --no-cache --continue --filter=!./packages/*",
-    "lint": "turbo run lint",
-    "clean": "turbo run clean && rm -rf node_modules && rm -rf pnpm-lock.yaml && rm CHANGELOG.md",
+    "lint": "turbo run lint --filter=!./apps/*",
+    "clean": "turbo run clean && rm -rf node_modules pnpm-lock.yaml CHANGELOG.md",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -23,15 +23,15 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
-    "@swc/core": "^1.3.84",
+    "@swc/core": "^1.3.85",
     "eslint": "^8.49.0",
     "eslint-config-robust": "workspace:*",
     "next": "^13.4.19",
     "prettier": "^3.0.3",
-    "turbo": "^1.10.13"
+    "turbo": "^1.10.14"
   },
   "packageManager": "pnpm@7.15.0",
-  "repository": "https://github.com/nahuelrosas/robust",
+  "repository": "https://github.com/nahuelrosas/robust-ui",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }

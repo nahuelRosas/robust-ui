@@ -39,7 +39,7 @@ export function HandleKeyDown({
       } else if (e.key === "ArrowDown") {
         const newIndex = Math.min(
           state.visibleCommandIndex + 1,
-          state.commandHistory.length
+          state.commandHistory.length,
         );
         dispatch({
           type: "SET_INPUT_VALUE",
@@ -69,7 +69,7 @@ export function HandleKeyDown({
       state.commandHistory,
       state.suggestedCommands,
       state.visibleCommandIndex,
-    ]
+    ],
   );
   return handleKeyDown;
 }

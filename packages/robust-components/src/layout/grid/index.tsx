@@ -21,7 +21,7 @@ const Component = Constructor({
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticGrid> =
   forwardRef<unknown, GridProps>(function GridComponent(
     { children, ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     return (
       <Component ref={ref} componentName="Grid" display="grid" {...props}>

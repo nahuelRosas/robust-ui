@@ -14,12 +14,12 @@ export function getLocation(): LocationInfo {
     const error = e as Error;
     const stackLines = error.stack!.split("\n");
     const callerIndex = stackLines.findIndex((line) =>
-      line.match(/http[s]?:\/\//)
+      line.match(/http[s]?:\/\//),
     );
 
     if (callerIndex !== -1) {
       pathParts = stackLines[callerIndex].match(
-        /((http[s]?:\/\/.+\/)([^\/]+\.js)):/
+        /((http[s]?:\/\/.+\/)([^\/]+\.js)):/,
       );
     }
   }

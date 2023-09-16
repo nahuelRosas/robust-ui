@@ -24,7 +24,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
       borderRadius,
       ...props
     },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const status = useImage({ src: src as string });
 
@@ -67,7 +67,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
         alignItems="center"
         cursor="pointer"
         borderRadius={borderRadius}
-        {...props}>
+        {...props}
+      >
         {(isLoading || status === "loading" || status === "pending") && (
           <Spinner model="C" />
         )}

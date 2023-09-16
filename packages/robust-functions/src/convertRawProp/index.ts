@@ -17,7 +17,7 @@ export function convertRawProp({
     const correctedProp = inputKey
       .split(/(?=[A-Z])/)
       .map((item) =>
-        item.toLowerCase() === keyword.toLowerCase() ? "" : item.toLowerCase()
+        item.toLowerCase() === keyword.toLowerCase() ? "" : item.toLowerCase(),
       );
 
     const filtered = correctedProp.filter((item) => item !== "") as string[];

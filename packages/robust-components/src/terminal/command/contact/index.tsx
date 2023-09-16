@@ -8,7 +8,8 @@ function Contact() {
       flexDirection="column"
       fontSize="0.9em"
       optimizedWidth
-      justifyContent="center">
+      justifyContent="center"
+    >
       <Span>Contact information</Span>
       <Flex>
         <Span color="brightPink">Email:</Span>

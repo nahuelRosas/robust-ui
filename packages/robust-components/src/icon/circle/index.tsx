@@ -29,7 +29,8 @@ export function Circle({
       cy={cy}
       r={r}
       fill={fill}
-      {...props}>
+      {...props}
+    >
       {children}
     </ComponentCircle>
   );

@@ -21,7 +21,8 @@ export function Path({
       fill={fill}
       d={d}
       strokeLinecap={strokeLinecap}
-      {...props}>
+      {...props}
+    >
       {children}
     </ComponentPath>
   );

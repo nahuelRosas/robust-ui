@@ -29,7 +29,8 @@ export function Filter({
       cy={cy}
       r={r}
       fill={fill}
-      {...props}>
+      {...props}
+    >
       {children}
     </ComponentFilter>
   );

@@ -17,11 +17,11 @@ export function UpdateIsValidCommand({
       if (value.current === state.inputCommand) return;
       value.current = state.inputCommand;
       const isValidCommand = !!allCommands.find(
-        ({ cmd }) => cmd === state.inputCommand
+        ({ cmd }) => cmd === state.inputCommand,
       );
       dispatch({ type: "SET_IS_VALID_COMMAND", payload: isValidCommand });
     },
-    [allCommands, dispatch, state.inputCommand]
+    [allCommands, dispatch, state.inputCommand],
   );
   return updateIsValidCommand;
 }

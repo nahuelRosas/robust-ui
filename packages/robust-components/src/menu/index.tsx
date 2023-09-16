@@ -59,13 +59,15 @@ export function Menu({
           onClick={handleToggleMenu}
           flexDirection="row"
           cursor="pointer"
-          {...props}>
+          {...props}
+        >
           {title && (
             <Span
               pr="0"
               fontWeight="inherit"
               fontSize="inherit"
-              multiLanguage={typeof title === "object" ? title : undefined}>
+              multiLanguage={typeof title === "object" ? title : undefined}
+            >
               {typeof title === "string" && title}
             </Span>
           )}
@@ -85,7 +87,8 @@ export function Menu({
           onClick={handleToggleMenu}
           flexDirection="row"
           cursor="pointer"
-          {...props}>
+          {...props}
+        >
           <Span cursor="pointer" fontSize="inherit" pr="0" fontWeight="inherit">
             Menu
           </Span>
@@ -101,7 +104,8 @@ export function Menu({
         display={isOpen ? "flex" : "none"}
         ref={ref}
         zIndexRaw="100"
-        {...props}>
+        {...props}
+      >
         {clonedChildren}
       </MenuComponent>
     </>

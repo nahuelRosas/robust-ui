@@ -111,7 +111,7 @@ export function generateHash({
     throw new Error(
       `Invalid algorithm: ${algorithm}. Valid algorithms are: ${crypto
         .getHashes()
-        .join(", ")}.`
+        .join(", ")}.`,
     );
   }
   return crypto.createHash(algorithm).update(str).digest("hex");
@@ -472,7 +472,7 @@ export function getPropValueWithBreakpoint({
       }
     }
     throw new Error(
-      `Invalid propValue for breakpoint ${breakPoint} and propValue ${propValue}`
+      `Invalid propValue for breakpoint ${breakPoint} and propValue ${propValue}`,
     );
   } else if (typeof propValue === "undefined") {
     const Location = new Error().stack?.split("\n")[2];

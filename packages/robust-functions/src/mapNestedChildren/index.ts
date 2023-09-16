@@ -8,7 +8,7 @@ export function mapNestedChildren({ children, onAction }: MergedActionParams) {
       cloneElementWithMergedAction({
         child: nestedChild as ReactElement,
         onAction,
-      })
+      }),
     ) || []
   );
 }

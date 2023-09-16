@@ -47,7 +47,7 @@ export function InjectCSSStyles({
             });
           } catch (error) {
             throw new Error(
-              `An unexpected error occurred while processing the ${prop} property. ${error}`
+              `An unexpected error occurred while processing the ${prop} property. ${error}`,
             );
           }
         });
@@ -100,7 +100,7 @@ export function InjectCSSStyles({
     return Styles;
   } catch (error) {
     throw new Error(
-      `An unexpected error occurred while injecting CSS styles. ${error}`
+      `An unexpected error occurred while injecting CSS styles. ${error}`,
     );
   }
 }

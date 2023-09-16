@@ -11,19 +11,19 @@ export function useBreakpointValue<T>({
 }: useBreakPointValueProps<T>): T | null {
   if (typeof values !== OBJECT_STR) {
     throw new Error(
-      "The first argument of useBreakpointValue must be an object."
+      "The first argument of useBreakpointValue must be an object.",
     );
   }
 
   const [currentBreakpoint, setCurrentBreakpoint] = useState<string | null>(
-    null
+    null,
   );
 
   const handleResizeCallback = useCallback(
     function (): void {
       handleResize({ options, setCurrentBreakpoint, currentBreakpoint });
     },
-    [options, setCurrentBreakpoint, currentBreakpoint]
+    [options, setCurrentBreakpoint, currentBreakpoint],
   );
 
   const debouncedHandleResize = useMemo(
@@ -34,7 +34,7 @@ export function useBreakpointValue<T>({
         immediate: false,
       });
     },
-    [handleResizeCallback]
+    [handleResizeCallback],
   );
 
   useResizeListener(handleResizeCallback, debouncedHandleResize);

@@ -15,21 +15,24 @@ function Factory({
       flexDirection="row"
       justifyContent="spaceBetween"
       width="100%"
-      componentName="TerminalInfo">
+      componentName="TerminalInfo"
+    >
       <Flex componentName="TerminalInfo-Left" pr="0.5em">
         <Flex
           bLeftRadius="5px"
           background="gray900"
           transform="skew(-20deg)"
           br="2px solid white"
-          componentName="TerminalInfo-SystemIcon">
+          componentName="TerminalInfo-SystemIcon"
+        >
           <Icon p="0.5em" type="react" transform="skew(20deg)" size="1rem" />
         </Flex>
         <Flex
           background="gray900"
           transform="skew(-20deg)"
           bRightRadius="5px"
-          componentName="TerminalInfo-HomeIcon">
+          componentName="TerminalInfo-HomeIcon"
+        >
           <Icon p="0.5em" type="home" transform="skew(20deg)" size="1rem" />
           <Span m="auto" pr="1em" fontSize="1em" transform="skew(20deg)">
             ~
@@ -43,7 +46,8 @@ function Factory({
           background="gray900"
           transform="skew(-20deg)"
           br="2px solid white"
-          componentName="TerminalInfo-ValidateIcon">
+          componentName="TerminalInfo-ValidateIcon"
+        >
           <Icon
             type={invalidCommand ? "x" : "tick"}
             color={invalidCommand ? "red600" : "green600"}
@@ -57,13 +61,15 @@ function Factory({
           transform="skew(-20deg)"
           bRightRadius="5px"
           width="maxContent"
-          componentName="TerminalInfo-Clock">
+          componentName="TerminalInfo-Clock"
+        >
           <Span
             m="auto"
             pr="0%"
             p="0.5em"
             fontSize="0.8em"
-            transform="skew(20deg)">
+            transform="skew(20deg)"
+          >
             at {timeString}
           </Span>
           <Icon p="0.5em" type="clock" transform="skew(20deg)" size="1rem" />

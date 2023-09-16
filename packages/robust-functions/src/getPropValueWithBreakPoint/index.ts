@@ -17,7 +17,7 @@ export function getPropValueWithBreakPoint({
       throw new Error("The propValue and breakPoint arguments are required.");
     }
     const hasBreakpointsKey = Object.keys(propValue as object).some((key) =>
-      BreakPoints.hasOwnProperty(key)
+      BreakPoints.hasOwnProperty(key),
     );
 
     if (!hasBreakpointsKey) {

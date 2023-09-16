@@ -19,7 +19,7 @@ const Component = Constructor({
  */
 export const Factory = forwardRef<unknown, InputProps>(function InputComponent(
   { children, ...props },
-  ref
+  ref,
 ) {
   return (
     <Component ref={ref} {...props}>

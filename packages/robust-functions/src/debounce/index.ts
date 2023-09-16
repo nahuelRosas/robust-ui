@@ -42,11 +42,11 @@ export function debounce<T extends (...args: unknown[]) => void>({
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(
-          "Error while executing debounced function: " + error.message
+          "Error while executing debounced function: " + error.message,
         );
       } else {
         throw new Error(
-          "An unknown error occurred while executing debounced function."
+          "An unknown error occurred while executing debounced function.",
         );
       }
     }

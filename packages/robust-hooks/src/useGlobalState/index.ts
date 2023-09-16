@@ -15,7 +15,7 @@ export function useGlobalState<T>({
 }: UseGlobalStateProps<T>): [T, (value: FunctionType<T>) => void] {
   if (!key && !defaultValue) {
     throw new Error(
-      `key and defaultValue are both undefined. At least one of them must be defined.`
+      `key and defaultValue are both undefined. At least one of them must be defined.`,
     );
   }
 

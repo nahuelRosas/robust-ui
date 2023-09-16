@@ -14,7 +14,7 @@ export function ProcessInput({ dispatch }: { dispatch: React.Dispatch<any> }) {
       dispatch({ type: "SET_INPUT_ARGS", payload: inputArgs || [] });
       return { inputCommand, inputArgs };
     },
-    [dispatch]
+    [dispatch],
   );
   return processInput;
 }

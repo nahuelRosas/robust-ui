@@ -21,7 +21,7 @@ function Factory({
           state.lastCommand &&
           !allCommands.find(
             ({ cmd }: { cmd: string }) =>
-              cmd === state.lastCommand.command && cmd !== ""
+              cmd === state.lastCommand.command && cmd !== "",
           )
         }
         date={state.lastCommand.date}
@@ -31,7 +31,8 @@ function Factory({
         flexDirection="row"
         alignItems="center"
         pt="0.5em"
-        minH="1.5em">
+        minH="1.5em"
+      >
         <Input
           focus={{ outline: "none" }}
           opacity="0"
@@ -54,7 +55,8 @@ function Factory({
           optimizedHeight
           fontFamily="Fira Code"
           color={state.isValidCommand ? "green" : "brightPink"}
-          fontWeight="bold">
+          fontWeight="bold"
+        >
           {state.inputCommand}
         </Span>
         {state.inputValue !== "" &&
@@ -64,7 +66,8 @@ function Factory({
               color="blueGray"
               fontWeight="bold"
               fontFamily="Fira Code"
-              ml={state.inputArgs.length > 0 ? "0.25em" : "0%"}>
+              ml={state.inputArgs.length > 0 ? "0.25em" : "0%"}
+            >
               {state.inputArgs.length > 0
                 ? state.inputArgs.join(" ")
                 : state.suggestedCommands[0]?.slice(state.inputValue.length)}

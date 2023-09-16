@@ -29,7 +29,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSlider> =
       borderRadius,
       ...props
     },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const [current, setCurrent] = useState<number>(0);
     const [visible, setVisible] = useState<boolean>(false);
@@ -43,7 +43,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSlider> =
       (newIndex: number) => {
         setCurrent((newIndex + length) % length);
       },
-      [length]
+      [length],
     );
 
     useEffect(() => {
@@ -92,7 +92,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSlider> =
             top="0"
             left="0"
             p="0"
-            zIndexRaw="999999">
+            zIndexRaw="999999"
+          >
             <Icon
               componentName="closeIcon"
               type="close"
@@ -128,7 +129,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSlider> =
               }}
               {...templateButton.normal}
               color="black"
-              zIndexRaw="2">
+              zIndexRaw="2"
+            >
               {prevIcon}
             </Icon>
             <Image
@@ -184,7 +186,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSlider> =
               }}
               {...templateButton.normal}
               color="black"
-              zIndexRaw="2">
+              zIndexRaw="2"
+            >
               {nextIcon}
             </Icon>
           </Flex>

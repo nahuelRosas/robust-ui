@@ -54,7 +54,8 @@ function Factory({
       }
       width={_size}
       height={_size}
-      {...props}>
+      {...props}
+    >
       {_children}
     </Component>
   );

@@ -21,7 +21,7 @@ export function cloneElementWithMergedAction({
 
     if (typeof onAction !== "object" || onAction === null) {
       throw new Error(
-        "The 'onAction' parameter must be an object containing action callbacks."
+        "The 'onAction' parameter must be an object containing action callbacks.",
       );
     }
 
@@ -30,7 +30,7 @@ export function cloneElementWithMergedAction({
     Object.entries(onAction).forEach(([key, value]) => {
       if (typeof value !== "function") {
         throw new Error(
-          `The value for '${key}' in 'onAction' must be a function.`
+          `The value for '${key}' in 'onAction' must be a function.`,
         );
       }
 
@@ -56,11 +56,11 @@ export function cloneElementWithMergedAction({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `Error while cloning React element with merged actions: ${error.message}`
+        `Error while cloning React element with merged actions: ${error.message}`,
       );
     } else {
       throw new Error(
-        "An unknown error occurred while cloning React element with merged actions."
+        "An unknown error occurred while cloning React element with merged actions.",
       );
     }
   }

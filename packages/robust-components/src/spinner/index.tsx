@@ -25,7 +25,8 @@ export function Spinner({
       justifyContent="center"
       alignItems="center"
       widthRaw={size || width}
-      heightRaw={size || height}>
+      heightRaw={size || height}
+    >
       <Flex
         componentName="Spinner"
         width="inherit"

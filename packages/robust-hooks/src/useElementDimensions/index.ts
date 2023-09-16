@@ -70,7 +70,7 @@ export function useElementDimensions() {
     searchString: string;
   }): { width: string; height: string } {
     const foundEntry = Object.entries(dimensions).find(([key]) =>
-      key.includes(searchString)
+      key.includes(searchString),
     );
 
     return foundEntry

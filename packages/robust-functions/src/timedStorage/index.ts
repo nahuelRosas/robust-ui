@@ -17,7 +17,7 @@ export function storeItem<T>({ key, value }: StoreItemOptions<T>): void {
     localStorage.setItem(key, JSON.stringify(item));
   } catch (error) {
     throw new Error(
-      `An unexpected error occurred while storing the ${key} item. ${error}`
+      `An unexpected error occurred while storing the ${key} item. ${error}`,
     );
   }
 }
@@ -46,7 +46,7 @@ export function retrieveItem<T>({ key, timeLimitInDays }: RetrieveItemOptions) {
     }
   } catch (error) {
     throw new Error(
-      `An unexpected error occurred while retrieving the ${key} item. ${error}`
+      `An unexpected error occurred while retrieving the ${key} item. ${error}`,
     );
   }
 }

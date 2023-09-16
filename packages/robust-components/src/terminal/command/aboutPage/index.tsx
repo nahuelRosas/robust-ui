@@ -9,7 +9,8 @@ function Factory() {
       flexDirection="column"
       fontSize="0.9em"
       optimizedWidth
-      justifyContent="center">
+      justifyContent="center"
+    >
       <Span fontSize="0.9em">About Robust</Span>
       <Text fontSize="0.9em" optimizedWidth p="0.5em">
         Hi, I&apos;m Nahuel Rosas and I would like to introduce you to Robust -

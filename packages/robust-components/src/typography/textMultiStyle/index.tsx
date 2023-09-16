@@ -64,7 +64,8 @@ function Factory({
                 userSelect
                 fontSize="inherit"
                 fontStyle="inherit"
-                lineHeight="inherit">
+                lineHeight="inherit"
+              >
                 {child.text}
               </Text>
             );
@@ -79,7 +80,8 @@ function Factory({
                 userSelect
                 fontSize="inherit"
                 fontStyle="inherit"
-                lineHeight="inherit">
+                lineHeight="inherit"
+              >
                 {child.text}
               </Span>
             );
@@ -101,7 +103,8 @@ function Factory({
       lineHeight="normal"
       padding="1rem"
       ref={ref}
-      {...props}>
+      {...props}
+    >
       {processedChildren}
     </Component>
   );

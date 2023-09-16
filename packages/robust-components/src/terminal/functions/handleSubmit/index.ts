@@ -56,7 +56,7 @@ export function HandleSubmit({
       state.inputCommand,
       state.inputValue,
       state.outputHistory,
-    ]
+    ],
   );
 
   return handleSubmit;

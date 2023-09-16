@@ -31,11 +31,11 @@ export function cleanCSSSelectors({ css }: { css: string }): string {
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(
-          `Error processing element: ${element.tagName}, ${error.message}`
+          `Error processing element: ${element.tagName}, ${error.message}`,
         );
       } else {
         throw new Error(
-          `An unknown error occurred while processing element: ${element.tagName}`
+          `An unknown error occurred while processing element: ${element.tagName}`,
         );
       }
     }
@@ -53,7 +53,7 @@ export function cleanCSSSelectors({ css }: { css: string }): string {
       throw new Error(`Error while cleaning CSS selectors: ${error.message}`);
     } else {
       throw new Error(
-        "An unknown error occurred while cleaning CSS selectors."
+        "An unknown error occurred while cleaning CSS selectors.",
       );
     }
   }

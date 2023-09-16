@@ -32,7 +32,7 @@ export function safeJSON({
       // If a replacer function is provided, use it to modify the value
       return replacer ? replacer(key, value) : value;
     },
-    indent
+    indent,
   );
 
   // Clear the cache for future conversions

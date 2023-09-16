@@ -11,13 +11,13 @@
   "dependencies": {
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-react": "7.33.2",
-    "eslint-config-turbo": "latest"
-  },
-  "peerDependencies": {
-    "typescript": ">=5.2.2"
+    "eslint-config-turbo": "latest",
+    "eslint-plugin-react": "7.33.2"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@microsoft/eslint-formatter-sarif": "^3.0.0"
   }
 }

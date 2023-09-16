@@ -56,15 +56,15 @@ export function processAtRule({
 
               // Add the generated cssData style to the result string.
               result += `\n\t\t${CorrectProp}: ${propValue};`;
-            }
+            },
           );
 
           result += "\n\t}";
-        }
+        },
       );
 
       result += "\n}\n";
-    }
+    },
   );
 
   // Add the result string to the cssData.atRules[prop] array if it doesn't exist.

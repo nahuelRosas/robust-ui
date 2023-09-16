@@ -63,7 +63,8 @@ function Factory({
         templateButton[variant as keyof typeof templateButton].backgroundRaw
       }`}
       p="0.7rem"
-      {...props}>
+      {...props}
+    >
       {isLoading && (
         <Spinner
           size="1.5rem"
@@ -78,7 +79,8 @@ function Factory({
       {!isLoading && (
         <TextMultiStyle
           display={!isLoading ? "flex" : "none"}
-          position="relative">
+          position="relative"
+        >
           {children}
         </TextMultiStyle>
       )}

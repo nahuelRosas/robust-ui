@@ -21,7 +21,7 @@ const Component = Constructor({
 export const Block: React.ForwardRefExoticComponent<ForwardRefExoticBlock> =
   forwardRef<unknown, BlockProps>(function BlockComponent(
     { children, ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     return (
       <Component ref={ref} componentName="Block" display="block" {...props}>

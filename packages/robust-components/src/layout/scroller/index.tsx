@@ -40,7 +40,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
       propsItems,
       ...otherProps
     },
-    ref
+    ref,
   ) {
     const breakPoints = RecoveryBreakPointValue();
 
@@ -58,10 +58,10 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
 
     const childrenArray: React.ReactNode[] = useMemo(
       () => React.Children.toArray(children),
-      [children]
+      [children],
     );
     const childRefs = useRef<(HTMLDivElement | null)[]>(
-      childrenArray.map(() => null)
+      childrenArray.map(() => null),
     );
 
     const handleMouseScroll = useCallback(
@@ -76,7 +76,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
             (ref) =>
               ref &&
               ref.getBoundingClientRect().top >= 0 &&
-              ref.getBoundingClientRect().left >= 0
+              ref.getBoundingClientRect().left >= 0,
           );
           let targetIndex = -1;
 
@@ -118,7 +118,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
         disableScroll,
         scrollOption,
         sensitivityFactor,
-      ]
+      ],
     );
 
     const handleTouchScroll = useCallback(
@@ -133,7 +133,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
             (ref) =>
               ref &&
               ref.getBoundingClientRect().top >= 0 &&
-              ref.getBoundingClientRect().left >= 0
+              ref.getBoundingClientRect().left >= 0,
           );
           let targetIndex = -1;
 
@@ -174,7 +174,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
         disableScroll,
         scrollOption,
         sensitivityFactor,
-      ]
+      ],
     );
 
     const handleTouchMove = useCallback(
@@ -193,7 +193,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
           };
         }
       },
-      []
+      [],
     );
 
     const handleTouchStart = useCallback(
@@ -208,7 +208,7 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
           };
         }
       },
-      []
+      [],
     );
 
     const MemoizedScrollerChild = React.memo(function ScrollerChild({
@@ -228,7 +228,8 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
           }}
           heightRaw={fullScreen ? "100%" : "fit-content"}
           widthRaw={fullScreen ? "100%" : "fit-content"}
-          {...propsItems}>
+          {...propsItems}
+        >
           {child}
         </Component>
       );
@@ -269,7 +270,8 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
         height={fullScreen ? "100%" : "fitContent"}
         width={fullScreen ? "100%" : "inherit"}
         overflow="hidden"
-        whiteSpace={scrollDirection === "vertical" ? "normal" : "nowrap"}>
+        whiteSpace={scrollDirection === "vertical" ? "normal" : "nowrap"}
+      >
         <ScrollerInner
           onWheel={handleMouseScroll}
           onTouchStart={handleTouchStart}
@@ -278,7 +280,8 @@ const ScrollerComponent: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
           scrollDirection={scrollDirection}
           whiteSpace="normal"
           ref={ref}
-          {...otherProps}>
+          {...otherProps}
+        >
           {React.Children.map(cloneChildren, (child, index) => {
             return <MemoizedScrollerChild child={child} index={index} />;
           })}

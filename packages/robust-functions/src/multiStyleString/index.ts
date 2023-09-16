@@ -49,7 +49,7 @@ export function multiStyleString({
               });
           }
         })
-        .flat()
+        .flat(),
     );
   } else if (StringChildren.length > 0 && !isMultiStylesValid) {
     MapChildren.push(StringChildren);

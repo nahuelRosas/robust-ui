@@ -40,11 +40,13 @@ function Factory({ state, allCommands }: TermOutputProps): React.JSX.Element {
               animationName="fadeIn"
               animationDuration="0.5s"
               animationTimingFunction="ease"
-              keyframes={fadeIn}>
+              keyframes={fadeIn}
+            >
               <Flex
                 alignSelf="flexStart"
                 flexDirection="row"
-                alignItems="flexStart">
+                alignItems="flexStart"
+              >
                 <Span>{ERROR_MESSAGE}</Span>
                 <Span ml="0.5em" color="red" alignSelf="flexStart">
                   {command}
@@ -71,7 +73,8 @@ function Factory({ state, allCommands }: TermOutputProps): React.JSX.Element {
             animationName="fadeIn"
             animationDuration="0.5s"
             animationTimingFunction="ease"
-            keyframes={fadeIn}>
+            keyframes={fadeIn}
+          >
             <Component args={args} />
           </Flex>
         );
@@ -104,7 +107,8 @@ function Factory({ state, allCommands }: TermOutputProps): React.JSX.Element {
       maxHRaw="calc(100vh - 2rem)"
       scrollBehavior="smooth"
       overflowX="hidden"
-      mb="1em">
+      mb="1em"
+    >
       {components}
     </Flex>
   );

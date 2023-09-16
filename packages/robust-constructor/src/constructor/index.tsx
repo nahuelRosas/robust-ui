@@ -9,7 +9,13 @@ import {
 import { generateId, convertRawProp } from "@robust-ui/functions";
 // Importing dependencies from "@robust-ui/functions"
 
-import React, { forwardRef, useRef, useMemo, useInsertionEffect, useEffect } from "react";
+import React, {
+  forwardRef,
+  useRef,
+  useMemo,
+  useInsertionEffect,
+  useEffect,
+} from "react";
 // Importing React, "forwardRef", "useRef", and "useInsertionEffect" from "react"
 
 import { cssGenerators, CssPropertyMappings, RulesCSS } from "@robust-ui/theme";
@@ -41,7 +47,7 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
 
       ...props
     },
-    ref
+    ref,
   ): JSX.Element | null {
     const classNameRef = useRef<string | null>(null);
     const styleProcessed = useRef<{

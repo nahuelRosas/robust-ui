@@ -13,7 +13,8 @@ function Factory({ children, ...props }: DrawerFooterProps) {
       flexDirection="row"
       optimizedWidth
       mt="auto"
-      {...props}>
+      {...props}
+    >
       {children}
     </Flex>
   );

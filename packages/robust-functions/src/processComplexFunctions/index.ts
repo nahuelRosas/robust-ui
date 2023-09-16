@@ -35,7 +35,7 @@ export function processComplexFunctions({
 
   const hasInternalProps = Object.keys(propValue as object).some(
     (key) =>
-      defaultTheme.hasOwnProperty(key) || cssGenerators.hasOwnProperty(key)
+      defaultTheme.hasOwnProperty(key) || cssGenerators.hasOwnProperty(key),
   );
 
   if (hasInternalProps) {
@@ -79,7 +79,7 @@ export function processComplexFunctions({
         }
         return acc;
       },
-      {} as Record<string, unknown>
+      {} as Record<string, unknown>,
     );
     const newValue = propFunction(internalProps);
 

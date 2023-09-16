@@ -57,7 +57,7 @@ useEffect(() => {
       options,
       setCurrentBreakpoint,
       currentBreakpoint,
-    })
+    }),
   );
 
   // Clean up the event listener on component unmount
@@ -67,7 +67,7 @@ useEffect(() => {
         options,
         setCurrentBreakpoint,
         currentBreakpoint,
-      })
+      }),
     );
   };
 }, []);

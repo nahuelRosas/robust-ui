@@ -12,7 +12,8 @@ function Factory({ children, ...props }: DrawerHeaderProps) {
       justifyContent="center"
       alignItems="center"
       optimizedWidth
-      {...props}>
+      {...props}
+    >
       {children}
     </Span>
   );

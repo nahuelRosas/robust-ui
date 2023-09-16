@@ -59,7 +59,8 @@ function Factory({ args }: { args: string[] }) {
       fontSize="0.9em"
       optimizedWidth
       alignItems="flexStart"
-      justifyContent="flexStart">
+      justifyContent="flexStart"
+    >
       <Flex>
         <Span marginRight="0.5em">Expression:</Span>
         <Span>{args.join("")}</Span>

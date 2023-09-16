@@ -21,7 +21,7 @@ const Component = Constructor({
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
   forwardRef<unknown, FlexProps>(function FlexComponent(
     { children, ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     return (
       <Component
@@ -31,7 +31,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
         flexDirection="row"
         justifyContent="flexStart"
         alignItems="center"
-        {...props}>
+        {...props}
+      >
         {children}
       </Component>
     );

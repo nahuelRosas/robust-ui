@@ -17,7 +17,7 @@ const ScrollInner: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
       onWheel,
       ...otherProps
     },
-    ref
+    ref,
   ) {
     const { addProperty } = useInjectCSS();
     addProperty({
@@ -35,7 +35,8 @@ const ScrollInner: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
         ref={ref}
         height="100%"
         flexDirection={scrollDirection === "vertical" ? "column" : "row"}
-        {...otherProps}>
+        {...otherProps}
+      >
         {children}
       </Component>
     );
