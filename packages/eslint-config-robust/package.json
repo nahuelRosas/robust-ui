@@ -6,7 +6,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf .turbo node_modules dist CHANGELOG.md"
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
     "eslint-config-next": "latest",

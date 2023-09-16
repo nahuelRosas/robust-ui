@@ -14,7 +14,7 @@
     "build": "tsup-node src/index.ts* --format esm,cjs --dts --minify terser --external react",
     "dev": "tsup src/index.ts* --format esm,cjs --watch --dts --external react",
     "lint": "eslint \"src/**/*.ts*\"",
-    "clean": "rm -rf .turbo node_modules dist CHANGELOG.md"
+    "clean": "rm -rf .turbo node_modules dist"
   },
   "dependencies": {
     "@robust-ui/theme": "workspace:*",
