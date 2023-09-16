@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/tools",
   "description": "Robust UI Tools",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
