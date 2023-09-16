@@ -30,6 +30,7 @@ export type InjectCSSTOptions = {
   classSelector: string;
   componentProps: Record<string, string> | string;
   breakPoint: string;
+  generatedStyles?: Map<string, string[]>;
 };
 
 export type CSSProperties = {

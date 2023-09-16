@@ -3,20 +3,19 @@ import {
   processPropValue,
   replaceCSSSelectors,
   completeBreakpoints,
-  safeJSON,
-  retrieveItem,
-  storeItem,
 } from "@robust-ui/functions";
 import { InjectCSSTOptions, CSSProperties } from "./types";
 import { cssReset } from "@robust-ui/theme";
+import DOMPurify from "dompurify";
 
 const UNDEFINED_STR = "undefined";
 
-export function injectCSSStyles({
+export function InjectCSSStyles({
   classSelector,
   componentProps,
   breakPoint,
-}: InjectCSSTOptions): void {
+  generatedStyles,
+}: InjectCSSTOptions) {
   if (typeof document === UNDEFINED_STR) {
     return;
   }
@@ -28,38 +27,42 @@ export function injectCSSStyles({
       pseudoElements: {},
       atRules: {},
     };
+    {
+      !generatedStyles &&
+        Object.entries(componentProps).forEach(([prop, propValue]) => {
+          if (typeof propValue === UNDEFINED_STR) {
+            return;
+          }
 
-    Object.entries(componentProps).forEach(([prop, propValue]) => {
-      if (typeof propValue === UNDEFINED_STR) {
-        return;
-      }
+          const completedBreakpoints = completeBreakpoints({
+            inputObject: propValue,
+          });
 
-      const completedBreakpoints = completeBreakpoints({
-        inputObject: propValue,
-      });
-
-      try {
-        cssData = processPropValue({
-          prop,
-          propValue: completedBreakpoints,
-          breakPoint,
-          cssData,
+          try {
+            cssData = processPropValue({
+              prop,
+              propValue: completedBreakpoints,
+              breakPoint,
+              cssData,
+            });
+          } catch (error) {
+            throw new Error(
+              `An unexpected error occurred while processing the ${prop} property. ${error}`
+            );
+          }
         });
-      } catch (error) {
-        throw new Error(
-          `An unexpected error occurred while processing the ${prop} property. ${error}`
-        );
-      }
-    });
+    }
 
-    const generatedStyles = generateCSSCodeWithOptions({
-      cssData,
-      selector: classSelector,
-    });
+    const Styles: Map<string, string[]> =
+      generatedStyles ||
+      generateCSSCodeWithOptions({
+        cssData,
+        selector: classSelector,
+      });
 
     let isEmpty = false;
 
-    for (const valueArray of generatedStyles.values()) {
+    for (const valueArray of Styles.values()) {
       if (valueArray.some((value: string) => value.startsWith("{}"))) {
         isEmpty = true;
         break;
@@ -71,18 +74,18 @@ export function injectCSSStyles({
     }
 
     const robustDocument = document.getElementById("Robust-css");
-
+    const cleanText = DOMPurify.sanitize(robustDocument?.innerText || "");
     const newCSS =
-      robustDocument?.textContent &&
+      cleanText &&
       replaceCSSSelectors({
-        css: robustDocument?.textContent,
-        replacementMap: generatedStyles,
+        css: cleanText,
+        replacementMap: Styles,
       });
 
     const documentStyle = newCSS
       ? newCSS
       : cssReset +
-        Array.from(generatedStyles.entries())
+        Array.from(Styles.entries())
           .flatMap(([key, value]) => [key, value])
           .join("");
 
@@ -94,6 +97,7 @@ export function injectCSSStyles({
     } else if (robustDocument && !isEmpty) {
       robustDocument.innerHTML = documentStyle;
     }
+    return Styles;
   } catch (error) {
     throw new Error(
       `An unexpected error occurred while injecting CSS styles. ${error}`

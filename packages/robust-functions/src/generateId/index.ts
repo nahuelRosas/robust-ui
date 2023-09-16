@@ -20,7 +20,10 @@ export function generateId({
     return generateHash({ str: object, algorithm });
   }
   // If obj is an object, generate hash from its JSON representation
-  return `${Boolean(prefix) && prefix}-${generateHash({
+
+  if (!prefix) return generateHash({ str: safeJSON({ object }), algorithm });
+
+  return `${prefix}-${generateHash({
     str: safeJSON({ object }),
     algorithm,
   })}`;

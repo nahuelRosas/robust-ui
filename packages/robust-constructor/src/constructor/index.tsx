@@ -1,16 +1,16 @@
 import {
   RecoveryBreakPointValue,
   RecoveryActiveProvider,
-  injectCSSStyles,
+  InjectCSSStyles,
   GetRecoveryLanguage,
 } from "@robust-ui/tools";
 // Importing dependencies from "@robust-ui/tools"
 
-import { generateId, safeJSON, convertRawProp } from "@robust-ui/functions";
+import { generateId, convertRawProp } from "@robust-ui/functions";
 // Importing dependencies from "@robust-ui/functions"
 
-import React, { forwardRef, useRef, useMemo, useInsertionEffect } from "react";
-// Importing React, "forwardRef", "useRef", and "useEffect" from "react"
+import React, { forwardRef, useRef, useMemo, useInsertionEffect, useEffect } from "react";
+// Importing React, "forwardRef", "useRef", and "useInsertionEffect" from "react"
 
 import { cssGenerators, CssPropertyMappings, RulesCSS } from "@robust-ui/theme";
 
@@ -18,9 +18,6 @@ import { cssGenerators, CssPropertyMappings, RulesCSS } from "@robust-ui/theme";
 
 import { BaseProps, ConstructorProps } from "./types";
 // Importing "BaseProps" from a local file called "types"
-
-import { useElementDimensions } from "@robust-ui/hooks";
-import { height } from "../../../robust-components/src/drawer/options/size";
 
 /**
  * A higher-order component that dynamically generates CSS styles based on props and injects them into the DOM.
@@ -47,6 +44,18 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
     ref
   ): JSX.Element | null {
     const classNameRef = useRef<string | null>(null);
+    const styleProcessed = useRef<{
+      style: Map<string, string[]> | undefined;
+      breakPoint: string;
+    }>({
+      style: undefined,
+      breakPoint: "base",
+    });
+
+    const styleProcessedBreakPoint = useRef<
+      Record<string, Map<string, string[]>>
+    >({});
+
     // Reference to hold the generated className
 
     const currentPropsRef =
@@ -128,6 +137,7 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
     ]);
 
     const classNameGenerated = classNameRef.current || memorizedClassName;
+
     // Get the current className or generate a new one if it doesn't exist
     classNameRef.current = classNameGenerated;
 
@@ -158,31 +168,41 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
       // Include the prop in the filtered domProps object
     }, {});
 
-    // useEffect that handles the injection of CSS styles
-    useInsertionEffect(() => {
+    // useInsertionEffect that handles the injection of CSS styles
+    useEffect(() => {
       try {
         if (
-          safeJSON({ object: previousProps }) !== safeJSON({ object: props })
+          styleProcessedBreakPoint.current[breakPoint as string] !==
+            styleProcessed.current.style &&
+          (breakPoint as string) !== styleProcessed.current.breakPoint
         ) {
-          if (classNameRef.current === memorizedClassName) {
-            const newClassName = memorizedClassName;
-            classNameRef.current = newClassName;
+          InjectCSSStyles({
+            classSelector: classNameRef.current as string,
+            componentProps: props as Record<string, string> | string,
+            breakPoint,
+            generatedStyles:
+              styleProcessedBreakPoint.current[breakPoint as string],
+          });
+        } else if (
+          !styleProcessed.current.style ||
+          (breakPoint as string) !== styleProcessed.current.breakPoint
+        ) {
+          const response = InjectCSSStyles({
+            classSelector: classNameRef.current as string,
+            componentProps: props as Record<string, string> | string,
+            breakPoint,
+          });
+          if (response) {
+            styleProcessed.current = {
+              breakPoint: breakPoint as string,
+              style: response,
+            };
+            styleProcessedBreakPoint.current[breakPoint as string] = response;
           }
-          injectCSSStyles({
-            classSelector: classNameRef.current as string,
-            componentProps: props as Record<string, string> | string,
-            breakPoint,
-          });
-        } else {
-          injectCSSStyles({
-            classSelector: classNameRef.current as string,
-            componentProps: props as Record<string, string> | string,
-            breakPoint,
-          });
         }
       } catch (error) {
         throw new Error(error as string, {
-          cause: `${error} -- Location: Constructor/useEffect`,
+          cause: `${error} -- Location: Constructor/useInsertionEffect`,
         });
       }
     }, [
@@ -195,7 +215,7 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
       className,
     ]);
 
-    // useEffect that checks if the component is mounted and sets the mounted state
+    // useInsertionEffect that checks if the component is mounted and sets the mounted state
     useInsertionEffect(() => {
       try {
         if (activeProvider || OmitProvider) {
@@ -207,7 +227,7 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
         }
       } catch (error) {
         throw new Error(error as string, {
-          cause: `${error} -- Location: Constructor/useEffect`,
+          cause: `${error} -- Location: Constructor/useInsertionEffect`,
         });
 
         // Handle any error that occurs during the check
@@ -219,7 +239,7 @@ function Factory<T>({ Component, OmitProvider }: ConstructorProps<T>) {
 
     // Render the wrapped component with the generated className and other props
 
-    const classNameJoined = [classNameGenerated, className].join(" ");
+    const classNameJoined = [classNameRef.current, className].join(" ");
 
     const childrenMultiLanguage =
       typeof multiLanguage !== "undefined" &&
