@@ -1,5 +1,12 @@
 {
   "extends": "@robust-ui/tsconfig/robust.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
   "include": [
     ".",
   ],

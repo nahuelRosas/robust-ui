@@ -6,7 +6,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "clean": "rm -rf .turbo node_modules dist"
+    "clean": "rimraf dist .turbo node_modules"
   },
   "dependencies": {
     "eslint-config-next": "latest",

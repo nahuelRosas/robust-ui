@@ -4,14 +4,14 @@
     "build": {
       "outputs": ["dist/**"],
       "dependsOn": ["^build"],
-      "env": ["NODE_ENV=production"]
+      "env": ["NODE_ENV=production", "NODE_OPTIONS=--max-old-space-size=10000"]
     },
     "test": {
       "outputs": ["coverage/**"],
       "dependsOn": [],
       "env": ["NODE_ENV=test"]
     },
-    "lint":{},
+    "lint": {},
     "dev": {
       "cache": false,
       "persistent": false,

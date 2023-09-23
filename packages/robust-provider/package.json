@@ -1,36 +1,50 @@
 {
   "name": "@robust-ui/provider",
-  "description": "Provider for Robust UI",
-  "version": "0.2.1",
+  "description": "A React Provider to share state between components",
+  "version": "0.0.1",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
+  "bugs": {
+    "url": "https://github.com/nahuelRosas/robust-ui/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node src/index.ts* --format esm,cjs --dts --minify terser --external react",
-    "dev": "tsup src/index.ts* --format esm,cjs --watch --dts --external react",
+    "build": "tsup-node src --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo node_modules",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.ts*\"",
-    "clean": "rm -rf .turbo node_modules dist"
-  },
-  "dependencies": {
-    "@robust-ui/contexts": "workspace:*",
-    "@robust-ui/hooks": "workspace:*",
-    "@robust-ui/constructor": "workspace:*",
-    "@robust-ui/theme": "workspace:*"
+    "build:fast": "tsup-node src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
   },
   "devDependencies": {
+    "@robust-ui/global-state-reducer": "workspace:*",
+    "@robust-ui/use-breakpoint-value": "workspace:*",
+    "@robust-ui/use-global-context": "workspace:*",
+    "@robust-ui/constructor": "workspace:*",
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
-    "@types/react": "^18.2.21",
+    "@robust-ui/theme": "workspace:*",
+    "@robust-ui/utils": "workspace:*",
     "@types/react-dom": "^18.2.7",
+    "@types/react": "^18.2.21",
+    "clean-package": "2.2.0",
+    "typescript": "5.2.2",
     "eslint": "^8.49.0",
+    "terser": "^5.19.4",
     "react": "^18.2.0",
-    "tsup": "^7.2.0",
-    "typescript": "5.2.2"
+    "tsup": "^7.2.0"
+  },
+  "peerDependencies": {
+    "react": "latest"
   },
   "publishConfig": {
     "access": "public"
