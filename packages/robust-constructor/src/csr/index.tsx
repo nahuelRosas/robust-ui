@@ -21,8 +21,6 @@ export function CreateComponent<T>({
               ? ComponentType.toString()
               : "UnknownComponent",
             ElementType = ComponentType as React.ElementType,
-            multiLanguageSupport,
-            children,
             ...props
           }: EnhancedElementProps<T> & T,
           ref
@@ -142,12 +140,16 @@ export function CreateComponent<T>({
           }, [globalContext.isProviderActive]);
 
           if (
-            typeof multiLanguageSupport !== "undefined" &&
-            multiLanguageSupport[globalContext.currentGlobalLanguage]
+            typeof props.multiLanguageSupport !== "undefined" &&
+            props.multiLanguageSupport[globalContext.currentGlobalLanguage]
           ) {
             return (
               <ElementType className={combinedClassName.current} {...htmlProps}>
-                {multiLanguageSupport[globalContext.currentGlobalLanguage]}
+                {
+                  props.multiLanguageSupport[
+                    globalContext.currentGlobalLanguage
+                  ]
+                }
               </ElementType>
             );
           }
@@ -156,7 +158,7 @@ export function CreateComponent<T>({
 
           return (
             <ElementType className={combinedClassName.current} {...htmlProps}>
-              {children}
+              {props.children}
             </ElementType>
           );
         }

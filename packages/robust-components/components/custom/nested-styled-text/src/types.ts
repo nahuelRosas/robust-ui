@@ -12,7 +12,7 @@ export interface StyledTextProps
   textColors?: GenericPropertyArray<keyof typeof colors>;
   textColorsRaw?: GenericPropertyArray<string>;
   fontWeights?: GenericPropertyArray<keyof typeof defaultTheme.fontWeight>;
-  fontWeightsRaw?: GenericPropertyArray<string | string>;
+  fontWeightsRaw?: GenericPropertyArray<string | number>;
   useRandomColors?: GenericProperty<boolean>;
   isMultiline?: GenericProperty<boolean>;
   isActive?: GenericProperty<boolean>;

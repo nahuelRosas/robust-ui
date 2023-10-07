@@ -1,5 +1,18 @@
-import { Language } from "@robust-ui/theme";
+import { Language, colors, defaultTheme, sizes } from "@robust-ui/theme";
+import { StyledTextProps } from "@robust-ui/nested-styled-text";
+
+type GenericProperty<T> =
+  | T
+  | Partial<T>
+  | Record<string, T>
+  | Record<string, Partial<T>>
+  | Record<string, Record<string, T>>
+  | Record<string, Record<string, Partial<T>>>;
+
+type GenericPropertyArray<T> = GenericProperty<T>[] | GenericProperty<T> | T[];
+
 // Interfaces
+
 interface FrameworkInfo {
   version: string;
   lastUpdate: string;
@@ -62,6 +75,9 @@ export interface DevTools {
   toggleDarkMode: (isDarkModeActive: boolean) => void;
   getAppState: (isDev: boolean) => unknown;
   resetAppState: (isDev: boolean) => void;
+  setNotificationState: (notification: notification) => void;
+  resetNotificationState: () => void;
+  removeNotificationState: (notificationId: string) => void;
 }
 
 export interface DevData {
@@ -90,9 +106,33 @@ export interface userContext {
   setAppState: (key: string, value: unknown, isDev: boolean) => void;
 }
 
+export interface notification {
+  id: string;
+  duration: number;
+  position?: GenericProperty<
+    "topRight" | "top" | "topLeft" | "bottomRight" | "bottom" | "bottomLeft"
+  >;
+  colorScheme?: GenericProperty<keyof typeof colors>;
+  textProps?: GenericProperty<StyledTextProps>;
+  styleMarker?: GenericProperty<string>;
+  textColors?: GenericPropertyArray<keyof typeof colors>;
+  textColorsRaw?: GenericPropertyArray<string>;
+  fontWeights?: GenericPropertyArray<keyof typeof defaultTheme.fontWeight>;
+  fontWeightsRaw?: GenericPropertyArray<string | number>;
+  icon?: GenericProperty<React.ReactNode>;
+  variant?: GenericProperty<"solid" | "subtle" | "left-accent" | "top-accent">;
+  headline?: GenericProperty<string>;
+  description?: GenericProperty<string>;
+  status?: GenericProperty<"success" | "error" | "warning" | "info">;
+  isClosable?: GenericProperty<boolean>;
+  size?: GenericProperty<keyof typeof sizes>;
+  onClose?: GenericProperty<() => void>;
+  [key: string]: unknown;
+}
+
 export interface GlobalContextValues {
   devData: DevData;
   devTools: DevTools;
   userContext: userContext;
-  notifications?: string[];
+  notifications: notification[];
 }

@@ -1,13 +1,14 @@
+import React, { Ref, forwardRef, useEffect, useState } from "react";
 import { NextLinkProps, ForwardRefExoticNextLink } from "./types";
 import { CreateComponent } from "@robust-ui/constructor";
-import React, { Ref, forwardRef } from "react";
+import { Spinner } from "@robust-ui/spinner";
 import Link from "next/link";
 export * from "./types";
 
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticNextLink> =
   forwardRef<unknown, NextLinkProps>(function NextLinkComponent(
     { children, href, ...props },
-    ref: Ref<unknown>,
+    ref: Ref<unknown>
   ): React.JSX.Element {
     const Component = CreateComponent<NextLinkProps>({
       ComponentType: "a",
@@ -31,8 +32,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticNextLink> =
         href={href}
         textRendering="optimizeLegibility"
         ref={ref}
-        {...props}
-      >
+        {...props}>
         {children}
       </Component>
     );

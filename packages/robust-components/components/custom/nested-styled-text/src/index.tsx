@@ -9,11 +9,11 @@ import {
   StyledTextProps,
   StyledTextPropsNoGeneric,
 } from "./types";
-
+export * from "./types";
 const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyledText> =
   forwardRef<unknown, StyledTextProps>(function StyledTextComponent(
     { ...props },
-    ref: Ref<unknown>,
+    ref: Ref<unknown>
   ): React.JSX.Element {
     const DefaultComponent = CreateComponent({
       ComponentType: "div",
@@ -56,7 +56,7 @@ const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyle
         fontWeights,
         textColors,
         isActive,
-      ],
+      ]
     );
 
     const processedChildren = useMemo(() => {
@@ -66,14 +66,14 @@ const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyle
     return (
       <DefaultComponent
         elementName="StyledText"
-        fontSize="1rem"
+        fontSize="2.5vh"
         whiteSpace="normal"
         fontStyle="normal"
         lineHeight="normal"
         textRendering="optimizeLegibility"
+        userSelect
         ref={ref}
-        {...rest}
-      >
+        {...rest}>
         {processedChildren}
       </DefaultComponent>
     );

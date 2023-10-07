@@ -41,7 +41,7 @@ export const commands = {
   },
   borderRadius: (propValue: Arguments) => {
     if (typeof propValue === "string")
-      return `border-radius: ${propValue};\n-webkit-border-radius: ${propValue};\n-moz-border-radius: ${propValue};`;
+      return `border-radius: ${propValue};\n-webkit-border-radius: ${propValue};`;
     return "";
   },
   userSelect: (propValue: Arguments) => {
@@ -61,6 +61,11 @@ export const commands = {
       return `border: ${propValue};`;
     return "";
   },
+  boxSizing: (propValue: Arguments) => {
+    if (typeof propValue === "string")
+      return `box-sizing: ${propValue};\n-moz-box-sizing: ${propValue};\n-webkit-box-sizing: ${propValue};`;
+    return "";
+  },
   scrollbarColor: (propValue: Arguments) => {
     if (typeof propValue === "object") {
       const { thumb, track } = propValue as Record<string, string>;
@@ -74,6 +79,10 @@ export const commands = {
       return `scrollbar-width: thin;`;
     else if (typeof propValue === "string" && propValue)
       return `scrollbar-width: ${propValue};`;
+    return "";
+  },
+  borderColor: (propValue: Arguments) => {
+    if (typeof propValue === "string") return `border-color: ${propValue};`;
     return "";
   },
   fontFamily: (propValue: Arguments) => {
@@ -119,7 +128,7 @@ export const commands = {
     const { colors, deg } = propValue as LinearColorArguments;
     if (colors && colors.length)
       return `background: linear-gradient(${deg || "90deg"},${colors.join(
-        ", ",
+        ", "
       )});`;
     else if (typeof propValue === "string") return `background: ${propValue};`;
     return "";

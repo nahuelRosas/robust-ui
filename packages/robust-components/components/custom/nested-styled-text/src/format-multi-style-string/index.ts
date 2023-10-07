@@ -1,6 +1,6 @@
 import React from "react";
 import { StyledTextPropsNoGeneric } from "@/types";
-
+import { getRandomHexColor } from "@robust-ui/css-utils";
 export function formatMultiStyleString({
   children,
   isActive,
@@ -40,7 +40,7 @@ export function formatMultiStyleString({
 
     formattedChildren.push(
       textLines.map((line) => {
-        const formattedText = line
+        const textLines = line
           .split(styleMarker as string)
           .filter((text) => text.trim().length > 0)
           .map((text, index) => {
@@ -49,13 +49,13 @@ export function formatMultiStyleString({
             const fontWeightsIndex =
               (fontWeightsRaw && index % fontWeightsRaw?.length) || 0;
             const colorKey = textColorsRaw?.[colorIndex] || undefined;
-            const colorRaw = useRandomColors ? "random" : undefined;
+            const colorRaw = useRandomColors ? getRandomHexColor() : undefined;
             const fontWeights = fontWeightsRaw?.[fontWeightsIndex] || 1;
             return { text, colorKey, colorRaw, fontWeights };
           })
           .flat();
-        return formattedText;
-      }),
+        return textLines;
+      })
     );
   });
 

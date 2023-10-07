@@ -1,7 +1,6 @@
 export * from "./colors";
 export * from "./numbers";
 export * from "./sizes";
-export * from "./colorSchema";
 import { sizes } from "./sizes";
 import { colors } from "./colors";
 import { numbers } from "./numbers";
@@ -87,7 +86,11 @@ export const defaultTheme = {
     ...commonProps,
     ...colors,
   },
-
+  boxSizing: {
+    ...commonProps,
+    borderBox: "border-box",
+    contentBox: "content-box",
+  },
   scrollbarWidth: {
     ...commonProps,
     auto: "auto",

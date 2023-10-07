@@ -23,15 +23,18 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "build:fast": "tsup-node src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "depCheck": "depcheck"
   },
   "devDependencies": {
+    "@robust-ui/nested-styled-text": "workspace:*",
     "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/use-image-status": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
+    "@robust-ui/spinner": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "@robust-ui/flex": "workspace:*",
     "@robust-ui/icon": "workspace:*",

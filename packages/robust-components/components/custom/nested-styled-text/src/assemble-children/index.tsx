@@ -11,7 +11,20 @@ export function assambleChilden({
   return children.map((child, index) => {
     if (!Array.isArray(child) && React.isValidElement(child)) {
       return child;
+    } else if (typeof child === "string" || typeof child === "number") {
+      return (
+        <Text
+          key={index}
+          elementName="ParagraphStyledText"
+          lineHeight="inherit"
+          fontStyle="inherit"
+          fontSize="inherit"
+          userSelect>
+          {child.toString()}
+        </Text>
+      );
     }
+
     const arrayChild = child as {
       text: string;
       colorKey: keyof typeof colors;
@@ -24,16 +37,15 @@ export function assambleChilden({
         return (
           <Text
             fontWeight={item[0]?.fontWeights || "inherit"}
-            colorRaw={item[0]?.colorRaw}
-            color={item[0]?.colorKey}
+            colorRaw={item[0]?.colorRaw || "inherit"}
+            color={item[0]?.colorKey || "inherit"}
             elementName="ParagraphStyledText"
+            userSelect="inherit"
             lineHeight="inherit"
             fontStyle="inherit"
             fontSize="inherit"
             key={index}
-            userSelect
-            p="0"
-          >
+            p="0">
             {item[0]?.text}
           </Text>
         );
@@ -44,14 +56,13 @@ export function assambleChilden({
           <Span
             fontWeight={item.fontWeights || "inherit"}
             elementName="SpanStyledText"
-            colorRaw={item.colorRaw}
-            color={item.colorKey}
+            colorRaw={item.colorRaw || "inherit"}
+            color={item.colorKey || "inherit"}
+            userSelect="inherit"
             lineHeight="inherit"
             fontStyle="inherit"
             fontSize="inherit"
-            key={index}
-            userSelect
-          >
+            key={index}>
             {item.text}
           </Span>
         );

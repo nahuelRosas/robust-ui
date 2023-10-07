@@ -1,4 +1,5 @@
 export * from "./attribute-completer";
+export * from "./colors-functions";
 export * from "./normalize-input-key";
 export * from "./generate-unique-classname";
 export * from "./inject-css";
