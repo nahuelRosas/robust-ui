@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/use-server-effect",
   "description": "React hook to run an effect only on the server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/tsconfig",
   "description": "Robust TypeScript configuration for Node.js and Browser projects",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "license": "MIT",
   "scripts": {
