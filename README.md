@@ -254,7 +254,7 @@ The following components are available in Robust as of July 5th:
 │   │       ├── text
 │   │       │   ├── index.tsx
 │   │       │   └── types.ts
-│   │       └── textMultiStyle
+│   │       └── StyledText
 │   │           ├── index.tsx
 │   │           └── types.ts
 ```

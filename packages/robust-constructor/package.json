@@ -1,36 +1,48 @@
 {
   "name": "@robust-ui/constructor",
-  "description": "A React component constructor",
-  "version": "0.3.0",
+  "description": "A constructor for creating robust components",
+  "version": "0.0.1",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
+  "bugs": {
+    "url": "https://github.com/nahuelRosas/robust-ui/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node src/index.ts* --format esm,cjs --dts --minify terser --external react",
-    "dev": "tsup src/index.ts* --format esm,cjs --watch --dts --external react",
+    "build": "tsup-node src --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo node_modules",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.ts*\"",
-    "clean": "rm -rf .turbo node_modules dist"
-  },
-  "dependencies": {
-    "@robust-ui/functions": "workspace:*",
-    "@robust-ui/hooks": "workspace:*",
-    "@robust-ui/theme": "workspace:*",
-    "@robust-ui/tools": "workspace:*",
-    "react": "^18.2.0"
+    "build:fast": "tsup-node src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "depCheck": "depcheck"
   },
   "devDependencies": {
+    "@robust-ui/use-global-context": "workspace:*",
+    "@robust-ui/css-utils": "workspace:*",
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
+    "@robust-ui/theme": "workspace:*",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "clean-package": "2.2.0",
     "eslint": "^8.49.0",
+    "react": "^18.2.0",
+    "terser": "^5.19.4",
     "tsup": "^7.2.0",
     "typescript": "5.2.2"
+  },
+  "peerDependencies": {
+    "react": "latest"
   },
   "publishConfig": {
     "access": "public"

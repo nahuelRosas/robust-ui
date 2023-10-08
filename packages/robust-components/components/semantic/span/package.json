@@ -1,0 +1,48 @@
+{
+  "name": "@robust-ui/span",
+  "description": "Span component for Robust UI",
+  "version": "0.0.1",
+  "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
+  "bugs": {
+    "url": "https://github.com/nahuelRosas/robust-ui/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup-node src --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "build:fast": "tsup-node src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "depCheck": "depcheck"
+  },
+  "devDependencies": {
+    "@robust-ui/constructor": "workspace:*",
+    "eslint-config-robust": "workspace:*",
+    "@robust-ui/tsconfig": "workspace:*",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "clean-package": "2.2.0",
+    "eslint": "^8.49.0",
+    "react": "^18.2.0",
+    "terser": "^5.19.4",
+    "tsup": "^7.2.0",
+    "typescript": "5.2.2"
+  },
+  "peerDependencies": {
+    "react": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
