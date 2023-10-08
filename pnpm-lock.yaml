@@ -399,6 +399,9 @@ importers:
       '@robust-ui/use-clean-value':
         specifier: workspace:*
         version: link:../../../../robust-hooks/use-clean-value
+      '@robust-ui/use-global-context':
+        specifier: workspace:*
+        version: link:../../../../robust-hooks/use-global-context
       '@types/react':
         specifier: ^18.2.21
         version: 18.2.21
@@ -429,6 +432,9 @@ importers:
 
   packages/robust-components/components/custom/toast:
     devDependencies:
+      '@robust-ui/constructor':
+        specifier: workspace:*
+        version: link:../../../../robust-constructor
       '@robust-ui/css-utils':
         specifier: workspace:*
         version: link:../../../../robust-tools/css-utils
@@ -450,6 +456,9 @@ importers:
       '@robust-ui/use-clean-value':
         specifier: workspace:*
         version: link:../../../../robust-hooks/use-clean-value
+      '@robust-ui/use-global-context':
+        specifier: workspace:*
+        version: link:../../../../robust-hooks/use-global-context
       '@types/react':
         specifier: ^18.2.21
         version: 18.2.21
@@ -480,6 +489,9 @@ importers:
 
   packages/robust-components/components/custom/toast-manager:
     devDependencies:
+      '@robust-ui/constructor':
+        specifier: workspace:*
+        version: link:../../../../robust-constructor
       '@robust-ui/css-utils':
         specifier: workspace:*
         version: link:../../../../robust-tools/css-utils
@@ -504,6 +516,9 @@ importers:
       '@robust-ui/use-clean-value':
         specifier: workspace:*
         version: link:../../../../robust-hooks/use-clean-value
+      '@robust-ui/use-global-context':
+        specifier: workspace:*
+        version: link:../../../../robust-hooks/use-global-context
       '@types/react':
         specifier: ^18.2.21
         version: 18.2.21

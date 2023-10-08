@@ -27,8 +27,10 @@
     "depCheck": "depcheck"
   },
   "devDependencies": {
+    "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/nested-styled-text": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
+    "@robust-ui/constructor": "workspace:*",
     "eslint-config-robust": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",

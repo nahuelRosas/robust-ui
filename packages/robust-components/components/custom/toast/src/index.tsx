@@ -11,11 +11,11 @@ import {
 } from "@robust-ui/css-utils";
 import { Flex } from "@robust-ui/flex";
 import { StyledText } from "@robust-ui/nested-styled-text";
-
+export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToast> =
   forwardRef<unknown, ToastProps>(function ToastComponent(
     { ...props }: ToastProps,
-    ref: Ref<unknown>,
+    ref: Ref<unknown>
   ): React.JSX.Element {
     const globalContextData = useGlobalContext({ key: "devData" });
     const cleanedProps = useCleanValue({ props });
@@ -158,7 +158,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToast> =
         p="2vh"
         cursor="pointer"
         zIndex="9999"
-      >
+        ref={ref}>
         <Icon
           icon={statusMap[status].icon}
           size="3vh"
@@ -184,8 +184,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToast> =
           pr="8vw"
           pl="2vh"
           cursor="pointer"
-          zIndex="9999"
-        >
+          zIndex="9999">
           <StyledText
             fontWeights={["900"]}
             fontSize={"3.5vh"}
@@ -196,8 +195,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToast> =
             textAlign="left"
             optimizedWidth
             cursor="pointer"
-            {...textProps}
-          >
+            {...textProps}>
             {headline}
           </StyledText>
           <StyledText
@@ -211,8 +209,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToast> =
             optimizedWidth
             cursor="pointer"
             fontSize="2.5vh"
-            {...textProps}
-          >
+            {...textProps}>
             {typeof localizedChildren === "string" ? localizedChildren : ""}
           </StyledText>
         </Flex>

@@ -1,12 +1,12 @@
 import { ForwardRefExoticToastManager, ToastManagerProps } from "./types";
 import { useGlobalContext, notification } from "@robust-ui/use-global-context";
 import React, { Ref, forwardRef, useEffect } from "react";
-import { Toast } from "@robust-ui/toast";
+import { Toast, ToastProps } from "@robust-ui/toast";
 import { Flex } from "@robust-ui/flex";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
   forwardRef<unknown, ToastManagerProps>(function ToastManagerComponent(
     { notification }: ToastManagerProps,
-    ref: Ref<unknown>,
+    ref: Ref<unknown>
   ) {
     const { removeNotificationState } = useGlobalContext({ key: "devTools" });
     const [notifications, setNotifications] = React.useState<
@@ -16,10 +16,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
     useEffect(() => {
       if (notification && notification.length > 0) {
         const uniqueNotifications = Array.from(
-          new Set(notification.map((item) => item.id)),
+          new Set(notification.map((item) => item.id))
         )
           .map((uniqueId) =>
-            notification.find((item) => item && item.id === uniqueId),
+            notification.find((item) => item && item.id === uniqueId)
           )
           .filter((item) => item !== undefined) as notification[];
 
@@ -31,7 +31,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
 
             const removeToast = () => {
               setNotifications((prev) =>
-                prev.filter((toast) => toast.id !== id),
+                prev.filter((toast) => toast.id !== id)
               );
               removeNotificationState(id);
             };
@@ -57,16 +57,17 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
         alignItems="flexEnd"
         justifyContent="flexEnd"
         gap="4"
-        p="4"
-      >
-        {notifications.map((item, index) => {
+        p="4">
+        {notifications.map(({ textProps, ...rest }, index) => {
           const removeToast = () => {
             setNotifications((prev) =>
-              prev.filter((toast) => toast.id !== item.id),
+              prev.filter((toast) => toast.id !== rest.id)
             );
-            removeNotificationState(item.id);
+            removeNotificationState(rest.id);
           };
-          return <Toast key={index} onClose={removeToast} {...item} />;
+          const propsText = textProps as ToastProps["textProps"];
+
+          return <Toast key={index} onClose={removeToast} {...rest} />;
         })}
       </Flex>
     );

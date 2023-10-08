@@ -1,5 +1,4 @@
 import { Language, colors, defaultTheme, sizes } from "@robust-ui/theme";
-import { StyledTextProps } from "@robust-ui/nested-styled-text";
 
 type GenericProperty<T> =
   | T
@@ -113,7 +112,7 @@ export interface notification {
     "topRight" | "top" | "topLeft" | "bottomRight" | "bottom" | "bottomLeft"
   >;
   colorScheme?: GenericProperty<keyof typeof colors>;
-  textProps?: GenericProperty<StyledTextProps>;
+  textProps?: GenericProperty<unknown>;
   styleMarker?: GenericProperty<string>;
   textColors?: GenericPropertyArray<keyof typeof colors>;
   textColorsRaw?: GenericPropertyArray<string>;
