@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/use-global-state-updater",
   "description": "A hook to use a global state value with recovery",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {
