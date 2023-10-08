@@ -17,13 +17,13 @@ for (let i = 0; i < NUM_INSTANCES; i++) {
     position: new Vector3(
       randFloatSpread(200),
       randFloatSpread(200),
-      randFloatSpread(400)
+      randFloatSpread(400),
     ),
     scale: randFloat(0.2, 1),
     velocity: new Vector3(
       randFloatSpread(2),
       randFloatSpread(2),
-      randFloatSpread(2)
+      randFloatSpread(2),
     ),
     attraction: 0.0025 + randFloat(0, 0.01),
     vlimit: 0.3 + randFloat(0, 0.2),

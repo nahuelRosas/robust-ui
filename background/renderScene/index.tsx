@@ -34,7 +34,7 @@ const mouseColor = new Color(0xffc0c0);
 const dummyObjectMatrix = new InstancedMesh(
   new DodecahedronGeometry(),
   subsurfaceMaterial,
-  0
+  0,
 ).matrix as Matrix4;
 
 function debounce<T extends (...args: any[]) => any>(fn: T, delay: number) {
@@ -71,7 +71,7 @@ export function SceneRenderer() {
   const composer = useMemo(() => new EffectComposer(gl), [gl]);
   const renderPass = useMemo(
     () => new RenderPass(scene, camera),
-    [scene, camera]
+    [scene, camera],
   );
   const FXAA = useMemo(() => new ShaderPass(FXAAShader), []);
   const unrealBloomPass = useMemo(
@@ -80,9 +80,9 @@ export function SceneRenderer() {
         new Vector2(window.innerWidth, window.innerHeight),
         0.5,
         10.4,
-        10.85
+        10.85,
       ),
-    []
+    [],
   );
 
   useEffect(() => {

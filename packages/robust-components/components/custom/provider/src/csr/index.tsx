@@ -39,7 +39,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
       children,
       ...props
     },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const [globalStateDev, dispatchDev] = useReducer(GlobalStateReducer, {});
     const [globalStateUser, dispatchUser] = useReducer(GlobalStateReducer, {});
@@ -58,13 +58,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
     });
 
     const changeLanguage = useCallback(function (
-      language: keyof typeof Language
+      language: keyof typeof Language,
     ): void {
       setCurrentGlobalLanguage(language);
     }, []);
 
     const toggleDarkMode = useCallback(function (
-      darkMode: boolean | ((prevState: boolean) => boolean)
+      darkMode: boolean | ((prevState: boolean) => boolean),
     ): void {
       setIsDarkModeActive(darkMode);
     }, []);
@@ -72,7 +72,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
     const setAppState = useCallback(function (
       key: string,
       value: unknown,
-      isDev: boolean = false
+      isDev: boolean = false,
     ): void {
       if (isDev) {
         dispatchDev({ type: "SET_GLOBAL_STATE_VALUE", key, value });
@@ -84,7 +84,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
       function (isDev: boolean = false) {
         return isDev ? globalStateDev : globalStateUser;
       },
-      [globalStateDev, globalStateUser]
+      [globalStateDev, globalStateUser],
     );
     const resetAppState = useCallback((isDev: boolean = false) => {
       if (isDev) {
@@ -94,7 +94,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
     }, []);
 
     const setNotificationState = useCallback(function (
-      notification: notification
+      notification: notification,
     ): void {
       setNotifications((prevState) => [...prevState, notification]);
     }, []);
@@ -104,10 +104,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
     }, []);
 
     const removeNotificationState = useCallback(function (
-      notificationId: string
+      notificationId: string,
     ): void {
       setNotifications((prevState) =>
-        prevState.filter((notification) => notification.id !== notificationId)
+        prevState.filter((notification) => notification.id !== notificationId),
       );
     }, []);
 
@@ -201,7 +201,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticProvider> =
           }}
           scrollbarColorRaw={scrollBarColorCustom}
           scrollbarWidth="thin"
-          {...props}>
+          {...props}
+        >
           {children}
           <ToastManager notification={notifications} />
         </Component>

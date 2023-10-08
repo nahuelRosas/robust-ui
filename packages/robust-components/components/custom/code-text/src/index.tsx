@@ -21,7 +21,7 @@ import { useToast } from "@robust-ui/use-toast";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCodeText> =
   forwardRef<unknown, CodeTextProps>(function CodeTextComponent(
     { ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const globalContextData = useGlobalContext({ key: "devData" });
     const cleanedProps = useCleanValue({ props });
@@ -64,7 +64,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCodeText> =
         cursor="pointer"
         gap="2vw"
         ref={ref}
-        {...rest}>
+        {...rest}
+      >
         <StyledText
           fontWeights={fontWeights}
           textColors={textColors}
@@ -79,7 +80,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCodeText> =
           px="2vw"
           fontSize="2.5vh"
           overflow="auto"
-          {...textProps}>
+          {...textProps}
+        >
           {typeof localizedChildren === "string" ? localizedChildren : ""}
         </StyledText>
         <Icon
@@ -91,7 +93,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCodeText> =
             navigator.clipboard.writeText(
               localizedChildren && typeof localizedChildren === "string"
                 ? localizedChildren
-                : ""
+                : "",
             );
             toast({
               duration: 2000,

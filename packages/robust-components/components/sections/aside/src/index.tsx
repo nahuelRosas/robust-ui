@@ -54,7 +54,7 @@ export const Placement = {
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticAside> =
   forwardRef<unknown, AsideProps>(function AsideComponent(
     { ...props }: AsideProps,
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const Component = CreateComponent({
       ComponentType: "aside",
@@ -131,7 +131,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticAside> =
           onClick={closeOnOverlayClick ? toggleDrawer : undefined}
           transition={isOpen ? "transform 0.25s ease-in-out" : "none"}
           transform={isOpen ? "none" : transformDirection[placement]}
-          {...Placement[placement]}>
+          {...Placement[placement]}
+        >
           <Flex optimizedWidth p="1rem" justifyContent="flexEnd">
             <Icon
               icon="closeFill"
@@ -152,7 +153,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticAside> =
             height="100%"
             gap="1rem"
             p="1rem"
-            {...rest}>
+            {...rest}
+          >
             {rest.children}
           </Flex>
         </Component>

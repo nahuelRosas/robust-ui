@@ -12,7 +12,7 @@ import {
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCover> =
   forwardRef<unknown, CoverProps>(function CoverComponent(
     { ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const cleanedProps = useCleanValue({ props });
     const {
@@ -40,7 +40,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCover> =
         overflow="hidden"
         flexDirection="column"
         ref={ref}
-        {...rest}>
+        {...rest}
+      >
         <StyledText
           p="0"
           px="2vw"
@@ -95,7 +96,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCover> =
             overflow="hidden"
             flexWrap="wrap"
             justifyContent="center"
-            alignItems="center">
+            alignItems="center"
+          >
             {icons.map((icon, index) => (
               <Icon
                 key={index}

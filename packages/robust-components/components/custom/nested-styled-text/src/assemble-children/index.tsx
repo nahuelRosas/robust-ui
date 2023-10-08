@@ -19,7 +19,8 @@ export function assambleChilden({
           lineHeight="inherit"
           fontStyle="inherit"
           fontSize="inherit"
-          userSelect>
+          userSelect
+        >
           {child.toString()}
         </Text>
       );
@@ -45,7 +46,8 @@ export function assambleChilden({
             fontStyle="inherit"
             fontSize="inherit"
             key={index}
-            p="0">
+            p="0"
+          >
             {item[0]?.text}
           </Text>
         );
@@ -62,7 +64,8 @@ export function assambleChilden({
             lineHeight="inherit"
             fontStyle="inherit"
             fontSize="inherit"
-            key={index}>
+            key={index}
+          >
             {item.text}
           </Span>
         );

@@ -8,7 +8,7 @@ import { Flex } from "@robust-ui/flex";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticMenu> =
   forwardRef<unknown, MenuProps>(function MenuComponent(
     { ...props }: MenuProps,
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const Component = CreateComponent({
       ComponentType: "menu",
@@ -41,7 +41,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticMenu> =
             p="0"
             cursor="pointer"
             display={isOpen ? "none" : "flex"}
-            onClick={() => setIsOpen(!isOpen)}>
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {heading && (
               <StyledText
                 multiLanguageSupport={
@@ -56,7 +57,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticMenu> =
                 fontWeights={fontWeight && [fontWeight]}
                 fontWeightsRaw={fontWeightRaw}
                 textTransform={textTransform}
-                textTransformRaw={textTransformRaw}>
+                textTransformRaw={textTransformRaw}
+              >
                 {typeof heading === "string" ? heading : undefined}
               </StyledText>
             )}
@@ -78,7 +80,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticMenu> =
             cursor="pointer"
             p="0"
             display={isOpen ? "none" : "flex"}
-            onClick={() => setIsOpen(!isOpen)}>
+            onClick={() => setIsOpen(!isOpen)}
+          >
             <StyledText
               color={color}
               colorRaw={colorRaw}
@@ -89,7 +92,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticMenu> =
               fontWeights={fontWeight && [fontWeight]}
               fontWeightsRaw={fontWeightRaw}
               textTransform={textTransform}
-              textTransformRaw={textTransformRaw}>
+              textTransformRaw={textTransformRaw}
+            >
               Menu
             </StyledText>
           </Component>
@@ -99,7 +103,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticMenu> =
             display={isOpen ? "flex" : "none"}
             flexDirection="column"
             onClick={() => setIsOpen(!isOpen)}
-            {...rest}>
+            {...rest}
+          >
             {props.children}
           </Flex>
         }

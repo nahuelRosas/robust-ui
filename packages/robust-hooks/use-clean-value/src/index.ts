@@ -28,7 +28,7 @@ export function useCleanValue({ props }: { props: Record<string, unknown> }) {
           [key]: recoveredProp,
         };
       },
-      {}
+      {},
     );
 
     return cleanProps as object;

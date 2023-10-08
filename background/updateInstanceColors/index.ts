@@ -27,6 +27,6 @@ export function updateInstanceColors({
   const geometry = mesh.geometry as DodecahedronGeometry;
   geometry.setAttribute(
     "color",
-    new InstancedBufferAttribute(new Float32Array(colors), 3)
+    new InstancedBufferAttribute(new Float32Array(colors), 3),
   );
 }

@@ -13,7 +13,7 @@ export * from "./types";
 const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyledText> =
   forwardRef<unknown, StyledTextProps>(function StyledTextComponent(
     { ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const DefaultComponent = CreateComponent({
       ComponentType: "div",
@@ -56,7 +56,7 @@ const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyle
         fontWeights,
         textColors,
         isActive,
-      ]
+      ],
     );
 
     const processedChildren = useMemo(() => {
@@ -73,7 +73,8 @@ const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyle
         textRendering="optimizeLegibility"
         userSelect
         ref={ref}
-        {...rest}>
+        {...rest}
+      >
         {processedChildren}
       </DefaultComponent>
     );

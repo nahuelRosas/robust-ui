@@ -8,7 +8,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticNextLink> =
   forwardRef<unknown, NextLinkProps>(function NextLinkComponent(
     { children, href, ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const Component = CreateComponent<NextLinkProps>({
       ComponentType: "a",
@@ -32,7 +32,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticNextLink> =
         href={href}
         textRendering="optimizeLegibility"
         ref={ref}
-        {...props}>
+        {...props}
+      >
         {children}
       </Component>
     );

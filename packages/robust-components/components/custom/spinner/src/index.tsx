@@ -12,7 +12,7 @@ import {
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSpinner> =
   forwardRef<unknown, SpinnerProps>(function SpinnerComponent(
     { ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const DefaultComponent = CreateComponent({
       ComponentType: "div",
@@ -42,7 +42,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSpinner> =
         alignItems="center"
         widthRaw={newSizesEvaluated}
         heightRaw={newSizesEvaluated}
-        ref={ref}>
+        ref={ref}
+      >
         <DefaultComponent
           elementName="Spinner"
           width="inherit"

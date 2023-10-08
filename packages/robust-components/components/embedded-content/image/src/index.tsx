@@ -21,7 +21,7 @@ export * from "./types";
 const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
   forwardRef<unknown, ImageProps>(function ImageComponent(
     { ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const globalContextData = useGlobalContext({ key: "devData" });
     const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
@@ -89,7 +89,7 @@ const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
       (newIndex: number) => {
         setCurrentImageIndex((newIndex + imageCount) % imageCount);
       },
-      [imageCount]
+      [imageCount],
     );
 
     useEffect(() => {
@@ -150,7 +150,8 @@ const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
           justifyContent="center"
           alignItems="center"
           mx="auto"
-          {...rest}>
+          {...rest}
+        >
           {!src || generalStatus === "failed" ? (
             <Icon
               sizeRaw={evaluatedSize ? `calc(${evaluatedSize} / 2)` : "7.5vh"}
@@ -206,7 +207,8 @@ const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
             top="0"
             left="0"
             p="0"
-            zIndexRaw="999999">
+            zIndexRaw="999999"
+          >
             <Icon
               elementName="closeIcon"
               icon="closeFill"
@@ -289,7 +291,8 @@ const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
                   cursor="pointer"
                   color={colors.secondary}
                   background={colors.primary}
-                  zIndexRaw="2">
+                  zIndexRaw="2"
+                >
                   {prevIcon}
                 </Icon>
                 <Icon
@@ -310,7 +313,8 @@ const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
                   cursor="pointer"
                   color={colors.secondary}
                   background={colors.primary}
-                  zIndexRaw="2">
+                  zIndexRaw="2"
+                >
                   {nextIcon}
                 </Icon>
               </>

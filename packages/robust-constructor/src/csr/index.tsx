@@ -23,7 +23,7 @@ export function CreateComponent<T>({
             ElementType = ComponentType as React.ElementType,
             ...props
           }: EnhancedElementProps<T> & T,
-          ref
+          ref,
         ): JSX.Element | null {
           const uniqueClassName = useMemo(
             () =>
@@ -33,11 +33,11 @@ export function CreateComponent<T>({
                   ...props,
                 },
               }),
-            [elementName, props]
+            [elementName, props],
           );
 
           const combinedClassName = useRef<string>(
-            [uniqueClassName, props.className].join(" ").trim()
+            [uniqueClassName, props.className].join(" ").trim(),
           );
 
           const globalContext = useGlobalContext({
@@ -50,7 +50,7 @@ export function CreateComponent<T>({
                 inputAttributes: props,
                 mediaBreakpoints: globalContext.mediaBreakpoints,
               }) as Record<string, unknown>,
-            [globalContext.mediaBreakpoints, props]
+            [globalContext.mediaBreakpoints, props],
           );
 
           const { htmlProps, styleProps } = useMemo(
@@ -61,7 +61,7 @@ export function CreateComponent<T>({
                   ...globalContext.selectors,
                 },
               }),
-            [completedProps, globalContext.selectors]
+            [completedProps, globalContext.selectors],
           );
 
           const [isCSSInjected, setCSSInjected] = useState(false);
@@ -127,14 +127,14 @@ export function CreateComponent<T>({
                 globalContext.mediaBreakpoints,
                 globalContext.theme,
                 styleProps,
-              ]
+              ],
             ),
           };
 
           useEffect(() => {
             if (!globalContext.isProviderActive) {
               throw new Error(
-                `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`
+                `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`,
               );
             }
           }, [globalContext.isProviderActive]);
@@ -161,9 +161,9 @@ export function CreateComponent<T>({
               {props.children}
             </ElementType>
           );
-        }
+        },
       );
     },
-    [ComponentType]
+    [ComponentType],
   );
 }
