@@ -26,16 +26,18 @@
     "postpack": "clean-package restore",
     "depCheck": "depcheck"
   },
-  "devDependencies": {
+  "dependencies": {
     "@robust-ui/global-state-reducer": "workspace:*",
     "@robust-ui/use-breakpoint-value": "workspace:*",
     "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/toast-manager": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/theme": "workspace:*",
+    "@robust-ui/utils": "workspace:*"
+  },
+  "devDependencies": {
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
-    "@robust-ui/theme": "workspace:*",
-    "@robust-ui/utils": "workspace:*",
     "@types/react-dom": "^18.2.7",
     "@types/react": "^18.2.21",
     "clean-package": "2.2.0",
@@ -44,9 +46,6 @@
     "terser": "^5.19.4",
     "react": "^18.2.0",
     "tsup": "^7.2.0"
-  },
-  "peerDependencies": {
-    "react": "latest"
   },
   "publishConfig": {
     "access": "public"

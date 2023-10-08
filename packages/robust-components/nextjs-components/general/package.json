@@ -26,26 +26,32 @@
     "postpack": "clean-package restore",
     "depCheck": "depcheck"
   },
-  "devDependencies": {
+  "dependencies": {
     "@robust-ui/nested-styled-text": "workspace:*",
+    "@robust-ui/use-global-context": "workspace:*",
+    "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/use-language": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
-    "eslint-config-robust": "workspace:*",
     "@robust-ui/next-link": "workspace:*",
+    "@robust-ui/use-toast": "workspace:*",
     "@robust-ui/code-text": "workspace:*",
-    "@robust-ui/tsconfig": "workspace:*",
     "@robust-ui/provider": "workspace:*",
     "@robust-ui/header": "workspace:*",
-    "@robust-ui/menu": "workspace:*",
     "@robust-ui/cover": "workspace:*",
     "@robust-ui/aside": "workspace:*",
     "@robust-ui/image": "workspace:*",
     "@robust-ui/block": "workspace:*",
+    "@robust-ui/theme": "workspace:*",
+    "@robust-ui/menu": "workspace:*",
     "@robust-ui/span": "workspace:*",
     "@robust-ui/icon": "workspace:*",
     "@robust-ui/flex": "workspace:*",
     "@robust-ui/grid": "workspace:*",
-    "@robust-ui/text": "workspace:*",
+    "@robust-ui/text": "workspace:*"
+  },
+  "devDependencies": {
+    "eslint-config-robust": "workspace:*",
+    "@robust-ui/tsconfig": "workspace:*",
     "@types/react-dom": "^18.2.7",
     "@types/react": "^18.2.21",
     "clean-package": "2.2.0",
@@ -54,9 +60,6 @@
     "eslint": "^8.49.0",
     "react": "^18.2.0",
     "tsup": "^7.2.0"
-  },
-  "peerDependencies": {
-    "react": "latest"
   },
   "publishConfig": {
     "access": "public"

@@ -26,13 +26,15 @@
     "postpack": "clean-package restore",
     "depCheck": "depcheck"
   },
-  "devDependencies": {
+  "dependencies": {
     "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/theme": "workspace:*"
+  },
+  "devDependencies": {
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
-    "@robust-ui/theme": "workspace:*",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "clean-package": "2.2.0",
@@ -41,9 +43,6 @@
     "terser": "^5.19.4",
     "tsup": "^7.2.0",
     "typescript": "5.2.2"
-  },
-  "peerDependencies": {
-    "react": "latest"
   },
   "publishConfig": {
     "access": "public"

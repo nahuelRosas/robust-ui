@@ -26,8 +26,10 @@
     "postpack": "clean-package restore",
     "depCheck": "depcheck"
   },
+  "dependencies": {
+    "@robust-ui/constructor": "workspace:*"
+  },
   "devDependencies": {
-    "@robust-ui/constructor": "workspace:*",
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
     "@types/react": "^18.2.21",
@@ -38,9 +40,6 @@
     "terser": "^5.19.4",
     "tsup": "^7.2.0",
     "typescript": "5.2.2"
-  },
-  "peerDependencies": {
-    "react": "latest"
   },
   "publishConfig": {
     "access": "public"
