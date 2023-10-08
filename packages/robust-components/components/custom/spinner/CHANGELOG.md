@@ -1,5 +1,19 @@
 # @robust-ui/spinner
 
+## 0.2.0
+
+### Minor Changes
+
+- 23a56b5: Fixed dependencies
+
+### Patch Changes
+
+- Updated dependencies [23a56b5]
+  - @robust-ui/use-global-context@0.2.0
+  - @robust-ui/use-clean-value@0.2.0
+  - @robust-ui/constructor@0.2.0
+  - @robust-ui/theme@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
