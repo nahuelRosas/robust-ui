@@ -26,9 +26,12 @@
     "postpack": "clean-package restore",
     "depCheck": "depcheck"
   },
-  "devDependencies": {
+  "dependencies": {
     "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/cryptography": "workspace:*",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
     "@types/react-dom": "^18.2.7",
@@ -37,7 +40,6 @@
     "typescript": "5.2.2",
     "terser": "^5.19.4",
     "eslint": "^8.49.0",
-    "react": "^18.2.0",
     "tsup": "^7.2.0"
   },
   "publishConfig": {

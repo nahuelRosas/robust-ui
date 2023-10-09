@@ -27,19 +27,19 @@
     "depCheck": "depcheck"
   },
   "dependencies": {
-    "@types/node": "^16.11.17"
+    "@robust-ui/purging": "workspace:*",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "eslint-config-robust": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
-    "@robust-ui/purging": "workspace:*",
     "@types/react-dom": "^18.2.7",
+    "@types/node": "^16.11.17",
     "@types/react": "^18.2.21",
     "clean-package": "2.2.0",
     "typescript": "5.2.2",
     "terser": "^5.19.4",
     "eslint": "^8.49.0",
-    "react": "^18.2.0",
     "tsup": "^7.2.0"
   },
   "publishConfig": {

@@ -35,7 +35,8 @@
     "@robust-ui/spinner": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "@robust-ui/flex": "workspace:*",
-    "@robust-ui/icon": "workspace:*"
+    "@robust-ui/icon": "workspace:*",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "eslint-config-robust": "workspace:*",
@@ -46,7 +47,6 @@
     "typescript": "5.2.2",
     "terser": "^5.19.4",
     "eslint": "^8.49.0",
-    "react": "^18.2.0",
     "tsup": "^7.2.0"
   },
   "publishConfig": {

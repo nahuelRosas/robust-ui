@@ -33,7 +33,8 @@
     "@robust-ui/toast-manager": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/theme": "workspace:*",
-    "@robust-ui/utils": "workspace:*"
+    "@robust-ui/utils": "workspace:*",
+    "react": "^18.2.0"
   },
   "devDependencies": {
     "eslint-config-robust": "workspace:*",
@@ -44,7 +45,6 @@
     "typescript": "5.2.2",
     "eslint": "^8.49.0",
     "terser": "^5.19.4",
-    "react": "^18.2.0",
     "tsup": "^7.2.0"
   },
   "publishConfig": {
