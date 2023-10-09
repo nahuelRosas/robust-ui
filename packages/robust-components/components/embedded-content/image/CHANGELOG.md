@@ -1,5 +1,24 @@
 # @robust-ui/image
 
+## 0.3.0
+
+### Minor Changes
+
+- a94dfae: Fix dependencies
+
+### Patch Changes
+
+- Updated dependencies [a94dfae]
+  - @robust-ui/nested-styled-text@0.3.0
+  - @robust-ui/flex@0.3.0
+  - @robust-ui/icon@0.3.0
+  - @robust-ui/spinner@0.3.0
+  - @robust-ui/use-global-context@0.3.0
+  - @robust-ui/use-image-status@0.3.0
+  - @robust-ui/use-clean-value@0.3.0
+  - @robust-ui/constructor@0.3.0
+  - @robust-ui/theme@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes
