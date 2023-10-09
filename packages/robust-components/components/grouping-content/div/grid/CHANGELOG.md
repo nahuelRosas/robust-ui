@@ -1,5 +1,16 @@
 # @robust-ui/grid
 
+## 0.4.0
+
+### Minor Changes
+
+- e982461: Fix Package
+
+### Patch Changes
+
+- Updated dependencies [e982461]
+  - @robust-ui/constructor@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes
