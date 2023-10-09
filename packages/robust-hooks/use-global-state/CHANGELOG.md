@@ -1,5 +1,19 @@
 # @robust-ui/use-global-state
 
+## 0.3.0
+
+### Minor Changes
+
+- a94dfae: Fix dependencies
+
+### Patch Changes
+
+- Updated dependencies [a94dfae]
+  - @robust-ui/use-recovery-global-state-value@0.3.0
+  - @robust-ui/use-global-state-updater@0.3.0
+  - @robust-ui/use-global-context@0.3.0
+  - @robust-ui/cryptography@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes
