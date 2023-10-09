@@ -6,7 +6,7 @@ import { Flex } from "@robust-ui/flex";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
   forwardRef<unknown, ToastManagerProps>(function ToastManagerComponent(
     { notification }: ToastManagerProps,
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ) {
     const { removeNotificationState } = useGlobalContext({ key: "devTools" });
     const [notifications, setNotifications] = React.useState<
@@ -16,10 +16,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
     useEffect(() => {
       if (notification && notification.length > 0) {
         const uniqueNotifications = Array.from(
-          new Set(notification.map((item) => item.id))
+          new Set(notification.map((item) => item.id)),
         )
           .map((uniqueId) =>
-            notification.find((item) => item && item.id === uniqueId)
+            notification.find((item) => item && item.id === uniqueId),
           )
           .filter((item) => item !== undefined) as notification[];
 
@@ -31,7 +31,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
 
             const removeToast = () => {
               setNotifications((prev) =>
-                prev.filter((toast) => toast.id !== id)
+                prev.filter((toast) => toast.id !== id),
               );
               removeNotificationState(id);
             };
@@ -57,11 +57,12 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
         alignItems="flexEnd"
         justifyContent="flexEnd"
         gap="4"
-        p="4">
+        p="4"
+      >
         {notifications.map(({ textProps, ...rest }, index) => {
           const removeToast = () => {
             setNotifications((prev) =>
-              prev.filter((toast) => toast.id !== rest.id)
+              prev.filter((toast) => toast.id !== rest.id),
             );
             removeNotificationState(rest.id);
           };
