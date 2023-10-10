@@ -1,17 +1,33 @@
-name: Publish
+name: "Devops"
 
 on:
   push:
-    branches:
-      - main
-  workflow_run:
-    workflows: ["*"]
-    types:
-      - completed
+    branches: ["main", "Main"]
+  pull_request:
+    branches: ["main"]
+  schedule:
+    - cron: "19 8 * * 4"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  MSDO:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: |
+            5.0.x
+            6.0.x
+      - name: Run Microsoft Security DevOps
+        uses: microsoft/security-devops-action@v1.6.0
+        id: msdo
+      - name: Upload results to Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.msdo.outputs.sarifFile }}
   publish:
     name: Publish Workflow
     runs-on: ubuntu-latest
