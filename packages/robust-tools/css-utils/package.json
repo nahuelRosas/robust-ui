@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/css-utils",
   "description": "A collection of CSS utilities for React",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

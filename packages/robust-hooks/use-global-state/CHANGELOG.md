@@ -1,5 +1,19 @@
 # @robust-ui/use-global-state
 
+## 0.4.0
+
+### Minor Changes
+
+- e982461: Fix Package
+
+### Patch Changes
+
+- Updated dependencies [e982461]
+  - @robust-ui/use-recovery-global-state-value@0.4.0
+  - @robust-ui/use-global-state-updater@0.4.0
+  - @robust-ui/use-global-context@0.4.0
+  - @robust-ui/cryptography@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes
