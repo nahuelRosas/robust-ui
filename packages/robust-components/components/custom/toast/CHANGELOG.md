@@ -1,5 +1,23 @@
 # @robust-ui/toast
 
+## 0.4.0
+
+### Minor Changes
+
+- e982461: Fix Package
+
+### Patch Changes
+
+- Updated dependencies [e982461]
+  - @robust-ui/nested-styled-text@0.4.0
+  - @robust-ui/flex@0.4.0
+  - @robust-ui/icon@0.4.0
+  - @robust-ui/use-global-context@0.4.0
+  - @robust-ui/use-clean-value@0.4.0
+  - @robust-ui/css-utils@0.4.0
+  - @robust-ui/constructor@0.4.0
+  - @robust-ui/theme@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes

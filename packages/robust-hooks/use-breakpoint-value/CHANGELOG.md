@@ -1,5 +1,18 @@
 # @robust-ui/use-breakpoint-value
 
+## 0.4.0
+
+### Minor Changes
+
+- e982461: Fix Package
+
+### Patch Changes
+
+- Updated dependencies [e982461]
+  - @robust-ui/use-resize-listener@0.4.0
+  - @robust-ui/use-global-context@0.4.0
+  - @robust-ui/utils@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes

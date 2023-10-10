@@ -1,5 +1,11 @@
 # @robust-ui/use-ssr
 
+## 0.4.0
+
+### Minor Changes
+
+- e982461: Fix Package
+
 ## 0.3.0
 
 ### Minor Changes
