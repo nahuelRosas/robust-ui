@@ -13,7 +13,6 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   MSDO:
     runs-on: windows-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
@@ -31,6 +30,7 @@ jobs:
   publish:
     name: Publish Workflow
     runs-on: ubuntu-latest
+    needs: MSDO
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
