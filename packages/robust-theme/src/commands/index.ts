@@ -41,7 +41,13 @@ export const commands = {
   },
   borderRadius: (propValue: Arguments) => {
     if (typeof propValue === "string")
-      return `border-radius: ${propValue};\n-webkit-border-radius: ${propValue};`;
+      return `
+      border-radius: ${propValue};\n
+      -moz-border-radius: ${propValue};\n
+      -ms-border-radius: ${propValue};\n
+      -o-border-radius: ${propValue};\n
+      -webkit-border-radius: ${propValue};\n
+      ;`;
     return "";
   },
   userSelect: (propValue: Arguments) => {
@@ -59,6 +65,76 @@ export const commands = {
       return `border: 1px solid black;`;
     else if (typeof propValue === "string" && propValue)
       return `border: ${propValue};`;
+    return "";
+  },
+  borderBottom: (propValue: Arguments) => {
+    if (typeof propValue === "object") {
+      const { color, style, width } = propValue as BorderArguments;
+      return `border-bottom: ${width} ${style} ${color};`;
+    } else if (typeof propValue === "boolean" && propValue)
+      return `border-bottom: 1px solid black;`;
+    else if (typeof propValue === "string" && propValue)
+      return `border-bottom: ${propValue};`;
+    return "";
+  },
+
+  borderLeft: (propValue: Arguments) => {
+    if (typeof propValue === "object") {
+      const { color, style, width } = propValue as BorderArguments;
+      return `border-left: ${width} ${style} ${color};`;
+    } else if (typeof propValue === "boolean" && propValue)
+      return `border-left: 1px solid black;`;
+    else if (typeof propValue === "string" && propValue)
+      return `border-left: ${propValue};`;
+    return "";
+  },
+
+  borderRight: (propValue: Arguments) => {
+    if (typeof propValue === "object") {
+      const { color, style, width } = propValue as BorderArguments;
+      return `border-right: ${width} ${style} ${color};`;
+    } else if (typeof propValue === "boolean" && propValue)
+      return `border-right: 1px solid black;`;
+    else if (typeof propValue === "string" && propValue)
+      return `border-right: ${propValue};`;
+    return "";
+  },
+
+  borderTop: (propValue: Arguments) => {
+    if (typeof propValue === "object") {
+      const { color, style, width } = propValue as BorderArguments;
+      return `border-top: ${width} ${style} ${color};`;
+    } else if (typeof propValue === "boolean" && propValue)
+      return `border-top: 1px solid black;`;
+    else if (typeof propValue === "string" && propValue)
+      return `border-top: ${propValue};`;
+    return "";
+  },
+  pointerEvents: (propValue: Arguments) => {
+    if (typeof propValue === "boolean" && propValue)
+      return `pointer-events: none;`;
+    else if (typeof propValue === "string" && propValue)
+      return `pointer-events: ${propValue};`;
+    return "";
+  },
+
+  borderBottomColor: (propValue: Arguments) => {
+    if (typeof propValue === "string")
+      return `border-bottom-color: ${propValue};`;
+    return "";
+  },
+  borderLeftColor: (propValue: Arguments) => {
+    if (typeof propValue === "string")
+      return `border-left-color: ${propValue};`;
+    return "";
+  },
+  borderRightColor: (propValue: Arguments) => {
+    if (typeof propValue === "string")
+      return `border-right-color: ${propValue};`;
+    return "";
+  },
+  borderTopColor: (propValue: Arguments) => {
+    if (typeof propValue === "string") return `border-top-color: ${propValue};`;
     return "";
   },
   boxSizing: (propValue: Arguments) => {
@@ -128,7 +204,7 @@ export const commands = {
     const { colors, deg } = propValue as LinearColorArguments;
     if (colors && colors.length)
       return `background: linear-gradient(${deg || "90deg"},${colors.join(
-        ", ",
+        ", "
       )});`;
     else if (typeof propValue === "string") return `background: ${propValue};`;
     return "";
@@ -257,7 +333,13 @@ export const commands = {
   color: (propValue: Arguments) => `color: ${propValue};`,
   width: (propValue: Arguments) => `width: ${propValue};`,
   height: (propValue: Arguments) => `height: ${propValue};`,
-  transition: (propValue: Arguments) => `transition: ${propValue};`,
+  transition: (propValue: Arguments) => `
+  transition: ${propValue};\n
+  -webkit-transition: ${propValue};\n
+  -moz-transition: ${propValue};\n
+  -ms-transition: ${propValue};\n
+  -o-transition: ${propValue};\n
+  `,
   display: (propValue: Arguments) => `display: ${propValue};`,
   fontSize: (propValue: Arguments) => `font-size: ${propValue};`,
   fontWeight: (propValue: Arguments) => `font-weight: ${propValue};`,
@@ -331,7 +413,15 @@ export const commands = {
   animation: (propValue: Arguments) =>
     typeof propValue === "string" ? `animation: ${propValue};` : "",
   transform: (propValue: Arguments) =>
-    typeof propValue === "string" ? `transform: ${propValue};` : "",
+    typeof propValue === "string"
+      ? `
+    transform: ${propValue};\n
+    -webkit-transform:  ${propValue};\n
+    -moz-transform:  ${propValue};\n
+    -ms-transform:  ${propValue};\n
+    -o-transform:  ${propValue};\n
+    `
+      : "",
   transformOrigin: (propValue: Arguments) =>
     typeof propValue === "string" ? `transform-origin: ${propValue};` : "",
   perspective: (propValue: Arguments) =>

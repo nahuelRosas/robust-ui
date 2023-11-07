@@ -18,7 +18,7 @@ export function propsSplitter({ props, commands }: IpropsSplitterProps) {
           ...acc,
           styleProps: {
             ...acc.styleProps,
-            [key]: value,
+            [rawOutput || key]: value,
           },
         };
       } else if (html && rawHtml) {
@@ -29,19 +29,19 @@ export function propsSplitter({ props, commands }: IpropsSplitterProps) {
             [rawHtml]: value,
           },
         };
+      } else {
+        return {
+          ...acc,
+          htmlProps: {
+            ...acc.htmlProps,
+            [key]: value,
+          },
+        };
       }
-
-      return {
-        ...acc,
-        htmlProps: {
-          ...acc.htmlProps,
-          [key]: value,
-        },
-      };
     },
     {
       htmlProps: {},
       styleProps: {},
-    },
+    }
   );
 }

@@ -1,8 +1,13 @@
 import { EnhancedElementProps } from "@robust-ui/constructor";
-import { notification } from "@robust-ui/use-global-context";
 export interface ToastManagerProps
   extends EnhancedElementProps<HTMLDivElement> {
-  notification: notification[];
+  notificationPlacement?:
+    | "topRight"
+    | "topLeft"
+    | "bottomRight"
+    | "bottomLeft"
+    | "top"
+    | "bottom";
 }
 
 export type ForwardRefExoticToastManager = Omit<ToastManagerProps, "ref"> &

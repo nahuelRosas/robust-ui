@@ -1,57 +1,36 @@
 import {
   EnhancedElementProps,
+  EnhancedElementPropsNoGeneric,
   GenericProperty,
   GenericPropertyArray,
 } from "@robust-ui/constructor";
 import { colors, defaultTheme, sizes } from "@robust-ui/theme";
 import { StyledTextProps } from "@robust-ui/nested-styled-text";
 export interface ToastProps extends EnhancedElementProps<HTMLDivElement> {
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  textProps?: GenericProperty<StyledTextProps>;
-  styleMarker?: GenericProperty<string>;
-  textColors?: GenericPropertyArray<keyof typeof colors>;
-  textColorsRaw?: GenericPropertyArray<string>;
-  fontWeights?: GenericPropertyArray<keyof typeof defaultTheme.fontWeight>;
-  fontWeightsRaw?: GenericPropertyArray<string | number>;
-  icon?: GenericProperty<React.ReactNode>;
-  variant?: GenericProperty<"solid" | "subtle" | "left-accent" | "top-accent">;
-  headline?: GenericProperty<string>;
-  description?: GenericProperty<string>;
-  status?: GenericProperty<"success" | "error" | "warning" | "info">;
-  isClosable?: GenericProperty<boolean>;
-  position?: GenericProperty<
-    "topRight" | "top" | "topLeft" | "bottomRight" | "bottom" | "bottomLeft"
+  status?: GenericProperty<
+    "info" | "warning" | "success" | "error" | "default"
   >;
-  size?: GenericProperty<keyof typeof sizes>;
+  variant?: GenericProperty<"ghost" | "solid" | "outline" | "link">;
+  colorScheme?: GenericProperty<keyof typeof colors>;
+  opacityColorScheme?: GenericProperty<number>;
+  colorSchemeRaw?: GenericProperty<string>;
+  altColor?: GenericProperty<boolean>;
+  isClosable?: GenericProperty<boolean>;
   onClose?: GenericProperty<() => void>;
+  label?: GenericProperty<string>;
+  description?: GenericProperty<string>;
 }
 
-export interface ToastPropsClean extends EnhancedElementProps<HTMLDivElement> {
+export interface ToastPropsNoGeneric
+  extends EnhancedElementPropsNoGeneric<HTMLDivElement> {
+  status?: "info" | "warning" | "success" | "error" | "default";
+  variant?: "ghost" | "solid" | "outline" | "link";
   colorScheme?: keyof typeof colors;
-  textProps?: StyledTextProps;
-  styleMarker?: string;
-  textColors?: (keyof typeof colors)[];
-  textColorsRaw?: string[];
-  fontWeights?: (keyof typeof defaultTheme.fontWeight)[];
-  fontWeightsRaw?: (string | number)[];
-  icon?: React.ReactNode;
-  variant?: "solid" | "subtle" | "left-accent" | "top-accent";
-  headline?: string;
-  description?: string;
-  status?: "success" | "error" | "warning" | "info";
-  duration?: number;
+  opacityColorScheme?: number;
+  colorSchemeRaw?: string;
   isClosable?: boolean;
-  position?:
-    | "topRight"
-    | "top"
-    | "topLeft"
-    | "bottomRight"
-    | "bottom"
-    | "bottomLeft";
-  size?: keyof typeof sizes;
+  altColor?: boolean;
   onClose?: () => void;
+  label?: string;
+  description?: string;
 }
-
-export type ForwardRefExoticToast = Omit<ToastProps, "ref"> &
-  React.RefAttributes<unknown> &
-  ToastProps;

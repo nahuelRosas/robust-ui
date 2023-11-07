@@ -9,25 +9,28 @@
   },
   "license": "MIT",
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node src --dts",
-    "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo node_modules",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "build:fast": "tsup-node src",
-    "prepack": "clean-package",
+    "dev": "pnpm build:fast -- --watch",
     "postpack": "clean-package restore",
+    "lint": "eslint \"src/**/*.ts*\"",
+    "build": "tsup-node src --dts",
+    "build:fast": "tsup-node src",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
     "depCheck": "depcheck"
   },
   "dependencies": {
+    "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/css-utils": "workspace:*",
+    "@robust-ui/theme": "workspace:*",
     "react": "^18.2.0"
   },
   "devDependencies": {

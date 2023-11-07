@@ -1,5 +1,11 @@
 import { ImageErrorEvent, ImageLoadEvent, ImageLoaderProps } from "./types";
-import { useCallback, useEffect, useState, useRef } from "react";
+import {
+  startTransition,
+  useCallback,
+  useEffect,
+  useState,
+  useRef,
+} from "react";
 import { useGlobalState } from "@robust-ui/use-global-state";
 export * from "./types";
 
@@ -28,13 +34,13 @@ export function useImageStatus({
 
   useEffect(() => {
     if (!src && !isDelayed) {
-      setStatus("failed");
+      startTransition(() => setStatus("failed"));
       return;
     } else if (imagesLoadedState.includes(src as string)) {
-      setShouldIgnoreFallback(true);
+      startTransition(() => setShouldIgnoreFallback(true));
       return;
     } else {
-      setStatus("loading");
+      startTransition(() => setStatus("loading"));
     }
   }, [src, imagesLoadedState, shouldIgnoreFallback, isDelayed]);
 
@@ -51,7 +57,7 @@ export function useImageStatus({
     if (!src) return;
 
     if (imagesLoadedState.includes(src as string)) {
-      setStatus("loaded");
+      startTransition(() => setStatus("loaded"));
       return;
     }
 
@@ -73,9 +79,9 @@ export function useImageStatus({
     }
 
     image.onload = (event) => {
-      setStatus("loaded");
+      startTransition(() => setStatus("loaded"));
       setImagesLoadedState((loadedImages) =>
-        loadedImages.includes(src) ? loadedImages : [...loadedImages, src],
+        loadedImages.includes(src) ? loadedImages : [...loadedImages, src]
       );
       cleanupImage();
       if (onLoad) {
@@ -85,7 +91,7 @@ export function useImageStatus({
 
     image.onerror = (error) => {
       cleanupImage();
-      setStatus("failed");
+      startTransition(() => setStatus("failed"));
       if (onError) {
         onError(error as unknown as ImageErrorEvent);
       }
@@ -111,7 +117,7 @@ export function useImageStatus({
 
     if (status === "loading") {
       const timeoutId = setTimeout(() => {
-        setIsDelayed(true);
+        startTransition(() => setIsDelayed(true));
         load();
       }, delay);
 

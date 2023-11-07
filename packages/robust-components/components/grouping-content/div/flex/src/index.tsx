@@ -1,26 +1,26 @@
-import { FlexProps, ForwardRefExoticFlex } from "./types";
-import { CreateComponent } from "@robust-ui/constructor";
-import React, { forwardRef, Ref } from "react";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import React, { forwardRef } from "react";
+import { FlexProps } from "./types";
 export * from "./types";
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticFlex> =
-  forwardRef<unknown, FlexProps>(function FlexComponent(
+
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
+  forwardRef(function FlexComponent(
     { children, ...props },
-    ref: Ref<unknown>,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent({
-      ComponentType: "div",
+      componentType: "div",
     });
 
     return (
       <Component
         ref={ref}
+        justifyContent="flexStart"
+        flexDirection="row"
+        alignItems="center"
         elementName="Flex"
         display="flex"
-        flexDirection="row"
-        justifyContent="flexStart"
-        alignItems="center"
-        {...props}
-      >
+        {...props}>
         {children}
       </Component>
     );

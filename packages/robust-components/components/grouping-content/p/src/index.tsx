@@ -1,16 +1,15 @@
-import { TextProps, ForwardRefExoticText } from "./types";
-import { CreateComponent } from "@robust-ui/constructor";
+import { TextProps, TextPropsNoGeneric } from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
 import React, { Ref, forwardRef } from "react";
 export * from "./types";
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticText> =
-  forwardRef<unknown, TextProps>(function TextComponent(
-    { children, ...props },
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<TextProps>> =
+  forwardRef(function TextComponent({ ...props }, ref): React.JSX.Element {
     const Component = CreateComponent({
-      ComponentType: "p",
+      componentType: "p",
     });
-
+    const cleanedProps = useCleanValue({ props });
+    const { children, ...rest } = cleanedProps as TextPropsNoGeneric;
     return (
       <Component
         elementName="Text"
@@ -21,8 +20,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticText> =
         lineHeight="normal"
         padding="0.5rem"
         ref={ref}
-        {...props}
-      >
+        {...rest}>
         {children}
       </Component>
     );

@@ -1,7 +1,9 @@
-import { EnhancedElementProps } from "@robust-ui/constructor";
+import {
+  EnhancedElementPropsNoGeneric,
+  EnhancedElementProps,
+} from "@robust-ui/constructor";
 
 export interface SpanProps extends EnhancedElementProps<HTMLSpanElement> {}
 
-export type ForwardRefExoticSpan = Omit<SpanProps, "ref"> &
-  React.RefAttributes<unknown> &
-  SpanProps;
+export interface SpanPropsNoGeneric
+  extends EnhancedElementPropsNoGeneric<HTMLSpanElement> {}

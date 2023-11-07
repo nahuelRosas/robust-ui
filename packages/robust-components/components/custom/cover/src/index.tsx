@@ -1,124 +1,143 @@
+import React, { Ref, forwardRef, lazy, Suspense } from "react";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { StyledText } from "@robust-ui/nested-styled-text";
-import React, { Ref, forwardRef } from "react";
-import { Flex } from "@robust-ui/flex";
-import { Icon } from "@robust-ui/icon";
 import {
-  CoverProps,
-  CoverPropsNoGeneric,
   ForwardRefExoticCover,
+  CoverPropsNoGeneric,
+  CoverProps,
 } from "./types";
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
+);
+
+const StyledText = lazy(() =>
+  import("@robust-ui/nested-styled-text").then((module) => ({
+    default: module.StyledText,
+  }))
+);
+const Icon = lazy(() =>
+  import("@robust-ui/icon").then((module) => ({
+    default: module.Icon,
+  }))
+);
 
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCover> =
   forwardRef<unknown, CoverProps>(function CoverComponent(
     { ...props },
-    ref: Ref<unknown>,
+    ref
   ): React.JSX.Element {
     const cleanedProps = useCleanValue({ props });
     const {
-      heading,
-      subHeading,
-      icons,
-      headingProps,
       subHeadingProps,
+      headingProps,
+      subHeading,
       iconProps,
+      heading,
+      icons,
       ...rest
     } = cleanedProps as CoverPropsNoGeneric;
+
     return (
-      <Flex
-        tabIndex={-1}
-        id="cover"
-        widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
-        backgroundRaw="rgba(0,0,0,0.6)"
-        borderRadius="16px"
-        minH="100vh"
-        justifyContent="center"
-        mx={{
-          base: "6vw",
-          md: "3vw",
-        }}
-        overflow="hidden"
-        flexDirection="column"
-        ref={ref}
-        {...rest}
-      >
-        <StyledText
-          p="0"
-          px="2vw"
-          optimizedWidth
-          alignSelf="center"
-          fontSizeRaw={{
-            base: "6vh",
-            md: "8vh",
+      <Suspense>
+        <Flex
+          widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+          backgroundRaw="rgba(0,0,0,0.6)"
+          justifyContent="center"
+          flexDirection="column"
+          borderRadius="2.5vh"
+          overflow="hidden"
+          tabIndex={-1}
+          minH="100vh"
+          id="cover"
+          mx={{
+            base: "6vw",
+            md: "3vw",
           }}
-          textAlign="center"
-          textShadow={{
-            x: "0.3vh",
-            y: "-0.2vh",
-            blur: "0.2vh",
-            color: "black",
-          }}
-          textColors={["white", "indigo", "white", "mulberry"]}
-          fontWeights={["400", "900"]}
-          multiLanguageSupport={heading}
-          {...headingProps}
-        />
-        <StyledText
-          p="0"
-          px="2vw"
-          optimizedWidth
-          alignSelf="center"
-          fontSizeRaw={{
-            base: "2.5vh",
-            md: "4vh",
-          }}
-          textAlign="center"
-          pt="0"
-          textShadow={{
-            x: "0.3vh",
-            y: "-0.2vh",
-            blur: "0.2vh",
-            color: "black",
-          }}
-          textColors={["white", "indigo", "white", "mulberry"]}
-          fontWeights={["400", "700"]}
-          multiLanguageSupport={subHeading}
-          {...subHeadingProps}
-        />
-        {icons && (
-          <Flex
-            mt="2vh"
-            px="2vw"
-            gap={{
-              base: "0.5vh",
-              md: "1vh",
-            }}
-            overflow="hidden"
-            flexWrap="wrap"
-            justifyContent="center"
-            alignItems="center"
-          >
-            {icons.map((icon, index) => (
-              <Icon
-                key={index}
-                sizeRaw={{
-                  base: "5vh",
-                  md: "7vh",
+          ref={ref}
+          {...rest}>
+          <Suspense>
+            <StyledText
+              p="0"
+              px="2vw"
+              optimizedWidth
+              alignSelf="center"
+              fontSizeRaw={{
+                base: "6vh",
+                md: "8vh",
+              }}
+              textAlign="center"
+              textShadow={{
+                x: "0.3vh",
+                y: "-0.2vh",
+                blur: "0.2vh",
+                color: "black",
+              }}
+              textColors={["white", "indigo", "white", "mulberry"]}
+              fontWeights={["500", "900"]}
+              multiLanguageSupport={heading}
+              {...headingProps}
+            />
+          </Suspense>
+          <Suspense>
+            <StyledText
+              p="0"
+              px="2vw"
+              optimizedWidth
+              alignSelf="center"
+              fontSizeRaw={{
+                base: "2.5vh",
+                md: "4vh",
+              }}
+              textAlign="center"
+              pt="0"
+              textShadow={{
+                x: "0.3vh",
+                y: "-0.2vh",
+                blur: "0.2vh",
+                color: "black",
+              }}
+              textColors={["white", "indigo", "white", "mulberry"]}
+              fontWeights={["500", "700"]}
+              multiLanguageSupport={subHeading}
+              {...subHeadingProps}
+            />
+          </Suspense>
+          {icons && (
+            <Suspense>
+              <Flex
+                mt="2vh"
+                px="2vw"
+                gap={{
+                  base: "0.5vh",
+                  md: "1vh",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                color={icon.color}
-                icon={icon.type}
-                {...iconProps}
-              />
-            ))}
-          </Flex>
-        )}
-      </Flex>
+                overflow="hidden"
+                flexWrap="wrap"
+                justifyContent="center"
+                alignItems="center">
+                {icons.map((icon, index) => (
+                  <Suspense key={index}>
+                    <Icon
+                      sizeRaw={{
+                        base: "5vh",
+                        md: "7vh",
+                      }}
+                      textShadow={{
+                        x: "0.3vh",
+                        y: "-0.2vh",
+                        blur: "0.2vh",
+                        color: "black",
+                      }}
+                      color={icon.color}
+                      icon={icon.type}
+                      {...iconProps}
+                    />
+                  </Suspense>
+                ))}
+              </Flex>
+            </Suspense>
+          )}
+        </Flex>
+      </Suspense>
     );
   });
 

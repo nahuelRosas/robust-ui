@@ -1,15 +1,15 @@
-import { GridProps, ForwardRefExoticGrid } from "./types";
-import { CreateComponent } from "@robust-ui/constructor";
-import React, { forwardRef, Ref } from "react";
+import { GridProps } from "./types";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import React, { forwardRef } from "react";
 export * from "./types";
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticGrid> =
-  forwardRef<unknown, GridProps>(function GridComponent(
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<GridProps>> =
+  forwardRef(function GridComponent(
     { children, ...props },
-    ref: Ref<unknown>,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent({
-      ComponentType: "div",
+      componentType: "div",
     });
 
     return (

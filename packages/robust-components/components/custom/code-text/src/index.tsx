@@ -1,116 +1,140 @@
-import React, { forwardRef, Ref } from "react";
-import { useGlobalContext } from "@robust-ui/use-global-context";
-import { useCleanValue } from "@robust-ui/use-clean-value";
-import { colors } from "@robust-ui/theme";
-import {
-  addOpacity,
-  calculateLuminance,
-  generateColorScheme,
-} from "@robust-ui/css-utils";
-import { Flex } from "@robust-ui/flex";
-import { StyledText } from "@robust-ui/nested-styled-text";
-import { Icon } from "@robust-ui/icon";
+import React, { forwardRef, lazy, Ref, Suspense, useMemo } from "react";
+import { extractStrings } from "@robust-ui/utils";
+import { generateColorScheme } from "@robust-ui/css-utils";
 import {
   ForwardRefExoticCodeText,
   CodeTextProps,
   CodeTextPropsNoGeneric,
 } from "./types";
-
+import { useCleanValue } from "@robust-ui/use-clean-value";
 import { useToast } from "@robust-ui/use-toast";
+
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
+);
+const Button = lazy(() =>
+  import("@robust-ui/button").then((module) => ({ default: module.Button }))
+);
+
+const Span = lazy(() =>
+  import("@robust-ui/span").then((module) => ({ default: module.Span }))
+);
 
 const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCodeText> =
   forwardRef<unknown, CodeTextProps>(function CodeTextComponent(
     { ...props },
-    ref: Ref<unknown>,
+    ref
   ): React.JSX.Element {
-    const globalContextData = useGlobalContext({ key: "devData" });
     const cleanedProps = useCleanValue({ props });
     const toast = useToast();
     const {
-      children,
-      multiLanguageSupport,
-      textProps,
-      styleMarker = "##",
-      fontWeights = ["600"],
-      fontWeightsRaw,
-      variant = "solid",
       colorScheme = "mulberry",
-      textColors,
-      textColorsRaw,
+      copyButton = true,
+      copyButtonProps,
+      multiLanguageSupport,
+      opacityColorScheme,
+      variant = "solid",
+      altColor = true,
+      colorSchemeRaw,
+      isDisabled,
+      textProps,
+      children,
       ...rest
     } = cleanedProps as CodeTextPropsNoGeneric;
 
-    const localizedChildren =
-      multiLanguageSupport?.[globalContextData.currentGlobalLanguage] ||
-      children;
-    const colorRaw = colors[colorScheme];
-    const opacityColor = addOpacity({
-      color: colorRaw,
-      opacity: 0.4,
-    });
-    const luminance = calculateLuminance({ color: colorRaw });
-    const textColor = luminance < 128 ? colors["white"] : colors["black"];
+    const structureStyle = useMemo(
+      () =>
+        generateColorScheme({
+          baseColor: colorSchemeRaw || colorScheme,
+          opacity: opacityColorScheme,
+          isDisabled,
+          altColor,
+          variant,
+        }),
+      [
+        altColor,
+        colorScheme,
+        colorSchemeRaw,
+        isDisabled,
+        opacityColorScheme,
+        variant,
+      ]
+    );
+
+    const { otherComponents, strings } = useMemo(() => {
+      return extractStrings({
+        children,
+        multiLanguageSupport,
+      });
+    }, [children, multiLanguageSupport]);
+
     return (
-      <Flex
-        alignItems="center"
-        justifyContent="spaceBetween"
-        position="relative"
-        bgRaw={opacityColor}
-        optimizedWidth
-        height="fitContent"
-        borderRadius="2.5vh"
-        px="2vw"
-        py="1vh"
-        cursor="pointer"
-        gap="2vw"
-        ref={ref}
-        {...rest}
-      >
-        <StyledText
-          fontWeights={fontWeights}
-          textColors={textColors}
-          fontWeightsRaw={fontWeightsRaw}
-          textColorsRaw={textColorsRaw || [textColor]}
-          styleMarker={styleMarker}
-          userSelect="Text"
-          textAlign="left"
-          optimizedWidth
-          cursor="text"
-          py="1vh"
-          px="2vw"
-          fontSize="2.5vh"
-          overflow="auto"
-          {...textProps}
-        >
-          {typeof localizedChildren === "string" ? localizedChildren : ""}
-        </StyledText>
-        <Icon
-          icon={"copy"}
-          sizeRaw="5vh"
+      <Suspense>
+        <Flex
+          justifyContent="spaceBetween"
+          borderRadius="2.5vh"
+          alignItems="center"
+          position="relative"
+          height="fitContent"
           cursor="pointer"
-          borderRadius="1vh"
-          onClick={() => {
-            navigator.clipboard.writeText(
-              localizedChildren && typeof localizedChildren === "string"
-                ? localizedChildren
-                : "",
-            );
-            toast({
-              duration: 2000,
-              headline:
-                globalContextData.currentGlobalLanguage === "es"
-                  ? "Copiado al portapapeles"
-                  : "Copied to clipboard",
-              description:
-                globalContextData.currentGlobalLanguage === "es"
-                  ? "El texto se ha copiado al portapapeles"
-                  : "The text has been copied to the clipboard",
-              status: "success",
-            });
-          }}
-          {...generateColorScheme({ color: colorScheme, variant })}
-        />
-      </Flex>
+          optimizedWidth
+          gap="2vw"
+          px="2vw"
+          py="1vh"
+          ref={ref}
+          {...structureStyle}
+          {...rest}>
+          <Suspense>
+            <Span
+              userSelect="text"
+              textAlign="left"
+              fontSize="2.5vh"
+              overflow="auto"
+              optimizedWidth
+              cursor="text"
+              py="1vh"
+              px="2vw"
+              {...textProps}>
+              {strings}
+            </Span>
+          </Suspense>
+          {copyButton && (
+            <Suspense>
+              <Button
+                onClick={() => {
+                  navigator.clipboard
+                    .writeText(strings.join(" "))
+                    .then(() => {
+                      toast({
+                        label: {
+                          en: "Copied to clipboard",
+                          es: "Copiado al portapapeles",
+                        },
+                        status: "success",
+                        duration: 3000,
+                        isClosable: true,
+                      });
+                    })
+                    .catch((err) => {
+                      toast({
+                        label: "Error",
+                        description: err,
+                        status: "error",
+                        duration: 3000,
+                        isClosable: true,
+                      });
+                    });
+                }}
+                iconProps={{
+                  iconType: "clipboardCopy",
+                  iconPosition: "left",
+                }}
+              />
+            </Suspense>
+          )}
+          {otherComponents}
+        </Flex>
+      </Suspense>
     );
   });
 

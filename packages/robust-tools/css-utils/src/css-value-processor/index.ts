@@ -64,6 +64,7 @@ export function CSSValueProcessor({
         inputProp,
         commands,
       });
+
       const paramValue = ValueRecoverer({
         inputProp: correctPropName,
         isRaw: functionRaw,
@@ -79,7 +80,7 @@ export function CSSValueProcessor({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[CSSValueProcessor] - An unexpected error occurred while processing the ${inputProp} property. ${error.message}`,
+        `[CSSValueProcessor] - An unexpected error occurred while processing the ${inputProp} property. ${error.message}`
       );
     }
     return cssStyles;

@@ -30,6 +30,8 @@
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
+    "@robust-ui/button": "workspace:*",
+    "@robust-ui/utils": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "@robust-ui/icon": "workspace:*",
     "@robust-ui/flex": "workspace:*",

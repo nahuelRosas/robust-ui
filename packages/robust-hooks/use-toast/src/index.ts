@@ -1,23 +1,32 @@
-import { useGlobalContext } from "@robust-ui/use-global-context";
+import { notification, useGlobalContext } from "@robust-ui/use-global-context";
 import { generateUniqueId } from "@robust-ui/cryptography";
-import { notificationPropsHook } from "./types";
 
 export function useToast() {
-  const DevTools = useGlobalContext({ key: "devTools" });
-  function createNotification(props: notificationPropsHook) {
-    const time = new Date().getTime();
+  const { setNotificationState, removeNotificationState } = useGlobalContext({
+    key: "devTools",
+  });
+
+  function createNotification(props: notification) {
+    const date = new Date().getTime();
     const id = generateUniqueId({
       object: {
-        time,
+        date,
         ...props,
       },
     });
-    const duration = props.duration || 5000;
-    DevTools.setNotificationState({
-      id,
-      duration,
+
+    const notification = {
       ...props,
-    });
+      onClose: () => removeNotificationState(id),
+      duration: props.duration || 5000,
+      id,
+    };
+    setNotificationState(notification);
+
+    setTimeout(() => {
+      removeNotificationState(id);
+    }, notification.duration);
   }
+
   return createNotification;
 }

@@ -1,14 +1,14 @@
-import { BlockProps, ForwardRefExoticBlock } from "./types";
-import { CreateComponent } from "@robust-ui/constructor";
+import { BlockProps } from "./types";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
 import React, { forwardRef, Ref } from "react";
 export * from "./types";
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticBlock> =
-  forwardRef<unknown, BlockProps>(function BlockComponent(
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<BlockProps>> =
+  forwardRef(function BlockComponent(
     { children, ...props },
-    ref: Ref<unknown>,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent({
-      ComponentType: "div",
+      componentType: "div",
     });
 
     return (

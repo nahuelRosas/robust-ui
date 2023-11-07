@@ -37,19 +37,43 @@ export type MappedCSSPropertiesWithRawOrHtml = {
   [Property in keyof typeof selectors as CssPropertyNameWithRawOrHtml<Property>]?: unknown;
 };
 
-export type CustomHTMLAttributes<T> = React.HTMLAttributes<T> &
-  MappedCssProperties &
-  MappedHTMLPropertiesWithRawOrHtml<T> &
-  MappedCSSPropertiesWithRawOrHtml;
+export type FullCSSProperties = {
+  [K in keyof MappedCssProperties]?: MappedCssProperties[K];
+} & {
+  [K in keyof MappedCSSPropertiesWithRawOrHtml]?: MappedCSSPropertiesWithRawOrHtml[K];
+};
+
+export type ElementPropertiesSubType<T> = {
+  [K in keyof React.HTMLAttributes<T>]?: React.HTMLAttributes<T>[K];
+} & {
+  [K in keyof Omit<T, keyof React.HTMLAttributes<T>>]?: T[K];
+} & {
+  [K in keyof MappedHTMLPropertiesWithRawOrHtml<T>]?: MappedHTMLPropertiesWithRawOrHtml<T>[K];
+};
+
+export type CustomHTMLAttributes<T> = Pick<
+  FullCSSProperties,
+  Exclude<keyof FullCSSProperties, ElementPropertiesSubType<T>>
+>;
+
+type A = CustomHTMLAttributes<HTMLDivElement>[""];
+
+//  & FullCSSProperties;
 
 export type EnhancedElementProps<T> = CustomHTMLAttributes<T> & {
-  multiLanguageSupport?: Partial<Record<string, React.ReactNode>>;
+  multiLanguageSupport?: Partial<Record<string, React.ReactNode>> | string;
   ElementType?: React.ElementType | keyof JSX.IntrinsicElements;
   elementName?: string;
 };
 
+export type EnhancedElementPropsNoGeneric<T> = CustomHTMLAttributes<T> & {
+  ElementType?: React.ElementType | keyof JSX.IntrinsicElements;
+  multiLanguageSupport?: string;
+  elementName?: string;
+};
+
 export interface ComponentConstructorProps<T> {
-  ComponentType: keyof JSX.IntrinsicElements | React.ComponentType<T>;
+  componentType: keyof JSX.IntrinsicElements | React.ComponentType<T>;
 }
 
 export type GenericProperty<T> =
@@ -64,3 +88,11 @@ export type GenericPropertyArray<T> =
   | GenericProperty<T>[]
   | GenericProperty<T>
   | T[];
+
+export type ForwardRefExotic<T> = Omit<
+  {
+    [K in keyof T]?: T[K];
+  },
+  "ref"
+> &
+  React.RefAttributes<unknown>;

@@ -106,32 +106,25 @@ export interface userContext {
 }
 
 export interface notification {
-  id: string;
-  duration: number;
-  position?: GenericProperty<
-    "topRight" | "top" | "topLeft" | "bottomRight" | "bottom" | "bottomLeft"
+  id?: string;
+  duration?: number;
+  status?: GenericProperty<
+    "info" | "warning" | "success" | "error" | "default"
   >;
+  variant?: GenericProperty<"ghost" | "solid" | "outline" | "link">;
   colorScheme?: GenericProperty<keyof typeof colors>;
-  textProps?: GenericProperty<unknown>;
-  styleMarker?: GenericProperty<string>;
-  textColors?: GenericPropertyArray<keyof typeof colors>;
-  textColorsRaw?: GenericPropertyArray<string>;
-  fontWeights?: GenericPropertyArray<keyof typeof defaultTheme.fontWeight>;
-  fontWeightsRaw?: GenericPropertyArray<string | number>;
-  icon?: GenericProperty<React.ReactNode>;
-  variant?: GenericProperty<"solid" | "subtle" | "left-accent" | "top-accent">;
-  headline?: GenericProperty<string>;
-  description?: GenericProperty<string>;
-  status?: GenericProperty<"success" | "error" | "warning" | "info">;
+  opacityColorScheme?: GenericProperty<number>;
+  colorSchemeRaw?: GenericProperty<string>;
+  altColor?: GenericProperty<boolean>;
   isClosable?: GenericProperty<boolean>;
-  size?: GenericProperty<keyof typeof sizes>;
   onClose?: GenericProperty<() => void>;
-  [key: string]: unknown;
+  label?: GenericProperty<string>;
+  description?: GenericProperty<string>;
 }
 
 export interface GlobalContextValues {
   devData: DevData;
   devTools: DevTools;
   userContext: userContext;
-  notifications: notification[];
+  notifications: Record<string, unknown>;
 }

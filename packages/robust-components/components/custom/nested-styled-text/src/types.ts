@@ -3,6 +3,7 @@ import { colors, defaultTheme } from "@robust-ui/theme";
 import {
   EnhancedElementProps,
   GenericPropertyArray,
+  EnhancedElementPropsNoGeneric,
   GenericProperty,
 } from "@robust-ui/constructor";
 
@@ -18,9 +19,11 @@ export interface StyledTextProps
   isActive?: GenericProperty<boolean>;
 }
 
-export interface StyledTextPropsNoGeneric {
+export interface StyledTextPropsNoGeneric
+  extends EnhancedElementPropsNoGeneric<
+    HTMLSpanElement | HTMLParagraphElement
+  > {
   children: React.ReactNode;
-  multiLanguageSupport?: Record<string, React.ReactNode>;
   styleMarker?: string;
   textColors?: (keyof typeof colors)[];
   textColorsRaw?: string[];
@@ -30,7 +33,3 @@ export interface StyledTextPropsNoGeneric {
   isMultiline?: boolean;
   isActive?: boolean;
 }
-
-export type ForwardRefExoticStyledText = Omit<StyledTextProps, "ref"> &
-  React.RefAttributes<unknown> &
-  StyledTextProps;

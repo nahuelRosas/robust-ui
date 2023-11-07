@@ -1,11 +1,11 @@
+import { StyledTextProps } from "@robust-ui/nested-styled-text";
+import { Ticon, IconProps } from "@robust-ui/icon";
 import { colors } from "@robust-ui/theme";
 import {
   EnhancedElementProps,
-  GenericProperty,
   GenericPropertyArray,
+  GenericProperty,
 } from "@robust-ui/constructor";
-import { Ticon, IconProps } from "@robust-ui/icon";
-import { StyledTextProps } from "@robust-ui/nested-styled-text";
 
 export interface CoverProps extends EnhancedElementProps<HTMLElement> {
   heading?: GenericProperty<{

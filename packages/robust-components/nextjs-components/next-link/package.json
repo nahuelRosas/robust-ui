@@ -27,8 +27,15 @@
     "depCheck": "depcheck"
   },
   "dependencies": {
+    "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/css-utils": "workspace:*",
     "@robust-ui/spinner": "workspace:*",
+    "@robust-ui/utils": "workspace:*",
+    "@robust-ui/theme": "workspace:*",
+    "@robust-ui/span": "workspace:*",
+    "@robust-ui/flex": "workspace:*",
+    "@robust-ui/icon": "workspace:*",
     "next": "^13.4.19",
     "react": "^18.2.0"
   },

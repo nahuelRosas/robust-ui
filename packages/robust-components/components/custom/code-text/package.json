@@ -33,7 +33,10 @@
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/use-toast": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
+    "@robust-ui/button": "workspace:*",
     "@robust-ui/theme": "workspace:*",
+    "@robust-ui/utils": "workspace:*",
+    "@robust-ui/span": "workspace:*",
     "@robust-ui/flex": "workspace:*",
     "@robust-ui/icon": "workspace:*",
     "react": "^18.2.0"

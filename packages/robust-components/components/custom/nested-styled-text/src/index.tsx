@@ -1,83 +1,88 @@
+import React, { forwardRef, lazy, Ref, Suspense, useMemo } from "react";
 import { formatMultiStyleString } from "./format-multi-style-string";
-import { useGlobalContext } from "@robust-ui/use-global-context";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { CreateComponent } from "@robust-ui/constructor";
-import React, { forwardRef, Ref, useMemo } from "react";
 import { assambleChilden } from "./assemble-children";
-import {
-  ForwardRefExoticStyledText,
-  StyledTextProps,
-  StyledTextPropsNoGeneric,
-} from "./types";
+import { extractStrings } from "@robust-ui/utils";
+import { StyledTextProps, StyledTextPropsNoGeneric } from "./types";
+import { ForwardRefExotic } from "@robust-ui/constructor";
 export * from "./types";
-const StyledTextComponent: React.ForwardRefExoticComponent<ForwardRefExoticStyledText> =
-  forwardRef<unknown, StyledTextProps>(function StyledTextComponent(
-    { ...props },
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
-    const DefaultComponent = CreateComponent({
-      ComponentType: "div",
-    });
-    const globalContextData = useGlobalContext({ key: "devData" });
-    const cleanedProps = useCleanValue({ props });
-    const {
-      children,
-      multiLanguageSupport,
-      isActive = true,
-      styleMarker = "|",
-      fontWeights,
-      fontWeightsRaw,
-      textColors,
-      textColorsRaw,
-      useRandomColors = false,
-      ...rest
-    } = cleanedProps as StyledTextPropsNoGeneric;
 
-    const localizedChildren =
-      multiLanguageSupport?.[globalContextData.currentGlobalLanguage] ||
-      children;
+const Block = lazy(() =>
+  import("@robust-ui/block").then((module) => ({ default: module.Block }))
+);
 
-    const formattedChildren = useMemo(
-      () =>
-        formatMultiStyleString({
-          fontWeightsRaw: fontWeights || fontWeightsRaw,
-          textColorsRaw: textColors || textColorsRaw,
-          children: localizedChildren,
-          useRandomColors,
-          styleMarker,
-          isActive,
-        }),
-      [
-        localizedChildren,
+const StyledTextComponent: React.ForwardRefExoticComponent<
+  ForwardRefExotic<StyledTextProps>
+> = forwardRef(function StyledTextComponent(
+  { ...props },
+  ref
+): React.JSX.Element {
+  const cleanedProps = useCleanValue({ props });
+  const {
+    useRandomColors = false,
+    multiLanguageSupport,
+    styleMarker = "|",
+    isActive = true,
+    fontWeightsRaw,
+    textColorsRaw,
+    fontWeights,
+    textColors,
+    children,
+    ...rest
+  } = cleanedProps as StyledTextPropsNoGeneric;
+
+  const { otherComponents, strings } = useMemo(
+    () =>
+      extractStrings({
+        children,
+        multiLanguageSupport,
+      }),
+    [children, multiLanguageSupport]
+  );
+  const formattedChildren = useMemo(
+    () =>
+      formatMultiStyleString({
+        fontWeightsRaw: fontWeights || fontWeightsRaw,
+        textColorsRaw: textColors || textColorsRaw,
+        children: strings,
         useRandomColors,
-        fontWeightsRaw,
-        textColorsRaw,
         styleMarker,
-        fontWeights,
-        textColors,
         isActive,
-      ],
-    );
+      }),
+    [
+      useRandomColors,
+      fontWeightsRaw,
+      textColorsRaw,
+      styleMarker,
+      fontWeights,
+      textColors,
+      isActive,
+      strings,
+    ]
+  );
 
-    const processedChildren = useMemo(() => {
-      return assambleChilden({ children: formattedChildren });
-    }, [formattedChildren]);
+  const processedChildren = useMemo(() => {
+    return assambleChilden({ children: formattedChildren });
+  }, [formattedChildren]);
 
-    return (
-      <DefaultComponent
+  return (
+    <Suspense>
+      <Block
+        textRendering="optimizeLegibility"
         elementName="StyledText"
-        fontSize="2.5vh"
+        textOverflow="ellipsis"
+        lineHeight="normal"
         whiteSpace="normal"
         fontStyle="normal"
-        lineHeight="normal"
-        textRendering="optimizeLegibility"
+        fontSize="2.5vh"
         userSelect
         ref={ref}
-        {...rest}
-      >
+        {...rest}>
         {processedChildren}
-      </DefaultComponent>
-    );
-  });
+        {otherComponents}
+      </Block>
+    </Suspense>
+  );
+});
 
 export const StyledText = React.memo(StyledTextComponent);

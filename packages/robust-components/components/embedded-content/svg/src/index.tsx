@@ -1,24 +1,24 @@
-import { useGlobalContext } from "@robust-ui/use-global-context";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { IconProps, ForwardRefExoticIcon } from "./types";
-import { CreateComponent } from "@robust-ui/constructor";
+import React, { Suspense, forwardRef, lazy } from "react";
+import { IconProps, IconPropsNoGeneric } from "./types";
 import { isSVGElement } from "./is-svg-element";
-import React, { Ref, forwardRef } from "react";
-import { Path } from "./path";
 import { Icons } from "@robust-ui/icons";
-import { Flex } from "@robust-ui/flex";
+import { FlexProps } from "@robust-ui/flex";
 export * from "./types";
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticIcon> =
-  forwardRef<unknown, IconProps>(function IconComponent(
-    { ...props },
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
-    const Component = CreateComponent<IconProps>({
-      ComponentType: "svg",
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
+);
+const Path = lazy(() =>
+  import("./path").then((module) => ({ default: module.Path }))
+);
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
+  forwardRef(function IconComponent({ ...props }, ref): React.JSX.Element {
+    const Component = CreateComponent({
+      componentType: "svg",
     });
 
-    const globalContextData = useGlobalContext({ key: "devData" });
     const cleanedProps = useCleanValue({ props });
     const {
       children,
@@ -27,13 +27,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticIcon> =
       sizeRaw,
       icon,
       size = "1.5rem",
-    } = cleanedProps as IconProps;
-
-    const newSizesEvaluated = sizeRaw
-      ? sizeRaw
-      : typeof size === "object"
-      ? size[globalContextData.currentBreakpoint as string]
-      : size;
+      ...rest
+    } = cleanedProps as IconPropsNoGeneric;
 
     const IconEvaluated =
       Icons[icon as keyof typeof Icons] || Icons["errorWarningFill"];
@@ -45,19 +40,18 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticIcon> =
 
     if (childrenEvaluated) {
       return (
-        <Flex
-          elementName="Icon-Flex"
-          display={focusable ? "inlineBlock" : "inlineFlex"}
-          viewBox={viewBox || "0 0 24 24"}
-          minHeightRaw={newSizesEvaluated}
-          minWidthRaw={newSizesEvaluated}
-          heightRaw={newSizesEvaluated}
-          widthRaw={newSizesEvaluated}
-          lineHeight="1rem"
-          {...props}
-        >
-          {children}
-        </Flex>
+        <Suspense>
+          <Flex
+            elementName="Icon-Flex"
+            display={focusable ? "inlineBlock" : "inlineFlex"}
+            minHeightRaw={sizeRaw || size}
+            minWidthRaw={sizeRaw || size}
+            heightRaw={sizeRaw || size}
+            widthRaw={sizeRaw || size}
+            lineHeight="1rem">
+            {children}
+          </Flex>
+        </Suspense>
       );
     } else
       return (
@@ -65,20 +59,19 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticIcon> =
           elementName="Icon-SVG"
           display={focusable ? "inlineBlock" : "inlineFlex"}
           viewBox={viewBox || "0 0 24 24"}
-          heightRaw={newSizesEvaluated}
-          widthRaw={newSizesEvaluated}
-          minHeightRaw={newSizesEvaluated}
-          minWidthRaw={newSizesEvaluated}
+          heightRaw={sizeRaw || size}
+          widthRaw={sizeRaw || size}
+          minHeightRaw={sizeRaw || size}
+          minWidthRaw={sizeRaw || size}
           strokeWidth={includeFillLine ? "1" : "0"}
           strokeLinecap="round"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           stroke="currentColor"
           ref={ref}
-          {...props}
-        >
+          {...props}>
           {includeFillLine ? (
-            <>
+            <Suspense>
               <Path
                 elementName="Icon-Path"
                 d="M0 0h24v24H0z"
@@ -86,9 +79,11 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticIcon> =
                 stroke="none"
               />
               <Path elementName="Icon-Path" fill="none" d={IconEvaluated} />
-            </>
+            </Suspense>
           ) : (
-            <Path elementName="Icon-Path" d={IconEvaluated} />
+            <Suspense>
+              <Path elementName="Icon-Path" d={IconEvaluated} />
+            </Suspense>
           )}
         </Component>
       );

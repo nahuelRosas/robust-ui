@@ -1,9 +1,5 @@
-import { useGlobalContext } from "@robust-ui/use-global-context";
+import { ImageProps, ImagePropNoGeneric } from "./types";
 import { useImageStatus } from "@robust-ui/use-image-status";
-import { ImageProps, ForwardRefExoticImage, ImagePropsClean } from "./types";
-import { useCleanValue } from "@robust-ui/use-clean-value";
-import { CreateComponent } from "@robust-ui/constructor";
-import { StyledText } from "@robust-ui/nested-styled-text";
 import React, {
   Ref,
   forwardRef,
@@ -12,178 +8,330 @@ import React, {
   useState,
   useRef,
   TouchEventHandler,
+  startTransition,
+  lazy,
+  Suspense,
+  useMemo,
 } from "react";
-import { Icon } from "@robust-ui/icon";
-import { Flex } from "@robust-ui/flex";
-import { Spinner } from "@robust-ui/spinner";
+import { stopPropagation } from "@robust-ui/utils";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
 export * from "./types";
 
-const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
-  forwardRef<unknown, ImageProps>(function ImageComponent(
-    { ...props },
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
-    const globalContextData = useGlobalContext({ key: "devData" });
-    const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-    const [isSliderVisible, setIsSliderVisible] = useState<boolean>(false);
-    const [generalStatus, setGeneralStatus] = useState<string>("loading");
-    const cleanedProps = useCleanValue({ props });
-    const {
-      objectFit = "cover",
-      ignoreFallback,
-      colors = {
-        primary: "mulberry",
-        secondary: "gray700",
-      },
-      modelSpinner = "C",
-      borderRadius,
-      crossOrigin,
-      prevIcon,
-      nextIcon,
-      sizeRaw,
-      imgProp,
-      isSlider,
-      delay = 100,
-      isRounded,
-      children,
-      onError,
-      onLoad,
-      srcSet,
-      ratio,
-      size,
-      src,
-      alt,
-      ...rest
-    } = cleanedProps as ImagePropsClean;
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({
+    default: module.Flex,
+  }))
+);
+const Icon = lazy(() =>
+  import("@robust-ui/icon").then((module) => ({
+    default: module.Icon,
+  }))
+);
 
-    const Component = CreateComponent<ImagePropsClean>({
-      ComponentType: "img",
-    });
+const Spinner = lazy(() =>
+  import("@robust-ui/spinner").then((module) => ({
+    default: module.Spinner,
+  }))
+);
 
-    const evaluatedSize = sizeRaw
-      ? sizeRaw
-      : typeof size === "object"
-      ? size[globalContextData.currentBreakpoint as string]
-      : size;
+const Button = lazy(() =>
+  import("@robust-ui/button").then((module) => ({
+    default: module.Button,
+  }))
+);
 
-    const imageCount: number = src?.length || 0;
-    const currentImageSource =
-      typeof src === "object" ? src[currentImageIndex] : src;
+const ImageComponent: React.ForwardRefExoticComponent<
+  ForwardRefExotic<ImageProps>
+> = forwardRef(function ImageComponent({ ...props }, ref): React.JSX.Element {
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [isSliderVisible, setIsSliderVisible] = useState<boolean>(false);
+  const [generalStatus, setGeneralStatus] = useState<string>("loading");
+  const touchStartX = useRef<number | null>(null);
 
-    const imageStatus = useImageStatus({
-      sizes: evaluatedSize,
-      ignoreFallback,
-      crossOrigin,
-      onError,
-      onLoad,
-      srcSet,
-      delay,
-      src: currentImageSource,
-    });
+  const cleanedProps = useCleanValue({ props });
+  const {
+    colorScheme,
+    errorProps,
+    objectFit = "cover",
+    ignoreFallback,
+    iconCloseProps,
+    borderRadius,
+    borderRadiusRaw,
+    buttonCloseProps,
+    colorSchemeRaw,
+    opacityColorScheme,
+    crossOrigin,
+    spinnerProps,
+    altColor,
+    prevIcon,
+    nextIcon,
+    sizeRaw,
+    imgProp,
+    isSlider,
+    delay = 100,
+    isRounded,
+    children,
+    onError,
+    onLoad,
+    srcSet,
+    ratio,
+    size,
+    src,
+    alt,
+    ...rest
+  } = cleanedProps as ImagePropNoGeneric;
 
-    const closeSlider = () => {
-      setIsSliderVisible(false);
-    };
+  const Component = CreateComponent({
+    componentType: "img",
+  });
+  const currentImageSrc: string = Array.isArray(src)
+    ? (src[currentImageIndex] as string)
+    : (src as string);
 
-    const changeImageIndex = useCallback(
-      (newIndex: number) => {
-        setCurrentImageIndex((newIndex + imageCount) % imageCount);
-      },
-      [imageCount],
-    );
+  const currentAlt = Array.isArray(alt)
+    ? alt[currentImageIndex]
+    : alt || "Image";
+  const imageStatus = useImageStatus({
+    sizes: sizeRaw || size,
+    ignoreFallback,
+    crossOrigin,
+    onError,
+    onLoad,
+    srcSet,
+    delay,
+    src: currentImageSrc,
+  });
 
-    useEffect(() => {
-      const handleKeyPress = (e: KeyboardEvent) => {
-        if (isSliderVisible && imageCount > 1) {
-          if (e.key === "ArrowLeft") {
-            changeImageIndex(currentImageIndex - 1);
-          } else if (e.key === "ArrowRight") {
-            changeImageIndex(currentImageIndex + 1);
-          }
-        }
-      };
+  const imageCount: number = Array.isArray(src) ? src.length : 0;
 
-      window.addEventListener("keydown", handleKeyPress);
+  const changeImageIndex = useCallback(
+    (newIndex: number) => {
+      startTransition(() =>
+        setCurrentImageIndex((newIndex + imageCount) % imageCount)
+      );
+    },
+    [imageCount]
+  );
 
-      return () => {
-        window.removeEventListener("keydown", handleKeyPress);
-      };
-    }, [changeImageIndex, currentImageIndex, imageCount, isSliderVisible]);
-
-    const touchStartX = useRef<number | null>(null);
-
-    const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
-      touchStartX.current = e.touches[0]?.clientX || null;
-    };
-
-    const handleTouchEnd: TouchEventHandler<HTMLDivElement> = (e) => {
-      if (isSliderVisible && imageCount > 1 && touchStartX.current !== null) {
-        const touchEndX = e.changedTouches[0]?.clientX;
-        const deltaX = touchEndX ? touchEndX - touchStartX.current : 0;
-        if (deltaX > 50) {
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (isSliderVisible && imageCount > 1) {
+        if (e.key === "ArrowLeft") {
           changeImageIndex(currentImageIndex - 1);
-        } else if (deltaX < -50) {
+        } else if (e.key === "ArrowRight") {
           changeImageIndex(currentImageIndex + 1);
         }
       }
-      touchStartX.current = null;
     };
 
-    useEffect(() => {
-      if (imageStatus === "loaded") {
-        setGeneralStatus("loaded");
-      } else if (imageStatus === "failed") {
-        setGeneralStatus("failed");
-      }
-    }, [imageStatus]);
+    window.addEventListener("keydown", handleKeyPress);
 
-    return (
-      <>
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [changeImageIndex, currentImageIndex, imageCount, isSliderVisible]);
+
+  const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
+    touchStartX.current = e.touches[0]?.clientX || null;
+  };
+
+  const handleTouchEnd: TouchEventHandler<HTMLDivElement> = (e) => {
+    if (isSliderVisible && imageCount > 1 && touchStartX.current !== null) {
+      const touchEndX = e.changedTouches[0]?.clientX;
+      const deltaX = touchEndX ? touchEndX - touchStartX.current : 0;
+      if (deltaX > 50) {
+        changeImageIndex(currentImageIndex - 1);
+      } else if (deltaX < -50) {
+        changeImageIndex(currentImageIndex + 1);
+      }
+    }
+    touchStartX.current = null;
+  };
+
+  useEffect(() => {
+    if (imageStatus === "loaded") {
+      startTransition(() => setGeneralStatus("loaded"));
+    } else if (imageStatus === "failed") {
+      startTransition(() => setGeneralStatus("failed"));
+    }
+  }, [imageStatus]);
+
+  const stopProgationChildren = useMemo(
+    () =>
+      stopPropagation({
+        children: (
+          <Flex
+            backgroundRaw="rgba(0,0,0,0.9)"
+            flexDirection="column"
+            alignItems="flexStart"
+            justifyContent="left"
+            borderRadius={borderRadiusRaw || borderRadius}
+            elementName="ContainerImageSlider"
+            height={{
+              base: "fitContent",
+              md: "90%",
+            }}
+            width={{
+              base: "90%",
+              md: "fitContent",
+            }}
+            m="0"
+            p="0">
+            <Button
+              onClick={() => startTransition(() => setIsSliderVisible(false))}
+              elementName="ButtonClose"
+              position="absolute"
+              width="fitContent"
+              cursor="pointer"
+              variant="link"
+              zIndex="10001"
+              right="0"
+              mx="2vw"
+              my="2vh"
+              top="0"
+              iconProps={{
+                iconPosition: "left",
+                iconType: "closeFill",
+                ...iconCloseProps,
+              }}
+              {...buttonCloseProps}
+            />
+            {Array.isArray(src) && src.length > 1 && (
+              <Suspense>
+                <Button
+                  onClick={() => changeImageIndex(currentImageIndex - 1)}
+                  elementName="ButtonPrev"
+                  position="absolute"
+                  width="fitContent"
+                  cursor="pointer"
+                  variant="link"
+                  zIndex="10001"
+                  top="50%"
+                  left="0"
+                  mx="2vw"
+                  my="2vh"
+                  iconProps={{
+                    iconPosition: "left",
+                    iconType: "arrowLeftFill",
+                    ...iconCloseProps,
+                  }}
+                  {...buttonCloseProps}
+                />
+                <Button
+                  onClick={() => changeImageIndex(currentImageIndex + 1)}
+                  elementName="ButtonNext"
+                  position="absolute"
+                  width="fitContent"
+                  cursor="pointer"
+                  variant="link"
+                  zIndex="10001"
+                  right="0"
+                  top="50%"
+                  mx="2vw"
+                  my="2vh"
+                  iconProps={{
+                    iconPosition: "left",
+                    iconType: "arrowRightFill",
+                    ...iconCloseProps,
+                  }}
+                  {...buttonCloseProps}
+                />
+              </Suspense>
+            )}
+            {generalStatus === "loading" && (
+              <Suspense>
+                <Spinner
+                  colorSchemeRaw={colorSchemeRaw || colorScheme}
+                  opacityColorScheme={opacityColorScheme}
+                  elementName="ImageSpinner"
+                  altColor={altColor}
+                  sizeRaw={
+                    sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"
+                  }
+                  {...spinnerProps}
+                />
+              </Suspense>
+            )}
+            {generalStatus === "loaded" && (
+              <Component
+                // src={currentImageSrc}
+                // alt={currentAlt}
+                borderRadiusRaw={isRounded ? "9999px" : undefined}
+                transition="transform 0.2s ease-in-out"
+                objectFit="contain"
+                borderRadius={borderRadiusRaw || borderRadius}
+                // ratio={ratio}
+                cursor="default"
+                heightRaw="100%"
+                widthRaw="100%"
+                zIndexRaw="1"
+                userSelect
+                ref={ref}
+              />
+            )}
+          </Flex>
+        ),
+      }),
+    [Component, altColor, borderRadius, borderRadiusRaw, buttonCloseProps, changeImageIndex, colorScheme, colorSchemeRaw, currentImageIndex, generalStatus, iconCloseProps, isRounded, opacityColorScheme, ref, size, sizeRaw, spinnerProps, src]
+  );
+  return (
+    <>
+      <Suspense>
         <Flex
-          onClick={isSlider ? () => setIsSliderVisible(true) : undefined}
-          widthRaw={ratio !== "auto" ? evaluatedSize : undefined}
-          heightRaw={ratio !== "auto" ? evaluatedSize : size}
+          onClick={
+            isSlider && generalStatus === "loaded"
+              ? () => startTransition(() => setIsSliderVisible(true))
+              : undefined
+          }
+          widthRaw={ratio !== "auto" ? sizeRaw || size : undefined}
+          heightRaw={ratio !== "auto" ? sizeRaw || size : size}
           borderRadiusRaw={isRounded ? "9999px" : undefined}
-          cursor={isSlider ? "pointer" : undefined}
+          cursor={
+            isSlider && generalStatus === "loaded" ? "pointer" : undefined
+          }
           elementName="ContainerImage"
-          borderRadius={borderRadius}
           justifyContent="center"
           alignItems="center"
           mx="auto"
-          {...rest}
-        >
-          {!src || generalStatus === "failed" ? (
-            <Icon
-              sizeRaw={evaluatedSize ? `calc(${evaluatedSize} / 2)` : "7.5vh"}
-              borderRadiusRaw={isRounded ? "9999px" : undefined}
-              elementName="Image-Error"
-              icon="errorWarningFill"
-              color="red"
-              ref={ref}
-            />
-          ) : imageStatus === "loading" ? (
-            <Spinner
-              sizeRaw={evaluatedSize ? `calc(${evaluatedSize} / 3)` : "4.5vh"}
-              elementName="Image-Spinner"
-              colors={colors}
-              model={modelSpinner}
-            />
-          ) : (
+          {...rest}>
+          {generalStatus === "loading" && (
+            <Suspense>
+              <Spinner
+                colorSchemeRaw={colorSchemeRaw || colorScheme}
+                opacityColorScheme={opacityColorScheme}
+                elementName="ImageSpinner"
+                altColor={altColor}
+                sizeRaw={
+                  sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"
+                }
+                {...spinnerProps}
+              />
+            </Suspense>
+          )}
+          {generalStatus === "failed" && (
+            <Suspense>
+              <Icon
+                sizeRaw={
+                  sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"
+                }
+                borderRadiusRaw={isRounded ? "9999px" : undefined}
+                elementName="Image-Error"
+                icon="errorWarningFill"
+                color="red"
+                {...errorProps}
+              />
+            </Suspense>
+          )}
+          {generalStatus === "loaded" && (
             <Component
-              src={
-                src && Array.isArray(src) && src.length > 0
-                  ? src[currentImageIndex]
-                  : src
-              }
-              alt={
-                alt && Array.isArray(alt)
-                  ? alt[currentImageIndex]
-                  : alt || "Image"
-              }
+              // src={Array.isArray(src) && src[0] ? src[0] : src}
+              // alt={currentAlt}
+              userSelect="none"
               borderRadiusRaw={isRounded ? "9999px" : undefined}
-              borderRadius={borderRadius}
               objectPosition="center"
               objectFit={objectFit}
+              borderRadius={borderRadiusRaw || borderRadius}
               elementName="Image"
               height="100%"
               width="100%"
@@ -191,137 +339,36 @@ const ImageComponent: React.ForwardRefExoticComponent<ForwardRefExoticImage> =
             />
           )}
         </Flex>
-        {isSliderVisible && isSlider && src?.[currentImageIndex] && (
+      </Suspense>
+      {isSliderVisible && isSlider && currentImageSrc && (
+        <Suspense>
           <Flex
-            elementName="ContainerSlider"
+            display={isSliderVisible ? "flex" : "none"}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
-            flexDirection="column"
-            display="flex"
-            position="fixed"
+            elementName="ContainerSlider"
+            backdropFilter="blur(0.5vh)"
+            bgRaw="rgba(0, 0, 0, 0.7)"
             justifyContent="center"
+            flexDirection="column"
             alignItems="center"
-            width="100vw"
+            onClick={
+              isSlider && generalStatus === "loaded"
+                ? () => startTransition(() => setIsSliderVisible(false))
+                : undefined
+            }
+            overflow="hidden"
+            position="fixed"
             height="100vh"
-            backgroundRaw="rgba(0,0,0,0.9)"
-            top="0"
+            width="100vw"
+            zIndex="9999"
             left="0"
-            p="0"
-            zIndexRaw="999999"
-          >
-            <Icon
-              elementName="closeIcon"
-              icon="closeFill"
-              position="absolute"
-              top="2vh"
-              sizeRaw={{
-                base: "4vh",
-                md: "4vh",
-              }}
-              borderRadius="1.5vh"
-              right="2vh"
-              p="0.3vh"
-              onClick={closeSlider}
-              cursor="pointer"
-              boxShadow="0 0.7em 1.5em -0.5em #000000"
-              color={colors.secondary}
-              background={colors.primary}
-              zIndexRaw="2"
-            />
-            <Component
-              src={currentImageSource}
-              alt={
-                alt && Array.isArray(alt)
-                  ? alt[currentImageIndex]
-                  : alt || "Image"
-              }
-              elementName="ImageBackground"
-              position="absolute"
-              widthRaw="120%"
-              heightRaw="120%"
-              topRaw="-10%"
-              leftRaw="-10%"
-              filter="blur(6vh)"
-              transform="translate3d(0, 0, 0)"
-              opacity="0.9"
-              zIndexRaw="-100"
-              userSelect
-            />
-            <Component
-              elementName="ImageSlider"
-              alt={
-                alt && Array.isArray(alt)
-                  ? alt[currentImageIndex]
-                  : alt || "Image"
-              }
-              src={currentImageSource}
-              borderRadiusRaw={isRounded ? "9999px" : undefined}
-              ratio={ratio}
-              widthRaw="90%"
-              heightRaw="90%"
-              userSelect
-              p={{
-                base: "2vh",
-                md: "6vh",
-              }}
-              transition="transform 0.2s ease-in-out"
-              cursor="default"
-              zIndexRaw="1"
-              objectFit="contain"
-              borderRadius={borderRadius}
-            />
-
-            {Array.isArray(src) && src.length > 1 && (
-              <>
-                <Icon
-                  elementName="prevIcon"
-                  position="absolute"
-                  left="0"
-                  p="0.3vh"
-                  ml="2vh"
-                  icon="arrowLeftFill"
-                  sizeRaw={{
-                    base: "4vh",
-                    md: "4vh",
-                  }}
-                  borderRadius="1.5vh"
-                  display={src.length > 1 ? "flex" : "none"}
-                  boxShadow="0 0.7em 1.5em -0.5em #000000"
-                  onClick={() => changeImageIndex(currentImageIndex - 1)}
-                  cursor="pointer"
-                  color={colors.secondary}
-                  background={colors.primary}
-                  zIndexRaw="2"
-                >
-                  {prevIcon}
-                </Icon>
-                <Icon
-                  elementName="nextIcon"
-                  position="absolute"
-                  right="0"
-                  p="0.3vh"
-                  mr="2vh"
-                  sizeRaw={{
-                    base: "4vh",
-                    md: "4vh",
-                  }}
-                  borderRadius="1.5vh"
-                  icon="arrowRightFill"
-                  display={src.length > 1 ? "flex" : "none"}
-                  boxShadow="0 0.7em 1.5em -0.5em #000000"
-                  onClick={() => changeImageIndex(currentImageIndex + 1)}
-                  cursor="pointer"
-                  color={colors.secondary}
-                  background={colors.primary}
-                  zIndexRaw="2"
-                >
-                  {nextIcon}
-                </Icon>
-              </>
-            )}
+            top="0">
+            {stopProgationChildren}
           </Flex>
-        )}
-      </>
-    );
-  });
+        </Suspense>
+      )}
+    </>
+  );
+});
 export const Image = React.memo(ImageComponent);

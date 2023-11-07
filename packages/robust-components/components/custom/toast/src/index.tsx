@@ -1,237 +1,116 @@
-import React, { Ref, forwardRef } from "react";
-import { ForwardRefExoticToast, ToastProps, ToastPropsClean } from "./types";
-import { useGlobalContext } from "@robust-ui/use-global-context";
+import React, { Ref, Suspense, forwardRef, lazy, useMemo } from "react";
+import { ToastProps, ToastPropsNoGeneric } from "./types";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { Icon, Ticon } from "@robust-ui/icon";
-import { colors } from "@robust-ui/theme";
-import {
-  addOpacity,
-  calculateLuminance,
-  generateColorScheme,
-} from "@robust-ui/css-utils";
-import { Flex } from "@robust-ui/flex";
-import { StyledText } from "@robust-ui/nested-styled-text";
+import { generateColorScheme } from "@robust-ui/css-utils";
+import { ForwardRefExotic } from "@robust-ui/constructor";
+
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
+);
+
+const Span = lazy(() =>
+  import("@robust-ui/span").then((module) => ({ default: module.Span }))
+);
+
+const Button = lazy(() =>
+  import("@robust-ui/button").then((module) => ({ default: module.Button }))
+);
+
 export * from "./types";
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToast> =
-  forwardRef<unknown, ToastProps>(function ToastComponent(
-    { ...props }: ToastProps,
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
-    const globalContextData = useGlobalContext({ key: "devData" });
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
+  forwardRef(function ToastComponent({ ...props }, ref): React.JSX.Element {
     const cleanedProps = useCleanValue({ props });
     const {
-      styleMarker = "|",
-      fontWeights = ["300"],
-      fontWeightsRaw,
-      variant = "ghost",
-      colorScheme,
-      status = "warning",
-      textProps,
-      textColors,
-      textColorsRaw,
-      icon,
-      headline = "title default",
-      description = "info default",
-      isClosable = true,
-      position = "bottom",
-      size,
-      multiLanguageSupport,
+      opacityColorScheme = 0.9,
+      variant = "solid",
+      colorSchemeRaw,
+      status = "default",
       children,
+      multiLanguageSupport,
+      isClosable,
+      colorScheme,
       onClose,
+      label,
+      description,
+      altColor = true,
       ...rest
-    } = cleanedProps as ToastPropsClean;
+    } = cleanedProps as ToastPropsNoGeneric;
 
-    const localizedChildren =
-      description ||
-      multiLanguageSupport?.[globalContextData.currentGlobalLanguage] ||
-      children;
-
-    const statusMap: {
-      success: {
-        color: string;
-        icon: Ticon;
+    const structureStyle = useMemo(() => {
+      const colorStatus = {
+        info: "blue600",
+        warning: "yellow600",
+        success: "green600",
+        error: "red600",
+        default: "mulberry600",
       };
-      error: {
-        color: string;
-        icon: Ticon;
-      };
-      warning: {
-        color: string;
-        icon: Ticon;
-      };
-      info: {
-        color: string;
-        icon: Ticon;
-      };
-    } = {
-      success: {
-        color: colors["green600"],
-        icon: "checkFill",
-      },
-      error: {
-        color: colors["red600"],
-        icon: "errorWarningFill",
-      },
-      warning: {
-        color: colors["yellow600"],
-        icon: "errorWarningFill",
-      },
-      info: {
-        color: colors["blue600"],
-        icon: "infoCircleFilled",
-      },
-    };
 
-    const colorRaw =
-      colorScheme && colors[colorScheme]
-        ? colors[colorScheme]
-        : statusMap[status].color;
-
-    const opacityColor = addOpacity({
-      color: colorRaw,
-      opacity: 0.8,
-    });
-    const textColor = colorScheme
-      ? calculateLuminance({ color: colorRaw }) < 128
-        ? colors["white"]
-        : colors["black"]
-      : colors["white"];
-
-    const Placement = {
-      topRight: {
-        top: "0",
-        right: "0",
-      },
-      top: {
-        top: "0",
-        left: "50%",
-        transform: "translateX(-50%)",
-      },
-      topLeft: {
-        top: "0",
-        left: "0",
-      },
-      bottomRight: {
-        bottom: "0",
-        right: "0",
-      },
-      bottom: {
-        bottom: "0",
-        left: "50%",
-        transform: "translateX(-50%)",
-      },
-      bottomLeft: {
-        bottom: "0",
-        left: "0",
-      },
-    };
-
-    const variantMap = {
-      solid: {
-        bg: colorRaw,
-        color: textColor,
-      },
-      subtle: {
-        bg: "transparent",
-        color: colorRaw,
-      },
-      "left-accent": {
-        bg: colorRaw,
-        color: textColor,
-      },
-      "top-accent": {
-        bg: colorRaw,
-        color: textColor,
-      },
-    };
+      return generateColorScheme({
+        baseColor: colorSchemeRaw || colorScheme || colorStatus[status],
+        opacity: opacityColorScheme,
+        altColor,
+        variant,
+      });
+    }, [
+      altColor,
+      colorScheme,
+      colorSchemeRaw,
+      opacityColorScheme,
+      status,
+      variant,
+    ]);
 
     return (
-      <Flex
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="spaceBetween"
-        position="relative"
-        bgRaw={opacityColor}
-        width="fitContent"
-        height="fitContent"
-        borderRadius="2vh"
-        p="2vh"
-        cursor="pointer"
-        zIndex="9999"
-        ref={ref}
-      >
-        <Icon
-          icon={statusMap[status].icon}
-          size="3vh"
-          cursor="pointer"
-          borderRadius="2vh"
-          onClick={onClose}
-          {...generateColorScheme({
-            colorRaw,
-            variant: "ghost",
-          })}
-          bg="transparent"
-          color={textColor}
-          hover="none"
-        />
+      <Suspense>
         <Flex
-          flexDirection="column"
+          flexDirection="row"
           alignItems="center"
           justifyContent="spaceBetween"
           position="relative"
           width="fitContent"
           height="fitContent"
           borderRadius="2vh"
-          pr="8vw"
-          pl="2vh"
+          gap="2vh"
+          p="2vh"
           cursor="pointer"
           zIndex="9999"
-        >
-          <StyledText
-            fontWeights={["900"]}
-            fontSize={"3.5vh"}
-            textColors={textColors}
-            textColorsRaw={textColorsRaw || [textColor]}
-            styleMarker={styleMarker}
-            userSelect="Text"
-            textAlign="left"
-            optimizedWidth
-            cursor="pointer"
-            {...textProps}
-          >
-            {headline}
-          </StyledText>
-          <StyledText
-            fontWeights={fontWeights}
-            textColors={textColors}
-            fontWeightsRaw={fontWeightsRaw}
-            textColorsRaw={textColorsRaw || [textColor]}
-            styleMarker={styleMarker}
-            userSelect="Text"
-            textAlign="left"
-            optimizedWidth
-            cursor="pointer"
-            fontSize="2.5vh"
-            {...textProps}
-          >
-            {typeof localizedChildren === "string" ? localizedChildren : ""}
-          </StyledText>
+          ref={ref}
+          {...structureStyle}
+          {...rest}>
+          {(label || description) && (
+            <Suspense>
+              <Flex flexDirection="column">
+                {label && (
+                  <Suspense>
+                    <Span fontWeight="bold" fontSize="2vh">
+                      {label}
+                    </Span>
+                  </Suspense>
+                )}
+                {description && (
+                  <Suspense>
+                    <Span fontSize="1.5vh" fontWeight="regular">
+                      {description}
+                    </Span>
+                  </Suspense>
+                )}
+              </Flex>
+            </Suspense>
+          )}
+          {isClosable && (
+            <Suspense>
+              {/* <Button
+                onClick={onClose}
+                iconProps={{
+                  iconPosition: "left",
+                  iconType: "closeCircleFill",
+                }}
+                {...structureStyle}
+              /> */}
+            </Suspense>
+          )}
         </Flex>
-        {isClosable && (
-          <Icon
-            icon={"closeFill"}
-            size="3vh"
-            cursor="pointer"
-            borderRadius="2vh"
-            onClick={onClose}
-            {...generateColorScheme({
-              colorRaw,
-              variant: "ghost",
-            })}
-            color={textColor}
-          />
-        )}
-      </Flex>
+      </Suspense>
     );
   });
 

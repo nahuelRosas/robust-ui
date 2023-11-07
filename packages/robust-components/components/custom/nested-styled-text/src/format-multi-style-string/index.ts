@@ -1,13 +1,13 @@
-import React from "react";
-import { StyledTextPropsNoGeneric } from "@/types";
 import { getRandomHexColor } from "@robust-ui/css-utils";
+import { StyledTextPropsNoGeneric } from "@/types";
+import React from "react";
 export function formatMultiStyleString({
+  useRandomColors,
+  fontWeightsRaw,
+  textColorsRaw,
+  styleMarker,
   children,
   isActive,
-  styleMarker,
-  textColorsRaw,
-  fontWeightsRaw,
-  useRandomColors,
 }: Partial<StyledTextPropsNoGeneric>) {
   const hasValidMultiStyles = isActive && styleMarker;
   let formattedChildren: unknown[] = [];
@@ -55,7 +55,7 @@ export function formatMultiStyleString({
           })
           .flat();
         return textLines;
-      }),
+      })
     );
   });
 

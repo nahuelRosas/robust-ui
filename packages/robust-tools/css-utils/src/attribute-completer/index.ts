@@ -22,19 +22,20 @@ export function attributeCompleter({
     > = {};
 
     for (const [key, value] of Object.entries(inputAttributes)) {
+      if (value === undefined) return;
       if (value && typeof value === "object" && !Array.isArray(value)) {
         const hasValidBreakpoints = Object.keys(value).some((attrKey) =>
-          mediaBreakpoints.hasOwnProperty(attrKey),
+          mediaBreakpoints.hasOwnProperty(attrKey)
         );
         const hasValidDarkMode = ["dark", "light"].some((darkModeKey) =>
-          value.hasOwnProperty(darkModeKey),
+          value.hasOwnProperty(darkModeKey)
         );
 
         if (hasValidBreakpoints && hasValidDarkMode) {
           throw new Error(
             `Invalid inputAttributes format: Cannot have both breakpoints and dark mode in the same object: ${JSON.stringify(
-              key,
-            )} - ${JSON.stringify(value)}`,
+              key
+            )} - ${JSON.stringify(value)}`
           );
         }
 

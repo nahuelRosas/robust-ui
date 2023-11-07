@@ -4,19 +4,18 @@ import { Language } from "@robust-ui/theme";
 export function useLanguage(): [
   {
     currentLanguage: keyof typeof Language;
-    fullLanguage: (typeof Language)[keyof typeof Language];
+    fullnameLanguage: (typeof Language)[keyof typeof Language];
   },
   (language: keyof typeof Language) => void,
 ] {
-  const devData = useGlobalContext({ key: "devData" });
-  const devTools = useGlobalContext({ key: "devTools" });
-  const { changeLanguage } = devTools;
-  const { currentGlobalLanguage } = devData;
-
-  const fullLanguage = Language[currentGlobalLanguage];
+  const { currentGlobalLanguage } = useGlobalContext({ key: "devData" });
+  const { changeLanguage } = useGlobalContext({ key: "devTools" });
 
   return [
-    { currentLanguage: currentGlobalLanguage, fullLanguage },
+    {
+      currentLanguage: currentGlobalLanguage,
+      fullnameLanguage: Language[currentGlobalLanguage],
+    },
     changeLanguage,
   ];
 }

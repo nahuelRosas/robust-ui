@@ -1,57 +1,79 @@
-import { CreateComponent } from "@robust-ui/constructor";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { generateColorScheme } from "@robust-ui/css-utils";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import React, { Ref, forwardRef } from "react";
+import { SpinnerProps, SpinnerPropsClean } from "./types";
+import React, { forwardRef, lazy, useMemo } from "react";
 import { models } from "./models";
-import { useGlobalContext } from "@robust-ui/use-global-context";
-import {
-  ForwardRefExoticSpinner,
-  SpinnerProps,
-  SpinnerPropsClean,
-} from "./types";
+export * from "./types";
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSpinner> =
-  forwardRef<unknown, SpinnerProps>(function SpinnerComponent(
-    { ...props },
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
-    const DefaultComponent = CreateComponent({
-      ComponentType: "div",
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({
+    default: module.Flex,
+  }))
+);
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpinnerProps>> =
+  forwardRef(function SpinnerComponent({ ...props }, ref): React.JSX.Element {
+    const Component = CreateComponent({
+      componentType: "span",
     });
-    const globalContextData = useGlobalContext({ key: "devData" });
-
     const cleanedProps = useCleanValue({ props });
-    const { size, width, height, sizeRaw, colors, model, ...rest } =
-      cleanedProps as SpinnerPropsClean;
-
-    const newSizesEvaluated = sizeRaw
-      ? sizeRaw
-      : typeof size === "object"
-      ? size[globalContextData.currentBreakpoint as string]
-      : size;
-
-    const modelSelected = models({
+    const {
+      colorScheme = "mulberry",
+      opacityColorScheme,
+      colorSchemeRaw,
+      model = "A",
+      colorsRaw,
+      variant,
+      altColor,
+      sizeRaw,
       colors,
-      model,
-    });
+      height,
+      width,
+      size,
+      ...rest
+    } = cleanedProps as SpinnerPropsClean;
+
+    const structureStyle = useMemo(
+      () =>
+        generateColorScheme({
+          opacity: opacityColorScheme | 1,
+          baseColor: colorSchemeRaw || colorScheme,
+          variant: variant || "solid",
+          altColor,
+        }),
+      [colorSchemeRaw, colorScheme, opacityColorScheme, variant, altColor]
+    );
+
+    const modelSelected = useMemo(
+      () =>
+        models({
+          colorsRaw: {
+            primary: structureStyle.background,
+            secondary: structureStyle.color,
+          },
+          colors,
+          model,
+        }),
+      [colors, model, structureStyle.background, structureStyle.color]
+    );
 
     return (
-      <DefaultComponent
-        elementName="Wrap"
-        backgroundColor="transparent"
+      <Flex
         justifyContent="center"
+        position="relative"
         alignItems="center"
-        widthRaw={newSizesEvaluated}
-        heightRaw={newSizesEvaluated}
-        ref={ref}
-      >
-        <DefaultComponent
+        height="100%"
+        width="100%"
+        {...rest}>
+        <Component
+          height={sizeRaw || size || height || "2.5vh"}
+          width={sizeRaw || size || width || "2.5vh"}
           elementName="Spinner"
-          width="inherit"
-          height="inherit"
+          ref={ref}
           {...modelSelected}
           {...rest}
         />
-      </DefaultComponent>
+      </Flex>
     );
   });
 

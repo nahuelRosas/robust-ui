@@ -1,7 +1,8 @@
-import { EnhancedElementProps } from "@robust-ui/constructor";
+import {
+  EnhancedElementPropsNoGeneric,
+  EnhancedElementProps,
+} from "@robust-ui/constructor";
 
 export interface TextProps extends EnhancedElementProps<HTMLParagraphElement> {}
-
-export type ForwardRefExoticText = Omit<TextProps, "ref"> &
-  React.RefAttributes<unknown> &
-  TextProps;
+export interface TextPropsNoGeneric
+  extends EnhancedElementPropsNoGeneric<HTMLParagraphElement> {}

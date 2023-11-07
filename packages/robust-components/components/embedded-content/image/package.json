@@ -33,7 +33,9 @@
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/spinner": "workspace:*",
+    "@robust-ui/button": "workspace:*",
     "@robust-ui/theme": "workspace:*",
+    "@robust-ui/utils": "workspace:*",
     "@robust-ui/flex": "workspace:*",
     "@robust-ui/icon": "workspace:*",
     "react": "^18.2.0"

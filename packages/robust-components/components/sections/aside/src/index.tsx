@@ -1,162 +1,150 @@
-import { AsideProps, AsidePropsClean, ForwardRefExoticAside } from "./types";
+import React, { Suspense, forwardRef, lazy, useMemo, useState } from "react";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
 import { generateColorScheme } from "@robust-ui/css-utils";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import React, { Ref, forwardRef, useState } from "react";
-import { CreateComponent } from "@robust-ui/constructor";
-import { Icon } from "@robust-ui/icon";
-import { Flex } from "@robust-ui/flex";
+import { AsidePropsNoGeneric, AsideProps } from "./types";
+import { generateStructure } from "./generate-structure";
+import { ButtonProps } from "@robust-ui/button";
+import { propagation } from "@robust-ui/utils";
+import { startTransition } from "react";
 export * from "./types";
 
-export const Heights = {
-  full: "100vh",
-  xl: "80vh",
-  lg: "60vh",
-  md: "40vh",
-  sm: "20vh",
-  base: "10vh",
-};
-export const Widths = {
-  full: "100vw",
-  xl: "80vw",
-  lg: "60vw",
-  md: "40vw",
-  sm: "20vw",
-  base: "10vw",
-};
+const Flex = lazy(() =>
+  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
+);
 
-export const Placement = {
-  top: {
-    top: "0",
-    left: "0",
-    right: "0",
-    bottom: "auto",
-  },
-  right: {
-    top: "0",
-    right: "0",
-    bottom: "0",
-    left: "auto",
-  },
-  bottom: {
-    top: "auto",
-    right: "0",
-    bottom: "0",
-    left: "0",
-  },
-  left: {
-    top: "0",
-    right: "auto",
-    bottom: "0",
-    left: "0",
-  },
-};
+const Button = lazy(() =>
+  import("@robust-ui/button").then((module) => ({ default: module.Button }))
+);
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticAside> =
-  forwardRef<unknown, AsideProps>(function AsideComponent(
-    { ...props }: AsideProps,
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
+  forwardRef(function AsideComponent({ ...props }, ref): React.JSX.Element {
     const Component = CreateComponent({
-      ComponentType: "aside",
+      componentType: "aside",
     });
 
+    const cleanedProps = useCleanValue({ props });
+
     const {
-      colorScheme = "mulberry",
-      variant = "outline",
-      placement = "right",
-      size = "lg",
-      propsIcon,
+      childrenWithOutPropagation,
+      opacityColorScheme,
+      variant = "link",
+      buttonCloseProps,
+      altColor = true,
+      colorSchemeRaw,
+      iconCloseProps,
+      loadingProps,
+      buttonProps,
+      colorScheme,
+      placement,
+      iconProps,
+      children,
       display,
-      closeOnOverlayClick,
-      background,
+      size,
       ...rest
-    } = useCleanValue({ props }) as AsidePropsClean;
+    } = cleanedProps as AsidePropsNoGeneric;
     const [isOpen, setIsOpen] = useState(false);
 
-    const transformDirection = {
-      top: `translateY(calc(-100% - 5rem))`,
-      bottom: `translateY(calc(100% + 5rem))`,
-      left: `translateX(calc(-100% - 5rem))`,
-      right: `translateX(calc(100% + 5rem))`,
-    };
+    const structureStyle = useMemo(
+      () =>
+        generateColorScheme({
+          baseColor: colorSchemeRaw || colorScheme,
+          opacity: opacityColorScheme,
+          altColor,
+          variant,
+        }),
+      [colorSchemeRaw, colorScheme, opacityColorScheme, altColor, variant]
+    );
 
-    const toggleDrawer = () => {
-      setIsOpen(!isOpen);
+    const buttonPropsCompose: {
+      main: ButtonProps;
+      close: ButtonProps;
+    } = {
+      main: {
+        focus:{},
+        loadingProps,
+        iconProps,
+        ...buttonProps,
+      },
+      close: {
+        iconProps: {
+          iconPosition: "left",
+          iconType: "closeFill",
+          ...iconCloseProps,
+        },
+        ...structureStyle,
+        ...buttonCloseProps,
+      },
     };
-
+    const structure = useMemo(
+      () => generateStructure({ size, placement, isOpen }),
+      [size, placement, isOpen]
+    );
+    const childrenPropagation = useMemo(
+      () =>
+        propagation({
+          children: children,
+          props: { onClick: () => setIsOpen(false) },
+        }),
+      [children]
+    );
     return (
       <>
-        <Icon
-          icon="menuFill"
-          onClick={toggleDrawer}
-          cursor="pointer"
-          borderRadius="5px"
-          display={display}
-          {...generateColorScheme({ color: colorScheme, variant })}
-          {...propsIcon}
-        />
-        <Flex
-          zIndex="0"
-          display={isOpen ? "flex" : "none"}
-          width="100vw"
-          height="100vh"
-          onClick={toggleDrawer}
-          position="absolute"
-          top="0"
-          left="0"
-          backdropFilter="blur(5px)"
-          backgroundColor="rgba(0, 0, 0, 0.5)"
-          transition={isOpen ? "background-color 0.25s ease-in-out" : "none"}
-        />
+        <Suspense>
+          <Button
+            onClick={() => startTransition(() => setIsOpen(true))}
+            borderRadius="2vh"
+            cursor="pointer"
+            display={display}
+            // {...buttonPropsCompose.main}
+          />
+        </Suspense>
+        <Suspense>
+          <Flex
+            onClick={() => startTransition(() => setIsOpen(false))}
+            display={isOpen ? "flex" : "none"}
+            backdropFilter="blur(0.5vh)"
+            bgRaw="rgba(0, 0, 0, 0.9)"
+            flexDirection="column"
+            overflow="hidden"
+            position="fixed"
+            height="100vh"
+            zIndex="9999"
+            width="100vw"
+            left="0"
+            top="0"
+          />
+        </Suspense>
         <Component
-          zIndex="100"
-          elementName="Aside"
-          display="flex"
+          justifyContent="center"
+          flexDirection="column"
+          alignItems="center"
+          overflow="hidden"
           position="fixed"
           zIndexRaw="100"
-          flexDirection="column"
-          background={background ? background : "black"}
-          height={
-            size && !(placement === "top" || placement === "bottom")
-              ? "100vh"
-              : `${Heights[size]}`
-          }
-          width={
-            (placement === "left" || placement === "right") && size
-              ? `${Widths[size]}`
-              : "0"
-          }
+          display="flex"
+          zIndex="10000"
+          bg="black"
           ref={ref}
-          overflow="hidden"
-          onClick={closeOnOverlayClick ? toggleDrawer : undefined}
-          transition={isOpen ? "transform 0.25s ease-in-out" : "none"}
-          transform={isOpen ? "none" : transformDirection[placement]}
-          {...Placement[placement]}
-        >
-          <Flex optimizedWidth p="1rem" justifyContent="flexEnd">
-            <Icon
-              icon="closeFill"
-              top="0"
-              right="0"
-              size="1.5rem"
-              onClick={toggleDrawer}
+          {...structure}
+          {...rest}>
+          <Suspense>
+            <Button
+              onClick={() => startTransition(() => setIsOpen(false))}
+              position="absolute"
+              borderRadius="2vh"
+              width="fitContent"
               cursor="pointer"
-              borderRadius="5px"
-              {...generateColorScheme({ color: colorScheme, variant })}
-              {...propsIcon}
+              zIndex="10001"
+              right="0"
+              mx="2vw"
+              my="2vh"
+              top="0"
+              // {...buttonPropsCompose.close}
             />
-          </Flex>
-          <Flex
-            flexDirection="column"
-            justifyContent="center"
-            optimizedWidth
-            height="100%"
-            gap="1rem"
-            p="1rem"
-            {...rest}
-          >
-            {rest.children}
-          </Flex>
+          </Suspense>
+          {childrenPropagation}
+          {childrenWithOutPropagation}
         </Component>
       </>
     );

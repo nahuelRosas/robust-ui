@@ -78,52 +78,215 @@ export function addOpacity({
   color: string;
   opacity: number;
 }) {
-  const r = parseInt(color.slice(1, 3), 16);
-  const g = parseInt(color.slice(3, 5), 16);
-  const b = parseInt(color.slice(5, 7), 16);
+  const colorRaw = colors[color as keyof typeof colors]
+    ? colors[color as keyof typeof colors]
+    : color;
+  const r = parseInt(colorRaw.slice(1, 3), 16);
+  const g = parseInt(colorRaw.slice(3, 5), 16);
+  const b = parseInt(colorRaw.slice(5, 7), 16);
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
-type Variant = "solid" | "outline" | "ghost";
 
+export const getTextColor = (color: string, altColor: boolean) =>
+  altColor
+    ? calculateLuminance({ color }) > 128
+      ? colors["black"]
+      : colors["white"]
+    : calculateLuminance({ color }) < 128
+    ? colors["white"]
+    : colors["black"];
+type Variant = "solid" | "outline" | "ghost" | "link";
 export function generateColorScheme({
-  color = "mulberry",
-  variant,
-  colorRaw,
+  baseColor = "mulberry",
+  variant = "solid",
+  opacity = 0.4,
+  isDisabled = false,
+  isInvalid = false,
+  isValid = false,
+  onlyBorder = false,
+  altColor = false,
 }: {
-  color?: keyof typeof colors;
-  colorRaw?: string;
+  baseColor?: keyof typeof colors | string;
   variant: Variant;
+  opacity?: number;
+  isDisabled?: boolean;
+  isInvalid?: boolean;
+  isValid?: boolean;
+  onlyBorder?: boolean;
+  altColor?: boolean;
 }) {
-  const bgColor = colorRaw ? colorRaw : color && colors[color];
-  const luminance = calculateLuminance({ color: bgColor });
-  const textColor = luminance < 128 ? colors["white"] : colors["black"];
-  const altTextColor = luminance < 128 ? colors["black"] : colors["white"];
-  const borderColor = bgColor;
-  const hoverColor = addOpacity({ color: bgColor, opacity: 0.8 });
+  const baseColorRaw = isDisabled
+    ? colors["gray"]
+    : isInvalid
+    ? colors["red"]
+    : isValid
+    ? colors["green"]
+    : colors[baseColor as keyof typeof colors]
+    ? colors[baseColor as keyof typeof colors]
+    : baseColor;
+
+  const borderColor = isDisabled
+    ? "transparent"
+    : isInvalid
+    ? colors["red"]
+    : isValid
+    ? colors["green"]
+    : "transparent";
+
+  if (isInvalid && isValid && !isDisabled) {
+    throw new Error(
+      "Input can't be invalid and valid at the same time. Please check your code."
+    );
+  }
+
+  const mainColorWithOpacity = addOpacity({ color: baseColorRaw, opacity });
+
+  let borderColorWithOpacity: string;
+  let textColor: string;
+
+  if (onlyBorder) {
+    borderColorWithOpacity =
+      borderColor === "transparent"
+        ? borderColor
+        : addOpacity({ color: borderColor, opacity });
+    textColor = getTextColor(
+      borderColorWithOpacity === "transparent"
+        ? baseColorRaw
+        : borderColorWithOpacity,
+      altColor
+    );
+  } else {
+    borderColorWithOpacity = "transparent";
+    textColor = getTextColor(mainColorWithOpacity, altColor);
+  }
+
+  const hoverColor = addOpacity({
+    color: baseColorRaw,
+    opacity: opacity * 1.5,
+  });
 
   const variantStyles = {
     solid: {
-      background: bgColor,
+      background: mainColorWithOpacity,
       color: textColor,
+      border: onlyBorder
+        ? `0.2vh solid ${borderColorWithOpacity}`
+        : "transparent",
       hover: {
+        outline: "none",
+
         background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: textColor,
+      },
+      focus: {
+        outline: "none",
+
+        background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: textColor,
+      },
+      active: {
+        outline: "none",
+
+        background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: textColor,
       },
     },
     outline: {
       background: "transparent",
-      color: bgColor,
-      border: `1px solid ${borderColor}`,
+      color: baseColorRaw,
+      border: `0.5vh solid ${baseColorRaw}`,
       hover: {
+        outline: "none",
         background: hoverColor,
-        color: altTextColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: textColor,
+      },
+      focus: {
+        outline: "none",
+        background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: textColor,
+      },
+      active: {
+        outline: "none",
+        background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: textColor,
       },
     },
     ghost: {
       background: "transparent",
-      color: bgColor,
+      color: baseColorRaw,
+      border: onlyBorder
+        ? `0.2vh solid ${borderColorWithOpacity}`
+        : "transparent",
       hover: {
+        outline: "none",
+
         background: hoverColor,
-        color: altTextColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: getTextColor(mainColorWithOpacity, altColor),
+      },
+      focus: {
+        outline: "none",
+
+        background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: getTextColor(mainColorWithOpacity, altColor),
+      },
+      active: {
+        outline: "none",
+
+        background: hoverColor,
+        border: onlyBorder
+          ? `0.2vh solid ${borderColorWithOpacity}`
+          : "transparent",
+        color: getTextColor(mainColorWithOpacity, altColor),
+      },
+    },
+    link: {
+      background: "transparent",
+      color: altColor
+        ? getTextColor(mainColorWithOpacity, altColor)
+        : baseColorRaw,
+      border: "none",
+      borderRadius: "0",
+      hover: {
+        outline: "none",
+        background: "transparent",
+        borderBottom: `0.2vh solid ${baseColorRaw}`,
+        color: getTextColor(mainColorWithOpacity, altColor),
+      },
+      focus: {
+        outline: "none",
+        background: "transparent",
+        borderBottom: `0.2vh solid ${baseColorRaw}`,
+        color: getTextColor(mainColorWithOpacity, altColor),
+      },
+      active: {
+        outline: "none",
+        background: "transparent",
+        borderBottom: `0.2vh solid ${baseColorRaw}`,
+        color: getTextColor(mainColorWithOpacity, altColor),
       },
     },
   };

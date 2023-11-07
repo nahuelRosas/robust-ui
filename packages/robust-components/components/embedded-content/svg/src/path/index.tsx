@@ -1,14 +1,14 @@
-import { CreateComponent } from "@robust-ui/constructor";
-import { PathProps, ForwardRefExoticPath } from "./types";
-import React, { Ref, forwardRef } from "react";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import React, { SVGAttributes, forwardRef } from "react";
+import { PathProps } from "./types";
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticPath> =
-  forwardRef<unknown, PathProps>(function PathComponent(
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<PathProps>> =
+  forwardRef(function PathComponent(
     { children, stroke, fill = "currentColor", strokeLinecap, d, ...props },
-    ref: Ref<unknown>,
+    ref
   ): React.JSX.Element {
-    const ComponentPath = CreateComponent<PathProps>({
-      ComponentType: "path",
+    const ComponentPath = CreateComponent<SVGAttributes<SVGPathElement>>({
+      componentType: "path",
     });
     return (
       <ComponentPath
@@ -18,8 +18,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExoticPath> =
         fill={fill}
         ref={ref}
         d={d}
-        {...props}
-      >
+        {...props}>
         {children}
       </ComponentPath>
     );

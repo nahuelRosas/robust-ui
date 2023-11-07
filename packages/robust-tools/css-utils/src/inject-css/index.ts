@@ -86,6 +86,7 @@ export function injectCSS({
         });
       });
     }
+
     const styledCSSMap: Map<string, string[]> = validation
       ? generateStyledCSSMap({
           classNameSelector,
@@ -123,7 +124,7 @@ export function injectCSS({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[injectCSS] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`,
+        `[injectCSS] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`
       );
     }
   }

@@ -1,27 +1,28 @@
-import { SpanProps, ForwardRefExoticSpan } from "./types";
-import { CreateComponent } from "@robust-ui/constructor";
-import React, { Ref, forwardRef } from "react";
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import React, { forwardRef } from "react";
+import { SpanProps, SpanPropsNoGeneric } from "./types";
 export * from "./types";
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticSpan> =
-  forwardRef<unknown, SpanProps>(function SpanComponent(
-    { children, ...props },
-    ref: Ref<unknown>,
-  ): React.JSX.Element {
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpanProps>> =
+  forwardRef(function SpanComponent({ ...props }, ref): React.JSX.Element {
     const Component = CreateComponent({
-      ComponentType: "span",
+      componentType: "span",
     });
+
+    const cleanedProps = useCleanValue({ props });
+
+    const { children, ...rest } = cleanedProps as SpanPropsNoGeneric;
+
     return (
       <Component
-        elementName="Span"
-        fontSize="1rem"
-        whiteSpace="normal"
-        fontStyle="normal"
-        lineHeight="normal"
         textRendering="optimizeLegibility"
+        whiteSpace="normal"
+        lineHeight="normal"
+        elementName="Span"
+        fontStyle="normal"
         ref={ref}
-        {...props}
-      >
+        {...rest}>
         {children}
       </Component>
     );

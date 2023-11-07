@@ -33,6 +33,8 @@
     "@robust-ui/css-utils": "workspace:*",
     "@robust-ui/block": "workspace:*",
     "@robust-ui/theme": "workspace:*",
+    "@robust-ui/utils": "workspace:*",
+    "@robust-ui/flex": "workspace:*",
     "@robust-ui/text": "workspace:*",
     "@robust-ui/span": "workspace:*",
     "react": "^18.2.0"

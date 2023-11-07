@@ -1,22 +1,10 @@
-// Import necessary modules and types
 import { useContext, createContext } from "react";
 import { GlobalContextValues } from "./types";
 
 export * from "./types";
-// Create the global context with an empty initial value
 export const GlobalContext = createContext<GlobalContextValues>(
   {} as GlobalContextValues,
 );
-
-/**
- * Hook to access the GlobalContext data.
- *
- * @param {Object} options - Options for selecting specific context data.
- * @param {string} options.key - Key to select a specific context data object.
- * @param {string} options.subKey - Subkey to access a nested property within the selected context data.
- * @returns {GlobalContextValues | DeveloperTools | UserTools | ToolConfiguration} - The selected context data.
- * @throws {Error} - Throws an error if GlobalContext is not available.
- */
 
 export function useGlobalContext<
   T extends keyof GlobalContextValues,

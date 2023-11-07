@@ -1,33 +1,38 @@
+import { ButtonProps } from "@robust-ui/button";
 import {
   EnhancedElementProps,
+  EnhancedElementPropsNoGeneric,
   GenericProperty,
-  GenericPropertyArray,
 } from "@robust-ui/constructor";
-import { StyledTextProps } from "@robust-ui/nested-styled-text";
-import { colors, defaultTheme } from "@robust-ui/theme";
+import { SpanProps } from "@robust-ui/span";
+import { colors } from "@robust-ui/theme";
 
 export interface CodeTextProps
   extends EnhancedElementProps<HTMLSpanElement | HTMLParagraphElement> {
-  textProps?: GenericProperty<StyledTextProps>;
-  styleMarker?: GenericProperty<string>;
-  textColors?: GenericPropertyArray<keyof typeof colors>;
-  textColorsRaw?: GenericPropertyArray<string>;
-  fontWeights?: GenericPropertyArray<keyof typeof defaultTheme.fontWeight>;
-  fontWeightsRaw?: GenericPropertyArray<string | number>;
+  variant?: GenericProperty<"ghost" | "solid" | "outline" | "link">;
+  copyButton?: GenericProperty<boolean>;
+  copyButtonProps?: GenericProperty<ButtonProps>;
   colorScheme?: GenericProperty<keyof typeof colors>;
-  variant?: GenericProperty<"solid" | "outline" | "ghost">;
+  opacityColorScheme?: GenericProperty<number>;
+  textProps?: GenericProperty<SpanProps>;
+  colorSchemeRaw?: GenericProperty<string>;
+  isDisabled?: GenericProperty<boolean>;
+  altColor?: GenericProperty<boolean>;
 }
 
 export interface CodeTextPropsNoGeneric
-  extends EnhancedElementProps<HTMLSpanElement | HTMLParagraphElement> {
-  textProps?: StyledTextProps;
-  styleMarker?: string;
-  textColors?: (keyof typeof colors)[];
-  textColorsRaw?: string[];
-  fontWeights?: (keyof typeof defaultTheme.fontWeight)[];
-  fontWeightsRaw?: (string | number)[];
+  extends EnhancedElementPropsNoGeneric<
+    HTMLSpanElement | HTMLParagraphElement
+  > {
+  variant?: "ghost" | "solid" | "outline" | "link";
+  copyButton?: boolean;
+  copyButtonProps?: ButtonProps;
   colorScheme?: keyof typeof colors;
-  variant?: "solid" | "outline" | "ghost";
+  opacityColorScheme?: number;
+  textProps?: SpanProps;
+  colorSchemeRaw?: string;
+  isDisabled?: boolean;
+  altColor?: boolean;
 }
 
 export type ForwardRefExoticCodeText = Omit<CodeTextProps, "ref"> &
