@@ -1,8 +1,6 @@
 import { StyledTextProps } from "@robust-ui/nested-styled-text";
 import { NextLinkProps } from "@robust-ui/next-link";
 import { ImageProps } from "@robust-ui/image";
-import { FlexProps } from "@robust-ui/flex";
-import { colors } from "@robust-ui/theme";
 import {
   EnhancedElementPropsNoGeneric,
   EnhancedElementProps,
@@ -10,65 +8,119 @@ import {
   GenericProperty,
 } from "@robust-ui/constructor";
 
-export interface CardProps
-  extends EnhancedElementProps<HTMLSpanElement | HTMLParagraphElement> {
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  opacityColorScheme?: GenericProperty<number>;
-  colorSchemeRaw?: GenericProperty<string>;
-  altColor?: GenericProperty<boolean>;
-  header?: GenericProperty<{
-    propsHeader?: StyledTextProps | NextLinkProps;
-    title: GenericProperty<string>;
-    url?: string;
-  }>;
-  label?: GenericProperty<{
-    title: GenericProperty<string>;
-    propsLabel?: StyledTextProps;
-  }>;
-  text?: GenericProperty<{
-    text: GenericProperty<string>;
-    propsText?: StyledTextProps;
-  }>;
+export interface CardProps extends EnhancedElementProps<HTMLDivElement> {
+  label?: GenericProperty<
+    | {
+        text: GenericProperty<string>;
+        labelProps?: StyledTextProps;
+      }
+    | string
+  >;
+  paragraph?: GenericProperty<
+    | {
+        paragraphProps?: StyledTextProps;
+        text: GenericProperty<string>;
+      }
+    | string
+  >;
+  header?: GenericProperty<
+    | {
+        headerProps?: NextLinkProps;
+        text: GenericProperty<string>;
+        href?: GenericProperty<string>;
+      }
+    | string
+  >;
+  images?: GenericProperty<
+    | {
+        src: GenericPropertyArray<string>;
+        imagesProps?: ImageProps;
+      }
+    | string[]
+  >;
+
   data?: GenericPropertyArray<{
-    images?: GenericProperty<string[]>;
-    title: GenericProperty<string>;
-    text?: GenericProperty<string>;
+    images?: GenericProperty<
+      | {
+          src: GenericPropertyArray<string>;
+          imagesProps?: ImageProps;
+        }
+      | string[]
+    >;
+    label?: GenericProperty<
+      | {
+          labelProps?: StyledTextProps;
+          text: GenericProperty<string>;
+        }
+      | string
+    >;
+    paragraph?: GenericProperty<
+      | {
+          paragraphProps?: StyledTextProps;
+          text: GenericProperty<string>;
+        }
+      | string
+    >;
     href?: GenericProperty<string>;
-    propsTitle?: StyledTextProps;
-    propsText?: StyledTextProps;
-    propsImage?: ImageProps;
-    propsData?: FlexProps;
   }>;
+
+  // data?: GenericPropertyArray<{
+  //   images?: GenericProperty<string[]>;
+  //   title: GenericProperty<string>;
+  //   text?: GenericProperty<string>;
+  //   href?: GenericProperty<string>;
+  //   propsTitle?: StyledTextProps;
+  //   propsText?: StyledTextProps;
+  //   propsImage?: ImageProps;
+  //   propsData?: FlexProps;
+  // }>;
 }
 export interface CardPropsNoGeneric
-  extends EnhancedElementPropsNoGeneric<
-    HTMLSpanElement | HTMLParagraphElement
-  > {
-  colorScheme?: keyof typeof colors;
-  opacityColorScheme?: number;
-  colorSchemeRaw?: string;
-  altColor?: boolean;
-  header?: {
-    propsHeader?: StyledTextProps | NextLinkProps;
-    title: string;
-    url?: string;
-  };
-  label?: {
-    propsLabel?: StyledTextProps;
-    title: string;
-  };
-  text?: {
-    propsText?: StyledTextProps;
-    text: string;
-  };
+  extends EnhancedElementPropsNoGeneric<HTMLDivElement> {
+  label?:
+    | {
+        labelProps?: StyledTextProps;
+        text: string;
+      }
+    | string;
+  paragraph?:
+    | {
+        paragraphProps?: StyledTextProps;
+        text: string;
+      }
+    | string;
+  header?:
+    | {
+        headerProps?: NextLinkProps;
+        text: string;
+        href?: string;
+      }
+    | string;
   data?: {
-    propsTitle?: StyledTextProps;
-    propsText?: StyledTextProps;
-    propsImage?: ImageProps;
-    propsData?: FlexProps;
-    images?: string[];
-    title: string;
-    text?: string;
+    images?:
+      | {
+          src: string[];
+          imagesProps?: ImageProps;
+        }
+      | string[];
+    label?:
+      | {
+          labelProps?: StyledTextProps;
+          text: string;
+        }
+      | string;
+    paragraph?:
+      | {
+          paragraphProps?: StyledTextProps;
+          text: string;
+        }
+      | string;
     href?: string;
   }[];
+  images?:
+    | {
+        src: string[];
+        imagesProps?: ImageProps;
+      }
+    | string[];
 }

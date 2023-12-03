@@ -1,220 +1,179 @@
-import { generateColorScheme } from "@robust-ui/css-utils";
-import { useCleanValue } from "@robust-ui/use-clean-value";
+import React, { forwardRef, startTransition, useMemo, useState } from "react";
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-import { extractStrings } from "@robust-ui/utils";
-import Link from "next/link";
-import { startTransition } from "react";
+import { NextLinkProps, NextLinkPropsNoGeneric } from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { generateColorScheme } from "@robust-ui/css-utils";
+import { ExtractStrings } from "@robust-ui/utils";
+import Link, { LinkProps } from "next/link";
+import { Flex } from "@robust-ui/flex";
+import { Icon } from "@robust-ui/icon";
+import { Span } from "@robust-ui/span";
 export * from "./types";
-import { NextLinkPropsNoGeneric, NextLinkProps } from "./types";
-import React, {
-  forwardRef,
-  useState,
-  Suspense,
-  useMemo,
-  lazy,
-  Ref,
-} from "react";
-
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
-
-const Spinner = lazy(() =>
-  import("@robust-ui/spinner").then((module) => ({ default: module.Spinner }))
-);
-
-const Icon = lazy(() =>
-  import("@robust-ui/icon").then((module) => ({ default: module.Icon }))
-);
-
-const Span = lazy(() =>
-  import("@robust-ui/span").then((module) => ({ default: module.Span }))
-);
 
 const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<NextLinkProps>
 > = forwardRef(function NextLinkComponent(
-  { ...props },
+  { textProps, iconProps, children, ...props },
   ref
 ): React.JSX.Element {
-  const Component = CreateComponent({
+  const Component = CreateComponent<LinkProps>({
     componentType: "a",
   });
-  const cleanedProps = useCleanValue({ props });
-  const [isHovered, setHovered] = useState(false);
+
   const {
-    loadingProps = {
-      spinnerPosition: "left",
-    },
     multiLanguageSupport,
-    opacityColorScheme,
-    variant = "link",
-    altColor = true,
+    colorSchemeProperty,
     hoverTextProps,
     colorSchemeRaw,
     colorScheme,
-    fontSizeRaw,
-    isDisabled,
-    textProps,
-    isLoading,
+    direction,
     hoverText,
-    iconProps,
+    hoverHelp,
+    variant,
+    iconType,
+    ...cleanedProps
+  } = useCleanValue({ props }) as NextLinkPropsNoGeneric;
+
+  const structureStyle = useMemo(() => {
+    return generateColorScheme({
+      variant: variant || "linkLight",
+      opacity: 0.8,
+      baseColor: colorSchemeRaw || colorScheme || "teal",
+      ...colorSchemeProperty,
+    });
+  }, [variant, colorSchemeRaw, colorScheme, colorSchemeProperty]);
+
+  const { otherComponents, strings } = ExtractStrings({
+    multiLanguageSupport,
     children,
-    fontSize,
-    display,
-    href,
-    ...rest
-  } = cleanedProps as NextLinkPropsNoGeneric;
+  });
+  const arialLabel = cleanedProps["aria-label"]
+    ? cleanedProps["aria-label"]
+    : strings.length
+      ? `Link with text: ${strings.join(" ")}`
+      : iconType
+        ? `Link with iconType: ${iconType}`
+        : `Link with URL: ${cleanedProps.href}`;
 
-  const structureStyle = useMemo(
-    () =>
-      generateColorScheme({
-        baseColor: colorSchemeRaw || colorScheme,
-        opacity: opacityColorScheme,
-        isDisabled,
-        altColor,
-        variant,
-      }),
-    [
-      opacityColorScheme,
-      colorSchemeRaw,
-      colorScheme,
-      isDisabled,
-      altColor,
-      variant,
-    ]
-  );
-
-  const { otherComponents, strings } = useMemo(
-    () =>
-      extractStrings({
-        children,
-        multiLanguageSupport,
-      }),
-    [children, multiLanguageSupport]
-  );
-
-  const arialLabel: string = rest["aria-label"]
-    ? rest["aria-label"]
-    : typeof children === "string"
-    ? children
-    : `Aria Link ${href}`;
-
+  const [hovered, setHovered] = useState(false);
   return (
-    <>
-      <Suspense>
-        <Component
-          fontSizeRaw={fontSizeRaw || fontSize || "3vh"}
-          textRendering="optimizeLegibility"
-          aria-labelledby={arialLabel}
-          display={display || "flex"}
-          justifyContent="center"
-          aria-label={arialLabel}
-          elementName="NextLink"
-          textDecoration="none"
-          borderRadius="2.5vh"
-          flexDirection="row"
-          alignItems="center"
-          ElementType={Link}
+    <Component
+      onMouseEnter={() => startTransition(() => setHovered(true))}
+      onMouseLeave={() => startTransition(() => setHovered(false))}
+      borderRadius={
+        colorSchemeProperty?.variant === "link" || !colorSchemeProperty
+          ? undefined
+          : "2.5vw"
+      }
+      keyframesRaw={{
+        scaleUpLink: {
+          "0%": {
+            transform: "scale(1)",
+          },
+          "50%": {
+            transform: "scale(1.025)",
+          },
+          "100%": {
+            transform: "scale(1.05)",
+          },
+        },
+        scaleDownLink: {
+          "0%": {
+            transform: "scale(1.05)",
+          },
+          "50%": {
+            transform: "scale(1.025)",
+          },
+          "100%": {
+            transform: "scale(1)",
+          },
+        },
+      }}
+      animationRaw={
+        hovered
+          ? "scaleUpLink 0.1s ease-in-out forwards"
+          : "scaleDownLink 0.1s ease-in-out forwards"
+      }
+      flexDirectionRaw={direction || "row"}
+      textRendering="optimizeLegibility"
+      aria-labelledby={arialLabel}
+      justifyContent="center"
+      aria-label={arialLabel}
+      elementName="NextLink"
+      textDecoration="none"
+      position="relative"
+      alignItems="center"
+      ElementType={Link}
+      width="fitContent"
+      fontSizeRaw="3vh"
+      cursor="pointer"
+      display="flex"
+      role="link"
+      gap="0.5vw"
+      ref={ref}
+      py="1vh"
+      px="1vw"
+      {...structureStyle}
+      {...cleanedProps}>
+      {/* {isLoading && (
+        <Suspense>
+          <Spinner
+            colorSchemeRaw={
+              cleanedProps.colorSchemeRaw || cleanedProps.colorScheme
+            }
+            elementName="NextLinkSpinner"
+            sizeRaw="2.5vh"
+            {...loadingProps}
+          />
+        </Suspense>
+      )}*/}
+      {(iconType || iconProps) && (
+        <Icon
+          sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "4vh"}
+          elementName="NextLinkIcon"
+          iconType={iconType}
+          {...iconProps}
+        />
+      )}
+      {strings.length > 0 && (
+        <Span
+          elementName="NextLinkText"
+          whiteSpace="nowrap"
+          fontSize="inherit"
+          userSelect="none"
+          {...textProps}>
+          {strings}
+        </Span>
+      )}
+      {otherComponents}
+      {hoverHelp && (
+        <Flex
+          fontSizeRaw={
+            cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3vh"
+          }
+          transitionRaw="opacity 0.5s ease-in-out"
+          transformRaw="translate(30%, 125%)"
+          opacityRaw={hovered ? "1" : "0"}
+          elementName="ButtonHoverText"
+          pointerEventsRaw="none"
+          background="gray900"
+          borderRadius="1.5vh"
           width="fitContent"
-          cursor="pointer"
-          role="link"
-          gap="0.5vw"
-          // href={href}
-          ref={ref}
+          position="fixed"
           py="1vh"
           px="1vw"
-          // onMouseEnter={() => startTransition(() => setHovered(true))}
-          // onMouseLeave={() => startTransition(() => setHovered(false))}
-          disabled={isLoading || isDisabled}
-          {...structureStyle}
-          {...rest}>
-          {isLoading && loadingProps?.spinnerPosition === "left" && (
-            <Suspense>
-              <Spinner
-                elementName="NextLinkSpinner"
-                colorScheme={colorScheme}
-                sizeRaw="2.5vh"
-                {...loadingProps?.spinnerProps}
-              />
-            </Suspense>
-          )}
-          {iconProps?.iconPosition === "left" && (
-            <Suspense>
-              <Icon
-                display={iconProps?.iconPosition === "left" ? "flex" : "none"}
-                sizeRaw={(fontSizeRaw || fontSize || "4vh") as string}
-                elementName="NextLinkIcon"
-                icon={iconProps?.iconType}
-                {...iconProps?.iconProps}
-              />
-            </Suspense>
-          )}
-          {strings.length > 0 && (
-            <Suspense>
-              <Span
-                elementName="NextLinkText"
-                whiteSpace="nowrap"
-                fontSize="inherit"
-                userSelect="none"
-                {...textProps}>
-                {strings}
-              </Span>
-            </Suspense>
-          )}
-          {otherComponents}
-          {iconProps?.iconPosition === "right" && (
-            <Suspense>
-              <Icon
-                display={iconProps?.iconPosition === "right" ? "flex" : "none"}
-                sizeRaw={(fontSizeRaw || fontSize || "4vh") as string}
-                elementName="NextLinkIcon"
-                icon={iconProps?.iconType}
-                {...iconProps?.iconProps}
-              />
-            </Suspense>
-          )}
-          {isLoading && loadingProps?.spinnerPosition === "right" && (
-            <Suspense>
-              <Spinner
-                elementName="NextLinkSpinner"
-                colorScheme={colorScheme}
-                sizeRaw="2.5vh"
-                {...loadingProps?.spinnerProps}
-              />
-            </Suspense>
-          )}
-        </Component>
-      </Suspense>
-      {hoverText && (
-        <Suspense>
-          <Flex
-            fontSizeRaw={fontSizeRaw || fontSize || "3vh"}
-            transition="opacity 0.3s ease-in-out"
-            transform="translate(-50%, 75%)"
-            elementName="NextLinkHoverText"
-            opacity={isHovered ? "1" : "0"}
-            background="gray900"
-            borderRadius="1.5vh"
-            position="absolute"
-            left="50%"
-            top="50%"
-            py="1vh"
-            px="1vw"
-            {...hoverTextProps?.containerProps}>
-            <Suspense>
-              <Span
-                elementName="NextLinkHoverText"
-                color="gray100"
-                userSelect="none"
-                {...hoverTextProps?.textProps}>
-                {hoverText}
-              </Span>
-            </Suspense>
-          </Flex>
-        </Suspense>
+          {...hoverTextProps?.containerProps}>
+          <Span
+            elementName="ButtonHoverText"
+            whiteSpace="nowrap"
+            userSelect="none"
+            color="gray100"
+            {...hoverTextProps?.textProps}>
+            {hoverText || arialLabel}
+          </Span>
+        </Flex>
       )}
-    </>
+    </Component>
   );
 });
 export const NextLink = React.memo(Factory);

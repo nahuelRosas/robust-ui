@@ -27,7 +27,9 @@
     "depCheck": "depcheck"
   },
   "dependencies": {
+    "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/css-utils": "workspace:*",
     "react": "^18.2.0"
   },
   "devDependencies": {

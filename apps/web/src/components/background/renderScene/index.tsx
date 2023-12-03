@@ -56,7 +56,7 @@ export function updateInstanceColors({
   const geometry = mesh.geometry;
   geometry.setAttribute(
     "color",
-    new InstancedBufferAttribute(new Float32Array(colors), 3)
+    new InstancedBufferAttribute(new Float32Array(colors), 3),
   );
 }
 
@@ -83,13 +83,13 @@ export function SceneRenderer() {
         position: new Vector3(
           randFloatSpread(200),
           randFloatSpread(200),
-          randFloatSpread(400)
+          randFloatSpread(400),
         ),
         scale: randFloat(0.2, 1),
         velocity: new Vector3(
           randFloatSpread(2),
           randFloatSpread(2),
-          randFloatSpread(2)
+          randFloatSpread(2),
         ),
         attraction: 0.0025 + randFloat(0, 0.01),
         vlimit: 0.3 + randFloat(0, 0.2),
@@ -100,7 +100,7 @@ export function SceneRenderer() {
   const composer = useMemo(() => new EffectComposer(gl), [gl]);
   const renderPass = useMemo(
     () => new RenderPass(scene, camera),
-    [scene, camera]
+    [scene, camera],
   );
   const FXAA = useMemo(() => new ShaderPass(FXAAShader), []);
   const unrealBloomPass = useMemo(
@@ -109,14 +109,14 @@ export function SceneRenderer() {
         new Vector2(window.innerWidth, window.innerHeight),
         0.5,
         10.4,
-        10.85
+        10.85,
       ),
-    []
+    [],
   );
   const dummyObjectMatrix = new InstancedMesh(
     new DodecahedronGeometry(),
     subsurfaceMaterial,
-    0
+    0,
   ).matrix as Matrix4;
   const onMouseMove = (event: THREE.Event) => {
     debounce(() => {

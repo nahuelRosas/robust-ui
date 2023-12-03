@@ -1,0 +1,73 @@
+import React, { forwardRef, useMemo } from "react";
+import { FlexProps, FlexPropsNoGeneric } from "./types";
+import {
+  CreateComponent,
+  ForwardRefExotic,
+  useCleanValue,
+} from "@robust-ui/nextjs-components";
+import { generateColorScheme } from "@robust-ui/css-utils";
+export * from "./types";
+
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
+  forwardRef(function FlexComponent(
+    { children, ...props },
+    ref,
+  ): React.JSX.Element {
+    const Component = CreateComponent<HTMLDivElement>({
+      componentType: "div",
+    });
+
+    const {
+      multiLanguageSupport,
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      variant,
+      ...cleanedProps
+    } = useCleanValue({ props }) as FlexPropsNoGeneric;
+
+    const structureStyle = useMemo(() => {
+      if (!colorSchemeProperty && !colorSchemeRaw && !colorScheme) return {};
+      return generateColorScheme({
+        variant: variant || colorSchemeProperty?.variant || "solid",
+        opacity: 0.9,
+        props: {
+          hover: false,
+          focus: false,
+          active: false,
+        },
+        baseColor:
+          colorSchemeProperty?.baseColor ||
+          colorSchemeProperty?.baseColorRaw ||
+          colorSchemeRaw ||
+          colorScheme ||
+          "black",
+        ...colorSchemeProperty,
+      });
+    }, [colorSchemeProperty, colorSchemeRaw, colorScheme, variant]);
+
+    const composeChildren = useMemo(() => {
+      if (multiLanguageSupport && children)
+        console.error(
+          "Warning: multiLanguageSupport and children are not compatible, please use one or the other",
+        );
+      return multiLanguageSupport || children;
+    }, [multiLanguageSupport, children]);
+
+    return (
+      <Component
+        ref={ref}
+        justifyContent="flexStart"
+        flexDirection="row"
+        alignItems="center"
+        elementName="Flex"
+        display="flex"
+        {...structureStyle}
+        {...cleanedProps}
+      >
+        {composeChildren}
+      </Component>
+    );
+  });
+
+export const Flex = React.memo(Factory);

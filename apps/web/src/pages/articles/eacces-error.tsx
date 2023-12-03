@@ -1,12 +1,14 @@
-import {
-  Flex,
-  StyledText,
-  Image,
-  Block,
-  NextLink,
-  CodeText,
-  StyledTextProps,
-} from "@robust-ui/nextjs-components";
+import { StyledTextProps } from "@/components/nested-styled-text";
+import { Block } from "@/components/block";
+import { Flex } from "@/components/flex";
+import { Icon } from "@/components/icon";
+import { Image } from "@/components/image";
+import { StyledText } from "@/components/nested-styled-text";
+import { NextLink } from "@/components/nextLink";
+import { Card } from "@/components/card";
+import { CodeText } from "@/components/codeText";
+import React from "react";
+import HeadNext from "@/components/headNext";
 
 export default function EaccesError() {
   const commonTextStyle: StyledTextProps = {
@@ -27,14 +29,9 @@ export default function EaccesError() {
       base: "left",
       md: "justify",
     },
-    textShadow: {
-      x: "0.3vh",
-      y: "-0.2vh",
-      blur: "0.2vh",
-      color: "black",
-    },
+
     fontWeights: ["400", "900", "400", "900"],
-    textColors: ["white", "mulberry", "white", "indigo"],
+    colors: ["white", "teal", "white", "indigo"],
   };
   const titleTextStyle: StyledTextProps = {
     optimizedWidth: true,
@@ -54,14 +51,9 @@ export default function EaccesError() {
       base: "left",
       md: "justify",
     },
-    textShadow: {
-      x: "0.3vh",
-      y: "-0.2vh",
-      blur: "0.2vh",
-      color: "black",
-    },
+
     fontWeights: ["900"],
-    textColors: ["white", "mulberry", "white", "indigo"],
+    colors: ["white", "teal", "white", "indigo"],
   };
   const secondaryTitleTextStyle: StyledTextProps = {
     optimizedWidth: true,
@@ -81,112 +73,37 @@ export default function EaccesError() {
       base: "left",
       md: "justify",
     },
-    textShadow: {
-      x: "0.3vh",
-      y: "-0.2vh",
-      blur: "0.2vh",
-      color: "black",
-    },
-    fontWeights: ["900"],
-    textColors: ["mulberry", "white", "indigo"],
-  };
 
+    fontWeights: ["900"],
+    colors: ["teal", "white", "indigo"],
+  };
   return (
-    <Block pt="10vh" tabIndex={-1} id={"eacces-error"}>
-      <Flex
-        justifyContent="center"
-        backgroundRaw="rgba(0,0,0,0.6)"
-        borderRadius="16px"
-        py="1rem"
-        widthRaw={{ base: "calc(100vw - 2rem)", md: "calc(100vw - 4rem)" }}
-        mx={{
-          base: "1rem",
-          md: "2rem",
+    <>
+      <HeadNext
+        title={{
+          en: "EACCES Error | Articles | Nahuel Rosas",
+          es: "Error EACCES | Articulos | Nahuel Rosas",
         }}
-        overflow="hidden"
-        flexDirection="column">
-        <NextLink
-          href="/articles"
-          px={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          pt="3vh"
-          cursor="pointer"
-          alignSelf="flexStart">
-          <StyledText
-            p="0"
-            optimizedWidth
-            alignSelf="center"
-            fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
-            }}
-            textAlign={{
-              base: "left",
-              md: "left",
-            }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
-            }}
-            textColors={["white", "mulberry"]}
-            fontWeights={["500", "900"]}
-            multiLanguageSupport={{
-              en: "Articles",
-              es: "Artículos",
-            }}
-          />
-        </NextLink>
-        <StyledText
-          mt="3vh"
-          p="0"
-          optimizedWidth
-          alignSelf="center"
-          fontSizeRaw={{
-            base: "4vh",
-            md: "6vh",
-          }}
-          textAlign={{
-            base: "left",
-            md: "left",
-          }}
-          textShadow={{
-            x: "0.3vh",
-            y: "-0.2vh",
-            blur: "0.2vh",
-            color: "black",
-          }}
-          textColors={["white", "mulberry", "white", "indigo"]}
-          fontWeights={["900"]}
-          px={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          multiLanguageSupport={{
-            en: "Conquering the EACCES Error: | Installing Libraries on Linux Made Easy",
-            es: "Venciendo el Error EACCES: | Instalación de Bibliotecas en Linux de Forma Sencilla",
-          }}
-        />
-        <Image
-          isSlider
-          alt="Eacces error"
-          height="50vh"
-          borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
-          src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169562/portfolio/Articles/Overcoming%20the%20EACCES%20error%20when%20installing%20libraries%20on%20Linux/1684810747172_bguk3p.webp"
-        />
+      />
+      <Card
+        mt="15vh"
+        mb="10vh"
+        tabIndex={-1}
+        id={"eacces-error"}
+        header={{
+          text: {
+            en: "Articles",
+            es: "Artículos",
+          },
+          href: "/articles",
+        }}
+        label={{
+          en: "Conquering the EACCES Error: | Installing Libraries on Linux Made Easy",
+          es: "Venciendo el Error EACCES: | Instalación de Bibliotecas en Linux de Forma Sencilla",
+        }}
+        images={[
+          "https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169562/portfolio/Articles/Overcoming%20the%20EACCES%20error%20when%20installing%20libraries%20on%20Linux/1684810747172_bguk3p.webp",
+        ]}>
         <StyledText
           {...commonTextStyle}
           multiLanguageSupport={{
@@ -256,18 +173,10 @@ La razón detrás de este error se encuentra en la sólida y precisa estructura 
         <Image
           isSlider
           alt="Eacces error"
-          height="50vh"
+          alignSelf="center"
           borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
+          height="50vh"
+          m="3vh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169562/portfolio/Articles/Overcoming%20the%20EACCES%20error%20when%20installing%20libraries%20on%20Linux/1684812922488_nx5g16.webp"
         />
         <StyledText
@@ -370,18 +279,10 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
         <Image
           isSlider
           alt="Eacces error"
-          height="50vh"
+          alignSelf="center"
           borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
+          m="3vh"
+          height="50vh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169561/portfolio/Articles/Overcoming%20the%20EACCES%20error%20when%20installing%20libraries%20on%20Linux/1684819556321_ric2xx.webp"
         />
         <StyledText
@@ -394,18 +295,10 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
         <Image
           isSlider
           alt="Eacces error"
-          height="50vh"
+          alignSelf="center"
           borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
+          m="3vh"
+          height="50vh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169562/portfolio/Articles/Overcoming%20the%20EACCES%20error%20when%20installing%20libraries%20on%20Linux/1684819760366_injzed.webp"
         />
         <StyledText
@@ -470,18 +363,10 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
         <Image
           isSlider
           alt="Eacces error"
-          height="50vh"
+          alignSelf="center"
+          m="3vh"
           borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
+          height="50vh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169562/portfolio/Articles/Overcoming%20the%20EACCES%20error%20when%20installing%20libraries%20on%20Linux/1684813805753_sq5pry.webp"
         />
         <StyledText
@@ -524,19 +409,19 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
         <StyledText
           {...commonTextStyle}
           multiLanguageSupport={{
-            es: `Estos comandos instalarán la última versión de Node.js y configurarán tu sistema para que la utilice. 
-Recuerda que "nvm" te brinda la flexibilidad de cambiar entre diferentes versiones de Node.js según tus necesidades de desarrollo. Puedes consultar la documentación oficial y explorar más características y opciones disponibles para aprovechar al máximo esta herramienta. 
-Es importante tener en cuenta que la instalación global de librerías debe realizarse con precaución y solo cuando sea absolutamente necesario. En general, es recomendable utilizar librerías locales y gestionar las dependencias de nuestros proyectos a través de herramientas como "package.json" y "yarn.lock". Sin embargo, si nos vemos en la necesidad de instalar una librería globalmente, ahora existen herramientas que nos permiten superar los obstáculos de permisos insuficientes. 
-Es relevante destacar que los errores de permisos son simplemente desafíos menores en nuestro proceso de desarrollo. A medida que adquirimos más experiencia y conocimientos, aprendemos a lidiar con ellos y encontrar soluciones rápidas y efectivas. La comunidad de desarrolladores está repleta de recursos y consejos valiosos que nos ayudarán a superar cualquier obstáculo que encontremos en nuestro camino. 
+            es: `Estos comandos instalarán la última versión de Node.js y configurarán tu sistema para que la utilice.
+Recuerda que "nvm" te brinda la flexibilidad de cambiar entre diferentes versiones de Node.js según tus necesidades de desarrollo. Puedes consultar la documentación oficial y explorar más características y opciones disponibles para aprovechar al máximo esta herramienta.
+Es importante tener en cuenta que la instalación global de librerías debe realizarse con precaución y solo cuando sea absolutamente necesario. En general, es recomendable utilizar librerías locales y gestionar las dependencias de nuestros proyectos a través de herramientas como "package.json" y "yarn.lock". Sin embargo, si nos vemos en la necesidad de instalar una librería globalmente, ahora existen herramientas que nos permiten superar los obstáculos de permisos insuficientes.
+Es relevante destacar que los errores de permisos son simplemente desafíos menores en nuestro proceso de desarrollo. A medida que adquirimos más experiencia y conocimientos, aprendemos a lidiar con ellos y encontrar soluciones rápidas y efectivas. La comunidad de desarrolladores está repleta de recursos y consejos valiosos que nos ayudarán a superar cualquier obstáculo que encontremos en nuestro camino.
 Así que, no te desanimes por los errores de permisos insuficientes al instalar librerías globalmente. Utiliza las soluciones que hemos compartido, investiga, aprende y mantén la pasión por el desarrollo de software. Pronto estarás creando proyectos increíbles sin preocuparte por estos pequeños obstáculos en tu camino hacia el éxito.`,
-            en: `These commands will install the latest version of Node.js and configure your system to use it. 
-Remember that "nvm" gives you the flexibility to switch between different versions of Node.js according to your development needs. You can consult the official documentation and explore more features and options available to make the most of this tool. 
-It is important to note that global library installation should be done with caution and only when absolutely necessary. In general, it is recommended to use local libraries and manage the dependencies of our projects through tools such as "package.json" and "yarn.lock". However, if we find ourselves in the need to install a library globally, there are now tools that allow us to overcome the obstacles of insufficient permissions. 
-It is relevant to note that permission errors are simply minor challenges in our development process. As we gain more experience and knowledge, we learn to deal with them and find quick and effective solutions. The developer community is full of valuable resources and tips that will help us overcome any obstacle we encounter on our way. 
+            en: `These commands will install the latest version of Node.js and configure your system to use it.
+Remember that "nvm" gives you the flexibility to switch between different versions of Node.js according to your development needs. You can consult the official documentation and explore more features and options available to make the most of this tool.
+It is important to note that global library installation should be done with caution and only when absolutely necessary. In general, it is recommended to use local libraries and manage the dependencies of our projects through tools such as "package.json" and "yarn.lock". However, if we find ourselves in the need to install a library globally, there are now tools that allow us to overcome the obstacles of insufficient permissions.
+It is relevant to note that permission errors are simply minor challenges in our development process. As we gain more experience and knowledge, we learn to deal with them and find quick and effective solutions. The developer community is full of valuable resources and tips that will help us overcome any obstacle we encounter on our way.
 So, don't be discouraged by insufficient permissions errors when installing libraries globally. Use the solutions we have shared, research, learn, and keep the passion for software development. Soon you will be creating amazing projects without worrying about these little obstacles in your path to success.`,
           }}
         />
-      </Flex>
-    </Block>
+      </Card>
+    </>
   );
 }

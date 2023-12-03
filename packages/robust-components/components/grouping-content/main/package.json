@@ -30,6 +30,7 @@
     "@robust-ui/global-state-reducer": "workspace:*",
     "@robust-ui/use-breakpoint-value": "workspace:*",
     "@robust-ui/use-global-context": "workspace:*",
+    "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/toast-manager": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/theme": "workspace:*",

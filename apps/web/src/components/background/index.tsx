@@ -1,5 +1,5 @@
 import { SceneRenderer } from "./renderScene";
-import { Canvas} from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import React from "react";
 
 export default function Background() {
@@ -13,7 +13,8 @@ export default function Background() {
         height: "100%",
         zIndex: -1,
         background: "#010208",
-      }}>
+      }}
+    >
       <SceneRenderer />
     </Canvas>
   );

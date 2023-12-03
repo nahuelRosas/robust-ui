@@ -9,7 +9,8 @@
     "jsx": "preserve"
   },
   "include": [
-    "."
+    ".",
+    "../../scripts/newPages"
   ],
   "exclude": [
     "dist",

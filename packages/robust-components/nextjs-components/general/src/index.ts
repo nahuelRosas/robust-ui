@@ -20,6 +20,7 @@ export * from "@robust-ui/block";
 export * from "@robust-ui/theme";
 export * from "@robust-ui/label";
 export * from "@robust-ui/input";
+export * from "@robust-ui/icons";
 export * from "@robust-ui/menu";
 export * from "@robust-ui/span";
 export * from "@robust-ui/icon";

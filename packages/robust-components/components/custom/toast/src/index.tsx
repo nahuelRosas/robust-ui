@@ -1,116 +1,99 @@
-import React, { Ref, Suspense, forwardRef, lazy, useMemo } from "react";
-import { ToastProps, ToastPropsNoGeneric } from "./types";
 import { useCleanValue } from "@robust-ui/use-clean-value";
 import { generateColorScheme } from "@robust-ui/css-utils";
 import { ForwardRefExotic } from "@robust-ui/constructor";
-
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
-
-const Span = lazy(() =>
-  import("@robust-ui/span").then((module) => ({ default: module.Span }))
-);
-
-const Button = lazy(() =>
-  import("@robust-ui/button").then((module) => ({ default: module.Button }))
-);
-
+import { ToastProps, ToastPropsNoGeneric } from "./types";
+import React, { forwardRef, useMemo } from "react";
+import { Button } from "@robust-ui/button";
+import { Flex } from "@robust-ui/flex";
+import { Span } from "@robust-ui/span";
 export * from "./types";
+
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
-  forwardRef(function ToastComponent({ ...props }, ref): React.JSX.Element {
-    const cleanedProps = useCleanValue({ props });
+  forwardRef(function ToastComponent(
+    { children, ...props },
+    ref
+  ): React.JSX.Element {
     const {
-      opacityColorScheme = 0.9,
-      variant = "solid",
-      colorSchemeRaw,
       status = "default",
-      children,
-      multiLanguageSupport,
-      isClosable,
+      variant = "outline",
+      colorSchemeProperty,
+      colorSchemeRaw,
       colorScheme,
+      description,
+      isClosable,
       onClose,
       label,
-      description,
-      altColor = true,
-      ...rest
-    } = cleanedProps as ToastPropsNoGeneric;
+      ...cleanedProps
+    } = useCleanValue({
+      props,
+    }) as ToastPropsNoGeneric;
 
     const structureStyle = useMemo(() => {
       const colorStatus = {
-        info: "blue600",
-        warning: "yellow600",
-        success: "green600",
-        error: "red600",
-        default: "mulberry600",
+        info: "blue",
+        warning: "yellow",
+        success: "green",
+        error: "red",
+        default: "teal",
       };
 
       return generateColorScheme({
-        baseColor: colorSchemeRaw || colorScheme || colorStatus[status],
-        opacity: opacityColorScheme,
-        altColor,
-        variant,
+        baseColor:
+          colorStatus[status] || colorSchemeRaw || colorScheme || "teal",
+        opacity: 0.8,
+        variant: "outline",
+        ...colorSchemeProperty,
       });
-    }, [
-      altColor,
-      colorScheme,
-      colorSchemeRaw,
-      opacityColorScheme,
-      status,
-      variant,
-    ]);
+    }, [status, colorSchemeRaw, colorScheme, colorSchemeProperty]);
 
     return (
-      <Suspense>
-        <Flex
-          flexDirection="row"
-          alignItems="center"
-          justifyContent="spaceBetween"
-          position="relative"
-          width="fitContent"
-          height="fitContent"
-          borderRadius="2vh"
-          gap="2vh"
-          p="2vh"
-          cursor="pointer"
-          zIndex="9999"
-          ref={ref}
-          {...structureStyle}
-          {...rest}>
-          {(label || description) && (
-            <Suspense>
-              <Flex flexDirection="column">
-                {label && (
-                  <Suspense>
-                    <Span fontWeight="bold" fontSize="2vh">
-                      {label}
-                    </Span>
-                  </Suspense>
-                )}
-                {description && (
-                  <Suspense>
-                    <Span fontSize="1.5vh" fontWeight="regular">
-                      {description}
-                    </Span>
-                  </Suspense>
-                )}
-              </Flex>
-            </Suspense>
-          )}
-          {isClosable && (
-            <Suspense>
-              {/* <Button
-                onClick={onClose}
-                iconProps={{
-                  iconPosition: "left",
-                  iconType: "closeCircleFill",
-                }}
-                {...structureStyle}
-              /> */}
-            </Suspense>
-          )}
-        </Flex>
-      </Suspense>
+      <Flex
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="spaceBetween"
+        position="relative"
+        width="fitContent"
+        height="fitContent"
+        borderRadius="2.5vh"
+        gap="2vh"
+        p="1.5vh"
+        cursor="pointer"
+        zIndexRaw="9999"
+        ref={ref}
+        {...structureStyle}
+        {...cleanedProps}>
+        {(label || description) && (
+          <Flex flexDirection="column">
+            {label && (
+              <Span fontWeight="bold" fontSize="2vh">
+                {label}
+              </Span>
+            )}
+            {description && (
+              <Span fontSize="1.5vh" fontWeightRaw="regular">
+                {description}
+              </Span>
+            )}
+          </Flex>
+        )}
+        {isClosable && (
+          <Button
+            onClick={onClose}
+            iconProps={{
+              iconType: "closeCircleFill",
+            }}
+            colorSchemeProperty={{
+              baseColorRaw: colorSchemeRaw || colorScheme || "teal",
+              opacity: 1,
+              variant: "solid",
+              props: {
+                hover: true,
+              },
+              ...colorSchemeProperty,
+            }}
+          />
+        )}
+      </Flex>
     );
   });
 

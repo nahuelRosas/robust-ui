@@ -1,13 +1,9 @@
-import {
-  Flex,
-  StyledText,
-  Icon,
-  Block,
-  Image,
-  Ticon,
-  NextLink,
-} from "@robust-ui/nextjs-components";
-import React from "react";
+import { Flex } from "./flex";
+import { Block } from "./block";
+import { Icon, Ticon } from "./icon";
+import { Image } from "./image";
+import { StyledText } from "./nested-styled-text";
+import { NextLink } from "./nextLink";
 
 export function Project({
   id,
@@ -54,10 +50,18 @@ export function Project({
   images?: string[];
 }) {
   return (
-    <Block pt="10vh" tabIndex={-1} id={id}>
+    <Block mt="15vh" mb="10vh" tabIndex={-1} id={id}>
       <Flex
         widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
-        backgroundRaw="rgba(0,0,0,0.6)"
+        colorSchemeProperty={{
+          opacity: 0.8,
+          props: {
+            hover: false,
+            active: false,
+            focus: false,
+          },
+          baseColorRaw: "black",
+        }}
         borderRadius="2.5vh"
         justifyContent="center"
         mx={{
@@ -88,13 +92,7 @@ export function Project({
               base: "left",
               md: "left",
             }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
-            }}
-            textColors={["white", "mulberry"]}
+            colors={["white", "teal"]}
             fontWeights={["500", "900"]}
             multiLanguageSupport={{
               en: "Projects",
@@ -116,13 +114,7 @@ export function Project({
             base: "left",
             md: "left",
           }}
-          textShadow={{
-            x: "0.3vh",
-            y: "-0.2vh",
-            blur: "0.2vh",
-            color: "black",
-          }}
-          textColors={["white", "mulberry", "white", "indigo"]}
+          colors={["white", "teal", "white", "indigo"]}
           fontWeights={["900"]}
           px={{
             base: "6vw",
@@ -146,13 +138,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["mulberry", "white", "indigo"]}
+                colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
                   base: "6vw",
@@ -175,13 +161,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["white", "mulberry", "white", "indigo"]}
+                colors={["white", "teal", "white", "indigo"]}
                 fontWeights={["400", "900", "400", "900"]}
                 px={{
                   base: "6vw",
@@ -206,13 +186,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["mulberry", "white", "indigo"]}
+                colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
                   base: "6vw",
@@ -235,13 +209,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["white", "mulberry", "white", "indigo"]}
+                colors={["white", "teal", "white", "indigo"]}
                 fontWeights={["400", "900", "400", "900"]}
                 px={{
                   base: "6vw",
@@ -266,13 +234,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["mulberry", "white", "indigo"]}
+                colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
                   base: "6vw",
@@ -295,13 +257,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["white", "mulberry", "white", "indigo"]}
+                colors={["white", "teal", "white", "indigo"]}
                 fontWeights={["400", "900", "400", "900"]}
                 px={{
                   base: "6vw",
@@ -314,7 +270,7 @@ export function Project({
           {images && (
             <Image
               isSlider
-              src={images}
+              srcArray={images}
               height="50vh"
               alt="image"
               borderRadius="2.5vh"
@@ -340,13 +296,7 @@ export function Project({
                   base: "left",
                   md: "left",
                 }}
-                textShadow={{
-                  x: "0.3vh",
-                  y: "-0.2vh",
-                  blur: "0.2vh",
-                  color: "black",
-                }}
-                textColors={["mulberry", "white", "indigo"]}
+                colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
                   base: "6vw",
@@ -358,7 +308,7 @@ export function Project({
                 }}
               />
               {keyFeatures.map((feature, index) => {
-                const color = index % 2 === 0 ? "white" : "mulberry";
+                const color = index % 2 === 0 ? "white" : "teal";
 
                 return (
                   <Flex
@@ -370,7 +320,7 @@ export function Project({
                     <Icon
                       key={index}
                       color={color}
-                      icon="starFill"
+                      iconType="starFill"
                       sizeRaw={{
                         base: "2vh",
                         md: "3vh",
@@ -388,18 +338,12 @@ export function Project({
                         base: "left",
                         md: "left",
                       }}
-                      textShadow={{
-                        x: "0.3vh",
-                        y: "-0.2vh",
-                        blur: "0.2vh",
-                        color: "black",
-                      }}
                       fontWeights={["400", "900", "400", "900"]}
                       px={{
                         base: "6vw",
                         md: "3vw",
                       }}
-                      textColors={[color]}
+                      colors={[color]}
                       multiLanguageSupport={feature}
                     />
                   </Flex>
@@ -420,7 +364,7 @@ export function Project({
               md: "3vh",
             }}
             fontWeights={["400", "900", "400", "900"]}
-            textColors={["white", "mulberry", "white", "indigo"]}
+            colors={["white", "teal", "white", "indigo"]}
             px={{
               base: "6vw",
               md: "3vw",
@@ -428,12 +372,6 @@ export function Project({
             textAlign={{
               base: "left",
               md: "left",
-            }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
             }}
             multiLanguageSupport={resume}
           />
@@ -456,7 +394,7 @@ export function Project({
                     alignItems="center">
                     {technology.iconType && (
                       <Icon
-                        icon={technology.iconType}
+                        iconType={technology.iconType}
                         color="white"
                         size={{
                           base: "5vh",
@@ -475,13 +413,7 @@ export function Project({
                         base: "left",
                         md: "left",
                       }}
-                      textShadow={{
-                        x: "0.3vh",
-                        y: "-0.2vh",
-                        blur: "0.2vh",
-                        color: "black",
-                      }}
-                      textColors={["white", "mulberry", "white", "indigo"]}
+                      colors={["white", "teal", "white", "indigo"]}
                       fontWeights={["400", "900", "400", "900"]}
                       multiLanguageSupport={technology.text}
                     />
@@ -500,41 +432,23 @@ export function Project({
           optimizedWidth>
           {url?.npm && (
             <NextLink
-              textShadow={{
-                x: "0.3vh",
-                y: "-0.2vh",
-                blur: "0.2vh",
-                color: "black",
-              }}
               fontSizeRaw={{
-                base: "2vh",
+                base: "3vh",
                 md: "4vh",
               }}
               href={url.npm}
-              iconProps={{
-                iconPosition: "left",
-                iconType: "brandNpm",
-              }}
+              iconType="brandNpm"
               multiLanguageSupport={{ en: "View on NPM", es: "Ver en NPM" }}
             />
           )}
           {url?.github && (
             <NextLink
-              textShadow={{
-                x: "0.3vh",
-                y: "-0.2vh",
-                blur: "0.2vh",
-                color: "black",
-              }}
               fontSizeRaw={{
-                base: "2vh",
+                base: "3vh",
                 md: "4vh",
               }}
               href={url.github}
-              iconProps={{
-                iconPosition: "left",
-                iconType: "brandGithub",
-              }}
+              iconType="brandGithub"
               multiLanguageSupport={{
                 en: "View code on GitHub",
                 es: "Ver código en GitHub",
@@ -543,21 +457,12 @@ export function Project({
           )}
           {url?.website && (
             <NextLink
-              textShadow={{
-                x: "0.3vh",
-                y: "-0.2vh",
-                blur: "0.2vh",
-                color: "black",
-              }}
               fontSizeRaw={{
-                base: "2vh",
+                base: "3vh",
                 md: "4vh",
               }}
               href={url.website}
-              iconProps={{
-                iconPosition: "left",
-                iconType: "network",
-              }}
+              iconType="network"
               multiLanguageSupport={{
                 en: "Visit the project",
                 es: "Visitar el proyecto",

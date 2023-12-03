@@ -1,161 +1,211 @@
-import { generateColorScheme } from "@robust-ui/css-utils";
+import { stopPropagation, ExtractStrings } from "@robust-ui/utils";
+import { OverlayPropsNoGeneric, OverlayProps } from "./types";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { stopPropagation } from "@robust-ui/utils";
+import { ForwardRefExotic } from "@robust-ui/constructor";
+import { Button } from "@robust-ui/button";
+import { Card } from "@robust-ui/card";
+import { Flex } from "@robust-ui/flex";
 import React, {
   startTransition,
   forwardRef,
-  Suspense,
   useState,
   useMemo,
-  lazy,
-  Ref,
+  useEffect,
 } from "react";
-import { OverlayPropsNoGeneric, OverlayProps } from "./types";
-import { ButtonProps } from "@robust-ui/button";
-import { ForwardRefExotic } from "@robust-ui/constructor";
 export * from "./types";
 
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
-const Card = lazy(() =>
-  import("@robust-ui/card").then((module) => ({ default: module.Card }))
-);
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
+  forwardRef(function OverlayComponent(
+    {
+      buttonCloseProps,
+      buttonOpenProps,
+      iconCloseProps,
+      iconOpenProps,
+      paragraphCard,
+      cardProps,
+      labelCard,
+      children,
+      ...props
+    },
+    ref
+  ): React.JSX.Element {
+    const {
+      closeOnOverlayClick = true,
+      multiLanguageSupport,
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      ...cleanedProps
+    } = useCleanValue({ props }) as OverlayPropsNoGeneric;
+    const [isOpen, setIsOpen] = useState(false);
 
-const Button = lazy(() =>
-  import("@robust-ui/button").then((module) => ({ default: module.Button }))
-);
+    const { otherComponents, strings } = ExtractStrings({
+      multiLanguageSupport,
+      children,
+    });
 
-const OverlayComponent: React.ForwardRefExoticComponent<
-  ForwardRefExotic<OverlayProps>
-> = forwardRef(function OverlayComponent({ ...props }, ref): React.JSX.Element {
-  const cleanedProps = useCleanValue({ props });
-  const {
-    colorScheme = "mulberry",
-    opacityColorScheme,
-    buttonCloseProps,
-    variant = "link",
-    colorSchemeRaw,
-    iconCloseProps,
-    altColor = true,
-    loadingProps,
-    buttonProps,
-    iconProps,
-    children,
-    header,
-    label,
-    text,
-    data,
-    ...rest
-  } = cleanedProps as OverlayPropsNoGeneric;
-  const [isOpen, setIsOpen] = useState(false);
+    useEffect(() => {
+      const handleKeyDown = (event: { keyCode: number }) => {
+        if (event.keyCode === 27) startTransition(() => setIsOpen(false));
+      };
+      document.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }, []);
 
-  const structureStyle = useMemo(
-    () =>
-      generateColorScheme({
-        baseColor: colorSchemeRaw || colorScheme,
-        opacity: opacityColorScheme,
-        altColor,
-        variant,
-      }),
-    [colorSchemeRaw, colorScheme, opacityColorScheme, altColor, variant]
-  );
-
-  // const buttonPropsCompose: {
-  //   main: ButtonProps;
-  //   close: ButtonProps;
-  // } = {
-  //   main: { ...structureStyle, loadingProps, iconProps, ...buttonProps },
-  //   close: {
-  //     iconProps: {
-  //       iconPosition: "left",
-  //       iconType: "closeFill",
-  //       ...iconCloseProps,
-  //     },
-  //     ...structureStyle,
-  //     ...buttonCloseProps,
-  //   },
-  // };
-  const stopProgationChildren = useMemo(
-    () =>
-      stopPropagation({
-        children: (
-          <Card
-            header={header}
-            // label={{
-            //   propsLabel: {
-            //     mr: "7%",
-            //   },
-            //   ...label,
-            // }}
-            // text={{
-            //   propsText: {
-            //     mr: "7%",
-            //   },
-            //   ...text,
-            // }}
-            data={data}
-            ref={ref}
-            {...rest}>
-            <Suspense>
+    const stopProgationChildren = useMemo(
+      () =>
+        stopPropagation({
+          children: (
+            <Card
+              colorSchemeProperty={{
+                opacity: 1,
+                baseColorRaw:
+                  colorSchemeProperty?.baseColor ||
+                  colorSchemeProperty?.baseColorRaw ||
+                  colorSchemeRaw ||
+                  colorScheme ||
+                  "black",
+              }}
+              paragraph={paragraphCard}
+              label={labelCard}
+              {...cleanedProps}
+              {...cardProps}>
               <Button
                 onClick={() => startTransition(() => setIsOpen(false))}
+                colorSchemeProperty={{
+                  baseColorRaw:
+                    colorSchemeProperty?.baseColor ||
+                    colorSchemeProperty?.baseColorRaw ||
+                    colorSchemeRaw ||
+                    colorScheme ||
+                    "teal",
+                  variant: "linkLight",
+                  ...colorSchemeProperty,
+                }}
+                iconProps={{
+                  iconType: "closeCircleFill",
+                  ...iconCloseProps,
+                }}
                 position="absolute"
                 borderRadius="2vh"
                 width="fitContent"
+                zIndexRaw="10001"
                 cursor="pointer"
-                zIndex="10001"
-                right="5%"
+                right="0"
                 mx="2vw"
                 my="2vh"
-                // {...buttonPropsCompose.close}
+                top="0"
+                {...buttonCloseProps}
               />
-            </Suspense>
-            {children}
-          </Card>
-        ),
-      }),
-    [children, data, header, ref, rest]
-  );
+              {otherComponents}
+            </Card>
+          ),
+        }),
+      [
+        colorSchemeProperty,
+        colorSchemeRaw,
+        colorScheme,
+        paragraphCard,
+        labelCard,
+        cleanedProps,
+        cardProps,
+        iconCloseProps,
+        buttonCloseProps,
+        otherComponents,
+      ]
+    );
 
-  function setOpen() {
-    return startTransition(() => setIsOpen(!isOpen));
-  }
-
-  return (
-    <>
-      <Suspense>
-        {/* <Button
-          loadingProps={loadingProps}
-          iconProps={iconProps}
+    return (
+      <Flex ref={ref}>
+        <Button
+          onClick={() => startTransition(() => setIsOpen(true))}
+          colorSchemeProperty={{
+            baseColorRaw:
+              colorSchemeProperty?.baseColor ||
+              colorSchemeProperty?.baseColorRaw ||
+              colorSchemeRaw ||
+              colorScheme ||
+              "teal",
+            variant: "linkLight",
+            ...colorSchemeProperty,
+          }}
+          iconProps={{
+            iconType: buttonOpenProps?.iconType || "menuFill",
+            ...iconOpenProps,
+          }}
           borderRadius="2vh"
-          onClick={setOpen}
           cursor="pointer"
-          my="2vh"
-          {...structureStyle}
-          {...buttonProps}
-        /> */}
-      </Suspense>
-      <Suspense>
+          my="1vh"
+          multiLanguageSupport={strings}
+          {...buttonOpenProps}
+        />
         <Flex
-          display={isOpen ? "flex" : "none"}
-          backdropFilter="blur(0.5vh)"
-          bgRaw="rgba(0, 0, 0, 0.7)"
-          justifyContent="center"
+          onClick={
+            closeOnOverlayClick
+              ? () => startTransition(() => setIsOpen(false))
+              : undefined
+          }
+          colorSchemeProperty={{
+            opacity: 0.2,
+            baseColorRaw:
+              colorSchemeProperty?.baseColor ||
+              colorSchemeProperty?.baseColorRaw ||
+              colorSchemeRaw ||
+              colorScheme ||
+              "gray",
+            props: {
+              hover: false,
+              focus: false,
+              active: false,
+            },
+          }}
+          keyframesRaw={{
+            visibleoverlay: {
+              "0%": {
+                opacity: 0,
+              },
+              "50%": {
+                opacity: 0,
+              },
+              "100%": {
+                opacity: 1,
+              },
+            },
+            hiddenoverlay: {
+              "0%": {
+                opacity: 1,
+              },
+              "50%": {
+                opacity: 1,
+              },
+              "100%": {
+                opacity: 0,
+              },
+            },
+          }}
+          pointerEventsRaw={isOpen ? "auto" : "none"}
+          animationRaw={
+            isOpen
+              ? "visibleoverlay 0.5s ease-out forwards"
+              : "hiddenoverlay 0.5s ease-in-out forwards"
+          }
+          backdropFilterRaw="blur(0.5vh)"
           flexDirection="column"
+          justifyContent="center"
           alignItems="center"
-          onClick={setOpen}
           overflow="hidden"
           position="fixed"
+          zIndexRaw="9999"
+          display="flex"
           height="100vh"
           width="100vw"
-          zIndex="9999"
           left="0"
           top="0">
-          <Suspense>{stopProgationChildren}</Suspense>
+          {stopProgationChildren}
         </Flex>
-      </Suspense>
-    </>
-  );
-});
-export const Overlay = React.memo(OverlayComponent);
+      </Flex>
+    );
+  });
+export const Overlay = React.memo(Factory);

@@ -34,10 +34,10 @@ export function pseudoRulesProcessor({
   ]
     ? "pseudoClasses"
     : CSSRulesSet.PseudoElements[
-        inputProp as keyof typeof CSSRulesSet.PseudoElements
-      ]
-    ? "pseudoElements"
-    : null;
+          inputProp as keyof typeof CSSRulesSet.PseudoElements
+        ]
+      ? "pseudoElements"
+      : null;
 
   if (!pseudoProp) return cssStyles;
 

@@ -1,4 +1,4 @@
-export const mediaBreakpoints: Record<string, number> = {
+export const mediaBreakpoints = {
   base: 0,
   xxs: 280,
   xs: 320,

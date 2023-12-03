@@ -1,38 +1,54 @@
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-import { FooterPropsNoGeneric, FooterProps } from "./types";
-import { generateColorScheme } from "@robust-ui/css-utils";
+import { FooterProps, FooterPropsNoGeneric } from "./types";
 import { useCleanValue } from "@robust-ui/use-clean-value";
+import { generateColorScheme } from "@robust-ui/css-utils";
 import React, { forwardRef, useMemo } from "react";
+
 export * from "./types";
 
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FooterProps>> =
-  forwardRef(function FooterComponent({ ...props }, ref): React.JSX.Element {
-    const Component = CreateComponent({
+  forwardRef(function FooterComponent(
+    { children, ...props },
+    ref,
+  ): React.JSX.Element {
+    const Component = CreateComponent<HTMLElement>({
       componentType: "footer",
     });
-    const cleanedProps = useCleanValue({ props });
 
     const {
-      opacityColorScheme = 0.95,
-      colorScheme = "black",
+      multiLanguageSupport,
+      colorSchemeProperty,
       colorSchemeRaw,
-      children,
-      ...rest
-    } = cleanedProps as FooterPropsNoGeneric;
+      colorScheme,
+      ...cleanedProps
+    } = useCleanValue({ props }) as FooterPropsNoGeneric;
 
-    const structureStyle = useMemo(
-      () =>
-        generateColorScheme({
-          baseColor: colorSchemeRaw || colorScheme,
-          opacity: opacityColorScheme,
-          variant: "solid",
-        }),
-      [colorScheme, colorSchemeRaw, opacityColorScheme]
-    );
+    const structureStyle = useMemo(() => {
+      if (!colorSchemeProperty && !colorSchemeRaw && !colorScheme) return {};
+      return generateColorScheme({
+        variant: colorSchemeProperty?.variant || "solid",
+        opacity: 1,
+        props: { hover: false, active: false, focus: false },
+        baseColor:
+          colorSchemeProperty?.baseColor ||
+          colorSchemeProperty?.baseColorRaw ||
+          colorSchemeRaw ||
+          colorScheme ||
+          "black",
+        ...colorSchemeProperty,
+      });
+    }, [colorSchemeRaw, colorScheme, colorSchemeProperty]);
+
+    const composeChildren = useMemo(() => {
+      if (multiLanguageSupport && children)
+        console.error(
+          "Warning: multiLanguageSupport and children are not compatible, please use one or the other",
+        );
+      return multiLanguageSupport || children;
+    }, [multiLanguageSupport, children]);
+
     return (
       <Component
-        backgroundRaw={structureStyle.background}
-        colorRaw={structureStyle.color}
         justifyContent="spaceBetween"
         elementName="Footer"
         height="fitContent"
@@ -43,8 +59,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FooterProps>> =
         display="flex"
         ref={ref}
         p="2vh"
-        {...rest}>
-        {children}
+        {...structureStyle}
+        {...cleanedProps}
+      >
+        {composeChildren}
       </Component>
     );
   });

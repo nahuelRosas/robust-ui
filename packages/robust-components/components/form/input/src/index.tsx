@@ -1,149 +1,172 @@
-import { generateColorScheme, addOpacity } from "@robust-ui/css-utils";
-import { useCleanValue } from "@robust-ui/use-clean-value";
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-import { extractStrings } from "@robust-ui/utils";
-export * from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { generateColorScheme } from "@robust-ui/css-utils";
 import { InputPropsNoGeneric, InputProps } from "./types";
+import { ExtractStrings } from "@robust-ui/utils";
+import { Label } from "@robust-ui/label";
+import { Flex } from "@robust-ui/flex";
 import React, {
   startTransition,
+  useCallback,
   forwardRef,
+  useEffect,
   Suspense,
   useState,
   useMemo,
-  lazy,
   Ref,
-  FormEvent,
 } from "react";
+export * from "./types";
 
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
+  forwardRef(function InputComponent(
+    { labelProps, children, ...props },
+    ref: Ref<unknown>
+  ): React.JSX.Element {
+    const Component = CreateComponent<HTMLInputElement>({
+      componentType: "input",
+    });
 
-const Button = lazy(() =>
-  import("@robust-ui/button").then((module) => ({
-    default: module.Button,
-  }))
-);
-const Label = lazy(() =>
-  import("@robust-ui/label").then((module) => ({
-    default: module.Label,
-  }))
-);
+    const {
+      multiLanguageSupport,
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      placeholder,
+      isDisabled,
+      resetValue,
+      isRequired,
+      isLoading,
+      isInvalid,
+      onChange,
+      isValid,
+      variant,
+      value,
+      id,
+      ...cleanedProps
+    } = useCleanValue({
+      props,
+    }) as InputPropsNoGeneric;
 
-const InputComponent: React.ForwardRefExoticComponent<
-  ForwardRefExotic<InputProps>
-> = forwardRef(function InputComponent({ ...props }, ref): React.JSX.Element {
-  const cleanedProps = useCleanValue({ props });
-  const {
-    colorScheme = "mulberry",
-    multiLanguageSupport,
-    opacityColorScheme,
-    variant = "outline",
-    altColor = true,
-    buttonIconProps,
-    colorSchemeRaw,
-    placeHolder,
-    buttonProps,
-    isDisabled,
-    fontWeight,
-    isRequired,
-    buttonIcon,
-    buttonText,
-    textProps,
-    isLoading,
-    isInvalid,
-    children,
-    isValid,
-    value,
-    type,
-    ...rest
-  } = cleanedProps as InputPropsNoGeneric;
-  const Input = CreateComponent({
-    componentType: "input",
-  });
+    const [inputValue, setInputValue] = useState<string>(value || "");
+    const [isFocus, setFocus] = useState(false);
+    const [isHover, setHover] = useState(false);
+    const structureStyle = useMemo(() => {
+      return generateColorScheme({
+        isDisabled,
+        isInvalid,
+        isValid,
+        baseColor: colorSchemeRaw || colorScheme || "teal",
+        variant: variant
+          ? variant
+          : isDisabled
+            ? "solid"
+            : (value && value.length) || (inputValue && inputValue.length)
+              ? "solid"
+              : "outline",
+        ...colorSchemeProperty,
+      });
+    }, [
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      isDisabled,
+      inputValue,
+      isInvalid,
+      isValid,
+      variant,
+      value,
+    ]);
 
-  const [inputValue, setInputValue] = useState(value || "");
-  const [isFocused, setFocused] = useState(false);
-  const [isHover, setHover] = useState(false);
+    const { otherComponents, strings } = ExtractStrings({
+      children,
+      multiLanguageSupport,
+    });
 
-  function handleInputChange(e: FormEvent<InputPropsNoGeneric>) {
-    // startTransition(() => setInputValue(e.target.value));
-  }
+    const handleOnChange = useCallback(
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (onChange) {
+          onChange(event);
+        }
+        setInputValue(event.target.value);
+      },
+      [onChange]
+    );
+    const idString = id ? id : strings.length ? strings.join(" ") : placeholder;
 
-  const structureStyle = useMemo(
-    () =>
-      generateColorScheme({
-        baseColor: colorSchemeRaw || colorScheme,
-        opacity: opacityColorScheme,
-        variant: variant,
-        altColor,
-      }),
-    [colorSchemeRaw, colorScheme, opacityColorScheme, variant, altColor]
-  );
-
-  const { otherComponents, strings } = useMemo(
-    () =>
-      extractStrings({
-        children,
-        multiLanguageSupport,
-      }),
-    [children, multiLanguageSupport]
-  );
-
-  return (
-    <Suspense>
-      <Flex position="relative" elementName="Input" {...rest}>
-        {(strings.length || placeHolder) && (
-          <Suspense>
-            <Label
-              opacityColorScheme={opacityColorScheme}
-              colorSchemeRaw={colorSchemeRaw}
-              colorScheme={colorScheme}
-              elementName="InputLabel"
-              isFocused={isFocused}
-              isHovered={isHover}
-              variant={variant}
-              text={inputValue}>
-              {strings.length ? strings : placeHolder}
-            </Label>
-          </Suspense>
-        )}
-        <Input
-          elementName="Input"
+    useEffect(() => {
+      if (resetValue) {
+        setInputValue("");
+      }
+      if (value !== inputValue) {
+        setInputValue(value || "");
+      }
+    }, [inputValue, resetValue, value]);
+    return (
+      <Flex
+        cursor={isDisabled ? "notAllowed" : isLoading ? "wait" : "text"}
+        elementName="InputContainer"
+        justifyContent="center"
+        position="relative"
+        alignItems="center"
+        width="fitContent"
+        {...cleanedProps}>
+        <Component
+          id={idString}
+          pointerEventsRaw={isLoading || isDisabled ? "none" : undefined}
           onMouseEnter={() => startTransition(() => setHover(true))}
           onMouseLeave={() => startTransition(() => setHover(false))}
-          onFocus={() => startTransition(() => setFocused(true))}
-          onBlur={() => startTransition(() => setFocused(false))}
+          onBlur={() => startTransition(() => setFocus(false))}
+          onFocus={() => startTransition(() => setFocus(true))}
           boxSizing="borderBox"
           position="relative"
           borderRadius="1vh"
           spellCheck={false}
           fontSize="inherit"
+          value={onChange && value ? value : inputValue}
+          onChange={handleOnChange}
+          elementName="Input"
           fontWeight="500"
-          cursor="text"
+          cursor="inherit"
           height="100%"
           width="100%"
-          px="2vw"
-          py="3vh"
           ref={ref}
-          // value={inputValue}
-          disabled={isLoading || isDisabled}
-          // onChange={handleInputChange}
           {...structureStyle}
+          {...cleanedProps}
+          pt={strings.length || placeholder ? "3vh" : "2vh"}
+          pb="2vh"
+          px="2vw"
+          m="0"
         />
-        {(buttonText || buttonIcon) && (
+        {(strings.length || placeholder) && (
+          <Label
+            isRequired={isRequired}
+            isDisabled={isDisabled}
+            isInvalid={isInvalid}
+            isValid={isValid}
+            elementName="InputLabel"
+            isFocus={isFocus}
+            isHover={isHover}
+            htmlFor={idString}
+            text={onChange && value ? value : inputValue}
+            id={idString}
+            {...labelProps}>
+            {strings.length ? strings : placeholder}
+          </Label>
+        )}
+
+        {/* {(buttonText || buttonIcon) && (
           <Suspense>
             <Button
               elementName="InputButton"
-              iconProps={
-                !isLoading && buttonIcon
-                  ? {
-                      iconPosition: "left",
-                      iconType: buttonIcon,
-                      ...buttonIconProps,
-                    }
-                  : undefined
-              }
+              // iconProps={
+              //   !isLoading && buttonIcon
+              //     ? {
+              //         iconPosition: "left",
+              //         iconType: buttonIcon,
+              //         ...buttonIconProps,
+              //       }
+              //     : undefined
+              // }
               // loadingProps={{
               //   spinnerProps: {
               //     opacityColorScheme,
@@ -154,15 +177,48 @@ const InputComponent: React.ForwardRefExoticComponent<
               //   },
               //   spinnerPosition: "left",
               // }}
-              isLoading={isLoading}
-              {...buttonProps}>
-              {buttonText}
-            </Button>
+              // isLoading={isLoading}
+              // {...buttonProps}
+            ></Button>
           </Suspense>
-        )}
+        )} */}
         {otherComponents}
       </Flex>
-    </Suspense>
-  );
-});
-export const Input = React.memo(InputComponent);
+    );
+  });
+export const Input = React.memo(Factory);
+
+{
+  /*  
+          {(buttonText || buttonIcon) && (
+            <Suspense>
+              <Button
+                elementName="InputButton"
+                iconProps={
+                  !isLoading && buttonIcon
+                    ? {
+                        iconPosition: "left",
+                        iconType: buttonIcon,
+                        ...buttonIconProps,
+                      }
+                    : undefined
+                }
+                loadingProps={{
+                  spinnerProps: {
+                    opacityColorScheme,
+                    colorSchemeRaw,
+                    colorScheme,
+                    altColor,
+                    variant,
+                  },
+                  spinnerPosition: "left",
+                }}
+                isLoading={isLoading}
+                {...buttonProps}>
+                {buttonText}
+              </Button>
+            </Suspense>
+          )}
+          {otherComponents}
+        </Flex> */
+}

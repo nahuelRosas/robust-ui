@@ -4,7 +4,6 @@ import { useGlobalContext } from "@robust-ui/use-global-context";
 import {
   generateUniqueClassName,
   propsSplitter,
-  attributeCompleter,
   injectCSS,
 } from "@robust-ui/css-utils";
 export * from "./types";
@@ -20,6 +19,7 @@ export function CreateComponent<T>({
             ? componentType.toString()
             : "UnknownComponent",
           ElementType = componentType as React.ElementType,
+          style,
           ...props
         }: EnhancedElementProps<T>,
         ref
@@ -29,10 +29,11 @@ export function CreateComponent<T>({
             generateUniqueClassName({
               object: {
                 elementName,
+                style,
                 ...props,
               },
             }),
-          [elementName, props]
+          [elementName, props, style]
         );
 
         const combinedClassName = useRef<string>(
@@ -43,24 +44,15 @@ export function CreateComponent<T>({
           key: "devData",
         });
 
-        const completedProps = useMemo(
-          () =>
-            attributeCompleter({
-              inputAttributes: props,
-              mediaBreakpoints: globalContext.mediaBreakpoints,
-            }) as Record<string, unknown>,
-          [globalContext.mediaBreakpoints, props]
-        );
-
         const { htmlProps, styleProps } = useMemo(
           () =>
             propsSplitter({
-              props: completedProps,
+              props,
               commands: {
                 ...globalContext.selectors,
               },
             }),
-          [completedProps, globalContext.selectors]
+          [globalContext.selectors, props]
         );
         const [isCSSInjected, setCSSInjected] = useState(false);
 
@@ -143,6 +135,7 @@ export function CreateComponent<T>({
           <ElementType
             className={combinedClassName.current}
             ref={ref}
+            style={style}
             {...htmlProps}>
             {props.children}
           </ElementType>

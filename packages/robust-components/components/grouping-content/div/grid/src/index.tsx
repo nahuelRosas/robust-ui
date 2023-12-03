@@ -6,14 +6,19 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<GridProps>> =
   forwardRef(function GridComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent({
       componentType: "div",
     });
 
     return (
-      <Component ref={ref} elementName="Grid" display="grid" {...props}>
+      <Component
+        ref={ref}
+        elementName="Grid"
+        display="grid"
+        // {...props}
+      >
         {children}
       </Component>
     );

@@ -10,31 +10,33 @@
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.1.14",
-    "@react-three/fiber": "^8.14.5",
+    "@react-three/fiber": "^8.15.11",
     "@robust-ui/css-utils": "workspace:*",
+    "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/nextjs-components": "workspace:*",
     "@robust-ui/use-image-status": "workspace:*",
     "@robust-ui/use-toast": "workspace:*",
+    "@robust-ui/purging": "workspace:*",
     "@robust-ui/utils": "workspace:*",
     "@vercel/analytics": "^1.1.1",
     "chroma-js": "^2.4.2",
-    "next": "13.5.4",
+    "next": "14.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pdf": "^7.5.1",
     "resend": "^2.0.0",
-    "three": "^0.157.0"
+    "three": "^0.158.0"
   },
   "devDependencies": {
     "@robust-ui/tsconfig": "workspace:*",
-    "@types/chroma-js": "^2.4.1",
-    "@types/node": "^20.8.5",
-    "@types/react": "^18.2.28",
-    "@types/react-dom": "^18.2.13",
-    "@types/three": "^0.157.0",
-    "eslint": "^8.51.0",
-    "eslint-config-next": "13.5.4",
+    "@types/chroma-js": "^2.4.3",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.39",
+    "@types/react-dom": "^18.2.17",
+    "@types/three": "^0.157.2",
+    "eslint": "^8.54.0",
+    "eslint-config-next": "14.0.3",
     "eslint-config-robust": "workspace:*",
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.2"
   }
 }

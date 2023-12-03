@@ -1,60 +1,89 @@
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { SpinnerProps, SpinnerPropsNoGeneric } from "./types";
 import { generateColorScheme } from "@robust-ui/css-utils";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { SpinnerProps, SpinnerPropsClean } from "./types";
-import React, { forwardRef, lazy, useMemo } from "react";
+import React, { forwardRef, useMemo } from "react";
+import { Flex } from "@robust-ui/flex";
 import { models } from "./models";
 export * from "./types";
 
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({
-    default: module.Flex,
-  }))
-);
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpinnerProps>> =
   forwardRef(function SpinnerComponent({ ...props }, ref): React.JSX.Element {
-    const Component = CreateComponent({
+    const Component = CreateComponent<HTMLSpanElement>({
       componentType: "span",
     });
-    const cleanedProps = useCleanValue({ props });
     const {
-      colorScheme = "mulberry",
-      opacityColorScheme,
+      multiLanguageSupport,
+      colorSchemeProperty,
+      complementaryColor = false,
+      invertedColors,
       colorSchemeRaw,
+      colorScheme,
       model = "A",
       colorsRaw,
-      variant,
-      altColor,
       sizeRaw,
+      variant,
       colors,
       height,
       width,
       size,
-      ...rest
-    } = cleanedProps as SpinnerPropsClean;
+      ...cleanedProps
+    } = useCleanValue({ props }) as SpinnerPropsNoGeneric;
 
-    const structureStyle = useMemo(
-      () =>
-        generateColorScheme({
-          opacity: opacityColorScheme | 1,
-          baseColor: colorSchemeRaw || colorScheme,
-          variant: variant || "solid",
-          altColor,
-        }),
-      [colorSchemeRaw, colorScheme, opacityColorScheme, variant, altColor]
-    );
+    const structureStyle = useMemo(() => {
+      return generateColorScheme({
+        baseColor: colorSchemeRaw || colorScheme || "teal",
+        variant: variant || "solidLight",
+        opacity: 0.9,
+        complementaryColor: complementaryColor || false,
+        ...colorSchemeProperty,
+      }) as {
+        backgroundRaw: string;
+        colorRaw: string;
+        [key: string]: string;
+      };
+    }, [
+      colorSchemeProperty,
+      complementaryColor,
+      colorSchemeRaw,
+      colorScheme,
+      variant,
+    ]);
 
     const modelSelected = useMemo(
       () =>
         models({
           colorsRaw: {
-            primary: structureStyle.background,
-            secondary: structureStyle.color,
+            primary:
+              colors && colors.primary
+                ? colors.primary
+                : colorsRaw && colorsRaw.primary
+                  ? colorsRaw.primary
+                  : invertedColors
+                    ? structureStyle.complementaryColor ||
+                      structureStyle.colorRaw
+                    : structureStyle.backgroundRaw,
+            secondary:
+              colors && colors.secondary
+                ? colors.secondary
+                : colorsRaw && colorsRaw.secondary
+                  ? colorsRaw.secondary
+                  : invertedColors
+                    ? structureStyle.backgroundRaw
+                    : structureStyle.complementaryColor ||
+                      structureStyle.colorRaw,
           },
-          colors,
           model,
         }),
-      [colors, model, structureStyle.background, structureStyle.color]
+      [
+        structureStyle.complementaryColor,
+        structureStyle.backgroundRaw,
+        structureStyle.colorRaw,
+        invertedColors,
+        colorsRaw,
+        colors,
+        model,
+      ]
     );
 
     return (
@@ -62,16 +91,15 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpinnerProps>> =
         justifyContent="center"
         position="relative"
         alignItems="center"
-        height="100%"
-        width="100%"
-        {...rest}>
+        height="fitContent"
+        width="fitContent"
+        {...cleanedProps}>
         <Component
-          height={sizeRaw || size || height || "2.5vh"}
-          width={sizeRaw || size || width || "2.5vh"}
+          heightRaw={sizeRaw || size || height || "2.5vh"}
+          widthRaw={sizeRaw || size || width || "2.5vh"}
           elementName="Spinner"
           ref={ref}
           {...modelSelected}
-          {...rest}
         />
       </Flex>
     );

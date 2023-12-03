@@ -1,207 +1,171 @@
-import { generateColorScheme } from "@robust-ui/css-utils";
-import { useCleanValue } from "@robust-ui/use-clean-value";
+import React, { forwardRef, startTransition, useMemo, useState } from "react";
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-import { extractStrings } from "@robust-ui/utils";
+import { ButtonProps, ButtonPropsNoGeneric } from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { generateColorScheme } from "@robust-ui/css-utils";
+import { ExtractStrings } from "@robust-ui/utils";
+import { Flex } from "@robust-ui/flex";
+import { Icon } from "@robust-ui/icon";
+import { Span } from "@robust-ui/span";
 export * from "./types";
-import { ButtonPropsNoGeneric, ButtonProps } from "./types";
-import React, {
-  startTransition,
-  forwardRef,
-  Suspense,
-  useState,
-  useMemo,
-  lazy,
-  Ref,
-} from "react";
-
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
-
-const Spinner = lazy(() =>
-  import("@robust-ui/spinner").then((module) => ({ default: module.Spinner }))
-);
-
-const Icon = lazy(() =>
-  import("@robust-ui/icon").then((module) => ({ default: module.Icon }))
-);
-
-const Span = lazy(() =>
-  import("@robust-ui/span").then((module) => ({ default: module.Span }))
-);
 
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
-  forwardRef(function ButtonComponent({ ...props }, ref): React.JSX.Element {
-    const Component = CreateComponent({ componentType: "button" });
-    const [isHovered, setHovered] = useState(false);
-    const cleanedProps = useCleanValue({ props });
+  forwardRef(function ButtonComponent(
+    { children, textProps, iconProps, ...props },
+    ref
+  ): React.JSX.Element {
+    const Component = CreateComponent<HTMLButtonElement>({
+      componentType: "button",
+    });
+
     const {
-      loadingProps = {
-        spinnerPosition: "left",
-      },
       multiLanguageSupport,
-      opacityColorScheme,
-      variant = "solid",
-      altColor = true,
+      colorSchemeProperty,
       hoverTextProps,
       colorSchemeRaw,
       colorScheme,
-      fontSizeRaw,
       isDisabled,
-      textProps,
-      isLoading,
-      iconProps,
+      direction,
       hoverText,
-      fontSize,
-      children,
-      ...rest
-    } = cleanedProps as ButtonPropsNoGeneric;
+      hoverHelp,
+      iconType,
+      variant,
+      ...cleanedProps
+    } = useCleanValue({ props }) as ButtonPropsNoGeneric;
 
-    const structureStyle = useMemo(
-      () =>
-        generateColorScheme({
-          baseColor: colorSchemeRaw || colorScheme,
-          opacity: opacityColorScheme,
-          isDisabled,
-          altColor,
-          variant,
-        }),
-      [
-        opacityColorScheme,
-        colorSchemeRaw,
-        colorScheme,
+    const [hovered, setHover] = useState(false);
+
+    const structureStyle = useMemo(() => {
+      return generateColorScheme({
+        variant: variant || "linkDark",
+        opacity: 0.8,
         isDisabled,
-        altColor,
-        variant,
-      ]
-    );
+        baseColor: colorSchemeRaw || colorScheme || "teal",
+        ...colorSchemeProperty,
+      });
+    }, [variant, isDisabled, colorSchemeRaw, colorScheme, colorSchemeProperty]);
 
-    const { otherComponents, strings } = useMemo(
-      () =>
-        extractStrings({
-          children,
-          multiLanguageSupport,
-        }),
-      [children, multiLanguageSupport]
-    );
+    const { otherComponents, strings } = ExtractStrings({
+      multiLanguageSupport,
+      children,
+    });
 
-    const arialLabel: string = rest["aria-label"]
-      ? rest["aria-label"]
-      : typeof children === "string"
-      ? children
-      : `Aria Button ${strings}`;
+    const arialLabel = cleanedProps["aria-label"]
+      ? cleanedProps["aria-label"]
+      : strings.length
+        ? `Button with text: ${strings}`
+        : iconType
+          ? `Button with iconType: ${iconType}`
+          : "Button without text or icon";
+
     return (
-      <>
-        <Suspense>
-          <Component
-            fontSizeRaw={fontSizeRaw || fontSize || "3vh"}
-            arial-aria-labelledby={arialLabel}
-            aria-label={arialLabel}
-            justifyContent="center"
-            elementName="Button"
-            borderRadius="2.5vh"
-            flexDirection="row"
-            alignItems="center"
+      <Component
+        onMouseEnter={() => startTransition(() => setHover(true))}
+        onMouseLeave={() => startTransition(() => setHover(false))}
+        borderRadius={
+          colorSchemeProperty?.variant === "link" || !colorSchemeProperty
+            ? undefined
+            : "2.5vw"
+        }
+        keyframesRaw={{
+          scaleUpLink: {
+            "0%": {
+              transform: "scale(1)",
+            },
+            "50%": {
+              transform: "scale(1.025)",
+            },
+            "100%": {
+              transform: "scale(1.05)",
+            },
+          },
+          scaleDownLink: {
+            "0%": {
+              transform: "scale(1.05)",
+            },
+            "50%": {
+              transform: "scale(1.025)",
+            },
+            "100%": {
+              transform: "scale(1)",
+            },
+          },
+        }}
+        animationRaw={
+          hovered
+            ? "scaleUpLink 0.1s ease-in-out forwards"
+            : "scaleDownLink 0.1s ease-in-out forwards"
+        }
+        pointerEventsRaw={isDisabled ? "none" : undefined}
+        flexDirectionRaw={direction || "row"}
+        textRendering="optimizeLegibility"
+        aria-labelledby={arialLabel}
+        borderColor="transparent"
+        justifyContent="center"
+        aria-label={arialLabel}
+        borderRadiusRaw="2.5vw"
+        textDecoration="none"
+        elementName="Button"
+        position="relative"
+        alignItems="center"
+        width="fitContent"
+        fontSizeRaw="3vh"
+        cursor="pointer"
+        display="flex"
+        role="link"
+        gap="0.5vw"
+        ref={ref}
+        py="1vh"
+        px="1vw"
+        {...structureStyle}
+        {...cleanedProps}>
+        {(iconType || iconProps) && (
+          <Icon
+            sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "4vh"}
+            elementName="ButtonIcon"
+            iconType={iconType}
+            {...iconProps}
+          />
+        )}
+        {strings.length > 0 && (
+          <Span
+            elementName="NextLinkText"
+            whiteSpace="nowrap"
+            fontSize="inherit"
+            userSelect="none"
+            {...textProps}>
+            {strings}
+          </Span>
+        )}
+        {otherComponents}
+        {hoverHelp && (
+          <Flex
+            fontSizeRaw={
+              cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3vh"
+            }
+            transitionRaw="opacity 0.5s ease-in-out"
+            transformRaw="translate(30%, 125%)"
+            opacityRaw={hovered ? "1" : "0"}
+            elementName="ButtonHoverText"
+            pointerEventsRaw="none"
+            background="gray900"
+            borderRadius="1.5vh"
             width="fitContent"
-            cursor="pointer"
-            display="flex"
-            role="button"
-            gap="0.5vw"
+            position="fixed"
             py="1vh"
             px="1vw"
-            onMouseEnter={() => startTransition(() => setHovered(true))}
-            onMouseLeave={() => startTransition(() => setHovered(false))}
-            ref={ref}
-            {...structureStyle}
-            {...rest}>
-            {isLoading && loadingProps?.spinnerPosition === "left" && (
-              <Suspense>
-                <Spinner
-                  elementName="NextLinkSpinner"
-                  colorScheme={colorScheme}
-                  sizeRaw="2.5vh"
-                  {...loadingProps?.spinnerProps}
-                />
-              </Suspense>
-            )}
-            {iconProps?.iconPosition === "left" && (
-              <Suspense>
-                <Icon
-                  display={iconProps?.iconPosition === "left" ? "flex" : "none"}
-                  sizeRaw={(fontSizeRaw || fontSize || "4vh") as string}
-                  elementName="NextLinkIcon"
-                  icon={iconProps?.iconType}
-                  {...iconProps?.iconProps}
-                />
-              </Suspense>
-            )}
-            {strings.length > 0 && (
-              <Suspense>
-                <Span
-                  elementName="NextLinkText"
-                  whiteSpace="nowrap"
-                  fontSize="inherit"
-                  userSelect="none"
-                  {...textProps}>
-                  {strings}
-                </Span>
-              </Suspense>
-            )}
-            {otherComponents}
-            {iconProps?.iconPosition === "right" && (
-              <Suspense>
-                <Icon
-                  display={
-                    iconProps?.iconPosition === "right" ? "flex" : "none"
-                  }
-                  sizeRaw={(fontSizeRaw || fontSize || "4vh") as string}
-                  elementName="NextLinkIcon"
-                  icon={iconProps?.iconType}
-                  {...iconProps?.iconProps}
-                />
-              </Suspense>
-            )}
-            {isLoading && loadingProps?.spinnerPosition === "right" && (
-              <Suspense>
-                <Spinner
-                  elementName="NextLinkSpinner"
-                  colorScheme={colorScheme}
-                  sizeRaw="2.5vh"
-                  {...loadingProps?.spinnerProps}
-                />
-              </Suspense>
-            )}
-          </Component>
-        </Suspense>
-        {hoverText && (
-          <Suspense>
-            <Flex
-              fontSizeRaw={fontSizeRaw || fontSize || "3vh"}
-              transition="opacity 0.3s ease-in-out"
-              transform="translate(-50%, 75%)"
-              elementName="NextLinkHoverText"
-              opacity={isHovered ? "1" : "0"}
-              background="gray900"
-              borderRadius="1.5vh"
-              position="absolute"
-              left="50%"
-              top="50%"
-              py="1vh"
-              px="1vw"
-              {...hoverTextProps?.containerProps}>
-              <Suspense>
-                <Span
-                  elementName="NextLinkHoverText"
-                  color="gray100"
-                  userSelect="none"
-                  {...hoverTextProps?.textProps}>
-                  {hoverText}
-                </Span>
-              </Suspense>
-            </Flex>
-          </Suspense>
+            {...hoverTextProps?.containerProps}>
+            <Span
+              elementName="ButtonHoverText"
+              whiteSpace="nowrap"
+              userSelect="none"
+              color="gray100"
+              {...hoverTextProps?.textProps}>
+              {hoverText || arialLabel}
+            </Span>
+          </Flex>
         )}
-      </>
+      </Component>
     );
   });
 

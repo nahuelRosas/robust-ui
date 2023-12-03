@@ -1,6 +1,6 @@
 import { EnhancedElementProps } from "@robust-ui/constructor";
 
-export interface ProviderProps extends EnhancedElementProps<HTMLDivElement> {
+export interface ProviderProps extends EnhancedElementProps<HTMLElement> {
   children: React.ReactNode;
   mediaBreakpointsCustom?: Record<string, number>;
   commandsCustom?: Record<string, Function>;

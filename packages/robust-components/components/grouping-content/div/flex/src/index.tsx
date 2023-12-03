@@ -1,6 +1,8 @@
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-import React, { forwardRef } from "react";
-import { FlexProps } from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { generateColorScheme } from "@robust-ui/css-utils";
+import { FlexProps, FlexPropsNoGeneric } from "./types";
+import React, { forwardRef, useMemo } from "react";
 export * from "./types";
 
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
@@ -8,9 +10,46 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
     { children, ...props },
     ref
   ): React.JSX.Element {
-    const Component = CreateComponent({
+    const Component = CreateComponent<HTMLDivElement>({
       componentType: "div",
     });
+
+    const {
+      multiLanguageSupport,
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      variant,
+      ...cleanedProps
+    } = useCleanValue({ props }) as FlexPropsNoGeneric;
+
+    const structureStyle = useMemo(() => {
+      if (!colorSchemeProperty && !colorSchemeRaw && !colorScheme) return {};
+      return generateColorScheme({
+        variant: variant || colorSchemeProperty?.variant || "solid",
+        opacity: 0.9,
+        props: {
+          hover: false,
+          focus: false,
+          active: false,
+        },
+        baseColor:
+          colorSchemeProperty?.baseColor ||
+          colorSchemeProperty?.baseColorRaw ||
+          colorSchemeRaw ||
+          colorScheme ||
+          "black",
+        ...colorSchemeProperty,
+      });
+    }, [colorSchemeProperty, colorSchemeRaw, colorScheme, variant]);
+
+    const composeChildren = useMemo(() => {
+      if (multiLanguageSupport && children)
+        console.error(
+          "Warning: multiLanguageSupport and children are not compatible, please use one or the other"
+        );
+      return multiLanguageSupport || children;
+    }, [multiLanguageSupport, children]);
 
     return (
       <Component
@@ -20,8 +59,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
         alignItems="center"
         elementName="Flex"
         display="flex"
-        {...props}>
-        {children}
+        {...structureStyle}
+        {...cleanedProps}>
+        {composeChildren}
       </Component>
     );
   });

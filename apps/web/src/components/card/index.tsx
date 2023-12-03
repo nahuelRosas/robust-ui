@@ -1,0 +1,226 @@
+import { ForwardRefExotic, useCleanValue } from "@robust-ui/nextjs-components";
+import { Flex } from "../flex";
+
+import React from "react";
+import { Suspense, forwardRef } from "react";
+import { CardProps, CardPropsNoGeneric } from "./types";
+import { NextLink } from "../nextLink";
+import { StyledText } from "../nested-styled-text";
+import { Image } from "../image";
+
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
+  forwardRef(function CardComponent(
+    { children, ...props },
+    ref
+  ): React.JSX.Element {
+    const {
+      multiLanguageSupport,
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      paragraph,
+      variant,
+      header,
+      images,
+      label,
+      data,
+      ...cleanedProps
+    } = useCleanValue({ props }) as CardPropsNoGeneric;
+    return (
+      <Flex
+        widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+        colorSchemeProperty={{
+          opacity: 0.8,
+          props: {
+            hover: false,
+            active: false,
+            focus: false,
+          },
+          variant,
+          baseColorRaw:
+            colorSchemeProperty?.baseColor ||
+            colorSchemeProperty?.baseColorRaw ||
+            colorSchemeRaw ||
+            colorScheme ||
+            "black",
+          ...colorSchemeProperty,
+        }}
+        flexDirection="column"
+        alignItems="flexStart"
+        justifyContent="left"
+        borderRadius="2.5vh"
+        position="relative"
+        elementName="Card"
+        mx={{
+          base: "6vw",
+          md: "3vw",
+        }}
+        pb="3vh"
+        ref={ref}
+        {...cleanedProps}>
+        {header && (
+          <NextLink
+            elementName="CardHeader"
+            href={(typeof header !== "string" && header.href) || "#"}
+            fontSizeRaw={{
+              base: "2.5vh",
+              md: "3vh",
+            }}
+            fontWeight="500"
+            color="white"
+            mx="3vh"
+            mt="2vh"
+            p="0"
+            {...(typeof header !== "string" && header.headerProps)}>
+            {typeof header === "string" ? header : header.text}
+          </NextLink>
+        )}
+        {label && (
+          <StyledText
+            optimizedWidth
+            elementName="CardLabel"
+            fontWeights={["900"]}
+            fontSizeRaw={{
+              base: "4vh",
+              md: "6vh",
+            }}
+            colors={["white", "teal", "white", "indigo"]}
+            my="2vh"
+            mx="5vw"
+            {...(typeof label !== "string" && label.labelProps)}>
+            {typeof label === "string" ? label : label.text}
+          </StyledText>
+        )}
+        {paragraph && (
+          <StyledText
+            optimizedWidth
+            elementName="CardText"
+            fontWeights={["500", "900"]}
+            fontSizeRaw={{
+              base: "2.5vh",
+              md: "3vh",
+            }}
+            colors={["white", "teal", "white", "indigo"]}
+            mx="5vw"
+            {...(typeof paragraph !== "string" && paragraph.paragraphProps)}>
+            {typeof paragraph === "string" ? paragraph : paragraph.text}
+          </StyledText>
+        )}
+        {images && (
+          <Image
+            alt={
+              typeof label === "string" ? label : label ? label.text : "Image"
+            }
+            elementName="CardDataItemImage"
+            borderRadius="2.5vh"
+            alignSelf="center"
+            height="50vh"
+            mx="5vw"
+            my="3vh"
+            src={Array.isArray(images) ? images[0] : images.src[0]}
+            srcArray={Array.isArray(images) ? images : images.src}
+            p="0"
+            {...(!Array.isArray(images) && images["imagesProps"])}
+          />
+        )}
+        {data && (
+          <Flex
+            flexDirection={{ base: "column", md: "row" }}
+            justifyContent="spaceAround"
+            elementName="CardData"
+            alignItems="flexEnd"
+            position="relative"
+            flexWrap="wrap"
+            optimizedWidth
+            gap="5vh"
+            mx="5vw"
+            mt="3vh">
+            {data.map(({ href, images, label, paragraph }, index) => {
+              return (
+                <NextLink
+                  cursor={href ? "pointer" : "default"}
+                  colorSchemeProperty={{
+                    baseColor: "teal900",
+                    opacity: 0.8,
+                    isActivated: href ? true : false,
+                    variant: "solid",
+                  }}
+                  animationRaw={!href && "none"}
+                  boxShadow="unset"
+                  elementName="CardDataItem"
+                  background="transparent"
+                  justifyContent="center"
+                  flexDirection="column"
+                  alignItems="center"
+                  href={href || "#"}
+                  optimizedWidth
+                  maxW={{
+                    base: "100%",
+                    md: "40%",
+                  }}
+                  key={index}
+                  gap="2vh">
+                  {label && (
+                    <StyledText
+                      colors={["white", "teal", "white", "indigo"]}
+                      elementName="CardDataItemTitle"
+                      fontWeights={["900"]}
+                      alignSelf="center"
+                      textAlign="left"
+                      optimizedWidth
+                      fontSizeRaw={{
+                        base: "3vh",
+                        md: "4vh",
+                      }}
+                      {...(typeof label !== "string" && label.labelProps)}>
+                      {typeof label === "string" ? label : label.text}
+                    </StyledText>
+                  )}
+                  {images && (
+                    <Image
+                      alt={
+                        typeof label === "string"
+                          ? label
+                          : label
+                            ? label.text
+                            : "Image"
+                      }
+                      elementName="CardDataItemImage"
+                      borderRadius="2.5vh"
+                      optimizedWidth
+                      height="50vh"
+                      src={Array.isArray(images) ? images[0] : images.src[0]}
+                      srcArray={Array.isArray(images) ? images : images.src}
+                      p="0"
+                      {...(!Array.isArray(images) && images["imagesProps"])}
+                    />
+                  )}
+                  {paragraph && (
+                    <StyledText
+                      colors={["white", "teal", "white", "indigo"]}
+                      fontWeights={["400", "900", "400", "900"]}
+                      elementName="CardDataItemText"
+                      alignSelf="center"
+                      textAlign="left"
+                      optimizedWidth
+                      fontSizeRaw={{
+                        base: "2.5vh",
+                        md: "2.5vh",
+                      }}
+                      {...(typeof paragraph !== "string" &&
+                        paragraph.paragraphProps)}>
+                      {typeof paragraph === "string"
+                        ? paragraph
+                        : paragraph.text}
+                    </StyledText>
+                  )}
+                </NextLink>
+              );
+            })}
+          </Flex>
+        )}
+        {children}
+      </Flex>
+    );
+  });
+export const Card = React.memo(Factory);

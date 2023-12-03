@@ -1,137 +1,142 @@
-import { forwardRef, Suspense, useMemo, lazy, Ref } from "react";
-import { LabelPropsNoGeneric, LabelProps } from "./types";
-import {
-  generateColorScheme,
-  getTextColor,
-  addOpacity,
-} from "@robust-ui/css-utils";
-
-import React from "react";
-import { extractStrings } from "@robust-ui/utils";
-import { useCleanValue } from "@robust-ui/use-clean-value";
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { generateColorScheme } from "@robust-ui/css-utils";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { LabelPropsNoGeneric, LabelProps } from "./types";
+import { forwardRef, useMemo } from "react";
+import { ExtractStrings } from "@robust-ui/utils";
+import { Span } from "@robust-ui/span";
+import { Flex } from "@robust-ui/flex";
+import React from "react";
 export * from "./types";
 
-const Span = lazy(() =>
-  import("@robust-ui/span").then((module) => ({
-    default: module.Span,
-  }))
-);
-
-const LabelComponent: React.ForwardRefExoticComponent<
+const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<LabelProps>
-> = forwardRef(function LabelComponent({ ...props }, ref): React.JSX.Element {
-  const cleanedProps = useCleanValue({ props });
-  const {
-    colorScheme = "mulberry",
-    multiLanguageSupport,
-    opacityColorScheme,
-    variant = "outline",
-    altColor = true,
-    colorSchemeRaw,
-    placeHolder,
-    fontWeight,
-    isFocused,
-    isHovered,
-    children,
-    focus,
-    text,
-    ...rest
-  } = cleanedProps as LabelPropsNoGeneric;
-
-  const Label = CreateComponent({
+> = forwardRef(function LabelComponent(
+  { textProps, children, ...props },
+  ref
+): React.JSX.Element {
+  const Component = CreateComponent<HTMLLabelElement>({
     componentType: "label",
   });
 
-  const structureStyle = useMemo(
-    () =>
-      generateColorScheme({
-        baseColor: colorSchemeRaw || colorScheme,
-        opacity: opacityColorScheme,
-        variant: variant,
-        altColor,
-      }),
-    [colorSchemeRaw, colorScheme, opacityColorScheme, variant, altColor]
-  );
+  const {
+    multiLanguageSupport,
+    colorSchemeProperty,
+    placement = "top",
+    colorSchemeRaw,
+    colorScheme,
+    placeholder,
+    isRequired,
+    isDisabled,
+    isInvalid,
+    isHover,
+    isFocus,
+    variant,
+    isValid,
+    text,
+    id,
+    ...cleanedProps
+  } = useCleanValue({
+    props,
+  }) as LabelPropsNoGeneric;
 
-  const { otherComponents, strings } = useMemo(
-    () =>
-      extractStrings({
-        children,
-        multiLanguageSupport,
-      }),
-    [children, multiLanguageSupport]
-  );
+  const structureStyle = useMemo(() => {
+    return generateColorScheme({
+      isDisabled,
+      isInvalid,
+      isValid,
+      opacity: 1,
+      baseColor: colorSchemeRaw || colorScheme || "teal",
+      variant: variant
+        ? variant
+        : isFocus || text
+          ? "solid"
+          : isHover
+            ? "linkLight"
+            : "ghost",
+      ...colorSchemeProperty,
+    });
+  }, [
+    isDisabled,
+    isInvalid,
+    isValid,
+    colorSchemeRaw,
+    colorScheme,
+    variant,
+    isFocus,
+    text,
+    isHover,
+    colorSchemeProperty,
+  ]);
 
-  const colorWithOpacity = useMemo(
-    () =>
-      addOpacity({
-        color: colorSchemeRaw || colorScheme,
-        opacity: 1,
-      }),
-    [colorSchemeRaw, colorScheme]
-  );
+  const { otherComponents, strings } = ExtractStrings({
+    multiLanguageSupport,
+    children,
+  });
 
-  const colorTextAltColorOff = useMemo(
-    () => getTextColor(colorWithOpacity, false),
-    [colorWithOpacity]
-  );
-  const colorTextAltColorOn = useMemo(
-    () => getTextColor(colorWithOpacity, true),
-    [colorWithOpacity]
-  );
+  const arialLabel = cleanedProps["aria-label"]
+    ? cleanedProps["aria-label"]
+    : `Label with text: ${strings}`;
+
+  const transform = {
+    top: "translate(8%, -50%) scale(0.8)",
+    bottom: "translate(8%, 150%) scale(0.8)",
+  };
   return (
-    <Suspense>
-      <Label
-        elementName="Label"
-        transition="transform 0.15s ease-out, font-size 0.15s ease-out, background-color 0.2s ease-out, color 0.15s ease-out, height 0.15s ease-out, width 0.15s ease-out"
-        height={isFocused || text ? "fitContent" : "auto"}
-        border="1.5vh solid transparent"
-        focus={{
-          color: colorTextAltColorOff,
-          ...focus,
-        }}
-        transform={
-          isFocused || text
-            ? `translate(-8%, -50%) scale(0.8)`
-            : "translate(0, 0) scale(1)"
-        }
-        backgroundColor="transparent"
-        pointerEvents="none"
-        position="absolute"
-        alignItems="center"
-        fontSize="inherit"
-        display="flex"
-        zIndex="1"
-        bottom="0"
-        right="0"
-        left="0"
-        top="0"
-        ref={ref}
-        {...rest}>
-        <Suspense>
+    <Component
+      transitionRaw="transform 0.75s cubic-bezier(1, 0.43, 0, 1.04), height 0.1s ease-out"
+      height={isFocus || text ? "fitContent" : "auto"}
+      transformRaw={
+        isFocus || text
+          ? transform[placement as keyof typeof transform]
+          : "translate(0, 0) scale(1)"
+      }
+      backgroundColor="transparent"
+      aria-labelledby={arialLabel}
+      aria-label={arialLabel}
+      pointerEventsRaw="none"
+      borderRadius="1.5vh"
+      width="fitContent"
+      position="absolute"
+      elementName="Label"
+      alignItems="center"
+      fontSize="inherit"
+      id={`${id}-label`}
+      cursor="inherit"
+      display="flex"
+      zIndex="1"
+      bottom="0"
+      right="0"
+      px="2vw"
+      left="0"
+      top="0"
+      ref={ref}
+      {...structureStyle}
+      {...cleanedProps}>
+      <Flex borderRadius="1.5vh">
+        <Span
+          fontWeight={isFocus || text ? "900" : "500"}
+          aria-labelledby={arialLabel}
+          elementName="LabelSpan"
+          aria-label={arialLabel}
+          fontSize="inherit"
+          {...textProps}>
+          {strings.length ? strings : placeholder}
+        </Span>
+        {isRequired && (
           <Span
-            elementName="LabelSpan"
-            fontWeight={isFocused || text ? "900" : "500"}
-            backgroundColor={
-              isFocused || text ? colorWithOpacity : "transparent"
-            }
-            borderRadius="1.5vh"
+            elementName="RequiredSpan"
+            aria-label="Required"
+            aria-labelledby="Required"
             fontSize="inherit"
-            color={
-              isFocused || text
-                ? colorTextAltColorOff
-                : isHovered
-                ? colorTextAltColorOn
-                : structureStyle.color
-            }
-            px="2vw">
-            {strings.length ? strings : placeHolder}
+            color={colorSchemeProperty?.baseColorRaw === "red" ? "blue" : "red"}
+            fontWeight="900">
+            *
           </Span>
-          {otherComponents}
-        </Suspense>
-      </Label>
-    </Suspense>
+        )}
+      </Flex>
+      {otherComponents}
+    </Component>
   );
 });
-export const Label = React.memo(LabelComponent);
+export const Label = React.memo(Factory);

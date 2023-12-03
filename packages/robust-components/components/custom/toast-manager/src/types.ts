@@ -10,6 +10,3 @@ export interface ToastManagerProps
     | "bottom";
 }
 
-export type ForwardRefExoticToastManager = Omit<ToastManagerProps, "ref"> &
-  React.RefAttributes<unknown> &
-  ToastManagerProps;

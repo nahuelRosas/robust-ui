@@ -27,6 +27,7 @@
     "depCheck": "depcheck"
   },
   "dependencies": {
+    "@robust-ui/use-global-context": "workspace:*",
     "react": "^18.2.0"
   },
   "devDependencies": {

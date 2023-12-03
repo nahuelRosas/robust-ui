@@ -4,7 +4,7 @@ import React from "react";
 export function generateUniqueClassName({
   object,
 }: {
-  object: { [k: string]: string };
+  object: { [k: string]: unknown };
 }): string {
   const CountChildren = object["children"]
     ? React.Children.count(object["children"])

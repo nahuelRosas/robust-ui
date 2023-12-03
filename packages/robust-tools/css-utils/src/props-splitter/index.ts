@@ -21,6 +21,14 @@ export function propsSplitter({ props, commands }: IpropsSplitterProps) {
             [rawOutput || key]: value,
           },
         };
+      } else if (key === "htmlFor") {
+        return {
+          ...acc,
+          htmlProps: {
+            ...acc.htmlProps,
+            htmlFor: value,
+          },
+        };
       } else if (html && rawHtml) {
         return {
           ...acc,
@@ -42,6 +50,6 @@ export function propsSplitter({ props, commands }: IpropsSplitterProps) {
     {
       htmlProps: {},
       styleProps: {},
-    }
+    },
   );
 }

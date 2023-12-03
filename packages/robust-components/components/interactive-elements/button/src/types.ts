@@ -1,8 +1,6 @@
 import { IconProps, Ticon } from "@robust-ui/icon";
-import { SpinnerProps } from "@robust-ui/spinner";
-import { FlexProps } from "@robust-ui/flex";
 import { SpanProps } from "@robust-ui/span";
-import { colors } from "@robust-ui/theme";
+import { FlexProps } from "@robust-ui/flex";
 import {
   EnhancedElementPropsNoGeneric,
   EnhancedElementProps,
@@ -10,52 +8,30 @@ import {
 } from "@robust-ui/constructor";
 
 export interface ButtonProps extends EnhancedElementProps<HTMLButtonElement> {
-  variant?: GenericProperty<"ghost" | "solid" | "outline" | "link">;
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  opacityColorScheme?: GenericProperty<number>;
-  colorSchemeRaw?: GenericProperty<string>;
-  textProps?: GenericProperty<SpanProps>;
+  direction?: GenericProperty<"row" | "rowReverse">;
   isDisabled?: GenericProperty<boolean>;
+  hoverHelp?: GenericProperty<boolean>;
   isLoading?: GenericProperty<boolean>;
   hoverText?: GenericProperty<string>;
-  altColor?: GenericProperty<boolean>;
-  iconProps?: GenericProperty<{
-    iconPosition?: "left" | "right";
-    iconProps?: IconProps;
-    iconType?: Ticon;
-  }>;
-  loadingProps?: GenericProperty<{
-    spinnerPosition?: "left" | "right";
-    spinnerProps?: SpinnerProps;
-  }>;
+  iconType?: GenericProperty<Ticon>;
   hoverTextProps?: GenericProperty<{
     containerProps?: FlexProps;
     textProps?: SpanProps;
   }>;
+  textProps?: SpanProps;
+  iconProps?: IconProps;
 }
 
 export interface ButtonPropsNoGeneric
   extends EnhancedElementPropsNoGeneric<HTMLButtonElement> {
-  variant?: "ghost" | "solid" | "outline" | "link";
-  colorScheme?: keyof typeof colors;
-  opacityColorScheme?: number;
-  textProps?: SpanProps;
-  colorSchemeRaw?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-  loadingProps?: {
-    spinnerProps?: SpinnerProps;
-    spinnerPosition?: "left" | "right";
-  };
-  iconProps?: {
-    iconType?: Ticon;
-    iconPosition?: "left" | "right";
-    iconProps?: IconProps;
-  };
+  direction?: "row" | "rowReverse";
   hoverTextProps?: {
     containerProps?: FlexProps;
     textProps?: SpanProps;
   };
+  isDisabled?: boolean;
+  hoverHelp?: boolean;
+  isLoading?: boolean;
   hoverText?: string;
-  altColor?: boolean;
+  iconType?: Ticon;
 }

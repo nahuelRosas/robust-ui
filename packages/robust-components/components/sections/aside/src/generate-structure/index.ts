@@ -22,28 +22,28 @@ export function generateStructure({
   };
   const Placement = {
     top: {
-      top: "0",
-      left: "0",
-      right: "0",
-      bottom: "auto",
+      topRaw: "0",
+      leftRaw: "0",
+      rightRaw: "0",
+      bottomRaw: "auto",
     },
     right: {
-      top: "0",
-      right: "0",
-      bottom: "0",
-      left: "auto",
+      topRaw: "0",
+      rightRaw: "0",
+      bottomRaw: "0",
+      leftRaw: "auto",
     },
     bottom: {
-      top: "auto",
-      right: "0",
-      bottom: "0",
-      left: "0",
+      topRaw: "auto",
+      rightRaw: "0",
+      bottomRaw: "0",
+      leftRaw: "0",
     },
     left: {
-      top: "0",
-      right: "auto",
-      bottom: "0",
-      left: "0",
+      topRaw: "0",
+      rightRaw: "auto",
+      bottomRaw: "0",
+      leftRaw: "0",
     },
   };
   const transformDirection = {
@@ -61,9 +61,9 @@ export function generateStructure({
     widthRaw:
       (placement === "left" || placement === "right") && size
         ? partialSize(size, "VW")
-        : "0",
-    transition: isOpen ? "transform 0.25s ease-in-out" : "none",
-    transform: isOpen ? "none" : transformDirection[placement],
+        : "auto",
+    transitionRaw: "transform 0.75s cubic-bezier(1, 0.43, 0, 1.04)",
+    transformRaw: isOpen ? "none" : transformDirection[placement],
     ...Placement[placement],
   };
 }

@@ -2,14 +2,14 @@ import { getRandomHexColor } from "@robust-ui/css-utils";
 import { StyledTextPropsNoGeneric } from "@/types";
 import React from "react";
 export function formatMultiStyleString({
-  useRandomColors,
   fontWeightsRaw,
-  textColorsRaw,
-  styleMarker,
+  randomColors,
+  colorsRaw,
+  splitter,
   children,
   isActive,
 }: Partial<StyledTextPropsNoGeneric>) {
-  const hasValidMultiStyles = isActive && styleMarker;
+  const hasValidMultiStyles = isActive && splitter;
   let formattedChildren: unknown[] = [];
   let plainTextChildren: string[] = [];
 
@@ -41,21 +41,20 @@ export function formatMultiStyleString({
     formattedChildren.push(
       textLines.map((line) => {
         const textLines = line
-          .split(styleMarker as string)
+          .split(splitter as string)
           .filter((text) => text.trim().length > 0)
           .map((text, index) => {
-            const colorIndex =
-              (textColorsRaw && index % textColorsRaw?.length) || 0;
+            const colorIndex = (colorsRaw && index % colorsRaw?.length) || 0;
             const fontWeightsIndex =
               (fontWeightsRaw && index % fontWeightsRaw?.length) || 0;
-            const colorKey = textColorsRaw?.[colorIndex] || undefined;
-            const colorRaw = useRandomColors ? getRandomHexColor() : undefined;
+            const colorKey = colorsRaw?.[colorIndex] || undefined;
+            const colorRaw = randomColors ? getRandomHexColor() : undefined;
             const fontWeights = fontWeightsRaw?.[fontWeightsIndex] || 1;
             return { text, colorKey, colorRaw, fontWeights };
           })
           .flat();
         return textLines;
-      })
+      }),
     );
   });
 

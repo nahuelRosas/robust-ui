@@ -30,6 +30,7 @@
     "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/css-utils": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "@robust-ui/icons": "workspace:*",
     "@robust-ui/flex": "workspace:*",

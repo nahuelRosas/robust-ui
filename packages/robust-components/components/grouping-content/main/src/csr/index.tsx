@@ -1,8 +1,9 @@
+import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
 import { GlobalStateReducer } from "@robust-ui/global-state-reducer";
 import { useBreakpointValue } from "@robust-ui/use-breakpoint-value";
-import { ProviderProps } from "./types";
-import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { useCleanValue } from "@robust-ui/use-clean-value";
 import { ToastManager } from "@robust-ui/toast-manager";
+import { ProviderProps } from "./types";
 import {
   GlobalContextValues,
   GlobalContext,
@@ -24,8 +25,9 @@ import React, {
   useEffect,
   useState,
   useMemo,
-  Ref,
+  ReactNode,
 } from "react";
+export * from "./types";
 
 const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<ProviderProps>
@@ -33,7 +35,7 @@ const Factory: React.ForwardRefExoticComponent<
   {
     scrollBarColorCustom = {
       thumb: "rgba(255, 255, 255, 0.1)",
-      track: "rgba(255, 255, 255, 0.2)",
+      track: "rgba(79, 209, 197, 0.5)",
     },
     mediaBreakpointsCustom,
     notificationPlacement,
@@ -55,7 +57,7 @@ const Factory: React.ForwardRefExoticComponent<
   const [currentGlobalLanguage, setCurrentGlobalLanguage] =
     useState<keyof typeof Language>("en");
 
-  const Component = CreateComponent({
+  const Component = CreateComponent<HTMLElement>({
     componentType: "main",
   });
 
@@ -141,22 +143,22 @@ const Factory: React.ForwardRefExoticComponent<
         currentBreakpoint,
         isDarkModeActive,
         commands: {
-          ...commands,
           ...commandsCustom,
+          ...commands,
         },
         theme: {
           ...defaultTheme,
           ...themeCustom,
         },
         selectors: {
-          ...selectors,
           ...commandsCustom,
+          ...selectors,
         },
       },
       devTools: {
-        setNotificationState,
-        resetNotificationState,
         removeNotificationState,
+        resetNotificationState,
+        setNotificationState,
         changeLanguage,
         toggleDarkMode,
         resetAppState,
@@ -172,30 +174,44 @@ const Factory: React.ForwardRefExoticComponent<
       notifications: globalNotification,
     };
   }, [
+    removeNotificationState,
+    resetNotificationState,
     mediaBreakpointsCustom,
-    cssResetCustom,
-    globalStateDev,
     currentGlobalLanguage,
+    setNotificationState,
+    globalNotification,
     currentBreakpoint,
     isDarkModeActive,
+    globalStateUser,
     commandsCustom,
-    themeCustom,
-    setNotificationState,
-    resetNotificationState,
-    removeNotificationState,
+    cssResetCustom,
+    globalStateDev,
     changeLanguage,
     toggleDarkMode,
     resetAppState,
+    themeCustom,
     getAppState,
     setAppState,
-    globalStateUser,
-    globalNotification,
   ]);
 
   useEffect(() => {
     if (window && window?.matchMedia("(prefers-color-scheme: dark)").matches)
       toggleDarkMode(true);
   }, [isDarkModeActive, toggleDarkMode]);
+
+  const { ...cleanedProps } = useCleanValue({
+    props,
+    context: {
+      mediaBreakpoints: mediaBreakpointsCustom || mediaBreakpoints,
+      currentGlobalLanguage,
+      currentBreakpoint,
+      isDarkModeActive,
+      theme: {
+        ...defaultTheme,
+        ...themeCustom,
+      },
+    },
+  });
 
   return (
     <GlobalContext.Provider value={memoizedGlobalContextValue}>
@@ -204,7 +220,8 @@ const Factory: React.ForwardRefExoticComponent<
         elementName="Provider"
         scrollbarWidth="thin"
         fontFamily="Manrope"
-        overflow="hidden"
+        overflowX="hidden"
+        overflowY="auto"
         position="fixed"
         display="flex"
         height="100vh"
@@ -214,20 +231,20 @@ const Factory: React.ForwardRefExoticComponent<
         top="0"
         webkitScrollbar={{
           backgroundColorRaw: scrollBarColorCustom.thumb,
-          borderRadius: "0.5rem",
+          borderRadius: "1.5vh",
           zIndexRaw: 99999,
-          height: "0.5rem",
-          width: "0.3rem",
+          height: "0.5vh",
+          width: "1.5vh",
         }}
         webkitScrollbarThumb={{
           backgroundColorRaw: scrollBarColorCustom.track,
-          borderRadius: "0.5rem",
+          borderRadius: "1.5vh",
           zIndexRaw: 99999,
         }}
         scrollbarColorRaw={scrollBarColorCustom}
-        {...props}>
+        {...cleanedProps}>
         {children}
-        {/* <ToastManager notificationPlacement={notificationPlacement} /> */}
+        <ToastManager notificationPlacement={notificationPlacement} />
       </Component>
     </GlobalContext.Provider>
   );

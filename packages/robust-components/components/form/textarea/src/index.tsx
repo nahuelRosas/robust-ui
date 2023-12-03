@@ -1,202 +1,192 @@
-import { extractStrings } from "@robust-ui/utils";
-import { useCleanValue } from "@robust-ui/use-clean-value";
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-export * from "./types";
-import React, {
-  startTransition,
-  forwardRef,
-  Suspense,
-  useState,
-  useMemo,
-  lazy,
-} from "react";
+import { TextAreaPropsNoGeneric, TextAreaProps } from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { ExtractStrings } from "@robust-ui/utils";
+import { Label } from "@robust-ui/label";
+import { Flex } from "@robust-ui/flex";
 import {
+  getTextColorHighContrast,
   generateColorScheme,
-  getTextColor,
   addOpacity,
 } from "@robust-ui/css-utils";
-import { TextAreaPropsNoGeneric, TextAreaProps } from "./types";
+import React, {
+  startTransition,
+  useCallback,
+  forwardRef,
+  useEffect,
+  useState,
+  useMemo,
+} from "react";
+export * from "./types";
 
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
-
-const Label = lazy(() =>
-  import("@robust-ui/label").then((module) => ({
-    default: module.Label,
-  }))
-);
-
-const Button = lazy(() =>
-  import("@robust-ui/button").then((module) => ({
-    default: module.Button,
-  }))
-);
-
-const TextAreaComponent: React.ForwardRefExoticComponent<
+const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<TextAreaProps>
 > = forwardRef(function TextAreaComponent(
-  { ...props },
+  { labelProps, children, ...props },
   ref
 ): React.JSX.Element {
-  const cleanedProps = useCleanValue({ props });
-  const {
-    colorScheme = "indigo",
-    multiLanguageSupport,
-    opacityColorScheme,
-    variant = "outline",
-    altColor = true,
-    buttonIconProps,
-    colorSchemeRaw,
-    defaultValue,
-    placeHolder,
-    buttonProps,
-    isDisabled,
-    fontWeight,
-    isRequired,
-    buttonIcon,
-    buttonText,
-    textProps,
-    isLoading,
-    isInvalid,
-    onChange,
-    children,
-    isValid,
-    value,
-    ...rest
-  } = cleanedProps as TextAreaPropsNoGeneric;
-
-  const TextArea = CreateComponent({
+  const Component = CreateComponent<HTMLTextAreaElement>({
     componentType: "textarea",
   });
 
-  const [inputValue, setInputValue] = useState("");
-  const [isFocused, setFocused] = useState(false);
+  const {
+    multiLanguageSupport,
+    colorSchemeProperty,
+    colorSchemeRaw,
+    colorScheme,
+    placeholder,
+    isDisabled,
+    resetValue,
+    isRequired,
+    isInvalid,
+    isLoading,
+    onChange,
+    isValid,
+    variant,
+    value,
+    id,
+    ...cleanedProps
+  } = useCleanValue({
+    props,
+  }) as TextAreaPropsNoGeneric;
+
+  const [inputValue, setInputValue] = useState(value || "");
+  const [isFocus, setFocus] = useState(false);
   const [isHover, setHover] = useState(false);
 
-  function handleInputChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    startTransition(() => setInputValue(e.target.value));
-  }
+  const structureStyle = useMemo(() => {
+    return generateColorScheme({
+      isDisabled,
+      isInvalid,
+      isValid,
+      baseColor: colorSchemeRaw || colorScheme || "teal",
+      variant: variant
+        ? variant
+        : isDisabled
+          ? "solid"
+          : (value && value.length) || (inputValue && inputValue.length)
+            ? "solid"
+            : "outline",
+      ...colorSchemeProperty,
+    });
+  }, [
+    isDisabled,
+    isInvalid,
+    isValid,
+    colorSchemeRaw,
+    colorScheme,
+    variant,
+    value,
+    inputValue,
+    colorSchemeProperty,
+  ]);
 
-  const structureStyle = useMemo(
-    () =>
-      generateColorScheme({
-        baseColor: colorSchemeRaw || colorScheme,
-        opacity: opacityColorScheme,
-        variant: variant,
-        altColor,
-      }),
-    [colorSchemeRaw, colorScheme, opacityColorScheme, variant, altColor]
-  );
-
-  const { otherComponents, strings } = useMemo(
-    () =>
-      extractStrings({
-        children,
-        multiLanguageSupport,
-      }),
-    [children, multiLanguageSupport]
-  );
+  const { otherComponents, strings } = ExtractStrings({
+    multiLanguageSupport,
+    children,
+  });
 
   const colorWithOpacity = useMemo(
     () =>
       addOpacity({
-        color: colorSchemeRaw || colorScheme,
-        opacity: 1,
+        color: colorSchemeRaw || colorScheme || "teal",
+        opacity: 0.9,
       }),
     [colorSchemeRaw, colorScheme]
   );
 
+  const handleOnChange = useCallback(
+    (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+      if (onChange) {
+        onChange(event);
+      }
+      setInputValue(event.target.value);
+    },
+    [onChange]
+  );
+
+  const idString = id ? id : strings.length ? strings.join(" ") : placeholder;
+  useEffect(() => {
+    if (resetValue) {
+      setInputValue("");
+    }
+    if (value !== inputValue) {
+      setInputValue(value || "");
+    }
+  }, [inputValue, resetValue, value]);
   return (
-    <Suspense>
-      <Flex position="relative" elementName="TextArea" {...rest}>
-        {(strings.length || placeHolder) && (
-          <Suspense>
-            <Label
-              opacityColorScheme={opacityColorScheme}
-              colorSchemeRaw={colorSchemeRaw}
-              colorScheme={colorScheme}
-              elementName="TextAreaLabel"
-              isFocused={isFocused}
-              isHovered={isHover}
-              variant={variant}
-              text={inputValue}>
-              {strings.length ? strings : placeHolder}
-            </Label>
-          </Suspense>
-        )}
-        <TextArea
-          elementName="TextAreaInput"
-          onMouseEnter={() => startTransition(() => setHover(true))}
-          onMouseLeave={() => startTransition(() => setHover(false))}
-          onFocus={() => startTransition(() => setFocused(true))}
-          onBlur={() => startTransition(() => setFocused(false))}
-          webkitScrollbar={{
-            width: "0.5vw",
-            height: "100%",
-            cursor: "auto",
-            backgroundColorRaw: addOpacity({
-              color: colorSchemeRaw || colorScheme,
-              opacity: 0.5,
-            }),
-            zIndexRaw: 99999,
-          }}
-          webkitScrollbarThumb={{
-            backgroundColorRaw: getTextColor(colorWithOpacity, true),
-            cursor: "auto",
-            borderRadius: "0.5vh",
-            zIndexRaw: 99999,
-          }}
-          scrollbarColorRaw={colorWithOpacity}
-          scrollbarWidth="thin"
-          boxSizing="borderBox"
-          position="absolute"
-          borderRadius="1vh"
-          spellCheck={false}
-          fontSize="inherit"
-          fontWeight="500"
-          cursor="text"
-          height="100%"
-          width="100%"
-          px="2vw"
-          py="3vh"
-          ref={ref}
-          disabled={isLoading || isDisabled}
-          onChange={handleInputChange}
-          {...structureStyle}
-        />
-        {(buttonText || buttonIcon) && (
-          <Suspense>
-            <Button
-              elementName="TextAreaButton"
-              iconProps={
-                !isLoading && buttonIcon
-                  ? {
-                      iconPosition: "left",
-                      iconType: buttonIcon,
-                      ...buttonIconProps,
-                    }
-                  : undefined
-              }
-              // loadingProps={{
-              //   spinnerProps: {
-              //     opacityColorScheme,
-              //     colorSchemeRaw,
-              //     colorScheme,
-              //     altColor,
-              //     variant,
-              //   },
-              //   spinnerPosition: "left",
-              // }}
-              isLoading={isLoading}
-              {...buttonProps}>
-              {buttonText}
-            </Button>
-          </Suspense>
-        )}
-        {otherComponents}
-      </Flex>
-    </Suspense>
+    <Flex
+      cursor={isDisabled ? "notAllowed" : isLoading ? "wait" : "text"}
+      elementName="TextAreaContainer"
+      justifyContent="center"
+      position="relative"
+      alignItems="center"
+      width="fitContent"
+      {...cleanedProps}>
+      <Component
+        id={idString}
+        pointerEventsRaw={isLoading || isDisabled ? "none" : undefined}
+        onMouseEnter={() => startTransition(() => setHover(true))}
+        onMouseLeave={() => startTransition(() => setHover(false))}
+        onBlur={() => startTransition(() => setFocus(false))}
+        onFocus={() => startTransition(() => setFocus(true))}
+        webkitScrollbar={{
+          backgroundColorRaw: addOpacity({
+            color: colorSchemeRaw || colorScheme || "teal",
+            opacity: 0.5,
+          }),
+          zIndexRaw: 99999,
+          width: "0.5vw",
+          height: "100%",
+          cursor: "auto",
+        }}
+        webkitScrollbarThumb={{
+          backgroundColorRaw: getTextColorHighContrast(colorWithOpacity),
+          borderRadius: "0.5vh",
+          zIndexRaw: 99999,
+          cursor: "auto",
+        }}
+        scrollbarColorRaw={colorWithOpacity}
+        scrollbarWidth="thin"
+        boxSizing="borderBox"
+        position="relative"
+        borderRadius="1vh"
+        spellCheck={false}
+        fontSize="inherit"
+        value={onChange && value ? value : inputValue}
+        onChange={handleOnChange}
+        elementName="TextArea"
+        fontWeight="500"
+        cursor="inherit"
+        height="100%"
+        width="100%"
+        minH="20vh"
+        ref={ref}
+        {...structureStyle}
+        {...cleanedProps}
+        pt={strings.length || placeholder ? "3vh" : "2vh"}
+        pb="2vh"
+        px="2vw"
+        m="0"
+      />
+      {otherComponents}
+      {(strings.length || placeholder) && (
+        <Label
+          isRequired={isRequired}
+          isDisabled={isDisabled}
+          isInvalid={isInvalid}
+          isValid={isValid}
+          elementName="TextAreaLabel"
+          isFocus={isFocus}
+          isHover={isHover}
+          htmlFor={idString}
+          text={onChange ? value : inputValue}
+          id={idString}
+          {...labelProps}>
+          {strings.length ? strings : placeholder}
+        </Label>
+      )}
+    </Flex>
   );
 });
-export const TextArea = React.memo(TextAreaComponent);
+export const TextArea = React.memo(Factory);

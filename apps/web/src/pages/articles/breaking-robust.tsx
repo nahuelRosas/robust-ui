@@ -1,12 +1,13 @@
-import {
-  Flex,
-  Icon,
-  StyledText,
-  Image,
-  Block,
-  NextLink,
-  StyledTextProps,
-} from "@robust-ui/nextjs-components";
+import { StyledTextProps } from "@/components/nested-styled-text";
+import { Block } from "@/components/block";
+import { Flex } from "@/components/flex";
+import { Icon } from "@/components/icon";
+import { Image } from "@/components/image";
+import { StyledText } from "@/components/nested-styled-text";
+import { NextLink } from "@/components/nextLink";
+import { Card } from "@/components/card";
+import React from "react";
+import HeadNext from "@/components/headNext";
 
 export default function BreakingRobust() {
   const commonTextStyle: StyledTextProps = {
@@ -27,14 +28,9 @@ export default function BreakingRobust() {
       base: "left",
       md: "justify",
     },
-    textShadow: {
-      x: "0.3vh",
-      y: "-0.2vh",
-      blur: "0.2vh",
-      color: "black",
-    },
+
     fontWeights: ["400", "900", "400", "900"],
-    textColors: ["white", "mulberry", "white", "indigo"],
+    colors: ["white", "teal", "white", "indigo"],
   };
   const titleTextStyle: StyledTextProps = {
     optimizedWidth: true,
@@ -54,14 +50,9 @@ export default function BreakingRobust() {
       base: "left",
       md: "justify",
     },
-    textShadow: {
-      x: "0.3vh",
-      y: "-0.2vh",
-      blur: "0.2vh",
-      color: "black",
-    },
+
     fontWeights: ["900"],
-    textColors: ["white", "mulberry", "white", "indigo"],
+    colors: ["white", "teal", "white", "indigo"],
   };
   const secondaryTitleTextStyle: StyledTextProps = {
     optimizedWidth: true,
@@ -81,112 +72,36 @@ export default function BreakingRobust() {
       base: "left",
       md: "justify",
     },
-    textShadow: {
-      x: "0.3vh",
-      y: "-0.2vh",
-      blur: "0.2vh",
-      color: "black",
-    },
     fontWeights: ["900"],
-    textColors: ["mulberry", "white", "indigo"],
+    colors: ["teal", "white", "indigo"],
   };
   return (
-    <Block pt="10vh" tabIndex={-1} id={"breaking-robust"}>
-      <Flex
-        justifyContent="center"
-        backgroundRaw="rgba(0,0,0,0.6)"
-        borderRadius="16px"
-        py="1rem"
-        widthRaw={{ base: "calc(100vw - 2rem)", md: "calc(100vw - 4rem)" }}
-        mx={{
-          base: "1rem",
-          md: "2rem",
+    <>
+      <HeadNext
+        title={{
+          en: "Breaking Robust | Articles | Nahuel Rosas",
+          es: "Desglosando Robust | Artículos | Nahuel Rosas",
         }}
-        overflow="hidden"
-        flexDirection="column">
-        <NextLink
-          href="/articles"
-          px={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          pt="3vh"
-          cursor="pointer"
-          alignSelf="flexStart">
-          <StyledText
-            p="0"
-            optimizedWidth
-            alignSelf="center"
-            fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
-            }}
-            textAlign={{
-              base: "left",
-              md: "left",
-            }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
-            }}
-            textColors={["white", "mulberry"]}
-            fontWeights={["500", "900"]}
-            multiLanguageSupport={{
-              en: "Articles",
-              es: "Artículos",
-            }}
-          />
-        </NextLink>
-        <StyledText
-          mt="3vh"
-          p="0"
-          optimizedWidth
-          alignSelf="center"
-          fontSizeRaw={{
-            base: "4vh",
-            md: "6vh",
-          }}
-          textAlign={{
-            base: "left",
-            md: "left",
-          }}
-          textShadow={{
-            x: "0.3vh",
-            y: "-0.2vh",
-            blur: "0.2vh",
-            color: "black",
-          }}
-          textColors={["white", "mulberry", "white", "indigo"]}
-          fontWeights={["900"]}
-          px={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          multiLanguageSupport={{
-            en: "Breaking down Robust: | How to create your own React component library inspired by Styled Components, Tailwind, and Chakra UI | (Advanced TypeScript - Spanish)",
-            es: "Desglosando Robust: | Cómo crear tu propia biblioteca de componentes de React inspirada en Styled Components, Tailwind y Chakra UI | (TypeScript avanzado - Español)",
-          }}
-        />
-        <Image
-          isSlider
-          alt="Eacces error"
-          height="50vh"
-          borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
-          src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386733005_l48rgz.png"
-        />
-
+      />
+      <Card
+        mt="15vh"
+        mb="10vh"
+        tabIndex={-1}
+        id={"breaking-robust"}
+        header={{
+          text: {
+            en: "Articles",
+            es: "Artículos",
+          },
+          href: "/articles",
+        }}
+        label={{
+          en: "Breaking down Robust: | How to create your own React component library inspired by Styled Components, Tailwind, and Chakra UI | (Advanced TypeScript - Spanish)",
+          es: "Desglosando Robust: | Cómo crear tu propia biblioteca de componentes de React inspirada en Styled Components, Tailwind y Chakra UI | (TypeScript avanzado - Español)",
+        }}
+        images={[
+          "https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386733005_l48rgz.png",
+        ]}>
         <StyledText
           {...titleTextStyle}
           multiLanguageSupport={{
@@ -249,18 +164,10 @@ export default function BreakingRobust() {
         <Image
           isSlider
           alt="Eacces error"
-          height="50vh"
+          alignSelf="center"
           borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
+          height="50vh"
+          m="3vh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685385868929_yvkze4.png"
         />
         <StyledText
@@ -294,8 +201,8 @@ export default function BreakingRobust() {
 
         <Flex my="0.5vh" mx="6vw" gap="1vh" optimizedWidth>
           <Icon
-            color="white"
-            icon="starFill"
+            color="teal"
+            iconType="starFill"
             sizeRaw={{
               base: "2vh",
               md: "3vh",
@@ -313,18 +220,12 @@ export default function BreakingRobust() {
               base: "left",
               md: "left",
             }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
-            }}
             fontWeights={["400", "900", "400", "900"]}
             px={{
               base: "6vw",
               md: "3vw",
             }}
-            textColors={["white", "mulberry"]}
+            colors={["white", "teal"]}
             multiLanguageSupport={{
               es: "Garantizan la identificación única y diferenciación de componentes en el DOM.",
               en: "They ensure the unique identification and differentiation of components in the DOM.",
@@ -333,8 +234,8 @@ export default function BreakingRobust() {
         </Flex>
         <Flex my="0.5vh" mx="6vw" gap="1vh" optimizedWidth>
           <Icon
-            icon="starFill"
-            color="white"
+            iconType="starFill"
+            color="teal"
             sizeRaw={{
               base: "2vh",
               md: "3vh",
@@ -352,18 +253,12 @@ export default function BreakingRobust() {
               base: "left",
               md: "left",
             }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
-            }}
             fontWeights={["400", "900", "400", "900"]}
             px={{
               base: "6vw",
               md: "3vw",
             }}
-            textColors={["white", "mulberry"]}
+            colors={["white", "teal"]}
             multiLanguageSupport={{
               es: "Evitan problemas de colisión de nombres al tener nombres dinámicos generados por hashes.",
               en: "They avoid naming collision issues by having dynamic names generated by hashes.",
@@ -372,8 +267,8 @@ export default function BreakingRobust() {
         </Flex>
         <Flex my="0.5vh" mx="6vw" gap="1vh" optimizedWidth>
           <Icon
-            icon="starFill"
-            color="white"
+            iconType="starFill"
+            color="teal"
             sizeRaw={{
               base: "2vh",
               md: "3vh",
@@ -391,18 +286,12 @@ export default function BreakingRobust() {
               base: "left",
               md: "left",
             }}
-            textShadow={{
-              x: "0.3vh",
-              y: "-0.2vh",
-              blur: "0.2vh",
-              color: "black",
-            }}
             fontWeights={["400", "900", "400", "900"]}
             px={{
               base: "6vw",
               md: "3vw",
             }}
-            textColors={["white", "mulberry"]}
+            colors={["white", "teal"]}
             multiLanguageSupport={{
               es: "Proporcionan un enfoque eficiente y seguro para identificar componentes en una biblioteca de componentes de React.",
               en: "They provide an efficient and secure approach to identifying components in a React component library.",
@@ -412,18 +301,10 @@ export default function BreakingRobust() {
         <Image
           isSlider
           alt="Eacces error"
-          height="50vh"
+          alignSelf="center"
           borderRadius="2.5vh"
-          minW={{
-            base: "90%",
-            md: "50%",
-          }}
-          mt="6vh"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          p="0"
+          m="3vh"
+          height="50vh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386484533_pfjweq.png"
         />
         <StyledText
@@ -433,7 +314,7 @@ export default function BreakingRobust() {
             en: "Conclusion: In this first chapter, we have explored the importance of hashes in identifying components in the DOM. Hashes offer an efficient and secure solution to ensure the unique identification and differentiation of components in React component libraries like Robust. In the next chapter, we will dive deeper into more key concepts and approaches used in the Robust library. We invite you to follow this series to learn how to build your own custom component library, leveraging the best of Styled Components, Tailwind, and Chakra UI. Until next time!",
           }}
         />
-      </Flex>
-    </Block>
+      </Card>
+    </>
   );
 }

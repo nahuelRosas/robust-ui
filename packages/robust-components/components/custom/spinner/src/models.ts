@@ -7,18 +7,18 @@ export function models({ colors, model, colorsRaw }: SpinnerModelProps) {
     colorsTheme[colorsRaw?.primary as keyof typeof colorsTheme]
       ? colorsTheme[colorsRaw?.primary as keyof typeof colorsTheme]
       : colorsRaw?.primary &&
-        !colorsTheme[colorsRaw?.primary as keyof typeof colorsTheme]
-      ? colorsRaw?.primary
-      : colors && colorsTheme[colors.primary];
+          !colorsTheme[colorsRaw?.primary as keyof typeof colorsTheme]
+        ? colorsRaw?.primary
+        : colors && colorsTheme[colors.primary];
 
   const secondaryColor =
     colorsRaw?.secondary &&
     colorsTheme[colorsRaw?.secondary as keyof typeof colorsTheme]
       ? colorsTheme[colorsRaw?.secondary as keyof typeof colorsTheme]
       : colorsRaw?.secondary &&
-        !colorsTheme[colorsRaw?.secondary as keyof typeof colorsTheme]
-      ? colorsRaw?.secondary
-      : colors && colorsTheme[colors.secondary];
+          !colorsTheme[colorsRaw?.secondary as keyof typeof colorsTheme]
+        ? colorsRaw?.secondary
+        : colors && colorsTheme[colors.secondary];
 
   const basics: {
     [key: string]: {
@@ -26,7 +26,7 @@ export function models({ colors, model, colorsRaw }: SpinnerModelProps) {
     };
   } = {
     A: {
-      border: `0.5vh solid ${primaryColor}`,
+      border: `0.75vh solid ${primaryColor}`,
       borderBottomColor: secondaryColor,
       borderRadius: "50%",
       display: "inlineBlock",

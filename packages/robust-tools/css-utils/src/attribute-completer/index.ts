@@ -22,7 +22,10 @@ export function attributeCompleter({
     > = {};
 
     for (const [key, value] of Object.entries(inputAttributes)) {
-      if (value === undefined) return;
+      if (!key || !value) {
+        continue;
+      }
+
       if (value && typeof value === "object" && !Array.isArray(value)) {
         const hasValidBreakpoints = Object.keys(value).some((attrKey) =>
           mediaBreakpoints.hasOwnProperty(attrKey)

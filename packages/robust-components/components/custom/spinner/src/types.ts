@@ -18,15 +18,11 @@ export interface SpinnerModelProps {
 }
 
 export interface SpinnerProps extends EnhancedElementProps<HTMLDivElement> {
-  variant?: GenericProperty<"solid" | "outline" | "link" | "ghost">;
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  opacityColorScheme?: GenericProperty<number>;
+  complementaryColor?: GenericProperty<boolean>;
   size?: GenericProperty<keyof typeof sizes>;
-  colorSchemeRaw?: GenericProperty<string>;
+  invertedColors?: GenericProperty<boolean>;
   model?: GenericProperty<"A">;
-  altColor?: GenericProperty<boolean>;
   sizeRaw?: GenericProperty<string>;
-
   colors?: GenericProperty<{
     primary: keyof typeof colors;
     secondary: keyof typeof colors;
@@ -37,15 +33,12 @@ export interface SpinnerProps extends EnhancedElementProps<HTMLDivElement> {
   }>;
 }
 
-export interface SpinnerPropsClean
+export interface SpinnerPropsNoGeneric
   extends EnhancedElementPropsNoGeneric<HTMLDivElement> {
-  variant?: "solid" | "outline" | "link" | "ghost";
-  colorScheme: keyof typeof colors;
-  opacityColorScheme: number;
+  complementaryColor?: boolean;
+  invertedColors?: boolean;
   size: keyof typeof sizes;
-  colorSchemeRaw?: string;
   model?: "A";
-  altColor?: boolean;
   sizeRaw?: string;
   colors?: {
     primary: keyof typeof colors;

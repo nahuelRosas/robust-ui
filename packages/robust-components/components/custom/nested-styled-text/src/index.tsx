@@ -1,62 +1,78 @@
-import React, { forwardRef, lazy, Ref, Suspense, useMemo } from "react";
 import { formatMultiStyleString } from "./format-multi-style-string";
-import { useCleanValue } from "@robust-ui/use-clean-value";
-import { assambleChilden } from "./assemble-children";
-import { extractStrings } from "@robust-ui/utils";
 import { StyledTextProps, StyledTextPropsNoGeneric } from "./types";
+import { useCleanValue } from "@robust-ui/use-clean-value";
+import { generateColorScheme } from "@robust-ui/css-utils";
 import { ForwardRefExotic } from "@robust-ui/constructor";
+import { assambleChilden } from "./assemble-children";
+import React, { forwardRef, useMemo } from "react";
+import { ExtractStrings } from "@robust-ui/utils";
+import { Block } from "@robust-ui/block";
 export * from "./types";
 
-const Block = lazy(() =>
-  import("@robust-ui/block").then((module) => ({ default: module.Block }))
-);
-
-const StyledTextComponent: React.ForwardRefExoticComponent<
+const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<StyledTextProps>
 > = forwardRef(function StyledTextComponent(
-  { ...props },
+  { children, ...props },
   ref
 ): React.JSX.Element {
-  const cleanedProps = useCleanValue({ props });
   const {
-    useRandomColors = false,
     multiLanguageSupport,
-    styleMarker = "|",
-    isActive = true,
+    colorSchemeProperty,
+    colorSchemeRaw,
     fontWeightsRaw,
-    textColorsRaw,
+    randomColors,
+    colorScheme,
     fontWeights,
-    textColors,
-    children,
-    ...rest
-  } = cleanedProps as StyledTextPropsNoGeneric;
+    colorsRaw,
+    splitter,
+    isActive,
+    colors,
+    ...cleanedProps
+  } = useCleanValue({
+    props,
+  }) as StyledTextPropsNoGeneric;
 
-  const { otherComponents, strings } = useMemo(
-    () =>
-      extractStrings({
-        children,
-        multiLanguageSupport,
-      }),
-    [children, multiLanguageSupport]
-  );
+  const structureStyle = useMemo(() => {
+    if (!colorSchemeProperty && !colorSchemeRaw && !colorScheme) return {};
+    return generateColorScheme({
+      variant: colorSchemeProperty?.variant || "link",
+      props: {
+        monochromeText: true,
+      },
+      opacity: 0.9,
+      baseColor:
+        colorSchemeProperty?.baseColor ||
+        colorSchemeProperty?.baseColorRaw ||
+        colorSchemeRaw ||
+        colorScheme ||
+        "indigo",
+      ...colorSchemeProperty,
+    });
+  }, [colorSchemeRaw, colorScheme, colorSchemeProperty]);
+
+  const { otherComponents, strings } = ExtractStrings({
+    children,
+    multiLanguageSupport,
+  });
+
   const formattedChildren = useMemo(
     () =>
       formatMultiStyleString({
-        fontWeightsRaw: fontWeights || fontWeightsRaw,
-        textColorsRaw: textColors || textColorsRaw,
+        fontWeightsRaw: fontWeightsRaw || fontWeights,
+        colorsRaw: colorsRaw || colors,
+        randomColors: randomColors || false,
+        splitter: splitter || "|",
+        isActive: isActive || true,
         children: strings,
-        useRandomColors,
-        styleMarker,
-        isActive,
       }),
     [
-      useRandomColors,
-      fontWeightsRaw,
-      textColorsRaw,
-      styleMarker,
+      colors,
+      colorsRaw,
       fontWeights,
-      textColors,
+      fontWeightsRaw,
       isActive,
+      randomColors,
+      splitter,
       strings,
     ]
   );
@@ -66,23 +82,22 @@ const StyledTextComponent: React.ForwardRefExoticComponent<
   }, [formattedChildren]);
 
   return (
-    <Suspense>
-      <Block
-        textRendering="optimizeLegibility"
-        elementName="StyledText"
-        textOverflow="ellipsis"
-        lineHeight="normal"
-        whiteSpace="normal"
-        fontStyle="normal"
-        fontSize="2.5vh"
-        userSelect
-        ref={ref}
-        {...rest}>
-        {processedChildren}
-        {otherComponents}
-      </Block>
-    </Suspense>
+    <Block
+      textRendering="optimizeLegibility"
+      elementName="StyledText"
+      textOverflow="ellipsis"
+      lineHeight="normal"
+      whiteSpace="normal"
+      fontStyle="normal"
+      fontSize="2.5vh"
+      userSelect="none"
+      ref={ref}
+      {...structureStyle}
+      {...cleanedProps}>
+      {processedChildren}
+      {otherComponents}
+    </Block>
   );
 });
 
-export const StyledText = React.memo(StyledTextComponent);
+export const StyledText = React.memo(Factory);

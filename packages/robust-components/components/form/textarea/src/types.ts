@@ -1,50 +1,32 @@
-import { ButtonProps } from "@robust-ui/button";
-import { SpanProps } from "@robust-ui/span";
-import { colors } from "@robust-ui/theme";
-import { Ticon } from "@robust-ui/icon";
 import {
   EnhancedElementPropsNoGeneric,
   EnhancedElementProps,
   GenericProperty,
 } from "@robust-ui/constructor";
+import { LabelProps } from "@robust-ui/label";
 
-export interface TextAreaProps extends EnhancedElementProps<HTMLDivElement> {
-  variant?: GenericProperty<"solid" | "outline" | "link" | "ghost">;
-  buttonIconProps?: GenericProperty<ButtonProps["iconProps"]>;
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  opacityColorScheme?: GenericProperty<number>;
-  buttonProps?: GenericProperty<ButtonProps>;
-  colorSchemeRaw?: GenericProperty<string>;
-  textProps?: GenericProperty<SpanProps>;
-  placeHolder?: GenericProperty<string>;
+export interface TextAreaProps
+  extends EnhancedElementProps<HTMLTextAreaElement> {
+  resetValue?: GenericProperty<boolean>;
   isDisabled?: GenericProperty<boolean>;
   isRequired?: GenericProperty<boolean>;
   isInvalid?: GenericProperty<boolean>;
-  buttonText?: GenericProperty<string>;
   isLoading?: GenericProperty<boolean>;
-  altColor?: GenericProperty<boolean>;
-  buttonIcon?: GenericProperty<Ticon>;
   isValid?: GenericProperty<boolean>;
   value?: GenericProperty<string>;
+  labelProps?: LabelProps;
 }
 
 export interface TextAreaPropsNoGeneric
-  extends EnhancedElementPropsNoGeneric<HTMLDivElement> {
-  variant?: "solid" | "outline" | "link" | "ghost";
-  buttonIconProps?: ButtonProps["iconProps"];
-  colorScheme?: keyof typeof colors;
-  opacityColorScheme?: number;
-  buttonProps?: ButtonProps;
-  colorSchemeRaw?: string;
-  textProps?: SpanProps;
-  placeHolder?: string;
+  extends EnhancedElementPropsNoGeneric<HTMLTextAreaElement> {
+  onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
   isDisabled?: boolean;
+  resetValue?: boolean;
   isRequired?: boolean;
+  placeholder?: string;
   isLoading?: boolean;
   isInvalid?: boolean;
-  buttonText?: string;
-  altColor?: boolean;
-  buttonIcon?: Ticon;
   isValid?: boolean;
   value?: string;
+  id?: string;
 }

@@ -5,34 +5,34 @@ import {
   EnhancedElementProps,
   GenericPropertyArray,
   GenericProperty,
+  EnhancedElementPropsNoGeneric,
 } from "@robust-ui/constructor";
 
 export interface CoverProps extends EnhancedElementProps<HTMLElement> {
-  heading?: GenericProperty<{
-    [key: string]: string;
-  }>;
-  subHeading?: GenericProperty<{ [key: string]: string }>;
-  icons?: GenericPropertyArray<{
-    color: keyof typeof colors;
-    type: Ticon;
-  }>;
-  headingProps?: StyledTextProps;
-  subHeadingProps?: StyledTextProps;
+  paragraph?: GenericProperty<string>;
+  paragraphProps?: StyledTextProps;
+  label?: GenericProperty<string>;
+  labelProps?: StyledTextProps;
+  icons?: GenericPropertyArray<
+    | {
+        color?: keyof typeof colors;
+        colorRaw?: string;
+        type: Ticon;
+      }
+    | Ticon
+  >;
   iconProps?: IconProps;
 }
 
-export interface CoverPropsNoGeneric extends EnhancedElementProps<HTMLElement> {
-  heading?: { [key: string]: string };
-  subHeading?: { [key: string]: string };
-  icons?: Array<{
-    color: keyof typeof colors;
-    type: Ticon;
-  }>;
-  headingProps?: StyledTextProps;
-  subHeadingProps?: StyledTextProps;
-  iconProps?: IconProps;
+export interface CoverPropsNoGeneric
+  extends EnhancedElementPropsNoGeneric<HTMLElement> {
+  label?: string;
+  paragraph?: string;
+  icons?:
+    | {
+        color?: keyof typeof colors;
+        colorRaw?: string;
+        type: Ticon;
+      }[]
+    | Ticon[];
 }
-
-export type ForwardRefExoticCover = Omit<CoverProps, "ref"> &
-  React.RefAttributes<unknown> &
-  CoverProps;

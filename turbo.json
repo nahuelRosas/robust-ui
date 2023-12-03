@@ -6,8 +6,7 @@
       "dependsOn": ["^build"],
       "env": [
         "NODE_ENV=production",
-        "NODE_OPTIONS=--max-old-space-size=10000",
-        "RESEND_API_KEY=re_pyuAny5j_6cecft8VdBQ9gBJ2UJ5TRwyE"
+        "NODE_OPTIONS=--max-old-space-size=10000"
       ]
     },
     "test": {
@@ -20,8 +19,7 @@
       "cache": false,
       "persistent": false,
       "env": [
-        "NODE_ENV=development",
-        "RESEND_API_KEY=re_pyuAny5j_6cecft8VdBQ9gBJ2UJ5TRwyE"
+        "NODE_ENV=development"
       ]
     },
     "clean": {

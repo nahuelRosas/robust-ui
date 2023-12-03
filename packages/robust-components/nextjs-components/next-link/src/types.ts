@@ -1,61 +1,36 @@
+import { Ticon, IconProps } from "@robust-ui/icon";
+import { SpanProps } from "@robust-ui/span";
+import { FlexProps } from "@robust-ui/flex";
+import { LinkProps } from "next/link";
 import {
   EnhancedElementPropsNoGeneric,
   EnhancedElementProps,
   GenericProperty,
 } from "@robust-ui/constructor";
-import { SpanProps } from "@robust-ui/span";
-import { colors } from "@robust-ui/theme";
-import { SpinnerProps } from "@robust-ui/spinner";
-import { Ticon, IconProps } from "@robust-ui/icon";
-import { FlexProps } from "@robust-ui/flex";
 
-export interface NextLinkProps extends EnhancedElementProps<HTMLAnchorElement> {
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  colorSchemeRaw?: GenericProperty<string>;
-  variant?: GenericProperty<"ghost" | "solid" | "outline" | "link">;
-  opacityColorScheme?: GenericProperty<number>;
-  textProps?: GenericProperty<SpanProps>;
-  iconProps?: GenericProperty<{
-    iconType: Ticon;
-    iconPosition: "left" | "right";
-    iconProps?: IconProps;
-  }>;
+export interface NextLinkProps extends EnhancedElementProps<LinkProps> {
+  direction?: GenericProperty<"row" | "rowReverse">;
+  hoverHelp?: GenericProperty<boolean>;
   isLoading?: GenericProperty<boolean>;
-  isDisabled?: GenericProperty<boolean>;
-  loadingProps?: GenericProperty<{
-    spinnerProps?: GenericProperty<SpinnerProps>;
-    spinnerPosition?: GenericProperty<"left" | "right">;
-  }>;
+  hoverText?: GenericProperty<string>;
+  iconType?: GenericProperty<Ticon>;
   hoverTextProps?: GenericProperty<{
     containerProps?: FlexProps;
     textProps?: SpanProps;
   }>;
-  hoverText?: GenericProperty<string>;
-  altColor?: GenericProperty<boolean>;
+  textProps?: SpanProps;
+  iconProps?: IconProps;
 }
 
 export interface NextLinkPropsNoGeneric
-  extends EnhancedElementPropsNoGeneric<HTMLAnchorElement> {
-  variant?: "ghost" | "solid" | "outline" | "link";
-  colorScheme?: keyof typeof colors;
-  opacityColorScheme?: number;
-  textProps?: SpanProps;
-  colorSchemeRaw?: string;
-  isLoading?: boolean;
-  isDisabled?: boolean;
-  loadingProps?: {
-    spinnerProps?: SpinnerProps;
-    spinnerPosition?: "left" | "right";
-  };
-  iconProps?: {
-    iconType: Ticon;
-    iconPosition: "left" | "right";
-    iconProps?: IconProps;
-  };
+  extends EnhancedElementPropsNoGeneric<LinkProps> {
+  direction?: "row" | "rowReverse";
   hoverTextProps?: {
     containerProps?: FlexProps;
     textProps?: SpanProps;
   };
+  hoverHelp?: boolean;
+  isLoading?: boolean;
   hoverText?: string;
-  altColor?: boolean;
+  iconType?: Ticon;
 }

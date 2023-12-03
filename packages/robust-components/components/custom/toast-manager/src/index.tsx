@@ -1,76 +1,72 @@
-import { ForwardRefExoticToastManager, ToastManagerProps } from "./types";
 import { useGlobalContext, notification } from "@robust-ui/use-global-context";
-import React, { Ref, Suspense, forwardRef, lazy } from "react";
+import { ForwardRefExotic } from "@robust-ui/constructor";
+import React, { Suspense, forwardRef, lazy } from "react";
+import { ToastManagerProps } from "./types";
 import { Toast } from "@robust-ui/toast";
 
 const Flex = lazy(() =>
   import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
 );
 
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticToastManager> =
-  forwardRef<unknown, ToastManagerProps>(function ToastManagerComponent(
-    { notificationPlacement = "bottomRight", ...props }: ToastManagerProps,
-    ref
-  ) {
-    const notification = useGlobalContext({
-      key: "notifications",
-    }) as Record<string, notification>;
+const Factory: React.ForwardRefExoticComponent<
+  ForwardRefExotic<ToastManagerProps>
+> = forwardRef(function ToastManagerComponent(
+  { notificationPlacement = "bottomRight", ...props },
+  ref
+) {
+  const notification = useGlobalContext({
+    key: "notifications",
+  }) as Record<string, notification>;
 
-    const notificationArray = Object.values(notification);
+  const notificationArray = Object.values(notification);
 
-    const Placement = {
-      topRight: {
-        top: "0",
-        right: "0",
-      },
-      top: {
-        top: "0",
-        left: "50%",
-        transform: "translateX(-50%)",
-      },
-      topLeft: {
-        top: "0",
-        left: "0",
-      },
-      bottomRight: {
-        bottom: "0",
-        right: "0",
-      },
-      bottom: {
-        bottom: "0",
-        left: "50%",
-        transform: "translateX(-50%)",
-      },
-      bottomLeft: {
-        bottom: "0",
-        left: "0",
-      },
-    };
+  const Placement = {
+    topRight: {
+      topRaw: "0",
+      rightRaw: "0",
+    },
+    top: {
+      topRaw: "0",
+      leftRaw: "50%",
+      transformRaw: "translateX(-50%)",
+    },
+    topLeft: {
+      topRaw: "0",
+      leftRaw: "0",
+    },
+    bottomRight: {
+      bottomRaw: "0",
+      rightRaw: "0",
+    },
+    bottom: {
+      bottomRaw: "0",
+      leftRaw: "50%",
+      transformRaw: "translateX(-50%)",
+    },
+    bottomLeft: {
+      bottomRaw: "0",
+      leftRaw: "0",
+    },
+  };
 
-    return (
-      <Suspense>
-        <Flex
-          display={notificationArray.length > 0 ? "flex" : "none"}
-          justifyContent="flexEnd"
-          flexDirection="column"
-          alignItems="flexEnd"
-          position="fixed"
-          zIndex="9999"
-          gap="4"
-          p="4"
-          ref={ref}
-          {...Placement[notificationPlacement]}
-          {...props}>
-          {Object.entries(notification).map(([key, value]) => {
-            return (
-              <Suspense key={key}>
-                <Toast {...value} />
-              </Suspense>
-            );
-          })}
-        </Flex>
-      </Suspense>
-    );
-  });
+  return (
+    <Flex
+      display={notificationArray.length > 0 ? "flex" : "none"}
+      justifyContent="flexEnd"
+      flexDirection="column"
+      alignItems="flexEnd"
+      position="fixed"
+      zIndexRaw="9999"
+      gap="4"
+      p="4"
+      ref={ref}
+      {...Placement[notificationPlacement]}
+      {...props}>
+      {Object.entries(notification).map(([key, value]) => {
+        return <Toast key={key} {...value} />;
+      })}
+    </Flex>
+  );
+});
 
 export const ToastManager = React.memo(Factory);

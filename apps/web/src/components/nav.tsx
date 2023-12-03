@@ -1,21 +1,23 @@
-import {
-  useLanguage,
-  StyledText,
-  NextLink,
-  Header,
-  Button,
-  Aside,
-  Flex,
-  Menu,
-} from "@robust-ui/nextjs-components";
+import { NextLink } from "./nextLink";
+import { Header } from "./header";
+import { StyledText } from "./nested-styled-text";
+import { Flex } from "./flex";
+import { Menu } from "./menu";
+import { Button } from "./button";
+import { Aside } from "./aside";
+import { useLanguage } from "@robust-ui/nextjs-components";
+
 export default function Nav() {
   const [language, setLanguage] = useLanguage();
   return (
-    <Header zIndex="1">
-      <NextLink href="/#cover">
+    <Header
+      colorScheme="black"
+      zIndex="2"
+      boxShadowRaw="0 0 1.5vh 0 rgba(255, 255, 255, 0.3)">
+      <NextLink direction="rowReverse" href="/">
         <StyledText
           fontWeights={["400", "700"]}
-          textColors={["white", "mulberry"]}
+          colors={["white", "teal"]}
           fontSizeRaw="3vh">
           Nahuel|Rosas
         </StyledText>
@@ -29,46 +31,44 @@ export default function Nav() {
         justifyContent="spaceBetween"
         optimizedWidth>
         <NextLink
-          href="/projects#cover"
+          href="/projects"
           multiLanguageSupport={{
             en: "Projects",
             es: "Proyectos",
           }}
         />
         <NextLink
-          href="/about-me#cover"
+          href="/about-me"
           multiLanguageSupport={{
             en: "About",
             es: "Sobre mí",
           }}
         />
         <NextLink
-          href="/articles#cover"
+          href="/articles"
           multiLanguageSupport={{
             en: "Articles",
             es: "Artículos",
           }}
         />
+        <NextLink href="/cv" multiLanguageSupport="Curriculum Vitae" />
         <Menu
-          propsButton={{
-            multiLanguageSupport: {
-              en: language.fullnameLanguage,
-              es: language.fullnameLanguage,
-            },
-            fontWeight: "700",
+          buttonProps={{
+            multiLanguageSupport: language.fullnameLanguage,
             textTransform: "uppercase",
+            fontWeight: "700",
+            variant: "linkLight",
           }}
-          flexDirection="row"
           gap="2vh">
           <Button
-            variant="link"
+            variant="linkLight"
             onClick={() => setLanguage("en")}
             fontWeight="900"
             px="2vw">
             ENGLISH
           </Button>
           <Button
-            variant="link"
+            variant="linkLight"
             onClick={() => setLanguage("es")}
             fontWeight="900"
             px="2vw">
@@ -77,71 +77,68 @@ export default function Nav() {
         </Menu>
       </Flex>
       <Aside
-        placement="right"
         size="lg"
-        display={{
-          base: "flex",
-          md: "none",
-        }}
-        iconProps={{
-          iconPosition: "left",
-          iconType: "menu",
+        buttonOpenProps={{
+          display: {
+            base: "flex",
+            md: "none",
+          },
         }}
         childrenWithOutPropagation={
           <Menu
-            propsButton={{
+            buttonProps={{
               multiLanguageSupport: {
                 en: language.fullnameLanguage,
                 es: language.fullnameLanguage,
               },
               fontWeight: "700",
               textTransform: "uppercase",
+              variant: "linkLight",
             }}
             flexDirection="column">
             <Button
-              variant="link"
+              variant="linkLight"
               onClick={() => setLanguage("en")}
-              fontWeight="900"
-              px="2vw">
+              fontWeight="900">
               ENGLISH
             </Button>
             <Button
-              variant="link"
+              variant="linkLight"
               onClick={() => setLanguage("es")}
-              fontWeight="900"
-              px="2vw">
+              fontWeight="900">
               ESPAÑOL
             </Button>
           </Menu>
         }>
         <NextLink
-          href="/#cover"
+          href="/"
           multiLanguageSupport={{
             en: "Home",
             es: "Inicio",
           }}
         />
         <NextLink
-          href="/projects#cover"
+          href="/projects"
           multiLanguageSupport={{
             en: "Projects",
             es: "Proyectos",
           }}
         />
         <NextLink
-          href="/about-me#cover"
+          href="/about-me"
           multiLanguageSupport={{
             en: "About",
             es: "Sobre mí",
           }}
         />
         <NextLink
-          href="/articles#cover"
+          href="/articles"
           multiLanguageSupport={{
             en: "Articles",
             es: "Artículos",
           }}
         />
+        <NextLink href="/cv" multiLanguageSupport="Curriculum Vitae" />
       </Aside>
     </Header>
   );

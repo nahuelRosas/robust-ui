@@ -29,6 +29,7 @@
   "dependencies": {
     "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
+    "@robust-ui/purging": "workspace:*",
     "react": "^18.2.0"
   },
   "devDependencies": {

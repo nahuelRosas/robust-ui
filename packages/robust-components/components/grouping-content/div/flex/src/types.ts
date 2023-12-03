@@ -1,4 +1,9 @@
-import { EnhancedElementProps } from "@robust-ui/constructor";
+import {
+  EnhancedElementProps,
+  EnhancedElementPropsNoGeneric,
+} from "@robust-ui/constructor";
 
 export interface FlexProps extends EnhancedElementProps<HTMLDivElement> {}
 
+export interface FlexPropsNoGeneric
+  extends EnhancedElementPropsNoGeneric<HTMLDivElement> {}

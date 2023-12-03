@@ -1,143 +1,137 @@
 import React, { Ref, forwardRef, lazy, Suspense } from "react";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import {
-  ForwardRefExoticCover,
-  CoverPropsNoGeneric,
-  CoverProps,
-} from "./types";
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
+import { StyledText } from "@robust-ui/nested-styled-text";
+import { CoverPropsNoGeneric, CoverProps } from "./types";
+import { ForwardRefExotic } from "@robust-ui/constructor";
+import { ExtractStrings } from "@robust-ui/utils";
+import { Block } from "@robust-ui/block";
+import { Flex } from "@robust-ui/flex";
+import { Icon } from "@robust-ui/icon";
 
-const StyledText = lazy(() =>
-  import("@robust-ui/nested-styled-text").then((module) => ({
-    default: module.StyledText,
-  }))
-);
-const Icon = lazy(() =>
-  import("@robust-ui/icon").then((module) => ({
-    default: module.Icon,
-  }))
-);
-
-const Factory: React.ForwardRefExoticComponent<ForwardRefExoticCover> =
-  forwardRef<unknown, CoverProps>(function CoverComponent(
-    { ...props },
+const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
+  forwardRef(function CoverComponent(
+    { labelProps, iconProps, paragraphProps, children, ...props },
     ref
   ): React.JSX.Element {
-    const cleanedProps = useCleanValue({ props });
     const {
-      subHeadingProps,
-      headingProps,
-      subHeading,
-      iconProps,
-      heading,
+      multiLanguageSupport,
+      colorSchemeProperty,
+      colorSchemeRaw,
+      colorScheme,
+      paragraph,
       icons,
-      ...rest
-    } = cleanedProps as CoverPropsNoGeneric;
+      label,
+      ...cleanedProps
+    } = useCleanValue({ props }) as CoverPropsNoGeneric;
+
+    const { otherComponents, strings } = ExtractStrings({
+      multiLanguageSupport,
+      children,
+    });
 
     return (
-      <Suspense>
-        <Flex
-          widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
-          backgroundRaw="rgba(0,0,0,0.6)"
-          justifyContent="center"
-          flexDirection="column"
-          borderRadius="2.5vh"
-          overflow="hidden"
-          tabIndex={-1}
-          minH="100vh"
-          id="cover"
-          mx={{
-            base: "6vw",
-            md: "3vw",
-          }}
-          ref={ref}
-          {...rest}>
-          <Suspense>
+      <Flex
+        widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+        colorSchemeProperty={{
+          opacity: 0.8,
+          baseColorRaw:
+            colorSchemeProperty?.baseColor ||
+            colorSchemeProperty?.baseColorRaw ||
+            colorSchemeRaw ||
+            colorScheme ||
+            "black",
+          ...colorSchemeProperty,
+        }}
+        justifyContent="center"
+        flexDirection="column"
+        borderRadius="2.5vh"
+        position="relative"
+        overflow="hidden"
+        tabIndex={-1}
+        mt={{
+          base: "10vh",
+          md: "15vh",
+        }}
+        minH="82vh"
+        id="cover"
+        mx={{
+          base: "6vw",
+          md: "3vw",
+        }}
+        ref={ref}
+        {...cleanedProps}>
+        <Block my="auto" gap="1vh">
+          {(label || strings) && (
             <StyledText
-              p="0"
-              px="2vw"
-              optimizedWidth
-              alignSelf="center"
-              fontSizeRaw={{
-                base: "6vh",
-                md: "8vh",
-              }}
-              textAlign="center"
-              textShadow={{
-                x: "0.3vh",
-                y: "-0.2vh",
-                blur: "0.2vh",
-                color: "black",
-              }}
-              textColors={["white", "indigo", "white", "mulberry"]}
+              multiLanguageSupport={label || strings}
               fontWeights={["500", "900"]}
-              multiLanguageSupport={heading}
-              {...headingProps}
-            />
-          </Suspense>
-          <Suspense>
-            <StyledText
-              p="0"
-              px="2vw"
-              optimizedWidth
-              alignSelf="center"
-              fontSizeRaw={{
-                base: "2.5vh",
-                md: "4vh",
-              }}
+              colors={["white", "teal"]}
               textAlign="center"
-              pt="0"
-              textShadow={{
-                x: "0.3vh",
-                y: "-0.2vh",
-                blur: "0.2vh",
-                color: "black",
+              alignSelf="center"
+              optimizedWidth
+              my="2vh"
+              fontSize={{
+                base: "5vh",
+                md: "7vh",
               }}
-              textColors={["white", "indigo", "white", "mulberry"]}
-              fontWeights={["500", "700"]}
-              multiLanguageSupport={subHeading}
-              {...subHeadingProps}
+              px="2vw"
+              py="1vh"
+              {...labelProps}
             />
-          </Suspense>
-          {icons && (
-            <Suspense>
-              <Flex
-                mt="2vh"
-                px="2vw"
-                gap={{
-                  base: "0.5vh",
-                  md: "1vh",
-                }}
-                overflow="hidden"
-                flexWrap="wrap"
-                justifyContent="center"
-                alignItems="center">
-                {icons.map((icon, index) => (
-                  <Suspense key={index}>
-                    <Icon
-                      sizeRaw={{
-                        base: "5vh",
-                        md: "7vh",
-                      }}
-                      textShadow={{
-                        x: "0.3vh",
-                        y: "-0.2vh",
-                        blur: "0.2vh",
-                        color: "black",
-                      }}
-                      color={icon.color}
-                      icon={icon.type}
-                      {...iconProps}
-                    />
-                  </Suspense>
-                ))}
-              </Flex>
-            </Suspense>
           )}
-        </Flex>
-      </Suspense>
+          {paragraph && (
+            <StyledText
+              colors={["white", "indigo", "white", "teal"]}
+              multiLanguageSupport={paragraph}
+              fontWeights={["500", "700"]}
+              alignSelf="center"
+              textAlign="center"
+              fontSize={{
+                base: "2.5vh",
+                md: "3vh",
+              }}
+              optimizedWidth
+              px="2vw"
+              py="1vh"
+              {...paragraphProps}
+            />
+          )}
+          {icons && (
+            <Flex
+              mt="2vh"
+              px="2vw"
+              gap={{
+                base: "0.5vh",
+                md: "1vh",
+              }}
+              overflow="hidden"
+              flexWrap="wrap"
+              justifyContent="center"
+              alignItems="center">
+              {icons.map((icon, index) => (
+                <Icon
+                  key={index}
+                  sizeRaw={{
+                    base: "5vh",
+                    md: "7vh",
+                  }}
+                  colorRaw={
+                    typeof icon === "object"
+                      ? icon.colorRaw
+                        ? icon.colorRaw
+                        : icon.color
+                      : "white"
+                  }
+                  iconType={typeof icon === "object" ? icon.type : icon}
+                  {...iconProps}
+                />
+              ))}
+            </Flex>
+          )}
+        </Block>
+
+        {otherComponents}
+      </Flex>
     );
   });
 

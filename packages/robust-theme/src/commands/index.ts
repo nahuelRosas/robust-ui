@@ -31,30 +31,38 @@ export type Arguments =
 export const commands = {
   optimizedWidth: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
-      return `width: 100%;\nwidth: -moz-available;\nwidth: -webkit-fill-available;`;
+      return `width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;`;
     return "";
   },
   optimizedHeight: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
-      return `height: 100%;\nheight: -moz-available;\nheight: -webkit-fill-available;`;
+      return `height: 100%;
+    height: -moz-available;
+    height: -webkit-fill-available;`;
     return "";
   },
   borderRadius: (propValue: Arguments) => {
     if (typeof propValue === "string")
       return `
-      border-radius: ${propValue};\n
-      -moz-border-radius: ${propValue};\n
-      -ms-border-radius: ${propValue};\n
-      -o-border-radius: ${propValue};\n
-      -webkit-border-radius: ${propValue};\n
+      border-radius: ${propValue};
+      -moz-border-radius: ${propValue};
+      -ms-border-radius: ${propValue};
+      -o-border-radius: ${propValue};
+      -webkit-border-radius: ${propValue};
       ;`;
     return "";
   },
   userSelect: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
-      return `user-select: none;\n-webkit-user-select: none;\n-moz-user-select: none;`;
+      return `user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;`;
     else if (typeof propValue === "string" && propValue)
-      return `user-select: ${propValue};\n-webkit-user-select: ${propValue};\n-moz-user-select: ${propValue};`;
+      return `user-select: ${propValue};
+    -webkit-user-select: ${propValue};
+    -moz-user-select: ${propValue};`;
     return "";
   },
   border: (propValue: Arguments) => {
@@ -139,7 +147,9 @@ export const commands = {
   },
   boxSizing: (propValue: Arguments) => {
     if (typeof propValue === "string")
-      return `box-sizing: ${propValue};\n-moz-box-sizing: ${propValue};\n-webkit-box-sizing: ${propValue};`;
+      return `box-sizing: ${propValue};
+    -moz-box-sizing: ${propValue};
+    -webkit-box-sizing: ${propValue};`;
     return "";
   },
   scrollbarColor: (propValue: Arguments) => {
@@ -177,7 +187,8 @@ export const commands = {
   },
   textIndent: (propValue: Arguments) => {
     if (typeof propValue === "string")
-      return `text-indent: ${propValue};\n-moz-text-indent: ${propValue};`;
+      return `text-indent: ${propValue};
+    -moz-text-indent: ${propValue};`;
     return "";
   },
   textShadow: (propValue: Arguments) => {
@@ -204,26 +215,34 @@ export const commands = {
     const { colors, deg } = propValue as LinearColorArguments;
     if (colors && colors.length)
       return `background: linear-gradient(${deg || "90deg"},${colors.join(
-        ", "
+        ", ",
       )});`;
     else if (typeof propValue === "string") return `background: ${propValue};`;
     return "";
   },
   backgroundClipText: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
-      return `-webkit-background-clip: text;\n-moz-background-clip: text;\nbackground-clip: text;`;
+      return `-webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;`;
     return "";
   },
   backgroundTranslucent: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
-      return `background-color: transparent;\n-webkit-background-clip: text;\n-moz-background-clip: text;\n-webkit-text-fill-color: transparent;\n-moz-text-fill-color: transparent;`;
+      return `background-color: transparent;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;`;
     return "";
   },
   textFillColor: (propValue: Arguments) => {
     if (typeof propValue === "string")
-      return `-webkit-text-fill-color: ${propValue};\n-moz-text-fill-color: ${propValue};`;
+      return `-webkit-text-fill-color: ${propValue};
+    -moz-text-fill-color: ${propValue};`;
     else if (typeof propValue === "boolean" && propValue)
-      return `-webkit-text-fill-color: transparent;\n-moz-text-fill-color: transparent;`;
+      return `-webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;`;
     return "";
   },
 
@@ -334,11 +353,11 @@ export const commands = {
   width: (propValue: Arguments) => `width: ${propValue};`,
   height: (propValue: Arguments) => `height: ${propValue};`,
   transition: (propValue: Arguments) => `
-  transition: ${propValue};\n
-  -webkit-transition: ${propValue};\n
-  -moz-transition: ${propValue};\n
-  -ms-transition: ${propValue};\n
-  -o-transition: ${propValue};\n
+  transition: ${propValue};
+  -webkit-transition: ${propValue};
+  -moz-transition: ${propValue};
+  -ms-transition: ${propValue};
+  -o-transition: ${propValue};
   `,
   display: (propValue: Arguments) => `display: ${propValue};`,
   fontSize: (propValue: Arguments) => `font-size: ${propValue};`,
@@ -390,13 +409,17 @@ export const commands = {
     typeof propValue === "string" ? `place-self: ${propValue};` : "",
   userDrag: (propValue: Arguments) => {
     if (typeof propValue === "string") {
-      return `-webkit-user-drag: ${propValue};\n-moz-user-drag: ${propValue};\nuser-drag: ${propValue};`;
+      return `-webkit-user-drag: ${propValue};
+    -moz-user-drag: ${propValue};
+    user-drag: ${propValue};`;
     }
     return "";
   },
   userResize: (propValue: Arguments) => {
     if (typeof propValue === "string") {
-      return `-webkit-user-resize: ${propValue};\n-moz-user-resize: ${propValue};\nuser-resize: ${propValue};`;
+      return `-webkit-user-resize: ${propValue};
+    -moz-user-resize: ${propValue};
+    user-resize: ${propValue};`;
     }
     return "";
   },
@@ -415,11 +438,11 @@ export const commands = {
   transform: (propValue: Arguments) =>
     typeof propValue === "string"
       ? `
-    transform: ${propValue};\n
-    -webkit-transform:  ${propValue};\n
-    -moz-transform:  ${propValue};\n
-    -ms-transform:  ${propValue};\n
-    -o-transform:  ${propValue};\n
+    transform: ${propValue};
+    -webkit-transform:  ${propValue};
+    -moz-transform:  ${propValue};
+    -ms-transform:  ${propValue};
+    -o-transform:  ${propValue};
     `
       : "",
   transformOrigin: (propValue: Arguments) =>
@@ -493,19 +516,27 @@ export const commands = {
 
   userSelectText: (propValue: Arguments) =>
     typeof propValue === "boolean" && propValue
-      ? `user-select: text;\n-webkit-user-select: text;\n-moz-user-select: text;`
+      ? `user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;`
       : "",
   userSelectNone: (propValue: Arguments) =>
     typeof propValue === "boolean" && propValue
-      ? `user-select: none;\n-webkit-user-select: none;\n-moz-user-select: none;`
+      ? `user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;`
       : "",
   userSelectAll: (propValue: Arguments) =>
     typeof propValue === "boolean" && propValue
-      ? `user-select: all;\n-webkit-user-select: all;\n-moz-user-select: all;`
+      ? `user-select: all;
+    -webkit-user-select: all;
+    -moz-user-select: all;`
       : "",
   userSelectAuto: (propValue: Arguments) =>
     typeof propValue === "boolean" && propValue
-      ? `user-select: auto;\n-webkit-user-select: auto;\n-moz-user-select: auto;`
+      ? `user-select: auto;
+    -webkit-user-select: auto;
+    -moz-user-select: auto;`
       : "",
   mixBlendMode: (propValue: Arguments) =>
     typeof propValue === "string" ? `mix-blend-mode: ${propValue};` : "",

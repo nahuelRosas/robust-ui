@@ -1,152 +1,199 @@
-import React, { Suspense, forwardRef, lazy, useMemo, useState } from "react";
+import React, { forwardRef, lazy, useEffect, useMemo, useState } from "react";
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
-import { generateColorScheme } from "@robust-ui/css-utils";
+import { ExtractStrings, propagation } from "@robust-ui/utils";
 import { useCleanValue } from "@robust-ui/use-clean-value";
-import { AsidePropsNoGeneric, AsideProps } from "./types";
+import { generateColorScheme } from "@robust-ui/css-utils";
+import { AsideProps, AsidePropsNoGeneric } from "./types";
 import { generateStructure } from "./generate-structure";
-import { ButtonProps } from "@robust-ui/button";
-import { propagation } from "@robust-ui/utils";
 import { startTransition } from "react";
+import { Flex } from "@robust-ui/flex";
+import { Button } from "@robust-ui/button";
 export * from "./types";
 
-const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
-);
-
-const Button = lazy(() =>
-  import("@robust-ui/button").then((module) => ({ default: module.Button }))
-);
-
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
-  forwardRef(function AsideComponent({ ...props }, ref): React.JSX.Element {
-    const Component = CreateComponent({
+  forwardRef(function AsideComponent(
+    {
+      childrenWithOutPropagation,
+      buttonCloseProps,
+      buttonOpenProps,
+      iconCloseProps,
+      iconOpenProps,
+      children,
+      ...props
+    },
+    ref
+  ): React.JSX.Element {
+    const Component = CreateComponent<HTMLElement>({
       componentType: "aside",
     });
 
-    const cleanedProps = useCleanValue({ props });
-
     const {
-      childrenWithOutPropagation,
-      opacityColorScheme,
-      variant = "link",
-      buttonCloseProps,
-      altColor = true,
+      closeOnOverlayClick = true,
+      multiLanguageSupport,
+      colorSchemeProperty,
       colorSchemeRaw,
-      iconCloseProps,
-      loadingProps,
-      buttonProps,
       colorScheme,
       placement,
-      iconProps,
-      children,
-      display,
+      variant,
       size,
-      ...rest
-    } = cleanedProps as AsidePropsNoGeneric;
+      ...cleanedProps
+    } = useCleanValue({ props }) as AsidePropsNoGeneric;
+
+    const structureStyle = useMemo(() => {
+      return generateColorScheme({
+        variant: variant || colorSchemeProperty?.variant || "solid",
+        opacity: 1,
+        props: {
+          hover: false,
+          active: false,
+          focus: false,
+        },
+        baseColor:
+          colorSchemeProperty?.baseColor ||
+          colorSchemeProperty?.baseColorRaw ||
+          colorSchemeRaw ||
+          colorScheme ||
+          "black",
+        ...colorSchemeProperty,
+      });
+    }, [variant, colorSchemeProperty, colorSchemeRaw, colorScheme]);
+
     const [isOpen, setIsOpen] = useState(false);
 
-    const structureStyle = useMemo(
-      () =>
-        generateColorScheme({
-          baseColor: colorSchemeRaw || colorScheme,
-          opacity: opacityColorScheme,
-          altColor,
-          variant,
-        }),
-      [colorSchemeRaw, colorScheme, opacityColorScheme, altColor, variant]
-    );
+    const { otherComponents, strings } = ExtractStrings({
+      multiLanguageSupport,
+      children,
+    });
 
-    const buttonPropsCompose: {
-      main: ButtonProps;
-      close: ButtonProps;
-    } = {
-      main: {
-        focus:{},
-        loadingProps,
-        iconProps,
-        ...buttonProps,
-      },
-      close: {
-        iconProps: {
-          iconPosition: "left",
-          iconType: "closeFill",
-          ...iconCloseProps,
-        },
-        ...structureStyle,
-        ...buttonCloseProps,
-      },
-    };
-    const structure = useMemo(
-      () => generateStructure({ size, placement, isOpen }),
+    const layout = useMemo(
+      () =>
+        generateStructure({
+          size,
+          placement,
+          isOpen,
+        }),
       [size, placement, isOpen]
     );
+
     const childrenPropagation = useMemo(
       () =>
         propagation({
-          children: children,
+          children: otherComponents,
           props: { onClick: () => setIsOpen(false) },
         }),
-      [children]
+      [otherComponents]
     );
+
+    useEffect(() => {
+      const handleKeyDown = (event: { keyCode: number }) => {
+        if (event.keyCode === 27) startTransition(() => setIsOpen(false));
+      };
+      document.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.removeEventListener("keydown", handleKeyDown);
+      };
+    }, []);
+
     return (
-      <>
-        <Suspense>
-          <Button
-            onClick={() => startTransition(() => setIsOpen(true))}
-            borderRadius="2vh"
-            cursor="pointer"
-            display={display}
-            // {...buttonPropsCompose.main}
-          />
-        </Suspense>
-        <Suspense>
-          <Flex
-            onClick={() => startTransition(() => setIsOpen(false))}
-            display={isOpen ? "flex" : "none"}
-            backdropFilter="blur(0.5vh)"
-            bgRaw="rgba(0, 0, 0, 0.9)"
-            flexDirection="column"
-            overflow="hidden"
-            position="fixed"
-            height="100vh"
-            zIndex="9999"
-            width="100vw"
-            left="0"
-            top="0"
-          />
-        </Suspense>
-        <Component
-          justifyContent="center"
+      <Flex>
+        <Button
+          onClick={() => startTransition(() => setIsOpen(true))}
+          borderRadius="2vh"
+          cursor="pointer"
+          colorSchemeProperty={{
+            baseColorRaw:
+              colorSchemeProperty?.baseColor ||
+              colorSchemeProperty?.baseColorRaw ||
+              colorSchemeRaw ||
+              colorScheme ||
+              "teal",
+            variant: "linkLight",
+
+            ...colorSchemeProperty,
+          }}
+          iconProps={{
+            iconType: "menu5Fill",
+            ...iconOpenProps,
+          }}
+          {...buttonOpenProps}
+        />
+        <Flex
+          onClick={
+            closeOnOverlayClick
+              ? () => startTransition(() => setIsOpen(false))
+              : undefined
+          }
+          colorSchemeProperty={{
+            opacity: 0.2,
+            props: {
+              hover: false,
+              active: false,
+              focus: false,
+            },
+            baseColorRaw:
+              colorSchemeProperty?.baseColor ||
+              colorSchemeProperty?.baseColorRaw ||
+              colorSchemeRaw ||
+              colorScheme ||
+              "gray",
+          }}
+          display={isOpen ? "flex" : "none"}
+          backdropFilterRaw="blur(0.5vh)"
           flexDirection="column"
-          alignItems="center"
           overflow="hidden"
           position="fixed"
-          zIndexRaw="100"
+          zIndexRaw="9999"
+          height="100vh"
+          width="100vw"
+          left="0"
+          top="0"
+        />
+        <Component
+          flexDirection={
+            placement === "left" || placement === "right" ? "row" : "column"
+          }
+          justifyContent="center"
+          alignItems="center"
+          overflow="hidden"
+          zIndexRaw="10000"
+          position="fixed"
           display="flex"
-          zIndex="10000"
-          bg="black"
           ref={ref}
-          {...structure}
-          {...rest}>
-          <Suspense>
-            <Button
-              onClick={() => startTransition(() => setIsOpen(false))}
-              position="absolute"
-              borderRadius="2vh"
-              width="fitContent"
-              cursor="pointer"
-              zIndex="10001"
-              right="0"
-              mx="2vw"
-              my="2vh"
-              top="0"
-              // {...buttonPropsCompose.close}
-            />
-          </Suspense>
+          {...layout}
+          {...structureStyle}
+          {...cleanedProps}>
+          <Button
+            onClick={() => startTransition(() => setIsOpen(false))}
+            colorSchemeProperty={{
+              baseColorRaw:
+                colorSchemeProperty?.baseColor ||
+                colorSchemeProperty?.baseColorRaw ||
+                colorSchemeRaw ||
+                colorScheme ||
+                "teal",
+              variant: "linkLight",
+              ...colorSchemeProperty,
+            }}
+            iconProps={{
+              iconType: "closeCircleFill",
+              ...iconCloseProps,
+            }}
+            position="absolute"
+            borderRadius="2vh"
+            width="fitContent"
+            zIndexRaw="10001"
+            cursor="pointer"
+            right="0"
+            mx="2vw"
+            my="2vh"
+            top="0"
+            {...buttonCloseProps}
+          />
+          {strings}
           {childrenPropagation}
           {childrenWithOutPropagation}
         </Component>
-      </>
+      </Flex>
     );
   });
 

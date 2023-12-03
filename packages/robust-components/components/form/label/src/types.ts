@@ -3,29 +3,31 @@ import {
   EnhancedElementProps,
   GenericProperty,
 } from "@robust-ui/constructor";
-import { colors } from "@robust-ui/theme";
+import { SpanProps } from "@robust-ui/span";
 
 export interface LabelProps extends EnhancedElementProps<HTMLLabelElement> {
-  variant?: GenericProperty<"solid" | "outline" | "link" | "ghost">;
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  opacityColorScheme?: GenericProperty<number>;
-  colorSchemeRaw?: GenericProperty<string>;
-  placeHolder?: GenericProperty<string>;
-  isFocused?: GenericProperty<boolean>;
-  isHovered?: GenericProperty<boolean>;
-  altColor?: GenericProperty<boolean>;
+  placement?: GenericProperty<"top" | "bottom">;
+  isRequired?: GenericProperty<boolean>;
+  isFocus?: GenericProperty<boolean>;
+  isHover?: GenericProperty<boolean>;
+  isDisabled?: GenericProperty<boolean>;
+  isInvalid?: GenericProperty<boolean>;
+  isValid?: GenericProperty<boolean>;
   text?: GenericProperty<string>;
+  for?: GenericProperty<string>;
+  textProps?: SpanProps;
 }
 
 export interface LabelPropsNoGeneric
   extends EnhancedElementPropsNoGeneric<HTMLLabelElement> {
-  variant?: "solid" | "outline" | "link" | "ghost";
-  colorScheme?: keyof typeof colors;
-  opacityColorScheme?: number;
-  colorSchemeRaw?: string;
-  placeHolder?: string;
-  isFocused?: boolean;
-  isHovered?: boolean;
-  altColor?: boolean;
+  placement?: "top" | "bottom";
+  placeholder?: string;
+  isRequired?: boolean;
+  isFocus?: boolean;
+  isHover?: boolean;
+  isDisabled?: boolean;
+  isInvalid?: boolean;
+  isValid?: boolean;
   text?: string;
+  for?: string;
 }

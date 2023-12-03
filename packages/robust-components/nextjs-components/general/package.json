@@ -49,6 +49,7 @@
     "@robust-ui/block": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "@robust-ui/input": "workspace:*",
+    "@robust-ui/icons": "workspace:*",
     "@robust-ui/menu": "workspace:*",
     "@robust-ui/card": "workspace:*",
     "@robust-ui/span": "workspace:*",

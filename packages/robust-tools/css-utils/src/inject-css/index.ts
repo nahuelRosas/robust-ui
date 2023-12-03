@@ -1,45 +1,19 @@
-import { CSSValueProcessor } from "@/css-value-processor";
 import { generateStyledCSSMap } from "@/generate-styled-css-map";
+import { CSSValueProcessor } from "@/css-value-processor";
 import { manipulateCSS } from "@/manipulate-css";
-import { ICSSRulesSet } from "@/types";
 import { safeJSON } from "@robust-ui/purging";
+import { InjectCSSTOptions } from "./types";
+import { ICSSRulesSet } from "@/types";
 
-export type InjectCSSTOptions = {
-  inputProps: Record<string, unknown>;
-  classNameSelector: string;
-  breakPoints: {
-    current: string;
-    context: Record<string, unknown>;
-  };
-  darkMode: boolean;
-  commands: Record<string, unknown>;
-  theme: Record<
-    string,
-    {
-      [key: string | number]: unknown;
-    }
-  >;
-  partialComputedStyles?:
-    | {
-        [x: string]:
-          | {
-              styledCSSMap: Map<string, string[]>;
-              inputProps: Record<string, unknown>;
-            }
-          | undefined;
-      }
-    | undefined;
-  cssReset: string;
-};
 export function injectCSS({
-  inputProps,
-  breakPoints,
+  partialComputedStyles,
   classNameSelector,
+  breakPoints,
+  inputProps,
   commands,
   darkMode,
-  theme,
-  partialComputedStyles,
   cssReset,
+  theme,
 }: InjectCSSTOptions):
   | { styledCSSMap: Map<string, string[]>; inputProps: Record<string, unknown> }
   | undefined {
@@ -65,6 +39,7 @@ export function injectCSS({
 
     const PartialResult =
       CTpartialComputedStyles && CTpartialComputedStyles.styledCSSMap;
+
     const SavedProps =
       CTpartialComputedStyles && CTpartialComputedStyles.inputProps;
 
@@ -94,6 +69,7 @@ export function injectCSS({
           theme,
         }) || PartialResult
       : PartialResult;
+
     const styleDocument = document.getElementById("robust-ui");
 
     const manipulatedCSS =

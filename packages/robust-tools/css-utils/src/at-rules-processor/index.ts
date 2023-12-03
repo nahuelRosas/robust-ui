@@ -90,6 +90,7 @@ export function atRulesProcessor({
       },
     );
   }
+
   if (!cssStyles.atRules[inputProp]) {
     cssStyles.atRules[inputProp] = [];
   }
