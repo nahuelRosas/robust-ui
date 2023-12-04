@@ -11,7 +11,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
   forwardRef(function CardComponent(
     { children, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const {
       multiLanguageSupport,
@@ -28,7 +28,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
     } = useCleanValue({ props }) as CardPropsNoGeneric;
     return (
       <Flex
-        widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+        widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
         colorSchemeProperty={{
           opacity: 0.8,
           props: {
@@ -48,32 +48,30 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
         flexDirection="column"
         alignItems="flexStart"
         justifyContent="left"
-        borderRadius="2.5vh"
+        borderRadius="2.5dvh"
         position="relative"
         elementName="Card"
         mx={{
-          base: "6vw",
-          md: "3vw",
+          base: "6dvw",
+          md: "3dvw",
         }}
-        pb="3vh"
+        pb="3dvh"
         ref={ref}
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {header && (
           <NextLink
             elementName="CardHeader"
             href={(typeof header !== "string" && header.href) || "#"}
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             fontWeight="500"
             color="white"
-            mx="3vh"
-            mt="2vh"
+            mx="3dvh"
+            mt="2dvh"
             p="0"
-            {...(typeof header !== "string" && header.headerProps)}
-          >
+            {...(typeof header !== "string" && header.headerProps)}>
             {typeof header === "string" ? header : header.text}
           </NextLink>
         )}
@@ -83,14 +81,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             elementName="CardLabel"
             fontWeights={["900"]}
             fontSizeRaw={{
-              base: "4vh",
-              md: "6vh",
+              base: "4dvh",
+              md: "6dvh",
             }}
             colors={["white", "teal", "white", "indigo"]}
-            my="2vh"
-            mx="5vw"
-            {...(typeof label !== "string" && label.labelProps)}
-          >
+            my="2dvh"
+            mx="5dvw"
+            {...(typeof label !== "string" && label.labelProps)}>
             {typeof label === "string" ? label : label.text}
           </StyledText>
         )}
@@ -100,13 +97,12 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             elementName="CardText"
             fontWeights={["500", "900"]}
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             colors={["white", "teal", "white", "indigo"]}
-            mx="5vw"
-            {...(typeof paragraph !== "string" && paragraph.paragraphProps)}
-          >
+            mx="5dvw"
+            {...(typeof paragraph !== "string" && paragraph.paragraphProps)}>
             {typeof paragraph === "string" ? paragraph : paragraph.text}
           </StyledText>
         )}
@@ -116,11 +112,11 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
               typeof label === "string" ? label : label ? label.text : "Image"
             }
             elementName="CardDataItemImage"
-            borderRadius="2.5vh"
+            borderRadius="2.5dvh"
             alignSelf="center"
-            height="50vh"
-            mx="5vw"
-            my="3vh"
+            height="50dvh"
+            mx="5dvw"
+            my="3dvh"
             src={Array.isArray(images) ? images[0] : images.src[0]}
             srcArray={Array.isArray(images) ? images : images.src}
             p="0"
@@ -136,10 +132,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             position="relative"
             flexWrap="wrap"
             optimizedWidth
-            gap="5vh"
-            mx="5vw"
-            mt="3vh"
-          >
+            gap="5dvh"
+            mx="5dvw"
+            mt="3dvh">
             {data.map(({ href, images, label, paragraph }, index) => {
               return (
                 <NextLink
@@ -164,8 +159,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                     md: "40%",
                   }}
                   key={index}
-                  gap="2vh"
-                >
+                  gap="2dvh">
                   {label && (
                     <StyledText
                       colors={["white", "teal", "white", "indigo"]}
@@ -175,11 +169,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                       textAlign="left"
                       optimizedWidth
                       fontSizeRaw={{
-                        base: "3vh",
-                        md: "4vh",
+                        base: "3dvh",
+                        md: "4dvh",
                       }}
-                      {...(typeof label !== "string" && label.labelProps)}
-                    >
+                      {...(typeof label !== "string" && label.labelProps)}>
                       {typeof label === "string" ? label : label.text}
                     </StyledText>
                   )}
@@ -193,9 +186,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                             : "Image"
                       }
                       elementName="CardDataItemImage"
-                      borderRadius="2.5vh"
+                      borderRadius="2.5dvh"
                       optimizedWidth
-                      height="50vh"
+                      height="50dvh"
                       src={Array.isArray(images) ? images[0] : images.src[0]}
                       srcArray={Array.isArray(images) ? images : images.src}
                       p="0"
@@ -211,12 +204,11 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                       textAlign="left"
                       optimizedWidth
                       fontSizeRaw={{
-                        base: "2.5vh",
-                        md: "2.5vh",
+                        base: "2.5dvh",
+                        md: "2.5dvh",
                       }}
                       {...(typeof paragraph !== "string" &&
-                        paragraph.paragraphProps)}
-                    >
+                        paragraph.paragraphProps)}>
                       {typeof paragraph === "string"
                         ? paragraph
                         : paragraph.text}

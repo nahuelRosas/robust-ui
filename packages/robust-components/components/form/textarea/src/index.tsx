@@ -23,7 +23,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<TextAreaProps>
 > = forwardRef(function TextAreaComponent(
   { labelProps, children, ...props },
-  ref,
+  ref
 ): React.JSX.Element {
   const Component = CreateComponent<HTMLTextAreaElement>({
     componentType: "textarea",
@@ -92,7 +92,7 @@ const Factory: React.ForwardRefExoticComponent<
         color: colorSchemeRaw || colorScheme || "teal",
         opacity: 0.9,
       }),
-    [colorSchemeRaw, colorScheme],
+    [colorSchemeRaw, colorScheme]
   );
 
   const handleOnChange = useCallback(
@@ -102,7 +102,7 @@ const Factory: React.ForwardRefExoticComponent<
       }
       setInputValue(event.target.value);
     },
-    [onChange],
+    [onChange]
   );
 
   const idString = id ? id : strings.length ? strings.join(" ") : placeholder;
@@ -122,8 +122,7 @@ const Factory: React.ForwardRefExoticComponent<
       position="relative"
       alignItems="center"
       width="fitContent"
-      {...cleanedProps}
-    >
+      {...cleanedProps}>
       <Component
         id={idString}
         pointerEvents={isLoading || isDisabled ? "none" : "inherit"}
@@ -137,13 +136,13 @@ const Factory: React.ForwardRefExoticComponent<
             opacity: 0.5,
           }),
           zIndexRaw: 99999,
-          width: "0.5vw",
+          width: "0.5dvw",
           height: "100%",
           cursor: "auto",
         }}
         webkitScrollbarThumb={{
           backgroundColorRaw: generateContrastingColor(colorWithOpacity),
-          borderRadius: "0.5vh",
+          borderRadius: "0.5dvh",
           zIndexRaw: 99999,
           cursor: "auto",
         }}
@@ -151,7 +150,7 @@ const Factory: React.ForwardRefExoticComponent<
         scrollbarWidth="thin"
         boxSizing="borderBox"
         position="relative"
-        borderRadius="1vh"
+        borderRadius="1dvh"
         spellCheck={false}
         fontSize="inherit"
         value={onChange && value ? value : inputValue}
@@ -161,13 +160,13 @@ const Factory: React.ForwardRefExoticComponent<
         cursor="inherit"
         height="100%"
         width="100%"
-        minH="20vh"
+        minH="20dvh"
         ref={ref}
         {...structureStyle}
         {...cleanedProps}
-        pt={strings.length || placeholder ? "3vh" : "2vh"}
-        pb="2vh"
-        px="2vw"
+        pt={strings.length || placeholder ? "3dvh" : "2dvh"}
+        pb="2dvh"
+        px="2dvw"
         m="0"
       />
       {otherComponents}
@@ -183,8 +182,7 @@ const Factory: React.ForwardRefExoticComponent<
           htmlFor={idString}
           text={onChange ? value : inputValue}
           id={idString}
-          {...labelProps}
-        >
+          {...labelProps}>
           {strings.length ? strings : placeholder}
         </Label>
       )}

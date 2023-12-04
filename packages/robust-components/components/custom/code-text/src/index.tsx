@@ -14,7 +14,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<CodeTextProps>
 > = forwardRef(function CodeTextComponent(
   { copyButtonProps, textProps, children, ...props },
-  ref,
+  ref
 ): React.JSX.Element {
   const {
     multiLanguageSupport,
@@ -45,30 +45,28 @@ const Factory: React.ForwardRefExoticComponent<
     <Flex
       pointerEvents={isDisabled ? "none" : "inherit"}
       justifyContent="spaceBetween"
-      borderRadius="2.5vh"
+      borderRadius="2.5dvh"
       alignItems="center"
       position="relative"
       height="fitContent"
       cursor="pointer"
       optimizedWidth
-      gap="2vw"
-      px="2vw"
-      py="1vh"
+      gap="2dvw"
+      px="2dvw"
+      py="1dvh"
       ref={ref}
       {...structureStyle}
-      {...cleanedProps}
-    >
+      {...cleanedProps}>
       <Span
         userSelect="text"
         textAlign="left"
-        fontSize="2.5vh"
+        fontSize="2.5dvh"
         overflow="hidden"
         fontWeight="bold"
         optimizedWidth
         cursor="text"
-        py="1vh"
-        px="2vw"
-      >
+        py="1dvh"
+        px="2dvw">
         {strings}
       </Span>
       {copyButton && (

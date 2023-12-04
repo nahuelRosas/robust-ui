@@ -26,7 +26,7 @@ export function models({ colors, model, colorsRaw }: SpinnerModelProps) {
     };
   } = {
     A: {
-      border: `0.75vh solid ${primaryColor}`,
+      border: `0.75dvh solid ${primaryColor}`,
       borderBottomColor: secondaryColor,
       borderRadius: "50%",
       display: "inlineBlock",

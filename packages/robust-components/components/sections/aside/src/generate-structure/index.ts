@@ -56,7 +56,7 @@ export function generateStructure({
   return {
     heightRaw:
       size && !(placement === "top" || placement === "bottom")
-        ? "100vh"
+        ? "100dvh"
         : partialSize(size, "VH"),
     widthRaw:
       (placement === "left" || placement === "right") && size

@@ -12,7 +12,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
   forwardRef(function LabelComponent(
     { textProps, children, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLLabelElement>({
       componentType: "label",
@@ -94,7 +94,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
         aria-labelledby={arialLabel}
         aria-label={arialLabel}
         pointerEvents="none"
-        borderRadius="1.5vh"
+        borderRadius="1.5dvh"
         width="fitContent"
         position="absolute"
         elementName="Label"
@@ -106,22 +106,20 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
         zIndex="1"
         bottom="0"
         right="0"
-        px="2vw"
+        px="2dvw"
         left="0"
         top="0"
         ref={ref}
         {...structureStyle}
-        {...cleanedProps}
-      >
-        <Flex borderRadius="1.5vh">
+        {...cleanedProps}>
+        <Flex borderRadius="1.5dvh">
           <Span
             fontWeight={isFocus || text ? "900" : "500"}
             aria-labelledby={arialLabel}
             elementName="LabelSpan"
             aria-label={arialLabel}
             fontSize="inherit"
-            {...textProps}
-          >
+            {...textProps}>
             {strings.length ? strings : placeholder}
           </Span>
           {isRequired && (
@@ -133,8 +131,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
               color={
                 colorSchemeProperty?.baseColorRaw === "red" ? "blue" : "red"
               }
-              fontWeight="900"
-            >
+              fontWeight="900">
               *
             </Span>
           )}

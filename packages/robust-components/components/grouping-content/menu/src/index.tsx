@@ -17,7 +17,7 @@ import React, {
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
   forwardRef(function MenuComponent(
     { children, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLMenuElement>({
       componentType: "menu",
@@ -76,14 +76,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
           }}
           elementName="MenuButton"
           position="relative"
-          fontSizeRaw="3vh"
+          fontSizeRaw="3dvh"
           cursor="pointer"
           multiLanguageSupport={{
             en: "Menu",
             es: "Menú",
           }}
-          {...buttonProps}
-        >
+          {...buttonProps}>
           {strings}
         </Button>
         <Component
@@ -92,21 +91,20 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
           opacityRaw={isOpen ? "1" : "0"}
           transformRaw="translate(0%, 35%)"
           transitionRaw="opacity 0.25s cubic-bezier(1, 0.43, 0, 1.04)"
-          boxShadowRaw="0 0 1.5vh 0 rgba(255, 255, 255, 0.3)"
+          boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)"
           justifyContent="center"
           alignItems="center"
           flexDirection="column"
           position="absolute"
           elementName="Menu"
-          borderRadius="2vh"
+          borderRadius="2dvh"
           cursor="pointer"
           display="flex"
-          p="2vh"
+          p="2dvh"
           m="0"
           ref={ref}
           {...structureStyle}
-          {...cleanedProps}
-        >
+          {...cleanedProps}>
           {otherComponents}
         </Component>
       </Flex>

@@ -21,7 +21,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
       children,
       ...props
     },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLElement>({
       componentType: "aside",
@@ -72,7 +72,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
           placement,
           isOpen,
         }),
-      [size, placement, isOpen],
+      [size, placement, isOpen]
     );
 
     const childrenPropagation = useMemo(
@@ -81,7 +81,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
           children: otherComponents,
           props: { onClick: () => setIsOpen(false) },
         }),
-      [otherComponents],
+      [otherComponents]
     );
 
     useEffect(() => {
@@ -98,7 +98,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
       <Flex>
         <Button
           onClick={() => startTransition(() => setIsOpen(true))}
-          borderRadius="2vh"
+          borderRadius="2dvh"
           cursor="pointer"
           colorSchemeProperty={{
             baseColorRaw:
@@ -138,13 +138,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
               "gray",
           }}
           display={isOpen ? "flex" : "none"}
-          backdropFilterRaw="blur(0.5vh)"
+          backdropFilterRaw="blur(0.5dvh)"
           flexDirection="column"
           overflow="hidden"
           position="fixed"
           zIndexRaw="9999"
-          height="100vh"
-          width="100vw"
+          height="100dvh"
+          width="100dvw"
           left="0"
           top="0"
         />
@@ -161,8 +161,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
           ref={ref}
           {...layout}
           {...structureStyle}
-          {...cleanedProps}
-        >
+          {...cleanedProps}>
           <Button
             onClick={() => startTransition(() => setIsOpen(false))}
             colorSchemeProperty={{
@@ -180,13 +179,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
               ...iconCloseProps,
             }}
             position="absolute"
-            borderRadius="2vh"
+            borderRadius="2dvh"
             width="fitContent"
             zIndexRaw="10001"
             cursor="pointer"
             right="0"
-            mx="2vw"
-            my="2vh"
+            mx="2dvw"
+            my="2dvh"
             top="0"
             {...buttonCloseProps}
           />

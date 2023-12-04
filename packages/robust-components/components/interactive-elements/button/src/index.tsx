@@ -12,7 +12,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
   forwardRef(function ButtonComponent(
     { children, textProps, iconProps, spinnerProps, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLButtonElement>({
       componentType: "button",
@@ -66,7 +66,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
         borderRadius={
           colorSchemeProperty?.variant === "link" || !colorSchemeProperty
             ? undefined
-            : "2.5vw"
+            : "2.5dvw"
         }
         keyframesRaw={{
           scaleUpLink: {
@@ -104,26 +104,27 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
         borderColor="transparent"
         justifyContent="center"
         aria-label={arialLabel}
-        borderRadiusRaw="2.5vw"
+        borderRadiusRaw="2.5dvw"
         textDecoration="none"
         elementName="Button"
         position="relative"
         alignItems="center"
         width="fitContent"
-        fontSizeRaw="3vh"
+        fontSizeRaw="3dvh"
         cursor="pointer"
         display="flex"
         role="link"
-        gap="0.5vw"
+        gap="0.5dvw"
         ref={ref}
-        py="1vh"
-        px="1vw"
+        py="1dvh"
+        px="1dvw"
         {...structureStyle}
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {(iconType || iconProps) && (
           <Icon
-            sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "4vh"}
+            sizeRaw={
+              cleanedProps.fontSizeRaw || cleanedProps.fontSize || "4dvh"
+            }
             elementName="ButtonIcon"
             iconType={iconType}
             {...iconProps}
@@ -135,15 +136,16 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
             whiteSpace="nowrap"
             fontSize="inherit"
             userSelect="none"
-            {...textProps}
-          >
+            {...textProps}>
             {strings}
           </Span>
         )}
         {isLoading && (
           <Spinner
             colorSchemeRaw={colorSchemeRaw || colorScheme}
-            sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3vh"}
+            sizeRaw={
+              cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3dvh"
+            }
             elementName="ButtonSpinner"
             {...spinnerProps}
           />
@@ -152,7 +154,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
         {hoverHelp && (
           <Flex
             fontSizeRaw={
-              cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3vh"
+              cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3dvh"
             }
             transitionRaw="opacity 0.5s ease-in-out"
             transformRaw="translate(30%, 125%)"
@@ -160,20 +162,18 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
             elementName="ButtonHoverText"
             pointerEvents="none"
             background="gray900"
-            borderRadius="1.5vh"
+            borderRadius="1.5dvh"
             width="fitContent"
             position="fixed"
-            py="1vh"
-            px="1vw"
-            {...hoverTextProps?.containerProps}
-          >
+            py="1dvh"
+            px="1dvw"
+            {...hoverTextProps?.containerProps}>
             <Span
               elementName="ButtonHoverText"
               whiteSpace="nowrap"
               userSelect="none"
               color="gray100"
-              {...hoverTextProps?.textProps}
-            >
+              {...hoverTextProps?.textProps}>
               {hoverText || arialLabel}
             </Span>
           </Flex>

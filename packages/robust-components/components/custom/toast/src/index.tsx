@@ -11,7 +11,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
   forwardRef(function ToastComponent(
     { children, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const {
       status = "default",
@@ -37,7 +37,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
         error: "red",
         default: "teal",
       }),
-      [],
+      []
     );
 
     const structureStyle = useMemo(() => {
@@ -59,35 +59,31 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
         position="relative"
         width="fitContent"
         height="fitContent"
-        borderRadius="2.5vh"
-        gap="2vh"
-        p="1.5vh"
+        borderRadius="2.5dvh"
+        gap="2dvh"
+        p="1.5dvh"
         cursor="pointer"
         zIndexRaw="9999"
         ref={ref}
         {...structureStyle}
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {(label || description) && (
           <Flex
             flexDirection="column"
-            elementName={`ToastContent${subkey ? `-${subkey}` : ""}`}
-          >
+            elementName={`ToastContent${subkey ? `-${subkey}` : ""}`}>
             {label && (
               <Span
                 fontWeight="bold"
-                fontSize="2vh"
-                elementName={`ToastLabel${subkey ? `-${subkey}` : ""}`}
-              >
+                fontSize="2dvh"
+                elementName={`ToastLabel${subkey ? `-${subkey}` : ""}`}>
                 {label}
               </Span>
             )}
             {description && (
               <Span
-                fontSize="1.5vh"
+                fontSize="1.5dvh"
                 fontWeightRaw="regular"
-                elementName={`ToastDescription${subkey ? `-${subkey}` : ""}`}
-              >
+                elementName={`ToastDescription${subkey ? `-${subkey}` : ""}`}>
                 {description}
               </Span>
             )}

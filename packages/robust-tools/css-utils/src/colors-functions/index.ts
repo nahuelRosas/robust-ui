@@ -20,7 +20,7 @@ function componentToHex(c: number): string {
 function rgbaToHex(rgb: RGBColor, a?: number): string {
   const alphaHex = a !== undefined ? componentToHex(Math.round(a * 255)) : "";
   return `#${componentToHex(rgb.r)}${componentToHex(rgb.g)}${componentToHex(
-    rgb.b,
+    rgb.b
   )}${alphaHex}`;
 }
 
@@ -55,7 +55,7 @@ function hslToHex(hsl: HSLColor): string {
   }
 
   return `#${componentToHex(Math.round((r + m) * 255))}${componentToHex(
-    Math.round((g + m) * 255),
+    Math.round((g + m) * 255)
   )}${componentToHex(Math.round((b + m) * 255))}`;
 }
 
@@ -64,7 +64,7 @@ export function cssColorToHex(color: string) {
     return color;
   } else if (color.startsWith("rgb")) {
     const match = color.match(
-      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/,
+      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/
     );
     if (match) {
       const [, r, g, b, a] = match.map(Number);
@@ -72,12 +72,12 @@ export function cssColorToHex(color: string) {
 
       return rgbaToHex(
         { r: color.r, g: color.g, b: color.b },
-        a !== undefined ? a : 1,
+        a !== undefined ? a : 1
       );
     }
   } else if (color.startsWith("hsl")) {
     const match = color.match(
-      /hsla?\((\d+),\s*(\d+)%,\s*(\d+)%(?:,\s*([\d.]+))?\)/,
+      /hsla?\((\d+),\s*(\d+)%,\s*(\d+)%(?:,\s*([\d.]+))?\)/
     );
     if (match) {
       const [, h, s, l, a] = match.map(Number);
@@ -155,7 +155,7 @@ export function rgbToHex({
 
 export function calculateLuminance({ rgbaColor }: { rgbaColor: string }) {
   const match = rgbaColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
   );
 
   if (!match) {
@@ -187,7 +187,7 @@ export function addOpacity({
 
 export function generateContrastingColor(baseColor: string): string {
   const rgbaMatch = baseColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
   );
 
   if (!rgbaMatch) {
@@ -311,7 +311,7 @@ export function generateColorScheme({
 
   if (isInvalid && isValid && !isDisabled) {
     throw new Error(
-      "Input can't be invalid and valid at the same time. Please check your code.",
+      "Input can't be invalid and valid at the same time. Please check your code."
     );
   }
 
@@ -319,14 +319,14 @@ export function generateColorScheme({
     link: {
       backgroundRaw: "transparent",
       colorRaw: textColor,
-      borderRadiusRaw: "0.5vh",
-      borderRaw: "0.5vh solid transparent",
+      borderRadiusRaw: "0.5dvh",
+      borderRaw: "0.5dvh solid transparent",
       hoverRaw: propsRaw.hover
         ? {
             outlineRaw: "none",
             backgroundRaw: "transparent",
             colorRaw: textColor,
-            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
+            borderBottom: `0.5dvh solid ${mainColorWithHighOpacity}`,
           }
         : undefined,
       focusRaw: propsRaw.focus
@@ -334,7 +334,7 @@ export function generateColorScheme({
             outlineRaw: "none",
             backgroundRaw: "transparent",
             colorRaw: textColor,
-            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
+            borderBottom: `0.5dvh solid ${mainColorWithHighOpacity}`,
           }
         : undefined,
       activeRaw: propsRaw.active
@@ -342,7 +342,7 @@ export function generateColorScheme({
             outlineRaw: "none",
             backgroundRaw: "transparent",
             colorRaw: textColor,
-            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
+            borderBottom: `0.5dvh solid ${mainColorWithHighOpacity}`,
           }
         : undefined,
     },
@@ -350,10 +350,10 @@ export function generateColorScheme({
     outline: {
       backgroundRaw: propsRaw.background ? mainColorLowOpacity : "transparent",
       colorRaw: mainColorWithOpacity,
-      boxShadowRaw: "0 0.5vh 1vh rgba(0, 0, 0, 0.15)",
+      boxShadowRaw: "0 0.5dvh 1dvh rgba(0, 0, 0, 0.15)",
       borderRaw: propsRaw.border
-        ? `0.5vh solid ${mainColorWithMiddleOpacity}`
-        : "0.5vh solid transparent",
+        ? `0.5dvh solid ${mainColorWithMiddleOpacity}`
+        : "0.5dvh solid transparent",
       hoverRaw: propsRaw.hover
         ? {
             outlineRaw: "none",
@@ -361,7 +361,7 @@ export function generateColorScheme({
               ? mainColorWithOpacity
               : "transparent",
             colorRaw: textColor,
-            borderRaw: "0.5vh solid transparent",
+            borderRaw: "0.5dvh solid transparent",
           }
         : undefined,
       focusRaw: propsRaw.focus
@@ -371,7 +371,7 @@ export function generateColorScheme({
               ? mainColorWithOpacity
               : "transparent",
             colorRaw: textColor,
-            borderRaw: "0.5vh solid transparent",
+            borderRaw: "0.5dvh solid transparent",
           }
         : undefined,
       activeRaw: propsRaw.active
@@ -381,7 +381,7 @@ export function generateColorScheme({
               ? mainColorWithOpacity
               : "transparent",
             colorRaw: textColor,
-            borderRaw: "0.5vh solid transparent",
+            borderRaw: "0.5dvh solid transparent",
           }
         : undefined,
     },
@@ -389,8 +389,8 @@ export function generateColorScheme({
     solid: {
       backgroundRaw: propsRaw.background ? mainColorWithOpacity : "transparent",
       colorRaw: textColor,
-      boxShadowRaw: "0 0.5vh 1vh rgba(0, 0, 0, 0.15)",
-      borderRaw: "0.5vh solid transparent",
+      boxShadowRaw: "0 0.5dvh 1dvh rgba(0, 0, 0, 0.15)",
+      borderRaw: "0.5dvh solid transparent",
       hoverRaw: propsRaw.hover
         ? {
             backgroundRaw: mainColorWithHighOpacity,
@@ -415,7 +415,7 @@ export function generateColorScheme({
       backgroundRaw: "transparent",
       colorRaw: textColor,
       boxShadowRaw: "none",
-      borderRaw: "0.5vh solid transparent",
+      borderRaw: "0.5dvh solid transparent",
       hoverRaw: propsRaw.hover
         ? {
             backgroundRaw: mainColorWithOpacity,
@@ -452,7 +452,7 @@ export function generateColorScheme({
 
 export function calculateComplementaryColor(rgbaColor: string): string {
   const match = rgbaColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
   );
   if (!match) throw new Error("Invalid color");
 

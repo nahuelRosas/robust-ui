@@ -27,7 +27,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
       children,
       ...props
     },
-    ref,
+    ref
   ): React.JSX.Element {
     const {
       closeOnOverlayClick = true,
@@ -73,8 +73,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
               paragraph={paragraphCard}
               label={labelCard}
               {...cleanedProps}
-              {...cardProps}
-            >
+              {...cardProps}>
               <Button
                 pointerEvents="inherit"
                 onClick={
@@ -99,13 +98,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
                   ...iconCloseProps,
                 }}
                 position="absolute"
-                borderRadius="2vh"
+                borderRadius="2dvh"
                 width="fitContent"
                 zIndexRaw="10001"
                 cursor="pointer"
                 right="0"
-                mx="2vw"
-                my="2vh"
+                mx="2dvw"
+                my="2dvh"
                 top="0"
                 {...buttonCloseProps}
               />
@@ -125,7 +124,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         iconCloseProps,
         buttonCloseProps,
         otherComponents,
-      ],
+      ]
     );
 
     return (
@@ -146,9 +145,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
             iconType: buttonOpenProps?.iconType || "menuFill",
             ...iconOpenProps,
           }}
-          borderRadius="2vh"
+          borderRadius="2dvh"
           cursor="pointer"
-          my="1vh"
+          my="1dvh"
           multiLanguageSupport={strings}
           {...buttonOpenProps}
         />
@@ -202,7 +201,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
               ? "visibleoverlay 0.5s ease-out forwards"
               : "hiddenoverlay 0.5s ease-in-out forwards"
           }
-          backdropFilterRaw="blur(0.5vh)"
+          backdropFilterRaw="blur(0.5dvh)"
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
@@ -210,11 +209,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
           position="fixed"
           zIndexRaw="9999"
           display="flex"
-          height="100vh"
-          width="100vw"
+          height="100dvh"
+          width="100dvw"
           left="0"
-          top="0"
-        >
+          top="0">
           {stopProgationChildren}
         </Flex>
       </Flex>

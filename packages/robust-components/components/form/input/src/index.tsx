@@ -19,7 +19,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
   forwardRef(function InputComponent(
     { labelProps, children, ...props },
-    ref: Ref<unknown>,
+    ref: Ref<unknown>
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLInputElement>({
       componentType: "input",
@@ -88,7 +88,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
         }
         setInputValue(event.target.value);
       },
-      [onChange],
+      [onChange]
     );
     const idString = id ? id : strings.length ? strings.join(" ") : placeholder;
 
@@ -108,8 +108,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
         position="relative"
         alignItems="center"
         width="fitContent"
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         <Component
           id={idString}
           pointerEvents={isLoading || isDisabled ? "none" : "inherit"}
@@ -119,7 +118,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
           onFocus={() => startTransition(() => setFocus(true))}
           boxSizing="borderBox"
           position="relative"
-          borderRadius="1vh"
+          borderRadius="1dvh"
           spellCheck={false}
           fontSize="inherit"
           value={onChange && value ? value : inputValue}
@@ -132,9 +131,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
           ref={ref}
           {...structureStyle}
           {...cleanedProps}
-          pt={strings.length || placeholder ? "3vh" : "2vh"}
-          pb="2vh"
-          px="2vw"
+          pt={strings.length || placeholder ? "3dvh" : "2dvh"}
+          pb="2dvh"
+          px="2dvw"
           m="0"
         />
         {(strings.length || placeholder) && (
@@ -149,8 +148,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
             htmlFor={idString}
             text={onChange && value ? value : inputValue}
             id={idString}
-            {...labelProps}
-          >
+            {...labelProps}>
             {strings.length ? strings : placeholder}
           </Label>
         )}

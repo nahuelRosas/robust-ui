@@ -9,7 +9,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FooterProps>> =
   forwardRef(function FooterComponent(
     { children, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLElement>({
       componentType: "footer",
@@ -42,7 +42,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FooterProps>> =
     const composeChildren = useMemo(() => {
       if (multiLanguageSupport && children)
         console.error(
-          "Warning: multiLanguageSupport and children are not compatible, please use one or the other",
+          "Warning: multiLanguageSupport and children are not compatible, please use one or the other"
         );
       return multiLanguageSupport || children;
     }, [multiLanguageSupport, children]);
@@ -58,10 +58,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FooterProps>> =
         optimizedWidth
         display="flex"
         ref={ref}
-        p="2vh"
+        p="2dvh"
         {...structureStyle}
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {composeChildren}
       </Component>
     );

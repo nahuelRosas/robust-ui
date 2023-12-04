@@ -11,7 +11,7 @@ import { Icon } from "@robust-ui/icon";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
   forwardRef(function CoverComponent(
     { labelProps, iconProps, paragraphProps, children, ...props },
-    ref,
+    ref
   ): React.JSX.Element {
     const {
       multiLanguageSupport,
@@ -31,7 +31,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
 
     return (
       <Flex
-        widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+        widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
         colorSchemeProperty={{
           opacity: 0.8,
           baseColorRaw:
@@ -44,24 +44,23 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
         }}
         justifyContent="center"
         flexDirection="column"
-        borderRadius="2.5vh"
+        borderRadius="2.5dvh"
         position="relative"
         overflow="hidden"
         tabIndex={-1}
         mt={{
-          base: "10vh",
-          md: "15vh",
+          base: "10dvh",
+          md: "15dvh",
         }}
-        minH="82vh"
+        minH="82dvh"
         id="cover"
         mx={{
-          base: "6vw",
-          md: "3vw",
+          base: "6dvw",
+          md: "3dvw",
         }}
         ref={ref}
-        {...cleanedProps}
-      >
-        <Block my="auto" gap="1vh">
+        {...cleanedProps}>
+        <Block my="auto" gap="1dvh">
           {(label || strings) && (
             <StyledText
               multiLanguageSupport={label || strings}
@@ -70,13 +69,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
               textAlign="center"
               alignSelf="center"
               optimizedWidth
-              my="2vh"
+              my="2dvh"
               fontSize={{
-                base: "5vh",
-                md: "7vh",
+                base: "5dvh",
+                md: "7dvh",
               }}
-              px="2vw"
-              py="1vh"
+              px="2dvw"
+              py="1dvh"
               {...labelProps}
             />
           )}
@@ -88,34 +87,33 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
               alignSelf="center"
               textAlign="center"
               fontSize={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               optimizedWidth
-              px="2vw"
-              py="1vh"
+              px="2dvw"
+              py="1dvh"
               {...paragraphProps}
             />
           )}
           {icons && (
             <Flex
-              mt="2vh"
-              px="2vw"
+              mt="2dvh"
+              px="2dvw"
               gap={{
-                base: "0.5vh",
-                md: "1vh",
+                base: "0.5dvh",
+                md: "1dvh",
               }}
               overflow="hidden"
               flexWrap="wrap"
               justifyContent="center"
-              alignItems="center"
-            >
+              alignItems="center">
               {icons.map((icon, index) => (
                 <Icon
                   key={index}
                   sizeRaw={{
-                    base: "5vh",
-                    md: "7vh",
+                    base: "5dvh",
+                    md: "7dvh",
                   }}
                   colorRaw={
                     typeof icon === "object"

@@ -30,7 +30,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
       iconOpenProps,
       ...props
     },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLImageElement>({
       componentType: "img",
@@ -95,10 +95,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
     const changeImageIndex = useCallback(
       (newIndex: number) => {
         startTransition(() =>
-          setCurrentImageIndex((newIndex + imageCount) % imageCount),
+          setCurrentImageIndex((newIndex + imageCount) % imageCount)
         );
       },
-      [imageCount],
+      [imageCount]
     );
 
     const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
@@ -166,10 +166,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         const delta = e.deltaY;
         setZoomPrev(zoom);
         setZoom((prevZoom) =>
-          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001)),
+          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001))
         );
       },
-      [zoom],
+      [zoom]
     );
 
     const handleDivClick = useCallback(() => {
@@ -246,16 +246,15 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                 base: "90%",
                 md: "fitContent",
               }}
-              maxWidth="80vw"
+              maxWidth="80dvw"
               m="0"
-              p="0"
-            >
+              p="0">
               {
                 <Flex
-                  p="2vh"
-                  m="2vh"
+                  p="2dvh"
+                  m="2dvh"
                   bg="black"
-                  borderRadius="2vh"
+                  borderRadius="2dvh"
                   zIndexRaw="10005"
                   position="absolute"
                   bottom="0"
@@ -283,13 +282,13 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                   ...iconCloseProps,
                 }}
                 position="absolute"
-                borderRadius="2vh"
+                borderRadius="2dvh"
                 width="fitContent"
                 zIndexRaw="10001"
                 cursor="pointer"
                 right="0"
-                mx="2vw"
-                my="2vh"
+                mx="2dvw"
+                my="2dvh"
                 top="0"
                 {...buttonCloseProps}
               />
@@ -315,8 +314,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                     zIndexRaw="10001"
                     top="50%"
                     left="0"
-                    mx="2vw"
-                    my="2vh"
+                    mx="2dvw"
+                    my="2dvh"
                     iconProps={{
                       iconType: "arrowLeftFill",
                     }}
@@ -341,8 +340,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                     zIndexRaw="10001"
                     right="0"
                     top="50%"
-                    mx="2vw"
-                    my="2vh"
+                    mx="2dvw"
+                    my="2dvh"
                     iconProps={{
                       iconType: "arrowRightFill",
                     }}
@@ -354,7 +353,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                   colorSchemeRaw={colorSchemeRaw || colorScheme}
                   elementName="ImageSpinner"
                   sizeRaw={
-                    sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"
+                    sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5dvh"
                   }
                   {...spinnerProps}
                 />
@@ -374,8 +373,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                       mousePosition.y
                     }px`,
                     transition: "transform 0.2s ease-out",
-                  }}
-                >
+                  }}>
                   <Component
                     src={currentImageSrc}
                     alt={currentAlt}
@@ -422,7 +420,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         spinnerProps,
         srcArray,
         zoom,
-      ],
+      ]
     );
 
     return (
@@ -440,11 +438,12 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         justifyContent="center"
         alignItems="center"
         mx="auto"
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {generalStatus === "failed" && (
           <Icon
-            sizeRaw={sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"}
+            sizeRaw={
+              sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5dvh"
+            }
             borderRadiusRaw={isRounded ? "9999px" : undefined}
             elementName="Image-Error"
             iconType="errorWarningFill"
@@ -477,7 +476,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
           <Spinner
             colorSchemeRaw={colorSchemeRaw || colorScheme}
             elementName="ImageSpinner"
-            sizeRaw={sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"}
+            sizeRaw={
+              sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5dvh"
+            }
             {...spinnerProps}
           />
         )}
@@ -518,7 +519,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
             }
             onTouchEnd={handleTouchEnd}
             elementName="ContainerSlider"
-            backdropFilterRaw="blur(0.5vh)"
+            backdropFilterRaw="blur(0.5dvh)"
             cursor="auto"
             colorSchemeProperty={{
               opacity: 0.2,
@@ -542,12 +543,11 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
             }
             overflow="hidden"
             position="fixed"
-            height="100vh"
-            width="100vw"
+            height="100dvh"
+            width="100dvw"
             zIndexRaw="9999"
             left="0"
-            top="0"
-          >
+            top="0">
             {stopProgationChildren}
           </Flex>
         )}
