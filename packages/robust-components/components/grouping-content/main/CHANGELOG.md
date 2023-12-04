@@ -1,5 +1,23 @@
 # @robust-ui/provider
 
+## 0.5.0
+
+### Minor Changes
+
+- 1f777c5: optimization
+
+### Patch Changes
+
+- Updated dependencies [1f777c5]
+  - @robust-ui/toast-manager@0.5.0
+  - @robust-ui/theme@0.5.0
+  - @robust-ui/constructor@0.5.0
+  - @robust-ui/use-breakpoint-value@0.5.0
+  - @robust-ui/use-clean-value@0.5.0
+  - @robust-ui/use-global-context@0.5.0
+  - @robust-ui/global-state-reducer@0.5.0
+  - @robust-ui/utils@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
