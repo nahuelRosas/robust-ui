@@ -1,5 +1,11 @@
 # @robust-ui/purging
 
+## 0.5.0
+
+### Minor Changes
+
+- 1f777c5: optimization
+
 ## 0.4.0
 
 ### Minor Changes

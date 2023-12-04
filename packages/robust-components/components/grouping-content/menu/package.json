@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/menu",
   "description": "A menu component for React",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {
@@ -31,7 +31,7 @@
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
-    "@robust-ui/button" : "workspace:*",
+    "@robust-ui/button": "workspace:*",
     "@robust-ui/utils": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "@robust-ui/icon": "workspace:*",

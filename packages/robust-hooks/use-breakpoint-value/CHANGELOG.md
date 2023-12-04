@@ -1,5 +1,18 @@
 # @robust-ui/use-breakpoint-value
 
+## 0.5.0
+
+### Minor Changes
+
+- 1f777c5: optimization
+
+### Patch Changes
+
+- Updated dependencies [1f777c5]
+  - @robust-ui/use-global-context@0.5.0
+  - @robust-ui/use-resize-listener@0.5.0
+  - @robust-ui/utils@0.5.0
+
 ## 0.4.0
 
 ### Minor Changes
