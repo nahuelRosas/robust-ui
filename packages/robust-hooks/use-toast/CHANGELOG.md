@@ -1,5 +1,13 @@
 # @robust-ui/use-toast
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [b2b676d]
+  - @robust-ui/nested-styled-text@0.7.0
+  - @robust-ui/constructor@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes

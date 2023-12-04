@@ -1,5 +1,22 @@
 # @robust-ui/cover
 
+## 0.7.0
+
+### Minor Changes
+
+- b2b676d: change viewport to dynamic viewport
+
+### Patch Changes
+
+- Updated dependencies [b2b676d]
+  - @robust-ui/icon@0.7.0
+  - @robust-ui/spinner@0.7.0
+  - @robust-ui/css-utils@0.7.0
+  - @robust-ui/flex@0.5.2
+  - @robust-ui/span@0.5.2
+  - @robust-ui/constructor@0.5.2
+  - @robust-ui/use-clean-value@0.5.2
+
 ## 0.6.0
 
 ### Minor Changes

@@ -1,5 +1,18 @@
 # @robust-ui/provider
 
+## 0.7.0
+
+### Minor Changes
+
+- b2b676d: change viewport to dynamic viewport
+
+### Patch Changes
+
+- @robust-ui/toast-manager@0.5.2
+- @robust-ui/constructor@0.5.2
+- @robust-ui/use-clean-value@0.5.2
+- @robust-ui/global-state-reducer@0.5.2
+
 ## 0.6.0
 
 ### Minor Changes

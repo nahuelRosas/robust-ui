@@ -1,5 +1,14 @@
 # @robust-ui/flex
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [b2b676d]
+  - @robust-ui/css-utils@0.7.0
+  - @robust-ui/constructor@0.5.2
+  - @robust-ui/use-clean-value@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
