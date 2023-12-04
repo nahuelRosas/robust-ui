@@ -15,7 +15,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<NextLinkProps>
 > = forwardRef(function NextLinkComponent(
   { textProps, iconProps, spinnerProps, children, ...props },
-  ref
+  ref,
 ): React.JSX.Element {
   const Component = CreateComponent<LinkProps>({
     componentType: "a",
@@ -119,7 +119,8 @@ const Factory: React.ForwardRefExoticComponent<
       py="1vh"
       px="1vw"
       {...structureStyle}
-      {...cleanedProps}>
+      {...cleanedProps}
+    >
       {isLoading && (
         <Spinner
           colorSchemeRaw={colorSchemeRaw || colorScheme}
@@ -142,7 +143,8 @@ const Factory: React.ForwardRefExoticComponent<
           whiteSpace="nowrap"
           fontSize="inherit"
           userSelect="none"
-          {...textProps}>
+          {...textProps}
+        >
           {strings}
         </Span>
       )}
@@ -163,13 +165,15 @@ const Factory: React.ForwardRefExoticComponent<
           position="fixed"
           py="1vh"
           px="1vw"
-          {...hoverTextProps?.containerProps}>
+          {...hoverTextProps?.containerProps}
+        >
           <Span
             elementName="ButtonHoverText"
             whiteSpace="nowrap"
             userSelect="none"
             color="gray100"
-            {...hoverTextProps?.textProps}>
+            {...hoverTextProps?.textProps}
+          >
             {hoverText || arialLabel}
           </Span>
         </Flex>

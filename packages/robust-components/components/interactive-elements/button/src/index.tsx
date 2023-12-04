@@ -12,7 +12,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
   forwardRef(function ButtonComponent(
     { children, textProps, iconProps, spinnerProps, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLButtonElement>({
       componentType: "button",
@@ -119,7 +119,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
         py="1vh"
         px="1vw"
         {...structureStyle}
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         {(iconType || iconProps) && (
           <Icon
             sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "4vh"}
@@ -134,7 +135,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
             whiteSpace="nowrap"
             fontSize="inherit"
             userSelect="none"
-            {...textProps}>
+            {...textProps}
+          >
             {strings}
           </Span>
         )}
@@ -163,13 +165,15 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
             position="fixed"
             py="1vh"
             px="1vw"
-            {...hoverTextProps?.containerProps}>
+            {...hoverTextProps?.containerProps}
+          >
             <Span
               elementName="ButtonHoverText"
               whiteSpace="nowrap"
               userSelect="none"
               color="gray100"
-              {...hoverTextProps?.textProps}>
+              {...hoverTextProps?.textProps}
+            >
               {hoverText || arialLabel}
             </Span>
           </Flex>

@@ -54,7 +54,7 @@ export function formatMultiStyleString({
           })
           .flat();
         return textLines;
-      })
+      }),
     );
   });
 

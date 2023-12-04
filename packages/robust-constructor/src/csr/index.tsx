@@ -22,7 +22,7 @@ export function CreateComponent<T>({
           style,
           ...props
         }: EnhancedElementProps<T>,
-        ref
+        ref,
       ): JSX.Element | null {
         const uniqueClassName = useMemo(
           () =>
@@ -33,11 +33,11 @@ export function CreateComponent<T>({
                 ...props,
               },
             }),
-          [elementName, props, style]
+          [elementName, props, style],
         );
 
         const combinedClassName = useRef<string>(
-          [uniqueClassName, props.className].join(" ").trim()
+          [uniqueClassName, props.className].join(" ").trim(),
         );
 
         const globalContext = useGlobalContext({
@@ -52,7 +52,7 @@ export function CreateComponent<T>({
                 ...globalContext.selectors,
               },
             }),
-          [globalContext.selectors, props]
+          [globalContext.selectors, props],
         );
         const [isCSSInjected, setCSSInjected] = useState(false);
 
@@ -117,14 +117,14 @@ export function CreateComponent<T>({
               globalContext.mediaBreakpoints,
               globalContext.theme,
               styleProps,
-            ]
+            ],
           ),
         };
 
         useEffect(() => {
           if (!globalContext.isProviderActive) {
             throw new Error(
-              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`
+              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`,
             );
           }
         }, [globalContext.isProviderActive]);
@@ -136,11 +136,12 @@ export function CreateComponent<T>({
             className={combinedClassName.current}
             ref={ref}
             style={style}
-            {...htmlProps}>
+            {...htmlProps}
+          >
             {props.children}
           </ElementType>
         );
       }),
-    [componentType]
+    [componentType],
   );
 }

@@ -9,4 +9,3 @@ export interface ToastManagerProps
     | "top"
     | "bottom";
 }
-

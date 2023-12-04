@@ -12,7 +12,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
   forwardRef(function LabelComponent(
     { textProps, children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLLabelElement>({
       componentType: "label",
@@ -111,7 +111,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
         top="0"
         ref={ref}
         {...structureStyle}
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         <Flex borderRadius="1.5vh">
           <Span
             fontWeight={isFocus || text ? "900" : "500"}
@@ -119,7 +120,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
             elementName="LabelSpan"
             aria-label={arialLabel}
             fontSize="inherit"
-            {...textProps}>
+            {...textProps}
+          >
             {strings.length ? strings : placeholder}
           </Span>
           {isRequired && (
@@ -131,7 +133,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
               color={
                 colorSchemeProperty?.baseColorRaw === "red" ? "blue" : "red"
               }
-              fontWeight="900">
+              fontWeight="900"
+            >
               *
             </Span>
           )}

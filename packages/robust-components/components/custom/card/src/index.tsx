@@ -11,7 +11,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
   forwardRef(function CardComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const {
       multiLanguageSupport,
@@ -57,7 +57,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
         }}
         pb="3vh"
         ref={ref}
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         {header && (
           <NextLink
             elementName="CardHeader"
@@ -71,7 +72,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             mx="3vh"
             mt="2vh"
             p="0"
-            {...(typeof header !== "string" && header.headerProps)}>
+            {...(typeof header !== "string" && header.headerProps)}
+          >
             {typeof header === "string" ? header : header.text}
           </NextLink>
         )}
@@ -87,7 +89,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             colors={["white", "teal", "white", "indigo"]}
             my="2vh"
             mx="5vw"
-            {...(typeof label !== "string" && label.labelProps)}>
+            {...(typeof label !== "string" && label.labelProps)}
+          >
             {typeof label === "string" ? label : label.text}
           </StyledText>
         )}
@@ -102,7 +105,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             }}
             colors={["white", "teal", "white", "indigo"]}
             mx="5vw"
-            {...(typeof paragraph !== "string" && paragraph.paragraphProps)}>
+            {...(typeof paragraph !== "string" && paragraph.paragraphProps)}
+          >
             {typeof paragraph === "string" ? paragraph : paragraph.text}
           </StyledText>
         )}
@@ -134,7 +138,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
             optimizedWidth
             gap="5vh"
             mx="5vw"
-            mt="3vh">
+            mt="3vh"
+          >
             {data.map(({ href, images, label, paragraph }, index) => {
               return (
                 <NextLink
@@ -159,7 +164,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                     md: "40%",
                   }}
                   key={index}
-                  gap="2vh">
+                  gap="2vh"
+                >
                   {label && (
                     <StyledText
                       colors={["white", "teal", "white", "indigo"]}
@@ -172,7 +178,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                         base: "3vh",
                         md: "4vh",
                       }}
-                      {...(typeof label !== "string" && label.labelProps)}>
+                      {...(typeof label !== "string" && label.labelProps)}
+                    >
                       {typeof label === "string" ? label : label.text}
                     </StyledText>
                   )}
@@ -208,7 +215,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
                         md: "2.5vh",
                       }}
                       {...(typeof paragraph !== "string" &&
-                        paragraph.paragraphProps)}>
+                        paragraph.paragraphProps)}
+                    >
                       {typeof paragraph === "string"
                         ? paragraph
                         : paragraph.text}

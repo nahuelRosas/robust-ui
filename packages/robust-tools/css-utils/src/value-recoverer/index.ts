@@ -40,10 +40,10 @@ export function ValueRecoverer({
   }
 
   const hasValidBreakpoints = Object.keys(inputValue).some((attrKey) =>
-    breakPoints.context.hasOwnProperty(attrKey)
+    breakPoints.context.hasOwnProperty(attrKey),
   );
   const hasValidDarkMode = ["dark", "light"].some((key) =>
-    inputValue.hasOwnProperty(key)
+    inputValue.hasOwnProperty(key),
   );
   const hasValidLanguage =
     currentGlobalLanguage && inputValue.hasOwnProperty(currentGlobalLanguage);
@@ -71,7 +71,7 @@ export function ValueRecoverer({
           }
           return acc;
         },
-        {}
+        {},
       );
     } else if (Array.isArray(inputValue) && inputProp !== "children") {
       return inputValue.map((item) => {

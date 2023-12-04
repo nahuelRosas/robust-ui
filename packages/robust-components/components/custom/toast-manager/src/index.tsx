@@ -5,14 +5,14 @@ import { ToastManagerProps } from "./types";
 import { Toast } from "@robust-ui/toast";
 
 const Flex = lazy(() =>
-  import("@robust-ui/flex").then((module) => ({ default: module.Flex }))
+  import("@robust-ui/flex").then((module) => ({ default: module.Flex })),
 );
 
 const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<ToastManagerProps>
 > = forwardRef(function ToastManagerComponent(
   { notificationPlacement = "bottomRight", ...props },
-  ref
+  ref,
 ) {
   const notification = useGlobalContext({
     key: "notifications",
@@ -61,7 +61,8 @@ const Factory: React.ForwardRefExoticComponent<
       p="4"
       ref={ref}
       {...Placement[notificationPlacement]}
-      {...props}>
+      {...props}
+    >
       {Object.entries(notification).map(([key, value]) => {
         return <Toast key={key} {...value} subkey={key} />;
       })}

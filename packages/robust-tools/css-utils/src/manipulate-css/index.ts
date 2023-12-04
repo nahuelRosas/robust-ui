@@ -25,7 +25,7 @@ export function manipulateCSS({
 
       if (!validation) {
         manipulatedCSS = `${manipulatedCSS}\n${selector}${replacementValues.join(
-          ""
+          "",
         )}`;
       }
     } else if (manipulatedCSS.includes(selector)) {
@@ -36,7 +36,7 @@ export function manipulateCSS({
         const currentValues = manipulatedCSS.match(selectorRegex);
         const valueRegex = new RegExp(
           `${replacementValues.join("").replace(/ /g, "")}`,
-          "ismg"
+          "ismg",
         );
 
         const cleanCurrentValues = (currentValues || [])
@@ -46,14 +46,14 @@ export function manipulateCSS({
         if (!cleanCurrentValues.match(valueRegex)) {
           manipulatedCSS = manipulatedCSS.replace(
             selectorRegex,
-            `${selector}{${cleanCurrentValues} ${replacementValues.join(" ")}}`
+            `${selector}{${cleanCurrentValues} ${replacementValues.join(" ")}}`,
           );
         }
       } else if (actionRaw === "replace") {
         const replacementString = replacementValues.join("");
         manipulatedCSS = manipulatedCSS.replace(
           selectorRegex,
-          `${selector}${replacementString}`
+          `${selector}${replacementString}`,
         );
       } else if (actionRaw === "remove") {
         const currentValues = manipulatedCSS.match(selectorRegex);
@@ -63,12 +63,12 @@ export function manipulateCSS({
           .join("");
         manipulatedCSS = manipulatedCSS.replace(
           selectorRegex,
-          `${cleanValues}`
+          `${cleanValues}`,
         );
       }
     } else if (!manipulatedCSS.includes(selector)) {
       manipulatedCSS = `${manipulatedCSS}\n${selector}${replacementValues.join(
-        ""
+        "",
       )}`;
     }
   });

@@ -30,7 +30,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
       iconOpenProps,
       ...props
     },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLImageElement>({
       componentType: "img",
@@ -95,10 +95,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
     const changeImageIndex = useCallback(
       (newIndex: number) => {
         startTransition(() =>
-          setCurrentImageIndex((newIndex + imageCount) % imageCount)
+          setCurrentImageIndex((newIndex + imageCount) % imageCount),
         );
       },
-      [imageCount]
+      [imageCount],
     );
 
     const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
@@ -166,10 +166,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         const delta = e.deltaY;
         setZoomPrev(zoom);
         setZoom((prevZoom) =>
-          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001))
+          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001)),
         );
       },
-      [zoom]
+      [zoom],
     );
 
     const handleDivClick = useCallback(() => {
@@ -248,7 +248,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
               }}
               maxWidth="80vw"
               m="0"
-              p="0">
+              p="0"
+            >
               {
                 <Flex
                   p="2vh"
@@ -373,7 +374,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                       mousePosition.y
                     }px`,
                     transition: "transform 0.2s ease-out",
-                  }}>
+                  }}
+                >
                   <Component
                     src={currentImageSrc}
                     alt={currentAlt}
@@ -420,7 +422,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         spinnerProps,
         srcArray,
         zoom,
-      ]
+      ],
     );
 
     return (
@@ -438,7 +440,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         justifyContent="center"
         alignItems="center"
         mx="auto"
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         {generalStatus === "failed" && (
           <Icon
             sizeRaw={sizeRaw || size ? `calc(${sizeRaw || size} / 3)` : "7.5vh"}
@@ -543,7 +546,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
             width="100vw"
             zIndexRaw="9999"
             left="0"
-            top="0">
+            top="0"
+          >
             {stopProgationChildren}
           </Flex>
         )}

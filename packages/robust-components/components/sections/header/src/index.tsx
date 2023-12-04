@@ -8,7 +8,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<HeaderProps>> =
   forwardRef(function HeaderComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLElement>({
       componentType: "header",
@@ -46,7 +46,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<HeaderProps>> =
     const composeChildren = useMemo(() => {
       if (multiLanguageSupport && children)
         console.error(
-          "Warning: multiLanguageSupport and children are not compatible, please use one or the other"
+          "Warning: multiLanguageSupport and children are not compatible, please use one or the other",
         );
       return multiLanguageSupport || children;
     }, [multiLanguageSupport, children]);
@@ -66,7 +66,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<HeaderProps>> =
         left="0"
         top="0"
         {...structureStyle}
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         {composeChildren}
       </Component>
     );

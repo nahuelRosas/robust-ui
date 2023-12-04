@@ -9,7 +9,6 @@ import {
   GenericProperty,
 } from "@robust-ui/constructor";
 
-
 export interface NextLinkProps extends EnhancedElementProps<LinkProps> {
   direction?: GenericProperty<"row" | "rowReverse">;
   isDisabled?: GenericProperty<boolean>;
