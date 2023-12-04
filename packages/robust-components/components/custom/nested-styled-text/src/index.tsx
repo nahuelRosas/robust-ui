@@ -13,7 +13,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<StyledTextProps>
 > = forwardRef(function StyledTextComponent(
   { children, ...props },
-  ref
+  ref,
 ): React.JSX.Element {
   const {
     multiLanguageSupport,
@@ -74,7 +74,7 @@ const Factory: React.ForwardRefExoticComponent<
       randomColors,
       splitter,
       strings,
-    ]
+    ],
   );
 
   const processedChildren = useMemo(() => {
@@ -93,7 +93,8 @@ const Factory: React.ForwardRefExoticComponent<
       userSelect="none"
       ref={ref}
       {...structureStyle}
-      {...cleanedProps}>
+      {...cleanedProps}
+    >
       {processedChildren}
       {otherComponents}
     </Block>

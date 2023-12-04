@@ -11,7 +11,7 @@ import { Icon } from "@robust-ui/icon";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
   forwardRef(function CoverComponent(
     { labelProps, iconProps, paragraphProps, children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const {
       multiLanguageSupport,
@@ -31,7 +31,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
 
     return (
       <Flex
-        widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
+        widthRaw={{
+          base: "calc(100dvw - 12dvw)",
+          md: "calc(100dvw - 6dvw)",
+        }}
         colorSchemeProperty={{
           opacity: 0.8,
           baseColorRaw:
@@ -59,7 +62,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
           md: "3dvw",
         }}
         ref={ref}
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         <Block my="auto" gap="1dvh">
           {(label || strings) && (
             <StyledText
@@ -107,7 +111,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
               overflow="hidden"
               flexWrap="wrap"
               justifyContent="center"
-              alignItems="center">
+              alignItems="center"
+            >
               {icons.map((icon, index) => (
                 <Icon
                   key={index}

@@ -53,9 +53,9 @@ export function Project({
   images?: string[];
 }) {
   return (
-    <Block mt="15vh" mb="10vh" tabIndex={-1} id={id}>
+    <Block mt="15dvh" mb="10dvh" tabIndex={-1} id={id}>
       <Flex
-        widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+        widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
         colorSchemeProperty={{
           opacity: 0.8,
           props: {
@@ -65,22 +65,22 @@ export function Project({
           },
           baseColorRaw: "black",
         }}
-        borderRadius="2.5vh"
+        borderRadius="2.5dvh"
         justifyContent="center"
         mx={{
-          base: "6vw",
-          md: "3vw",
+          base: "6dvw",
+          md: "3dvw",
         }}
-        pb="3vh"
+        pb="3dvh"
         overflow="hidden"
         flexDirection="column">
         <NextLink
           href="/projects"
           px={{
-            base: "6vw",
-            md: "3vw",
+            base: "6dvw",
+            md: "3dvw",
           }}
-          pt="3vh"
+          pt="3dvh"
           cursor="pointer"
           alignSelf="flexStart">
           <StyledText
@@ -88,8 +88,8 @@ export function Project({
             optimizedWidth
             alignSelf="center"
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             textAlign={{
               base: "left",
@@ -105,13 +105,13 @@ export function Project({
         </NextLink>
 
         <StyledText
-          mt="3vh"
+          mt="3dvh"
           p="0"
           optimizedWidth
           alignSelf="center"
           fontSizeRaw={{
-            base: "4vh",
-            md: "6vh",
+            base: "4dvh",
+            md: "6dvh",
           }}
           textAlign={{
             base: "left",
@@ -120,13 +120,13 @@ export function Project({
           colors={["white", "teal", "white", "indigo"]}
           fontWeights={["900"]}
           px={{
-            base: "6vw",
-            md: "3vw",
+            base: "6dvw",
+            md: "3dvw",
           }}
           multiLanguageSupport={title}
         />
 
-        <Flex flexDirection="column" mt="1vh">
+        <Flex flexDirection="column" mt="1dvh">
           {description && (
             <>
               <StyledText
@@ -134,8 +134,8 @@ export function Project({
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "3vh",
-                  md: "4vh",
+                  base: "3dvh",
+                  md: "4dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -144,8 +144,8 @@ export function Project({
                 colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={{
                   en: "Description:",
@@ -157,8 +157,8 @@ export function Project({
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -167,8 +167,8 @@ export function Project({
                 colors={["white", "teal", "white", "indigo"]}
                 fontWeights={["400", "900", "400", "900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={description}
               />
@@ -177,13 +177,13 @@ export function Project({
           {primaryMotivation && (
             <>
               <StyledText
-                mt="3vh"
+                mt="3dvh"
                 p="0"
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "3vh",
-                  md: "4vh",
+                  base: "3dvh",
+                  md: "4dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -192,8 +192,8 @@ export function Project({
                 colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={{
                   en: "Primary Motivation:",
@@ -205,8 +205,8 @@ export function Project({
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -215,8 +215,8 @@ export function Project({
                 colors={["white", "teal", "white", "indigo"]}
                 fontWeights={["400", "900", "400", "900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={primaryMotivation}
               />
@@ -225,13 +225,13 @@ export function Project({
           {salesDistribution && (
             <>
               <StyledText
-                mt="3vh"
+                mt="3dvh"
                 p="0"
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "3vh",
-                  md: "4vh",
+                  base: "3dvh",
+                  md: "4dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -240,8 +240,8 @@ export function Project({
                 colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={{
                   en: "Sales and Distribution:",
@@ -253,8 +253,8 @@ export function Project({
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -263,8 +263,8 @@ export function Project({
                 colors={["white", "teal", "white", "indigo"]}
                 fontWeights={["400", "900", "400", "900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={salesDistribution}
               />
@@ -274,14 +274,14 @@ export function Project({
             <Image
               isSlider
               srcArray={images}
-              height="50vh"
+              height="50dvh"
               alt="image"
-              borderRadius="2.5vh"
+              borderRadius="2.5dvh"
               minW={{
                 base: "90%",
                 md: "50%",
               }}
-              m="6vh"
+              m="6dvh"
               p="0"
             />
           )}
@@ -292,8 +292,8 @@ export function Project({
                 optimizedWidth
                 alignSelf="center"
                 fontSizeRaw={{
-                  base: "3vh",
-                  md: "4vh",
+                  base: "3dvh",
+                  md: "4dvh",
                 }}
                 textAlign={{
                   base: "left",
@@ -302,8 +302,8 @@ export function Project({
                 colors={["teal", "white", "indigo"]}
                 fontWeights={["900"]}
                 px={{
-                  base: "6vw",
-                  md: "3vw",
+                  base: "6dvw",
+                  md: "3dvw",
                 }}
                 multiLanguageSupport={{
                   en: "Key Features:",
@@ -316,17 +316,17 @@ export function Project({
                 return (
                   <Flex
                     key={index}
-                    my="0.5vh"
-                    mx="6vw"
-                    gap="2vh"
+                    my="0.5dvh"
+                    mx="6dvw"
+                    gap="2dvh"
                     optimizedWidth>
                     <Icon
                       key={index}
                       color={color}
                       iconType="starFill"
                       sizeRaw={{
-                        base: "2vh",
-                        md: "3vh",
+                        base: "2dvh",
+                        md: "3dvh",
                       }}
                     />
                     <StyledText
@@ -334,8 +334,8 @@ export function Project({
                       optimizedWidth
                       alignSelf="center"
                       fontSizeRaw={{
-                        base: "2.5vh",
-                        md: "3vh",
+                        base: "2.5dvh",
+                        md: "3dvh",
                       }}
                       textAlign={{
                         base: "left",
@@ -343,8 +343,8 @@ export function Project({
                       }}
                       fontWeights={["400", "900", "400", "900"]}
                       px={{
-                        base: "6vw",
-                        md: "3vw",
+                        base: "6dvw",
+                        md: "3dvw",
                       }}
                       colors={[color]}
                       multiLanguageSupport={feature}
@@ -361,16 +361,16 @@ export function Project({
             p="0"
             optimizedWidth
             alignSelf="center"
-            mt="3vh"
+            mt="3dvh"
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             fontWeights={["400", "900", "400", "900"]}
             colors={["white", "teal", "white", "indigo"]}
             px={{
-              base: "6vw",
-              md: "3vw",
+              base: "6dvw",
+              md: "3dvw",
             }}
             textAlign={{
               base: "left",
@@ -386,8 +386,8 @@ export function Project({
               flexDirection="row"
               flexWrap="wrap"
               justifyContent="center"
-              mt="3vh"
-              gap="3vh">
+              mt="3dvh"
+              gap="3dvh">
               {technologies.map((technology, index) => {
                 return (
                   <Flex
@@ -400,8 +400,8 @@ export function Project({
                         iconType={technology.iconType}
                         color="white"
                         size={{
-                          base: "5vh",
-                          md: "4vh",
+                          base: "5dvh",
+                          md: "4dvh",
                         }}
                       />
                     )}
@@ -409,8 +409,8 @@ export function Project({
                       p="0"
                       alignSelf="center"
                       fontSizeRaw={{
-                        base: "2.5vh",
-                        md: "3vh",
+                        base: "2.5dvh",
+                        md: "3dvh",
                       }}
                       textAlign={{
                         base: "left",
@@ -430,14 +430,14 @@ export function Project({
         <Flex
           justifyContent="spaceAround"
           flexDirection="row"
-          mt="4vh"
+          mt="4dvh"
           flexWrap="wrap"
           optimizedWidth>
           {url?.npm && (
             <NextLink
               fontSizeRaw={{
-                base: "3vh",
-                md: "4vh",
+                base: "3dvh",
+                md: "4dvh",
               }}
               href={url.npm}
               iconType="brandNpm"
@@ -447,8 +447,8 @@ export function Project({
           {url?.github && (
             <NextLink
               fontSizeRaw={{
-                base: "3vh",
-                md: "4vh",
+                base: "3dvh",
+                md: "4dvh",
               }}
               href={url.github}
               iconType="brandGithub"
@@ -461,8 +461,8 @@ export function Project({
           {url?.website && (
             <NextLink
               fontSizeRaw={{
-                base: "3vh",
-                md: "4vh",
+                base: "3dvh",
+                md: "4dvh",
               }}
               href={url.website}
               iconType="network"

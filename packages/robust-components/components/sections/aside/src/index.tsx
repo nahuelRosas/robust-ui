@@ -21,7 +21,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
       children,
       ...props
     },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLElement>({
       componentType: "aside",
@@ -72,7 +72,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
           placement,
           isOpen,
         }),
-      [size, placement, isOpen]
+      [size, placement, isOpen],
     );
 
     const childrenPropagation = useMemo(
@@ -81,7 +81,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
           children: otherComponents,
           props: { onClick: () => setIsOpen(false) },
         }),
-      [otherComponents]
+      [otherComponents],
     );
 
     useEffect(() => {
@@ -161,7 +161,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<AsideProps>> =
           ref={ref}
           {...layout}
           {...structureStyle}
-          {...cleanedProps}>
+          {...cleanedProps}
+        >
           <Button
             onClick={() => startTransition(() => setIsOpen(false))}
             colorSchemeProperty={{

@@ -83,7 +83,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpinnerProps>> =
         colorsRaw,
         colors,
         model,
-      ]
+      ],
     );
 
     return (
@@ -93,7 +93,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpinnerProps>> =
         alignItems="center"
         height="fitContent"
         width="fitContent"
-        {...cleanedProps}>
+        {...cleanedProps}
+      >
         <Component
           heightRaw={sizeRaw || size || height || "2.5dvh"}
           widthRaw={sizeRaw || size || width || "2.5dvh"}

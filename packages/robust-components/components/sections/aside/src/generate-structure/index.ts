@@ -9,7 +9,7 @@ export function generateStructure({
   placement?: "left" | "right" | "top" | "bottom";
   isOpen?: boolean;
 }) {
-  const partialSize = (size: string, orientation: "VH" | "VW") => {
+  const partialSize = (size: string, orientation: "DVH" | "DVW") => {
     const sizesArray = ["full", "xl", "lg", "md", "sm", "xs"];
     const index = sizesArray.indexOf(size);
     if (index === -1) {
@@ -57,10 +57,10 @@ export function generateStructure({
     heightRaw:
       size && !(placement === "top" || placement === "bottom")
         ? "100dvh"
-        : partialSize(size, "VH"),
+        : partialSize(size, "DVH"),
     widthRaw:
       (placement === "left" || placement === "right") && size
-        ? partialSize(size, "VW")
+        ? partialSize(size, "DVW")
         : "auto",
     transitionRaw: "transform 0.75s cubic-bezier(1, 0.43, 0, 1.04)",
     transformRaw: isOpen ? "none" : transformDirection[placement],

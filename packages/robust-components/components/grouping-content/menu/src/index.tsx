@@ -17,7 +17,7 @@ import React, {
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
   forwardRef(function MenuComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLMenuElement>({
       componentType: "menu",
@@ -82,7 +82,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
             en: "Menu",
             es: "Menú",
           }}
-          {...buttonProps}>
+          {...buttonProps}
+        >
           {strings}
         </Button>
         <Component
@@ -104,7 +105,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
           m="0"
           ref={ref}
           {...structureStyle}
-          {...cleanedProps}>
+          {...cleanedProps}
+        >
           {otherComponents}
         </Component>
       </Flex>

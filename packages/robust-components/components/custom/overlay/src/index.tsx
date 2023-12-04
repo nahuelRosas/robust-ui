@@ -27,7 +27,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
       children,
       ...props
     },
-    ref
+    ref,
   ): React.JSX.Element {
     const {
       closeOnOverlayClick = true,
@@ -73,7 +73,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
               paragraph={paragraphCard}
               label={labelCard}
               {...cleanedProps}
-              {...cardProps}>
+              {...cardProps}
+            >
               <Button
                 pointerEvents="inherit"
                 onClick={
@@ -124,7 +125,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         iconCloseProps,
         buttonCloseProps,
         otherComponents,
-      ]
+      ],
     );
 
     return (
@@ -212,7 +213,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
           height="100dvh"
           width="100dvw"
           left="0"
-          top="0">
+          top="0"
+        >
           {stopProgationChildren}
         </Flex>
       </Flex>

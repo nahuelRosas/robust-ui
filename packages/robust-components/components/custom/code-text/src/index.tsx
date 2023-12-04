@@ -14,7 +14,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<CodeTextProps>
 > = forwardRef(function CodeTextComponent(
   { copyButtonProps, textProps, children, ...props },
-  ref
+  ref,
 ): React.JSX.Element {
   const {
     multiLanguageSupport,
@@ -56,7 +56,8 @@ const Factory: React.ForwardRefExoticComponent<
       py="1dvh"
       ref={ref}
       {...structureStyle}
-      {...cleanedProps}>
+      {...cleanedProps}
+    >
       <Span
         userSelect="text"
         textAlign="left"
@@ -66,7 +67,8 @@ const Factory: React.ForwardRefExoticComponent<
         optimizedWidth
         cursor="text"
         py="1dvh"
-        px="2dvw">
+        px="2dvw"
+      >
         {strings}
       </Span>
       {copyButton && (
@@ -85,7 +87,7 @@ const Factory: React.ForwardRefExoticComponent<
                     en: "Copied to clipboard",
                     es: "Copiado al portapapeles",
                   },
-                  status: "error",
+                  status: "success",
                   duration: 3000,
                   isClosable: true,
                 });

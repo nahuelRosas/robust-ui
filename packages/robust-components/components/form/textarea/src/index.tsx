@@ -23,7 +23,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<TextAreaProps>
 > = forwardRef(function TextAreaComponent(
   { labelProps, children, ...props },
-  ref
+  ref,
 ): React.JSX.Element {
   const Component = CreateComponent<HTMLTextAreaElement>({
     componentType: "textarea",
@@ -92,7 +92,7 @@ const Factory: React.ForwardRefExoticComponent<
         color: colorSchemeRaw || colorScheme || "teal",
         opacity: 0.9,
       }),
-    [colorSchemeRaw, colorScheme]
+    [colorSchemeRaw, colorScheme],
   );
 
   const handleOnChange = useCallback(
@@ -102,7 +102,7 @@ const Factory: React.ForwardRefExoticComponent<
       }
       setInputValue(event.target.value);
     },
-    [onChange]
+    [onChange],
   );
 
   const idString = id ? id : strings.length ? strings.join(" ") : placeholder;
@@ -122,7 +122,8 @@ const Factory: React.ForwardRefExoticComponent<
       position="relative"
       alignItems="center"
       width="fitContent"
-      {...cleanedProps}>
+      {...cleanedProps}
+    >
       <Component
         id={idString}
         pointerEvents={isLoading || isDisabled ? "none" : "inherit"}
@@ -182,7 +183,8 @@ const Factory: React.ForwardRefExoticComponent<
           htmlFor={idString}
           text={onChange ? value : inputValue}
           id={idString}
-          {...labelProps}>
+          {...labelProps}
+        >
           {strings.length ? strings : placeholder}
         </Label>
       )}
