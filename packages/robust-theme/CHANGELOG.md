@@ -1,5 +1,11 @@
 # @robust-ui/theme
 
+## 0.6.0
+
+### Minor Changes
+
+- ac7bda0: change viewport to dynamic viewport
+
 ## 0.5.0
 
 ### Minor Changes

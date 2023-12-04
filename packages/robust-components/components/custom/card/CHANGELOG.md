@@ -1,5 +1,23 @@
 # @robust-ui/card
 
+## 0.3.0
+
+### Minor Changes
+
+- ac7bda0: change viewport to dynamic viewport
+
+### Patch Changes
+
+- Updated dependencies [ac7bda0]
+  - @robust-ui/nested-styled-text@0.6.0
+  - @robust-ui/image@0.6.0
+  - @robust-ui/next-link@0.6.0
+  - @robust-ui/css-utils@0.6.0
+  - @robust-ui/theme@0.6.0
+  - @robust-ui/flex@0.5.1
+  - @robust-ui/constructor@0.5.1
+  - @robust-ui/use-clean-value@0.5.1
+
 ## 0.2.0
 
 ### Minor Changes

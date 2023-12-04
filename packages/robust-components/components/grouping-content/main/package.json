@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/provider",
   "description": "A React Provider to share state between components",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

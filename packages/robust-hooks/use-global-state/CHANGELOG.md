@@ -1,5 +1,12 @@
 # @robust-ui/use-global-state
 
+## 0.5.1
+
+### Patch Changes
+
+- @robust-ui/use-global-context@0.5.1
+- @robust-ui/use-recovery-global-state-value@0.5.1
+
 ## 0.5.0
 
 ### Minor Changes
