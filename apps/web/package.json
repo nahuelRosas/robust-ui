@@ -11,13 +11,7 @@
   "dependencies": {
     "@react-pdf/renderer": "^3.1.14",
     "@react-three/fiber": "^8.15.11",
-    "@robust-ui/css-utils": "workspace:*",
-    "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/nextjs-components": "workspace:*",
-    "@robust-ui/use-image-status": "workspace:*",
-    "@robust-ui/use-toast": "workspace:*",
-    "@robust-ui/purging": "workspace:*",
-    "@robust-ui/utils": "workspace:*",
     "@vercel/analytics": "^1.1.1",
     "chroma-js": "^2.4.2",
     "next": "14.0.3",
