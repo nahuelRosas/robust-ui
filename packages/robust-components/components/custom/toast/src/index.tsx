@@ -23,31 +23,36 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
       isClosable,
       onClose,
       label,
+      subkey,
       ...cleanedProps
     } = useCleanValue({
       props,
     }) as ToastPropsNoGeneric;
 
-    const structureStyle = useMemo(() => {
-      const colorStatus = {
+    const colorStatus = useMemo(
+      () => ({
         info: "blue",
         warning: "yellow",
         success: "green",
         error: "red",
         default: "teal",
-      };
+      }),
+      []
+    );
 
+    const structureStyle = useMemo(() => {
       return generateColorScheme({
         baseColor:
           colorStatus[status] || colorSchemeRaw || colorScheme || "teal",
         opacity: 0.8,
-        variant: "outline",
+        variant: "outlineLight",
         ...colorSchemeProperty,
       });
-    }, [status, colorSchemeRaw, colorScheme, colorSchemeProperty]);
+    }, [colorStatus, status, colorSchemeRaw, colorScheme, colorSchemeProperty]);
 
     return (
       <Flex
+        elementName={`Toast${subkey ? `-${subkey}` : ""}`}
         flexDirection="row"
         alignItems="center"
         justifyContent="spaceBetween"
@@ -63,14 +68,22 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
         {...structureStyle}
         {...cleanedProps}>
         {(label || description) && (
-          <Flex flexDirection="column">
+          <Flex
+            flexDirection="column"
+            elementName={`ToastContent${subkey ? `-${subkey}` : ""}`}>
             {label && (
-              <Span fontWeight="bold" fontSize="2vh">
+              <Span
+                fontWeight="bold"
+                fontSize="2vh"
+                elementName={`ToastLabel${subkey ? `-${subkey}` : ""}`}>
                 {label}
               </Span>
             )}
             {description && (
-              <Span fontSize="1.5vh" fontWeightRaw="regular">
+              <Span
+                fontSize="1.5vh"
+                fontWeightRaw="regular"
+                elementName={`ToastDescription${subkey ? `-${subkey}` : ""}`}>
                 {description}
               </Span>
             )}
@@ -78,14 +91,16 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ToastProps>> =
         )}
         {isClosable && (
           <Button
+            elementName={`ToastCloseButton${subkey ? `-${subkey}` : ""}`}
             onClick={onClose}
             iconProps={{
               iconType: "closeCircleFill",
             }}
             colorSchemeProperty={{
-              baseColorRaw: colorSchemeRaw || colorScheme || "teal",
+              baseColor:
+                colorStatus[status] || colorSchemeRaw || colorScheme || "teal",
               opacity: 1,
-              variant: "solid",
+              variant: "solidLight",
               props: {
                 hover: true,
               },

@@ -32,6 +32,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
           hover: false,
           focus: false,
           active: false,
+          ...colorSchemeProperty?.props,
         },
         baseColor:
           colorSchemeProperty?.baseColor ||
@@ -55,6 +56,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<FlexProps>> =
       <Component
         ref={ref}
         justifyContent="flexStart"
+        pointerEvents="inherit"
         flexDirection="row"
         alignItems="center"
         elementName="Flex"

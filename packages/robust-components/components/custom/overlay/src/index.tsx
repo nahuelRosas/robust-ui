@@ -35,6 +35,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
       colorSchemeProperty,
       colorSchemeRaw,
       colorScheme,
+      isDisabled,
       ...cleanedProps
     } = useCleanValue({ props }) as OverlayPropsNoGeneric;
     const [isOpen, setIsOpen] = useState(false);
@@ -59,6 +60,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         stopPropagation({
           children: (
             <Card
+              pointerEvents="inherit"
               colorSchemeProperty={{
                 opacity: 1,
                 baseColorRaw:
@@ -73,7 +75,12 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
               {...cleanedProps}
               {...cardProps}>
               <Button
-                onClick={() => startTransition(() => setIsOpen(false))}
+                pointerEvents="inherit"
+                onClick={
+                  !isDisabled
+                    ? () => startTransition(() => setIsOpen(false))
+                    : undefined
+                }
                 colorSchemeProperty={{
                   baseColorRaw:
                     colorSchemeProperty?.baseColor ||
@@ -81,9 +88,11 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
                     colorSchemeRaw ||
                     colorScheme ||
                     "teal",
-                  variant: "linkLight",
+                  variant: isDisabled ? "linkDark" : "linkLight",
+                  isDisabled,
                   ...colorSchemeProperty,
                 }}
+                isDisabled={isDisabled}
                 iconProps={{
                   iconType: "closeCircleFill",
                   ...iconCloseProps,
@@ -111,6 +120,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         labelCard,
         cleanedProps,
         cardProps,
+        isDisabled,
         iconCloseProps,
         buttonCloseProps,
         otherComponents,
@@ -143,7 +153,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         />
         <Flex
           onClick={
-            closeOnOverlayClick
+            closeOnOverlayClick && !isDisabled
               ? () => startTransition(() => setIsOpen(false))
               : undefined
           }
@@ -185,7 +195,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
               },
             },
           }}
-          pointerEventsRaw={isOpen ? "auto" : "none"}
+          pointerEvents={isOpen ? "inherit" : "none"}
           animationRaw={
             isOpen
               ? "visibleoverlay 0.5s ease-out forwards"

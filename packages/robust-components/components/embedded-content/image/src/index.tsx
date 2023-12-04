@@ -507,7 +507,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                 },
               },
             }}
-            pointerEventsRaw={isSliderVisible ? "auto" : "none"}
+            pointerEvents={isSliderVisible ? "inherit" : "none"}
             animationRaw={
               isSliderVisible
                 ? "visibleImage 0.5s ease-out forwards"

@@ -16,7 +16,6 @@ import React, {
   Ref,
 } from "react";
 export * from "./types";
-
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
   forwardRef(function InputComponent(
     { labelProps, children, ...props },
@@ -59,10 +58,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
         variant: variant
           ? variant
           : isDisabled
-            ? "solid"
+            ? "solidDark"
             : (value && value.length) || (inputValue && inputValue.length)
               ? "solid"
-              : "outline",
+              : "outlineLight",
         ...colorSchemeProperty,
       });
     }, [
@@ -112,7 +111,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
         {...cleanedProps}>
         <Component
           id={idString}
-          pointerEventsRaw={isLoading || isDisabled ? "none" : undefined}
+          pointerEvents={isLoading || isDisabled ? "none" : "inherit"}
           onMouseEnter={() => startTransition(() => setHover(true))}
           onMouseLeave={() => startTransition(() => setHover(false))}
           onBlur={() => startTransition(() => setFocus(false))}
@@ -154,71 +153,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
           </Label>
         )}
 
-        {/* {(buttonText || buttonIcon) && (
-          <Suspense>
-            <Button
-              elementName="InputButton"
-              // iconProps={
-              //   !isLoading && buttonIcon
-              //     ? {
-              //         iconPosition: "left",
-              //         iconType: buttonIcon,
-              //         ...buttonIconProps,
-              //       }
-              //     : undefined
-              // }
-              // loadingProps={{
-              //   spinnerProps: {
-              //     opacityColorScheme,
-              //     colorSchemeRaw,
-              //     colorScheme,
-              //     altColor,
-              //     variant,
-              //   },
-              //   spinnerPosition: "left",
-              // }}
-              // isLoading={isLoading}
-              // {...buttonProps}
-            ></Button>
-          </Suspense>
-        )} */}
         {otherComponents}
       </Flex>
     );
   });
 export const Input = React.memo(Factory);
-
-{
-  /*  
-          {(buttonText || buttonIcon) && (
-            <Suspense>
-              <Button
-                elementName="InputButton"
-                iconProps={
-                  !isLoading && buttonIcon
-                    ? {
-                        iconPosition: "left",
-                        iconType: buttonIcon,
-                        ...buttonIconProps,
-                      }
-                    : undefined
-                }
-                loadingProps={{
-                  spinnerProps: {
-                    opacityColorScheme,
-                    colorSchemeRaw,
-                    colorScheme,
-                    altColor,
-                    variant,
-                  },
-                  spinnerPosition: "left",
-                }}
-                isLoading={isLoading}
-                {...buttonProps}>
-                {buttonText}
-              </Button>
-            </Suspense>
-          )}
-          {otherComponents}
-        </Flex> */
-}

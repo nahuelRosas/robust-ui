@@ -185,8 +185,29 @@ export function addOpacity({
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
 
-export const getTextColorHighContrast = (rgbaColor: string) =>
-  calculateLuminance({ rgbaColor }) < 128 ? "#000000" : "#ffffff";
+export function generateContrastingColor(baseColor: string): string {
+  const rgbaMatch = baseColor.match(
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
+  );
+
+  if (!rgbaMatch) {
+    throw new Error("Invalid color format. Please provide a valid RGBA color.");
+  }
+
+  const baseRed = parseInt(rgbaMatch[1] || "0", 10);
+  const baseGreen = parseInt(rgbaMatch[2] || "0", 10);
+  const baseBlue = parseInt(rgbaMatch[3] || "0", 10);
+  const baseAlpha = parseFloat(rgbaMatch[4] || "1");
+
+  const baseGrayscaleValue =
+    0.299 * baseRed + 0.587 * baseGreen + 0.114 * baseBlue;
+  const contrastBrightness = baseGrayscaleValue > 128 ? 0 : 255;
+  const contrastAlpha = baseAlpha * 2.5 > 1 ? 1 : baseAlpha * 2.5;
+
+  const contrastColor = `rgba(${contrastBrightness}, ${contrastBrightness}, ${contrastBrightness}, ${contrastAlpha})`;
+
+  return contrastColor;
+}
 
 type Variant =
   | "solid"
@@ -196,54 +217,52 @@ type Variant =
   | "outlineLight"
   | "outlineDark"
   | "ghost"
+  | "ghostLight"
+  | "ghostDark"
   | "link"
   | "linkLight"
   | "linkDark";
+
 export function generateColorScheme({
-  baseColor = "mulberry",
+  complementaryColor = false,
+  isActivated = true,
+  isDisabled = false,
+  baseColor = "teal",
+  isInvalid = false,
+  isValid = false,
   variant = "solid",
   opacity = 0.7,
   props,
-  isDisabled = false,
-  isInvalid = false,
-  isValid = false,
-  isActivated = true,
-  complementaryColor = false,
 }: {
   baseColor?: keyof typeof colors | string;
-  variant: Variant;
-  opacity?: number;
-  props?: {
-    monochromeText?: boolean;
-    highContrast?: boolean;
-    border?: boolean;
-    hover?: boolean;
-    focus?: boolean;
-    active?: boolean;
-    background?: boolean;
-  };
+  complementaryColor?: boolean;
+  isActivated?: boolean;
   isDisabled?: boolean;
   isInvalid?: boolean;
   isValid?: boolean;
-  isActivated?: boolean;
-  complementaryColor?: boolean;
+  variant: Variant;
+  opacity?: number;
+  props?: {
+    background?: boolean;
+    border?: boolean;
+    active?: boolean;
+    hover?: boolean;
+    focus?: boolean;
+  };
 }) {
   const propsRaw = {
-    monochromeText: true,
-    highContrast: variant.includes("Light") ? true : false,
-    background: variant.includes("link") ? false : true,
+    background: true,
+    active: true,
     border: true,
     hover: true,
     focus: true,
-    active: true,
     ...props,
   };
 
-  const variantWithoutMode = isDisabled
-    ? "solid"
-    : variant.replace("Light", "").replace("Dark", "");
+  const variantWithoutMode = variant.replace("Light", "").replace("Dark", "");
 
   if (!isActivated) return {};
+
   const baseColorRaw = isDisabled
     ? colors["gray"]
     : isInvalid
@@ -256,17 +275,10 @@ export function generateColorScheme({
 
   const colorHexa = cssColorToHex(baseColorRaw) || baseColorRaw;
 
-  const mainColorWithOpacity = addOpacity({ color: colorHexa, opacity });
   const mainColorLowOpacity = addOpacity({
     color: colorHexa,
     opacity: opacity * 0.1,
   });
-
-  const textColor = propsRaw.monochromeText
-    ? propsRaw.highContrast
-      ? getTextColorHighContrast(mainColorWithOpacity)
-      : generateContrastingColor(mainColorWithOpacity)
-    : baseColorRaw;
 
   const mainColorWithMiddleOpacity = addOpacity({
     color: colorHexa,
@@ -278,6 +290,25 @@ export function generateColorScheme({
     opacity: opacity * 1.4,
   });
 
+  const mainColorWithOpacity = addOpacity({ color: colorHexa, opacity });
+
+  const mainColorText =
+    variantWithoutMode === "link"
+      ? colorHexa
+      : generateContrastingColor(mainColorWithOpacity);
+
+  const textColor = isDisabled
+    ? mainColorText
+    : isInvalid
+      ? mainColorText
+      : isValid
+        ? mainColorText
+        : variant.includes("Light")
+          ? colors["white"]
+          : variant.includes("Dark")
+            ? colors["black"]
+            : mainColorText;
+
   if (isInvalid && isValid && !isDisabled) {
     throw new Error(
       "Input can't be invalid and valid at the same time. Please check your code."
@@ -285,6 +316,37 @@ export function generateColorScheme({
   }
 
   const variantStyles = {
+    link: {
+      backgroundRaw: "transparent",
+      colorRaw: textColor,
+      borderRadiusRaw: "0.5vh",
+      borderRaw: "0.5vh solid transparent",
+      hoverRaw: propsRaw.hover
+        ? {
+            outlineRaw: "none",
+            backgroundRaw: "transparent",
+            colorRaw: textColor,
+            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
+          }
+        : undefined,
+      focusRaw: propsRaw.focus
+        ? {
+            outlineRaw: "none",
+            backgroundRaw: "transparent",
+            colorRaw: textColor,
+            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
+          }
+        : undefined,
+      activeRaw: propsRaw.active
+        ? {
+            outlineRaw: "none",
+            backgroundRaw: "transparent",
+            colorRaw: textColor,
+            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
+          }
+        : undefined,
+    },
+
     outline: {
       backgroundRaw: propsRaw.background ? mainColorLowOpacity : "transparent",
       colorRaw: mainColorWithOpacity,
@@ -324,46 +386,6 @@ export function generateColorScheme({
         : undefined,
     },
 
-    link: {
-      backgroundRaw: propsRaw.background ? mainColorLowOpacity : "transparent",
-      colorRaw: variant.includes("Light" || "Dark")
-        ? textColor
-        : mainColorWithOpacity,
-      borderRadiusRaw: "0.5vh",
-      borderRaw: "0.5vh solid transparent",
-      hoverRaw: propsRaw.hover
-        ? {
-            outlineRaw: "none",
-            backgroundRaw: "transparent",
-            colorRaw: variant.includes("Light" || "Dark")
-              ? textColor
-              : mainColorWithOpacity,
-            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
-          }
-        : undefined,
-
-      focusRaw: propsRaw.hover
-        ? {
-            outlineRaw: "none",
-            backgroundRaw: "transparent",
-            colorRaw: variant.includes("Light" || "Dark")
-              ? textColor
-              : mainColorWithOpacity,
-            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
-          }
-        : undefined,
-      activeRaw: propsRaw.active
-        ? {
-            outlineRaw: "none",
-            backgroundRaw: "transparent",
-            colorRaw: variant.includes("Light" || "Dark")
-              ? textColor
-              : mainColorWithOpacity,
-            borderBottom: `0.5vh solid ${mainColorWithHighOpacity}`,
-          }
-        : undefined,
-    },
-
     solid: {
       backgroundRaw: propsRaw.background ? mainColorWithOpacity : "transparent",
       colorRaw: textColor,
@@ -391,41 +413,27 @@ export function generateColorScheme({
 
     ghost: {
       backgroundRaw: "transparent",
-      // colorRaw: textColor,
-      // borderRaw:
-      //   onlyBorder || border
-      //     ? `0.2vh solid ${borderColorWithOpacity}`
-      //     : "transparent",
-      // hoverRaw: hover
-      //   ? {
-      //       outlineRaw: "none",
-      //       backgroundRaw: hoverColor,
-      //       borderRaw: onlyBorder
-      //         ? `0.2vh solid ${borderColorWithOpacity}`
-      //         : "transparent",
-      //       colorRaw: generateContrastingColor(mainColorWithOpacity),
-      //     }
-      //   : undefined,
-      // focusRaw: focus
-      //   ? {
-      //       outlineRaw: "none",
-      //       backgroundRaw: hoverColor,
-      //       borderRaw: onlyBorder
-      //         ? `0.2vh solid ${borderColorWithOpacity}`
-      //         : "transparent",
-      //       colorRaw: generateContrastingColor(mainColorWithOpacity),
-      //     }
-      //   : undefined,
-      // activeRaw: active
-      //   ? {
-      //       outlineRaw: "none",
-      //       backgroundRaw: hoverColor,
-      //       borderRaw: onlyBorder
-      //         ? `0.2vh solid ${borderColorWithOpacity}`
-      //         : "transparent",
-      //       colorRaw: generateContrastingColor(mainColorWithOpacity),
-      //     }
-      //   : undefined,
+      colorRaw: textColor,
+      boxShadowRaw: "none",
+      borderRaw: "0.5vh solid transparent",
+      hoverRaw: propsRaw.hover
+        ? {
+            backgroundRaw: mainColorWithOpacity,
+            outlineRaw: "none",
+          }
+        : undefined,
+      focusRaw: propsRaw.focus
+        ? {
+            backgroundRaw: mainColorWithOpacity,
+            outlineRaw: "none",
+          }
+        : undefined,
+      activeRaw: propsRaw.active
+        ? {
+            backgroundRaw: mainColorWithOpacity,
+            outlineRaw: "none",
+          }
+        : undefined,
     },
   };
 
@@ -459,27 +467,4 @@ export function calculateComplementaryColor(rgbaColor: string): string {
 
   const complementaryColor = `rgba(${complementaryRed}, ${complementaryGreen}, ${complementaryBlue}, ${alpha})`;
   return complementaryColor;
-}
-
-export function generateContrastingColor(rgbaColor: string): string {
-  const match = rgbaColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
-  );
-
-  if (!match) {
-    throw new Error("Invalid color format. Please provide a valid RGBA color.");
-  }
-
-  const red = parseInt(match[1] || "0", 10);
-  const green = parseInt(match[2] || "0", 10);
-  const blue = parseInt(match[3] || "0", 10);
-  const alpha = parseFloat(match[4] || "1");
-
-  const grayscaleValue = 0.299 * red + 0.587 * green + 0.114 * blue;
-  const contrastBrightness = grayscaleValue > 128 ? 0 : 255;
-  const contrastColor = `rgba(${contrastBrightness}, ${contrastBrightness}, ${contrastBrightness}, ${
-    alpha * 2.5 > 1 ? 1 : alpha * 2.5
-  })`;
-
-  return contrastColor;
 }

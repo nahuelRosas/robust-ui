@@ -1,9 +1,9 @@
+import { SpanProps } from "@robust-ui/span";
 import {
   EnhancedElementPropsNoGeneric,
   EnhancedElementProps,
   GenericProperty,
 } from "@robust-ui/constructor";
-import { SpanProps } from "@robust-ui/span";
 
 export interface LabelProps extends EnhancedElementProps<HTMLLabelElement> {
   placement?: GenericProperty<"top" | "bottom">;

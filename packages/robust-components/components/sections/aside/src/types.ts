@@ -5,7 +5,6 @@ import {
 } from "@robust-ui/constructor";
 import { ButtonProps } from "@robust-ui/button";
 
-
 export interface AsideProps extends EnhancedElementProps<HTMLElement> {
   size?: GenericProperty<"full" | "xl" | "lg" | "md" | "sm" | "xs">;
   placement?: GenericProperty<"left" | "right" | "top" | "bottom">;

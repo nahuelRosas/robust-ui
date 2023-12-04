@@ -1,4 +1,5 @@
 import { IconProps, Ticon } from "@robust-ui/icon";
+import { SpinnerProps } from "@robust-ui/spinner";
 import { SpanProps } from "@robust-ui/span";
 import { FlexProps } from "@robust-ui/flex";
 import {
@@ -18,6 +19,7 @@ export interface ButtonProps extends EnhancedElementProps<HTMLButtonElement> {
     containerProps?: FlexProps;
     textProps?: SpanProps;
   }>;
+  spinnerProps?: SpinnerProps;
   textProps?: SpanProps;
   iconProps?: IconProps;
 }

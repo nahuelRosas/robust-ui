@@ -43,7 +43,7 @@ const Factory: React.ForwardRefExoticComponent<
 
   return (
     <Flex
-      pointerEventsRaw={isDisabled ? "none" : "auto"}
+      pointerEvents={isDisabled ? "none" : "inherit"}
       justifyContent="spaceBetween"
       borderRadius="2.5vh"
       alignItems="center"
@@ -85,7 +85,7 @@ const Factory: React.ForwardRefExoticComponent<
                     en: "Copied to clipboard",
                     es: "Copiado al portapapeles",
                   },
-                  status: "success",
+                  status: "error",
                   duration: 3000,
                   isClosable: true,
                 });

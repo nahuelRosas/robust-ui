@@ -1,6 +1,6 @@
 import { useGlobalContext, notification } from "@robust-ui/use-global-context";
 import { ForwardRefExotic } from "@robust-ui/constructor";
-import React, { Suspense, forwardRef, lazy } from "react";
+import React, { forwardRef, lazy } from "react";
 import { ToastManagerProps } from "./types";
 import { Toast } from "@robust-ui/toast";
 
@@ -63,7 +63,7 @@ const Factory: React.ForwardRefExoticComponent<
       {...Placement[notificationPlacement]}
       {...props}>
       {Object.entries(notification).map(([key, value]) => {
-        return <Toast key={key} {...value} />;
+        return <Toast key={key} {...value} subkey={key} />;
       })}
     </Flex>
   );

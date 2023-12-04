@@ -1,11 +1,13 @@
-import { NextLink } from "./nextLink";
-import { Header } from "./header";
-import { StyledText } from "./nested-styled-text";
-import { Flex } from "./flex";
-import { Menu } from "./menu";
-import { Button } from "./button";
-import { Aside } from "./aside";
-import { useLanguage } from "@robust-ui/nextjs-components";
+import {
+  Aside,
+  Button,
+  Flex,
+  Header,
+  Menu,
+  NextLink,
+  StyledText,
+  useLanguage,
+} from "@robust-ui/nextjs-components";
 
 export default function Nav() {
   const [language, setLanguage] = useLanguage();

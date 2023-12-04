@@ -1,5 +1,5 @@
-import { Cover } from "@/components/cover";
-import { Card } from "@/components/card";
+import { Cover, Card } from "@robust-ui/nextjs-components";
+
 import HeadNext from "@/components/headNext";
 
 export default function Index() {
@@ -40,8 +40,8 @@ export default function Index() {
           },
           {
             label: {
-              en: "Breaking down Robust: | How to create your own React component library inspired by Styled Components, Tailwind, and Chakra UI | (Advanced TypeScript - Spanish)",
-              es: "Desglosando Robust: | Cómo crear tu propia biblioteca de componentes de React inspirada en Styled Components, Tailwind y Chakra UI | (TypeScript avanzado - Español)",
+              en: "Building a Robust React Component Library with | Advanced TypeScript",
+              es: "Construyendo una Biblioteca de Componentes Robusta con | TypeScript Avanzado",
             },
             images: [
               "https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386733005_l48rgz.png",

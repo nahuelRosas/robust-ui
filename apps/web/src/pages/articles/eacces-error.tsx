@@ -1,14 +1,12 @@
-import { StyledTextProps } from "@/components/nested-styled-text";
-import { Block } from "@/components/block";
-import { Flex } from "@/components/flex";
-import { Icon } from "@/components/icon";
-import { Image } from "@/components/image";
-import { StyledText } from "@/components/nested-styled-text";
-import { NextLink } from "@/components/nextLink";
-import { Card } from "@/components/card";
-import { CodeText } from "@/components/codeText";
 import React from "react";
 import HeadNext from "@/components/headNext";
+import {
+  StyledTextProps,
+  Card,
+  Image,
+  StyledText,
+  CodeText,
+} from "@robust-ui/nextjs-components";
 
 export default function EaccesError() {
   const commonTextStyle: StyledTextProps = {

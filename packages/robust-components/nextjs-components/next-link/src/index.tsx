@@ -4,6 +4,7 @@ import { NextLinkProps, NextLinkPropsNoGeneric } from "./types";
 import { useCleanValue } from "@robust-ui/use-clean-value";
 import { generateColorScheme } from "@robust-ui/css-utils";
 import { ExtractStrings } from "@robust-ui/utils";
+import { Spinner } from "@robust-ui/spinner";
 import Link, { LinkProps } from "next/link";
 import { Flex } from "@robust-ui/flex";
 import { Icon } from "@robust-ui/icon";
@@ -13,7 +14,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<NextLinkProps>
 > = forwardRef(function NextLinkComponent(
-  { textProps, iconProps, children, ...props },
+  { textProps, iconProps, spinnerProps, children, ...props },
   ref
 ): React.JSX.Element {
   const Component = CreateComponent<LinkProps>({
@@ -26,22 +27,25 @@ const Factory: React.ForwardRefExoticComponent<
     hoverTextProps,
     colorSchemeRaw,
     colorScheme,
+    isDisabled,
     direction,
     hoverText,
     hoverHelp,
-    variant,
+    isLoading,
     iconType,
+    variant,
     ...cleanedProps
   } = useCleanValue({ props }) as NextLinkPropsNoGeneric;
 
   const structureStyle = useMemo(() => {
     return generateColorScheme({
       variant: variant || "linkLight",
+      isDisabled,
       opacity: 0.8,
       baseColor: colorSchemeRaw || colorScheme || "teal",
       ...colorSchemeProperty,
     });
-  }, [variant, colorSchemeRaw, colorScheme, colorSchemeProperty]);
+  }, [variant, isDisabled, colorSchemeRaw, colorScheme, colorSchemeProperty]);
 
   const { otherComponents, strings } = ExtractStrings({
     multiLanguageSupport,
@@ -89,6 +93,7 @@ const Factory: React.ForwardRefExoticComponent<
           },
         },
       }}
+      pointerEvents={isDisabled ? "none" : "inherit"}
       animationRaw={
         hovered
           ? "scaleUpLink 0.1s ease-in-out forwards"
@@ -115,18 +120,14 @@ const Factory: React.ForwardRefExoticComponent<
       px="1vw"
       {...structureStyle}
       {...cleanedProps}>
-      {/* {isLoading && (
-        <Suspense>
-          <Spinner
-            colorSchemeRaw={
-              cleanedProps.colorSchemeRaw || cleanedProps.colorScheme
-            }
-            elementName="NextLinkSpinner"
-            sizeRaw="2.5vh"
-            {...loadingProps}
-          />
-        </Suspense>
-      )}*/}
+      {isLoading && (
+        <Spinner
+          colorSchemeRaw={colorSchemeRaw || colorScheme}
+          sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "3vh"}
+          elementName="ButtonSpinner"
+          {...spinnerProps}
+        />
+      )}
       {(iconType || iconProps) && (
         <Icon
           sizeRaw={cleanedProps.fontSizeRaw || cleanedProps.fontSize || "4vh"}
@@ -155,7 +156,7 @@ const Factory: React.ForwardRefExoticComponent<
           transformRaw="translate(30%, 125%)"
           opacityRaw={hovered ? "1" : "0"}
           elementName="ButtonHoverText"
-          pointerEventsRaw="none"
+          pointerEvents="none"
           background="gray900"
           borderRadius="1.5vh"
           width="fitContent"

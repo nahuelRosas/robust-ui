@@ -5,7 +5,6 @@ import {
   GenericPropertyArray,
   GenericProperty,
 } from "@robust-ui/constructor";
-
 export interface StyledTextProps extends EnhancedElementProps<HTMLDivElement> {
   fontWeights?: GenericPropertyArray<keyof typeof defaultTheme.fontWeight>;
   fontWeightsRaw?: GenericPropertyArray<string | number>;

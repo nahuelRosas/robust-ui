@@ -5,7 +5,7 @@ import { ExtractStrings } from "@robust-ui/utils";
 import { Label } from "@robust-ui/label";
 import { Flex } from "@robust-ui/flex";
 import {
-  getTextColorHighContrast,
+  generateContrastingColor,
   generateColorScheme,
   addOpacity,
 } from "@robust-ui/css-utils";
@@ -125,7 +125,7 @@ const Factory: React.ForwardRefExoticComponent<
       {...cleanedProps}>
       <Component
         id={idString}
-        pointerEventsRaw={isLoading || isDisabled ? "none" : undefined}
+        pointerEvents={isLoading || isDisabled ? "none" : "inherit"}
         onMouseEnter={() => startTransition(() => setHover(true))}
         onMouseLeave={() => startTransition(() => setHover(false))}
         onBlur={() => startTransition(() => setFocus(false))}
@@ -141,7 +141,7 @@ const Factory: React.ForwardRefExoticComponent<
           cursor: "auto",
         }}
         webkitScrollbarThumb={{
-          backgroundColorRaw: getTextColorHighContrast(colorWithOpacity),
+          backgroundColorRaw: generateContrastingColor(colorWithOpacity),
           borderRadius: "0.5vh",
           zIndexRaw: 99999,
           cursor: "auto",

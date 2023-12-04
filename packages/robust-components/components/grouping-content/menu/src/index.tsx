@@ -69,7 +69,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
         <Button
           onClick={() => startTransition(() => setIsOpen(!isOpen))}
           display="flex"
-          pointerEventsRaw={isOpen ? "none" : "auto"}
+          pointerEvents={isOpen ? "none" : "inherit"}
           colorSchemeProperty={{
             baseColor: "teal",
             ...colorSchemeProperty,
@@ -86,7 +86,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
           {strings}
         </Button>
         <Component
-          pointerEventsRaw={isOpen ? "auto" : "none"}
+          pointerEvents={isOpen ? "inherit" : "none"}
           onClick={() => startTransition(() => setIsOpen(!isOpen))}
           opacityRaw={isOpen ? "1" : "0"}
           transformRaw="translate(0%, 35%)"

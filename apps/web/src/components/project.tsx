@@ -1,9 +1,12 @@
-import { Flex } from "./flex";
-import { Block } from "./block";
-import { Icon, Ticon } from "./icon";
-import { Image } from "./image";
-import { StyledText } from "./nested-styled-text";
-import { NextLink } from "./nextLink";
+import {
+  Ticon,
+  Block,
+  Flex,
+  Image,
+  NextLink,
+  StyledText,
+  Icon,
+} from "@robust-ui/nextjs-components";
 
 export function Project({
   id,

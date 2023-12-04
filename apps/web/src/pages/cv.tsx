@@ -1,11 +1,5 @@
-import { Cover } from "@/components/cover";
-import { Card } from "@/components/card";
-import HeadNext from "../components/headNext";
-import { Flex } from "@/components/flex";
-import { Block } from "@/components/block";
-import { NextLink } from "@/components/nextLink";
-import { StyledText } from "@/components/nested-styled-text";
-import { Icon } from "@/components/icon";
+import HeadNext from "@/components/headNext";
+import { Flex, StyledText, NextLink, Icon } from "@robust-ui/nextjs-components";
 
 export default function Index() {
   return (
@@ -191,7 +185,35 @@ export default function Index() {
             borderRadius="2.5vh"
             flexDirection="column"
             optimizedWidth
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex optimizedWidth justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -254,7 +276,35 @@ export default function Index() {
             borderRadius="2.5vh"
             flexDirection="column"
             optimizedWidth
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex optimizedWidth justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -314,7 +364,35 @@ export default function Index() {
             borderRadius="2.5vh"
             flexDirection="column"
             optimizedWidth
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex optimizedWidth justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -380,7 +458,35 @@ export default function Index() {
             borderRadius="2.5vh"
             flexDirection="column"
             optimizedWidth
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex optimizedWidth justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -484,7 +590,35 @@ export default function Index() {
             flexDirection="column"
             optimizedWidth
             gap="2vh"
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex
               width="100%"
               mb="2vh"
@@ -622,60 +756,6 @@ export default function Index() {
             </Flex>
           </Flex>
 
-          {/*
-           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
-            flexDirection="column"
-            optimizedWidth
-            gap="2vh"
-            borderRaw="1px solid white">
-            <Flex
-              width="100%"
-              mb="2vh"
-              justifyContent="spaceBetween"
-              flexDirection="row">
-              <Flex flexDirection="column">
-                <StyledText
-                  optimizedWidth
-                  textAlign="left"
-                  fontWeights={["900"]}
-                  fontSizeRaw={{
-                    base: "2.5vh",
-                    md: "4vh",
-                  }}
-                  colors={["white", "teal", "white", "indigo"]}
-                  multiLanguageSupport={{
-                    en: "Full Stack Web Developer Intern",
-                    es: "Desarrollador web Full Stack, Interno",
-                  }}
-                />
-                <StyledText
-                  optimizedWidth
-                  textAlign="left"
-                  fontWeights={["500"]}
-                  fontSizeRaw={{
-                    base: "2.5vh",
-                    md: "3vh",
-                  }}
-                  colors={["white", "teal", "white", "indigo"]}>
-                  Uils
-                </StyledText>
-              </Flex>
-              <StyledText
-                textAlign="right"
-                fontWeights={["500"]}
-                fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
-                }}
-                colors={["white", "teal", "white", "indigo"]}>
-                01/2023 - 04/2023
-              </StyledText>
-            </Flex>
-          */}
           <Flex
             my="2vh"
             mx="2vw"
@@ -684,7 +764,35 @@ export default function Index() {
             flexDirection="column"
             optimizedWidth
             gap="2vh"
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex
               width="100%"
               mb="2vh"
@@ -889,7 +997,35 @@ export default function Index() {
             flexDirection="column"
             optimizedWidth
             gap="2vh"
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -949,7 +1085,35 @@ export default function Index() {
             flexDirection="column"
             optimizedWidth
             gap="2vh"
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -1009,7 +1173,35 @@ export default function Index() {
             flexDirection="column"
             optimizedWidth
             gap="2vh"
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
@@ -1066,7 +1258,35 @@ export default function Index() {
             flexDirection="column"
             optimizedWidth
             gap="2vh"
-            borderRaw="1px solid white">
+            borderRaw="1px solid white"
+            keyframesRaw={{
+              scaleUp: {
+                "0%": {
+                  transform: "scale(1)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1.025)",
+                },
+              },
+              scaleDown: {
+                "0%": {
+                  transform: "scale(1.025)",
+                },
+                "50%": {
+                  transform: "scale(1.025)",
+                },
+                "100%": {
+                  transform: "scale(1)",
+                },
+              },
+            }}
+            hover={{
+              animationRaw: "scaleUp 0.1s ease-in-out forwards",
+            }}
+            animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth

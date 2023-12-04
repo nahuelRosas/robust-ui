@@ -12,6 +12,7 @@ export interface ToastProps extends EnhancedElementProps<HTMLDivElement> {
   onClose?: GenericProperty<() => void>;
   description?: GenericProperty<string>;
   label?: GenericProperty<string>;
+  subkey?: GenericProperty<string>;
 }
 
 export interface ToastPropsNoGeneric
@@ -21,4 +22,5 @@ export interface ToastPropsNoGeneric
   onClose?: () => void;
   description?: string;
   label?: string;
+  subkey?: string;
 }

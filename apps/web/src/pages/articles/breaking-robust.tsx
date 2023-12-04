@@ -1,13 +1,13 @@
-import { StyledTextProps } from "@/components/nested-styled-text";
-import { Block } from "@/components/block";
-import { Flex } from "@/components/flex";
-import { Icon } from "@/components/icon";
-import { Image } from "@/components/image";
-import { StyledText } from "@/components/nested-styled-text";
-import { NextLink } from "@/components/nextLink";
-import { Card } from "@/components/card";
 import React from "react";
 import HeadNext from "@/components/headNext";
+import {
+  StyledTextProps,
+  Card,
+  StyledText,
+  Image,
+  Flex,
+  Icon,
+} from "@robust-ui/nextjs-components";
 
 export default function BreakingRobust() {
   const commonTextStyle: StyledTextProps = {
@@ -96,8 +96,8 @@ export default function BreakingRobust() {
           href: "/articles",
         }}
         label={{
-          en: "Breaking down Robust: | How to create your own React component library inspired by Styled Components, Tailwind, and Chakra UI | (Advanced TypeScript - Spanish)",
-          es: "Desglosando Robust: | Cómo crear tu propia biblioteca de componentes de React inspirada en Styled Components, Tailwind y Chakra UI | (TypeScript avanzado - Español)",
+          en: "Breaking down Robust: | How to create your own React component library inspired by Styled Components, Tailwind, and Chakra UI ",
+          es: "Desglosando Robust: | Cómo crear tu propia biblioteca de componentes de React inspirada en Styled Components, Tailwind y Chakra UI",
         }}
         images={[
           "https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386733005_l48rgz.png",

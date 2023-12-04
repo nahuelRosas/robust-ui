@@ -1,6 +1,6 @@
 import {
-  EnhancedElementProps,
   EnhancedElementPropsNoGeneric,
+  EnhancedElementProps,
 } from "@robust-ui/constructor";
 
 export interface FooterProps extends EnhancedElementProps<HTMLElement> {}

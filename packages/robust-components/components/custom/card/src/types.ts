@@ -63,17 +63,6 @@ export interface CardProps extends EnhancedElementProps<HTMLDivElement> {
     >;
     href?: GenericProperty<string>;
   }>;
-
-  // data?: GenericPropertyArray<{
-  //   images?: GenericProperty<string[]>;
-  //   title: GenericProperty<string>;
-  //   text?: GenericProperty<string>;
-  //   href?: GenericProperty<string>;
-  //   propsTitle?: StyledTextProps;
-  //   propsText?: StyledTextProps;
-  //   propsImage?: ImageProps;
-  //   propsData?: FlexProps;
-  // }>;
 }
 export interface CardPropsNoGeneric
   extends EnhancedElementPropsNoGeneric<HTMLDivElement> {

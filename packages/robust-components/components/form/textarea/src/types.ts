@@ -1,9 +1,9 @@
+import { LabelProps } from "@robust-ui/label";
 import {
   EnhancedElementPropsNoGeneric,
   EnhancedElementProps,
   GenericProperty,
 } from "@robust-ui/constructor";
-import { LabelProps } from "@robust-ui/label";
 
 export interface TextAreaProps
   extends EnhancedElementProps<HTMLTextAreaElement> {

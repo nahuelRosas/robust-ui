@@ -6,14 +6,16 @@ const resend = new Resend("re_LLCCkNaz_GayV92x1VvQGtmUex3W8h3db");
 
 export default async function POST(req: NextApiRequest, res: NextApiResponse) {
   try {
+    const body = JSON.parse(req.body);
+
     const data = await resend.emails.send({
       from: "onboarding@resend.dev",
       to: ["nahuel.rosas21@gmail.com"],
-      subject: "Mensaje de contacto",
+      subject: "New message from your portfolio",
       react: EmailTemplate({
-        name: req.body.name,
-        text: req.body.text,
-        email: req.body.email,
+        name: body.name,
+        text: body.text,
+        email: body.email,
       }),
       text: "",
     });
