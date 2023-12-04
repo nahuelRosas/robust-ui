@@ -1,5 +1,11 @@
 # @robust-ui/global-state-reducer
 
+## 0.5.2
+
+### Patch Changes
+
+- @robust-ui/constructor@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes

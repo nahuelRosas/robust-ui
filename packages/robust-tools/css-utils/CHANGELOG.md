@@ -1,5 +1,11 @@
 # @robust-ui/css-utils
 
+## 0.7.0
+
+### Minor Changes
+
+- b2b676d: change viewport to dynamic viewport
+
 ## 0.6.0
 
 ### Minor Changes

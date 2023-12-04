@@ -1,5 +1,37 @@
 # @robust-ui/nextjs-components
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [b2b676d]
+  - @robust-ui/button@0.7.0
+  - @robust-ui/nested-styled-text@0.7.0
+  - @robust-ui/image@0.7.0
+  - @robust-ui/provider@0.7.0
+  - @robust-ui/menu@0.7.0
+  - @robust-ui/icon@0.7.0
+  - @robust-ui/code-text@0.7.0
+  - @robust-ui/next-link@0.7.0
+  - @robust-ui/footer@0.4.0
+  - @robust-ui/header@0.7.0
+  - @robust-ui/overlay@0.7.0
+  - @robust-ui/spinner@0.7.0
+  - @robust-ui/aside@0.7.0
+  - @robust-ui/textarea@0.7.0
+  - @robust-ui/cover@0.7.0
+  - @robust-ui/card@0.4.0
+  - @robust-ui/input@0.7.0
+  - @robust-ui/label@0.4.0
+  - @robust-ui/use-toast@0.5.2
+  - @robust-ui/block@0.5.2
+  - @robust-ui/flex@0.5.2
+  - @robust-ui/text@0.5.2
+  - @robust-ui/span@0.5.2
+  - @robust-ui/constructor@0.5.2
+  - @robust-ui/use-clean-value@0.5.2
+  - @robust-ui/grid@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
