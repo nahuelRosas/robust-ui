@@ -74,7 +74,6 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
 
     const { currentBreakpoint } = useGlobalContext({ key: "devData" });
 
-    console.log("currentBreakpoint", currentBreakpoint);
     const currentImageSrc: string = Array.isArray(srcRaw)
       ? (srcRaw[currentImageIndex] as string)
       : (srcRaw as string);
