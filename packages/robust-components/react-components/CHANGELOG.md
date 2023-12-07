@@ -1,5 +1,12 @@
 # @robust-ui/react-components
 
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [8082963]
+  - @robust-ui/image@0.8.0
+
 ## 0.5.2
 
 ### Patch Changes

@@ -1,5 +1,18 @@
 # @robust-ui/nextjs-components
 
+## 0.6.0
+
+### Minor Changes
+
+- 8082963: add hooks, change ui mobile
+
+### Patch Changes
+
+- Updated dependencies [8082963]
+  - @robust-ui/image@0.8.0
+  - @robust-ui/card@0.4.1
+  - @robust-ui/overlay@0.7.1
+
 ## 0.5.2
 
 ### Patch Changes
