@@ -27,8 +27,13 @@
     "depCheck": "depcheck"
   },
   "dependencies": {
+    "@robust-ui/use-recovery-global-state-value": "workspace:*",
+    "@robust-ui/use-global-state-updater": "workspace:*",
+    "@robust-ui/use-breakpoint-value": "workspace:*",
     "@robust-ui/nested-styled-text": "workspace:*",
     "@robust-ui/use-global-context": "workspace:*",
+    "@robust-ui/use-global-state": "workspace:*",
+    "@robust-ui/use-image-status": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/use-language": "workspace:*",
     "@robust-ui/constructor": "workspace:*",

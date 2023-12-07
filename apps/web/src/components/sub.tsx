@@ -71,15 +71,15 @@ export default function Sub() {
 
   return (
     <Footer
-      boxShadowRaw="0 0 1.5vh 0 rgba(255, 255, 255, 0.3)"
+      boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)"
       flexDirection="column"
       colorScheme="black">
       <StyledText
-        fontSizeRaw="3vh"
+        fontSizeRaw="3dvh"
         colors={["white"]}
         fontWeights={["400"]}
         textAlign="center"
-        px="6vw"
+        px="6dvw"
         multiLanguageSupport={{
           en: "Get in touch",
           es: "Contacto",
@@ -87,12 +87,12 @@ export default function Sub() {
       />
       <StyledText
         fontSizeRaw={{
-          base: "4vh",
-          md: "7vh",
+          base: "4dvh",
+          md: "7dvh",
         }}
         colors={["white"]}
         fontWeights={["900"]}
-        px="6vw"
+        px="6dvw"
         textAlign="center"
         multiLanguageSupport={{
           en: "Let’s work together",
@@ -101,10 +101,10 @@ export default function Sub() {
       />
       <StyledText
         fontSizeRaw={{
-          base: "2vh",
-          md: "3vh",
+          base: "2dvh",
+          md: "3dvh",
         }}
-        px="6vw"
+        px="6dvw"
         colors={["white", "teal"]}
         fontWeights={["400", "900"]}
         textAlign="center"
@@ -114,7 +114,7 @@ export default function Sub() {
         }}
       />
       <Overlay
-        my="3vh"
+        my="3dvh"
         isDisabled={isLoading}
         buttonOpenProps={{
           multiLanguageSupport: {
@@ -122,7 +122,7 @@ export default function Sub() {
             es: "Contactame",
           },
           fontWeight: "700",
-          fontSize: "2.5vh",
+          fontSize: "2.5dvh",
           textTransform: "uppercase",
           iconType: "message2Fill",
         }}
@@ -140,12 +140,12 @@ export default function Sub() {
             en: "Name",
           }}
           fontSizeRaw={{
-            base: "2vh",
-            md: "3vh",
+            base: "2dvh",
+            md: "3dvh",
           }}
           optimizedWidth
-          mx="3vw"
-          mt="5vh"
+          mx="3dvw"
+          mt="5dvh"
           isDisabled={isLoading}
           value={name}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -156,14 +156,14 @@ export default function Sub() {
           placeholder="Email"
           type="email"
           fontSizeRaw={{
-            base: "2vh",
-            md: "3vh",
+            base: "2dvh",
+            md: "3dvh",
           }}
           optimizedWidth
           isInvalid={!validEmail}
           isDisabled={isLoading}
-          mx="3vw"
-          mt="5vh"
+          mx="3dvw"
+          mt="5dvh"
           value={email}
           onChange={handleChange}
         />
@@ -173,31 +173,31 @@ export default function Sub() {
             en: "Message",
           }}
           fontSizeRaw={{
-            base: "2vh",
-            md: "3vh",
+            base: "2dvh",
+            md: "3dvh",
           }}
           optimizedWidth
           isDisabled={isLoading}
-          mx="3vw"
-          mt="5vh"
+          mx="3dvw"
+          mt="5dvh"
           value={text}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
             setText(e.target.value)
           }
         />
         <Flex
-          gap="2vh"
+          gap="2dvh"
           flexWrap="wrap"
-          minW="70vw"
+          minW="70dvw"
           mx="auto"
-          mt="3vh"
+          mt="3dvh"
           justifyContent="center">
           <NextLink
             href="/projects"
             isDisabled={isLoading}
             fontSizeRaw={{
-              base: "2vh",
-              md: "2.5vh",
+              base: "2dvh",
+              md: "2.5dvh",
             }}
             iconType="linkedinFill">
             LinkedIn
@@ -205,8 +205,8 @@ export default function Sub() {
           <NextLink
             isDisabled={isLoading}
             fontSizeRaw={{
-              base: "2vh",
-              md: "2.5vh",
+              base: "2dvh",
+              md: "2.5dvh",
             }}
             href="https://twitter.com/_rosasnahuel_"
             iconType="twitterXFill">
@@ -215,8 +215,8 @@ export default function Sub() {
           <NextLink
             isDisabled={isLoading}
             fontSizeRaw={{
-              base: "2vh",
-              md: "2.5vh",
+              base: "2dvh",
+              md: "2.5dvh",
             }}
             href="https://github.com/nahuelrosas/"
             iconType="githubFill">
@@ -224,8 +224,8 @@ export default function Sub() {
           </NextLink>
           <Button
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             mx={{
               base: "0",
@@ -246,11 +246,11 @@ export default function Sub() {
       </Overlay>
       <StyledText
         fontSizeRaw={{
-          base: "1.5vh",
-          md: "2.5vh",
+          base: "1.5dvh",
+          md: "2.5dvh",
         }}
         textAlign="center"
-        px="6vw"
+        px="6dvw"
         colors={["white", "teal"]}
         fontWeights={["400", "900"]}
         multiLanguageSupport={{

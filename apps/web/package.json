@@ -13,6 +13,7 @@
     "@react-three/fiber": "^8.15.11",
     "@robust-ui/nextjs-components": "workspace:*",
     "@vercel/analytics": "^1.1.1",
+    "@robust-ui/use-breakpoint-value": "workspace:*",
     "chroma-js": "^2.4.2",
     "next": "14.0.3",
     "react": "^18.2.0",

@@ -1,4 +1,5 @@
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { useGlobalContext } from "@robust-ui/use-global-context";
 import { useImageStatus } from "@robust-ui/use-image-status";
 import { useCleanValue } from "@robust-ui/use-clean-value";
 import { ImageProps, ImagePropNoGeneric } from "./types";
@@ -23,14 +24,14 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
   forwardRef(function ImageComponent(
     {
-      spinnerProps,
       buttonCloseProps,
       buttonOpenProps,
       iconCloseProps,
       iconOpenProps,
+      spinnerProps,
       ...props
     },
-    ref,
+    ref
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLImageElement>({
       componentType: "img",
@@ -42,20 +43,20 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
 
     const {
       multiLanguageSupport,
-      colorSchemeProperty,
-      colorSchemeRaw,
-      colorScheme,
-      variant,
       objectFit = "cover",
+      colorSchemeProperty,
       borderRadiusRaw,
+      colorSchemeRaw,
       ignoreFallback,
       borderRadius,
       crossOrigin,
+      colorScheme,
       isRounded,
       isSlider,
       srcArray,
       altArray,
       onError,
+      variant,
       sizeRaw,
       onLoad,
       srcSet,
@@ -71,6 +72,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
 
     const srcRaw = srcArray || src;
 
+    const { currentBreakpoint } = useGlobalContext({ key: "devData" });
+
+    console.log("currentBreakpoint", currentBreakpoint);
     const currentImageSrc: string = Array.isArray(srcRaw)
       ? (srcRaw[currentImageIndex] as string)
       : (srcRaw as string);
@@ -95,10 +99,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
     const changeImageIndex = useCallback(
       (newIndex: number) => {
         startTransition(() =>
-          setCurrentImageIndex((newIndex + imageCount) % imageCount),
+          setCurrentImageIndex((newIndex + imageCount) % imageCount)
         );
       },
-      [imageCount],
+      [imageCount]
     );
 
     const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
@@ -120,7 +124,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
 
     useEffect(() => {
       const handleKeyPress = (e: KeyboardEvent) => {
-        if (e.keyCode === 27) startTransition(() => setIsSliderVisible(false));
+        if (e.key === "Escape")
+          startTransition(() => setIsSliderVisible(false));
         if (isSliderVisible && imageCount > 1) {
           if (e.key === "ArrowLeft") {
             changeImageIndex(currentImageIndex - 1);
@@ -156,27 +161,54 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
     });
     const [isZoomActive, setIsZoomActive] = useState<boolean>(false);
 
-    const handleMouseMove = useCallback((e: MouseEvent) => {
-      e.preventDefault();
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    }, []);
+    const handleMouseMove = useCallback(
+      (e: MouseEvent) => {
+        e.preventDefault();
+        if (
+          currentBreakpoint === "base" ||
+          currentBreakpoint === "sm" ||
+          currentBreakpoint === "xs"
+        )
+          return;
+        setMousePosition({ x: e.clientX, y: e.clientY });
+      },
+      [currentBreakpoint]
+    );
 
     const handleWheel = useCallback(
       (e: WheelEvent) => {
+        if (
+          currentBreakpoint === "base" ||
+          currentBreakpoint === "sm" ||
+          currentBreakpoint === "xs"
+        )
+          return;
         const delta = e.deltaY;
         setZoomPrev(zoom);
         setZoom((prevZoom) =>
-          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001)),
+          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001))
         );
       },
-      [zoom],
+      [currentBreakpoint, zoom]
     );
 
     const handleDivClick = useCallback(() => {
+      if (
+        currentBreakpoint === "base" ||
+        currentBreakpoint === "sm" ||
+        currentBreakpoint === "xs"
+      )
+        return;
       setIsZoomActive((prevIsZoomActive) => !prevIsZoomActive);
-    }, []);
+    }, [currentBreakpoint]);
 
     const handleClick = useCallback(() => {
+      if (
+        currentBreakpoint === "base" ||
+        currentBreakpoint === "sm" ||
+        currentBreakpoint === "xs"
+      )
+        return;
       if (isZoomActive) {
         if (zoom === 1) {
           setZoomPrev(zoom);
@@ -187,7 +219,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
           setIsZoomActive(false);
         }
       }
-    }, [isZoomActive, zoom]);
+    }, [currentBreakpoint, isZoomActive, zoom]);
 
     const handleWheelActivate = useCallback(() => {
       if (isSliderVisible) setIsZoomActive(true);
@@ -248,13 +280,16 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
               }}
               maxWidth="80dvw"
               m="0"
-              p="0"
-            >
+              p="0">
               {
                 <Flex
                   p="2dvh"
                   m="2dvh"
                   bg="black"
+                  display={{
+                    base: "none",
+                    md: "flex",
+                  }}
                   borderRadius="2dvh"
                   zIndexRaw="10005"
                   position="absolute"
@@ -296,6 +331,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
               {Array.isArray(srcArray) && srcArray.length > 1 && (
                 <>
                   <Button
+                    display={{
+                      base: "none",
+                      md: "flex",
+                    }}
                     onClick={() => changeImageIndex(currentImageIndex - 1)}
                     colorSchemeProperty={{
                       baseColorRaw:
@@ -322,6 +361,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                     }}
                   />
                   <Button
+                    display={{
+                      base: "none",
+                      md: "flex",
+                    }}
                     onClick={() => changeImageIndex(currentImageIndex + 1)}
                     colorSchemeProperty={{
                       baseColorRaw:
@@ -374,8 +417,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                       mousePosition.y
                     }px`,
                     transition: "transform 0.2s ease-out",
-                  }}
-                >
+                  }}>
                   <Component
                     src={currentImageSrc}
                     alt={currentAlt}
@@ -422,7 +464,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         spinnerProps,
         srcArray,
         zoom,
-      ],
+      ]
     );
 
     return (
@@ -440,8 +482,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         justifyContent="center"
         alignItems="center"
         mx="auto"
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {generalStatus === "failed" && (
           <Icon
             sizeRaw={
@@ -489,7 +530,6 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         {isSliderVisible && isSlider && currentImageSrc && (
           <Flex
             display="flex"
-            onTouchStart={handleTouchStart}
             keyframesRaw={{
               visibleImage: {
                 "0%": {
@@ -520,6 +560,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                 ? "visibleImage 0.5s ease-out forwards"
                 : "hiddenImage 0.5s ease-in-out forwards"
             }
+            onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
             elementName="ContainerSlider"
             backdropFilterRaw="blur(0.5dvh)"
@@ -550,8 +591,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
             width="100dvw"
             zIndexRaw="9999"
             left="0"
-            top="0"
-          >
+            top="0">
             {stopProgationChildren}
           </Flex>
         )}
