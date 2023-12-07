@@ -1,5 +1,20 @@
 # @robust-ui/toast-manager
 
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [6d06336]
+  - @robust-ui/theme@0.7.0
+  - @robust-ui/nested-styled-text@0.7.1
+  - @robust-ui/toast@0.7.1
+  - @robust-ui/icon@0.7.1
+  - @robust-ui/constructor@0.5.3
+  - @robust-ui/use-global-context@0.5.2
+  - @robust-ui/css-utils@0.7.1
+  - @robust-ui/flex@0.5.3
+  - @robust-ui/use-clean-value@0.5.3
+
 ## 0.5.2
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @robust-ui/use-breakpoint-value
 
+## 0.5.2
+
+### Patch Changes
+
+- @robust-ui/use-global-context@0.5.2
+- @robust-ui/utils@0.5.2
+- @robust-ui/use-resize-listener@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes

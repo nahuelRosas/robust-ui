@@ -1,5 +1,11 @@
 # @robust-ui/use-resize-listener
 
+## 0.5.2
+
+### Patch Changes
+
+- @robust-ui/utils@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
