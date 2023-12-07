@@ -1,5 +1,11 @@
 # @robust-ui/image
 
+## 0.8.0
+
+### Minor Changes
+
+- 8082963: add hooks, change ui mobile
+
 ## 0.7.0
 
 ### Minor Changes
