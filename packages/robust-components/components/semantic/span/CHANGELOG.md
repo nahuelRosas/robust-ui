@@ -1,5 +1,13 @@
 # @robust-ui/span
 
+## 0.5.3
+
+### Patch Changes
+
+- @robust-ui/constructor@0.5.3
+- @robust-ui/css-utils@0.7.1
+- @robust-ui/use-clean-value@0.5.3
+
 ## 0.5.2
 
 ### Patch Changes

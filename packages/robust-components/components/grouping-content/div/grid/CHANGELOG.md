@@ -1,5 +1,11 @@
 # @robust-ui/grid
 
+## 0.5.3
+
+### Patch Changes
+
+- @robust-ui/constructor@0.5.3
+
 ## 0.5.2
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @robust-ui/use-clean-value
 
+## 0.5.3
+
+### Patch Changes
+
+- @robust-ui/use-global-context@0.5.2
+- @robust-ui/css-utils@0.7.1
+
 ## 0.5.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @robust-ui/theme
 
+## 0.7.0
+
+### Minor Changes
+
+- 6d06336: delete console.log and change size theme
+
 ## 0.6.0
 
 ### Minor Changes

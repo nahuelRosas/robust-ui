@@ -1,5 +1,13 @@
 # @robust-ui/use-language
 
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [6d06336]
+  - @robust-ui/theme@0.7.0
+  - @robust-ui/use-global-context@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes
