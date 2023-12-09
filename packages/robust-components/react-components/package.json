@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/react-components",
   "description": "A constructor for creating robust components",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

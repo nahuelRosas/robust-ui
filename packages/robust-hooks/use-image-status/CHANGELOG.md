@@ -1,5 +1,13 @@
 # @robust-ui/use-image-status
 
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [f235e87]
+  - @robust-ui/theme@0.8.0
+  - @robust-ui/use-global-state@0.5.3
+
 ## 0.5.2
 
 ### Patch Changes

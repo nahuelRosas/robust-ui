@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/use-resize-listener",
   "description": "A React hook to listen to resize events on a DOM element",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {
