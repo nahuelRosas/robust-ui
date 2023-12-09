@@ -1,5 +1,13 @@
 # @robust-ui/constructor
 
+## 0.5.5
+
+### Patch Changes
+
+- Updated dependencies [515fa6e]
+  - @robust-ui/use-clean-value@0.7.0
+  - @robust-ui/css-utils@0.9.0
+
 ## 0.5.4
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 # @robust-ui/provider
 
+## 0.8.0
+
+### Minor Changes
+
+- 515fa6e: fix, refactor
+
+### Patch Changes
+
+- Updated dependencies [515fa6e]
+  - @robust-ui/use-breakpoint-value@0.6.0
+  - @robust-ui/use-clean-value@0.7.0
+  - @robust-ui/global-state-reducer@0.5.5
+  - @robust-ui/toast-manager@0.5.5
+  - @robust-ui/constructor@0.5.5
+
 ## 0.7.2
 
 ### Patch Changes

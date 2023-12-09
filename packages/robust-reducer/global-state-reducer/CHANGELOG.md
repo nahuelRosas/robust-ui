@@ -1,5 +1,13 @@
 # @robust-ui/global-state-reducer
 
+## 0.5.5
+
+### Patch Changes
+
+- Updated dependencies [515fa6e]
+  - @robust-ui/use-breakpoint-value@0.6.0
+  - @robust-ui/constructor@0.5.5
+
 ## 0.5.4
 
 ### Patch Changes
