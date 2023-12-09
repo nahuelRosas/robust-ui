@@ -1,5 +1,23 @@
 # @robust-ui/cover
 
+## 0.4.2
+
+### Patch Changes
+
+- Updated dependencies [f235e87]
+  - @robust-ui/use-clean-value@0.6.0
+  - @robust-ui/theme@0.8.0
+  - @robust-ui/css-utils@0.8.0
+  - @robust-ui/utils@0.6.0
+  - @robust-ui/nested-styled-text@0.7.2
+  - @robust-ui/icon@0.7.2
+  - @robust-ui/flex@0.5.4
+  - @robust-ui/button@0.7.2
+  - @robust-ui/span@0.5.4
+  - @robust-ui/constructor@0.5.4
+  - @robust-ui/use-global-context@0.5.3
+  - @robust-ui/grid@0.5.4
+
 ## 0.4.1
 
 ### Patch Changes

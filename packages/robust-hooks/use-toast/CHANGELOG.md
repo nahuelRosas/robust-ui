@@ -1,5 +1,16 @@
 # @robust-ui/use-toast
 
+## 0.5.4
+
+### Patch Changes
+
+- Updated dependencies [f235e87]
+  - @robust-ui/theme@0.8.0
+  - @robust-ui/nested-styled-text@0.7.2
+  - @robust-ui/constructor@0.5.4
+  - @robust-ui/use-global-context@0.5.3
+  - @robust-ui/use-recovery-global-state-value@0.5.3
+
 ## 0.5.3
 
 ### Patch Changes

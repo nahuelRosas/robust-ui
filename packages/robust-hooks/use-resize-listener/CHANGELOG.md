@@ -1,5 +1,12 @@
 # @robust-ui/use-resize-listener
 
+## 0.5.3
+
+### Patch Changes
+
+- Updated dependencies [f235e87]
+  - @robust-ui/utils@0.6.0
+
 ## 0.5.2
 
 ### Patch Changes
