@@ -58,7 +58,7 @@ export function useCleanValue({
           [key]: recoveredProp,
         };
       },
-      {}
+      {},
     );
     return cleanProps as object;
   }, [

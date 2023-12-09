@@ -78,15 +78,15 @@ export function atRulesProcessor({
                     theme,
                   });
                   result += `\n\t\t${propFunction(paramValue)}`;
-                }
+                },
               );
               result += "\n\t}";
             }
-          }
+          },
         );
 
         result += "\n}\n";
-      }
+      },
     );
   }
 

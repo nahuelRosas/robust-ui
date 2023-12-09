@@ -20,7 +20,7 @@ function componentToHex(c: number): string {
 function rgbaToHex(rgb: RGBColor, a?: number): string {
   const alphaHex = a !== undefined ? componentToHex(Math.round(a * 255)) : "";
   return `#${componentToHex(rgb.r)}${componentToHex(rgb.g)}${componentToHex(
-    rgb.b
+    rgb.b,
   )}${alphaHex}`;
 }
 
@@ -55,7 +55,7 @@ function hslToHex(hsl: HSLColor): string {
   }
 
   return `#${componentToHex(Math.round((r + m) * 255))}${componentToHex(
-    Math.round((g + m) * 255)
+    Math.round((g + m) * 255),
   )}${componentToHex(Math.round((b + m) * 255))}`;
 }
 
@@ -64,7 +64,7 @@ export function cssColorToHex(color: string) {
     return color;
   } else if (color.startsWith("rgb")) {
     const match = color.match(
-      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/
+      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/,
     );
     if (match) {
       const [, r, g, b, a] = match.map(Number);
@@ -72,12 +72,12 @@ export function cssColorToHex(color: string) {
 
       return rgbaToHex(
         { r: color.r, g: color.g, b: color.b },
-        a !== undefined ? a : 1
+        a !== undefined ? a : 1,
       );
     }
   } else if (color.startsWith("hsl")) {
     const match = color.match(
-      /hsla?\((\d+),\s*(\d+)%,\s*(\d+)%(?:,\s*([\d.]+))?\)/
+      /hsla?\((\d+),\s*(\d+)%,\s*(\d+)%(?:,\s*([\d.]+))?\)/,
     );
     if (match) {
       const [, h, s, l, a] = match.map(Number);
@@ -155,7 +155,7 @@ export function rgbToHex({
 
 export function calculateLuminance({ rgbaColor }: { rgbaColor: string }) {
   const match = rgbaColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
   );
 
   if (!match) {
@@ -187,7 +187,7 @@ export function addOpacity({
 
 export function generateContrastingColor(baseColor: string): string {
   const rgbaMatch = baseColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
   );
 
   if (!rgbaMatch) {
@@ -311,7 +311,7 @@ export function generateColorScheme({
 
   if (isInvalid && isValid && !isDisabled) {
     throw new Error(
-      "Input can't be invalid and valid at the same time. Please check your code."
+      "Input can't be invalid and valid at the same time. Please check your code.",
     );
   }
 
@@ -457,7 +457,7 @@ export function generateColorScheme({
 
 export function calculateComplementaryColor(rgbaColor: string): string {
   const match = rgbaColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
   );
   if (!match) throw new Error("Invalid color");
 
