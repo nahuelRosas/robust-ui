@@ -11,14 +11,14 @@ export default function Index() {
         }}
       />
       <Flex
-        mt="15vh"
-        mb="10vh"
-        gap="5vh"
+        mt="15dvh"
+        mb="10dvh"
+        gap="5dvh"
         tabIndex={-1}
         id="Curriculum Vitae"
         flexDirection="column">
         <Flex
-          widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+          widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
           colorSchemeProperty={{
             opacity: 0.8,
             props: {
@@ -28,13 +28,13 @@ export default function Index() {
             },
             baseColorRaw: "black",
           }}
-          borderRadius="2.5vh"
+          borderRadius="2.5dvh"
           justifyContent="center"
           mx={{
-            base: "6vw",
-            md: "3vw",
+            base: "6dvw",
+            md: "3dvw",
           }}
-          pb="3vh"
+          pb="3dvh"
           overflow="hidden"
           flexDirection="column">
           <StyledText
@@ -42,25 +42,25 @@ export default function Index() {
             textAlign="center"
             fontWeights={["900"]}
             fontSizeRaw={{
-              base: "4vh",
-              md: "6vh",
+              base: "4dvh",
+              md: "6dvh",
             }}
             colors={["white", "teal", "white", "indigo"]}
-            my="2vh"
-            mx="5vw">
+            my="2dvh"
+            mx="5dvw">
             Nahuel | Rosas
           </StyledText>
           <Flex flexWrap="wrap" optimizedWidth justifyContent="center">
             <NextLink
               href="https://api.whatsapp.com/send?phone=543835433924&text=Hola%2C%20te%20hablo%20porque%20vi%20tu%20portafolio%2C%20%C2%BFpodemos%20concertar%20una%20reuni%C3%B3n%3F"
               fontSizeRaw={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               fontWeight="500"
               color="white"
-              mx="3vh"
-              mt="2vh"
+              mx="3dvh"
+              mt="2dvh"
               iconType="whatsappFill"
               p="0">
               (+54) 9 3835 433924
@@ -68,13 +68,13 @@ export default function Index() {
             <NextLink
               href="mailto:rosasnahuel.dev@gmail.com"
               fontSizeRaw={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               fontWeight="500"
               color="white"
-              mx="3vh"
-              mt="2vh"
+              mx="3dvh"
+              mt="2dvh"
               iconType="mailFill"
               p="0">
               rosasnahuel.dev@gmail.com
@@ -82,14 +82,14 @@ export default function Index() {
             <NextLink
               href="https://github.com/nahuelrosas/"
               fontSizeRaw={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               fontWeight="500"
               color="white"
-              mx="3vh"
+              mx="3dvh"
               iconType="githubFill"
-              mt="2vh"
+              mt="2dvh"
               p="0">
               nahuelRosas
             </NextLink>
@@ -97,13 +97,13 @@ export default function Index() {
               href="https://www.linkedin.com/in/nahuelrosas/"
               iconType="linkedinFill"
               fontSizeRaw={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               fontWeight="500"
               color="white"
-              mx="3vh"
-              mt="2vh"
+              mx="3dvh"
+              mt="2dvh"
               p="0">
               nahuelrosas
             </NextLink>
@@ -112,8 +112,8 @@ export default function Index() {
               iconType="download2Fill"
               height="fitContent"
               fontSizeRaw={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               fontWeight="500"
               color="white"
@@ -121,12 +121,12 @@ export default function Index() {
                 en: "Download CV",
                 es: "Descargar CV",
               }}
-              mx="3vh"
-              mt="2vh"
+              mx="3dvh"
+              mt="2dvh"
               p="0"
             />
           </Flex>
-          <Flex gap="0.5vw" my="2vh">
+          <Flex gap="0.5dvw" my="2dvh">
             <Icon iconType="location" height="fitContent" />
             <StyledText
               height="fitContent"
@@ -134,8 +134,8 @@ export default function Index() {
               elementName="CVLabel"
               fontWeights={["500"]}
               fontSizeRaw={{
-                base: "2.5vh",
-                md: "3vh",
+                base: "2.5dvh",
+                md: "3dvh",
               }}
               colors={["white", "teal", "white", "indigo"]}>
               Córdoba, CBA X5000 - Argentina
@@ -143,7 +143,7 @@ export default function Index() {
           </Flex>
         </Flex>
         <Flex
-          widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+          widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
           colorSchemeProperty={{
             opacity: 0.8,
             props: {
@@ -153,13 +153,13 @@ export default function Index() {
             },
             baseColorRaw: "black",
           }}
-          borderRadius="2.5vh"
+          borderRadius="2.5dvh"
           justifyContent="center"
           mx={{
-            base: "6vw",
-            md: "3vw",
+            base: "6dvw",
+            md: "3dvw",
           }}
-          pb="3vh"
+          pb="3dvh"
           overflow="hidden"
           flexDirection="column">
           <StyledText
@@ -167,22 +167,22 @@ export default function Index() {
             textAlign="left"
             fontWeights={["900"]}
             fontSizeRaw={{
-              base: "4vh",
-              md: "5vh",
+              base: "4dvh",
+              md: "5dvh",
             }}
             colors={["white", "teal", "white", "indigo"]}
-            my="2vh"
-            mx="5vw"
+            my="2dvh"
+            mx="5dvw"
             multiLanguageSupport={{
               es: "Educación",
               en: "Education",
             }}
           />
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
             borderRaw="1px solid white"
@@ -220,8 +220,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 Oracle - Alura
@@ -231,8 +231,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 Online
@@ -244,8 +244,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -258,8 +258,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -270,10 +270,10 @@ export default function Index() {
             </Flex>
           </Flex>
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
             borderRaw="1px solid white"
@@ -311,8 +311,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 Soy Henry
@@ -322,8 +322,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 Online
@@ -335,8 +335,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -349,8 +349,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="05/2022 - 11/2022"
@@ -358,10 +358,10 @@ export default function Index() {
             </Flex>
           </Flex>
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
             borderRaw="1px solid white"
@@ -399,8 +399,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -413,8 +413,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 Córdoba
@@ -426,8 +426,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -440,8 +440,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -452,10 +452,10 @@ export default function Index() {
             </Flex>
           </Flex>
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
             borderRaw="1px solid white"
@@ -493,8 +493,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -507,8 +507,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 Córdoba
@@ -520,8 +520,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -534,8 +534,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -547,7 +547,7 @@ export default function Index() {
           </Flex>
         </Flex>
         <Flex
-          widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+          widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
           colorSchemeProperty={{
             opacity: 0.8,
             props: {
@@ -557,13 +557,13 @@ export default function Index() {
             },
             baseColorRaw: "black",
           }}
-          borderRadius="2.5vh"
+          borderRadius="2.5dvh"
           justifyContent="center"
           mx={{
-            base: "6vw",
-            md: "3vw",
+            base: "6dvw",
+            md: "3dvw",
           }}
-          pb="3vh"
+          pb="3dvh"
           overflow="hidden"
           flexDirection="column">
           <StyledText
@@ -571,25 +571,25 @@ export default function Index() {
             textAlign="left"
             fontWeights={["900"]}
             fontSizeRaw={{
-              base: "4vh",
-              md: "5vh",
+              base: "4dvh",
+              md: "5dvh",
             }}
             colors={["white", "teal", "white", "indigo"]}
-            my="2vh"
-            mx="5vw"
+            my="2dvh"
+            mx="5dvw"
             multiLanguageSupport={{
               en: "Professional Experience",
               es: "Experiencia Profesional",
             }}
           />
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
-            gap="2vh"
+            gap="2dvh"
             borderRaw="1px solid white"
             keyframesRaw={{
               scaleUp: {
@@ -621,7 +621,7 @@ export default function Index() {
             animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex
               width="100%"
-              mb="2vh"
+              mb="2dvh"
               justifyContent="spaceBetween"
               flexDirection="row">
               <Flex flexDirection="column">
@@ -630,8 +630,8 @@ export default function Index() {
                   textAlign="left"
                   fontWeights={["900"]}
                   fontSizeRaw={{
-                    base: "2.5vh",
-                    md: "4vh",
+                    base: "2.5dvh",
+                    md: "4dvh",
                   }}
                   colors={["white", "teal", "white", "indigo"]}
                   multiLanguageSupport={{
@@ -644,8 +644,8 @@ export default function Index() {
                   textAlign="left"
                   fontWeights={["500"]}
                   fontSizeRaw={{
-                    base: "2.5vh",
-                    md: "3vh",
+                    base: "2.5dvh",
+                    md: "3dvh",
                   }}
                   colors={["white", "teal", "white", "indigo"]}>
                   Uils
@@ -655,19 +655,19 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 01/2023 - 04/2023
               </StyledText>
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -675,8 +675,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -685,12 +685,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -698,8 +698,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -708,12 +708,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -721,8 +721,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -731,12 +731,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -744,8 +744,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -757,13 +757,13 @@ export default function Index() {
           </Flex>
 
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
-            gap="2vh"
+            gap="2dvh"
             borderRaw="1px solid white"
             keyframesRaw={{
               scaleUp: {
@@ -795,7 +795,7 @@ export default function Index() {
             animationRaw="scaleDown 0.1s ease-in-out forwards">
             <Flex
               width="100%"
-              mb="2vh"
+              mb="2dvh"
               justifyContent="spaceBetween"
               flexDirection="row">
               <Flex flexDirection="column">
@@ -804,8 +804,8 @@ export default function Index() {
                   textAlign="left"
                   fontWeights={["900"]}
                   fontSizeRaw={{
-                    base: "2.5vh",
-                    md: "4vh",
+                    base: "2.5dvh",
+                    md: "4dvh",
                   }}
                   colors={["white", "teal", "white", "indigo"]}
                   multiLanguageSupport={{
@@ -818,8 +818,8 @@ export default function Index() {
                   textAlign="left"
                   fontWeights={["500"]}
                   fontSizeRaw={{
-                    base: "2.5vh",
-                    md: "3vh",
+                    base: "2.5dvh",
+                    md: "3dvh",
                   }}
                   colors={["white", "teal", "white", "indigo"]}>
                   Soy Henry
@@ -829,19 +829,19 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}>
                 09/2022 - 12/2022
               </StyledText>
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -849,8 +849,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -859,12 +859,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -872,8 +872,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -882,12 +882,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -895,8 +895,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -905,12 +905,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -918,8 +918,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -928,12 +928,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -941,8 +941,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -954,7 +954,7 @@ export default function Index() {
           </Flex>
         </Flex>
         <Flex
-          widthRaw={{ base: "calc(100vw - 12vw)", md: "calc(100vw - 6vw)" }}
+          widthRaw={{ base: "calc(100dvw - 12dvw)", md: "calc(100dvw - 6dvw)" }}
           colorSchemeProperty={{
             opacity: 0.8,
             props: {
@@ -964,13 +964,13 @@ export default function Index() {
             },
             baseColorRaw: "black",
           }}
-          borderRadius="2.5vh"
+          borderRadius="2.5dvh"
           justifyContent="center"
           mx={{
-            base: "6vw",
-            md: "3vw",
+            base: "6dvw",
+            md: "3dvw",
           }}
-          pb="3vh"
+          pb="3dvh"
           overflow="hidden"
           flexDirection="column">
           <StyledText
@@ -978,25 +978,25 @@ export default function Index() {
             textAlign="left"
             fontWeights={["900"]}
             fontSizeRaw={{
-              base: "4vh",
-              md: "5vh",
+              base: "4dvh",
+              md: "5dvh",
             }}
             colors={["white", "teal", "white", "indigo"]}
-            my="2vh"
-            mx="5vw"
+            my="2dvh"
+            mx="5dvw"
             multiLanguageSupport={{
               en: "Personal Project",
               es: "Proyecto Personal",
             }}
           />
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
-            gap="2vh"
+            gap="2dvh"
             borderRaw="1px solid white"
             keyframesRaw={{
               scaleUp: {
@@ -1026,14 +1026,14 @@ export default function Index() {
               animationRaw: "scaleUp 0.1s ease-in-out forwards",
             }}
             animationRaw="scaleDown 0.1s ease-in-out forwards">
-            <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
+            <Flex width="100%" mb="2dvh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="Robust Ui"
@@ -1043,8 +1043,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -1053,12 +1053,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -1066,8 +1066,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -1078,13 +1078,13 @@ export default function Index() {
             </Flex>
           </Flex>
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
-            gap="2vh"
+            gap="2dvh"
             borderRaw="1px solid white"
             keyframesRaw={{
               scaleUp: {
@@ -1114,14 +1114,14 @@ export default function Index() {
               animationRaw: "scaleUp 0.1s ease-in-out forwards",
             }}
             animationRaw="scaleDown 0.1s ease-in-out forwards">
-            <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
+            <Flex width="100%" mb="2dvh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="PyTicketMaster"
@@ -1131,8 +1131,8 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -1141,12 +1141,12 @@ export default function Index() {
                 }}
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -1154,8 +1154,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -1166,13 +1166,13 @@ export default function Index() {
             </Flex>
           </Flex>
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
-            gap="2vh"
+            gap="2dvh"
             borderRaw="1px solid white"
             keyframesRaw={{
               scaleUp: {
@@ -1202,14 +1202,14 @@ export default function Index() {
               animationRaw: "scaleUp 0.1s ease-in-out forwards",
             }}
             animationRaw="scaleDown 0.1s ease-in-out forwards">
-            <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
+            <Flex width="100%" mb="2dvh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="Skyquick"
@@ -1219,19 +1219,19 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="01/2023 - 02/2023"
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -1239,8 +1239,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{
@@ -1251,13 +1251,13 @@ export default function Index() {
             </Flex>
           </Flex>
           <Flex
-            my="2vh"
-            mx="2vw"
-            p="4vh"
-            borderRadius="2.5vh"
+            my="2dvh"
+            mx="2dvw"
+            p="4dvh"
+            borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
-            gap="2vh"
+            gap="2dvh"
             borderRaw="1px solid white"
             keyframesRaw={{
               scaleUp: {
@@ -1287,14 +1287,14 @@ export default function Index() {
               animationRaw: "scaleUp 0.1s ease-in-out forwards",
             }}
             animationRaw="scaleDown 0.1s ease-in-out forwards">
-            <Flex width="100%" mb="2vh" justifyContent="spaceBetween">
+            <Flex width="100%" mb="2dvh" justifyContent="spaceBetween">
               <StyledText
                 optimizedWidth
                 textAlign="left"
                 fontWeights={["900"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "4vh",
+                  base: "2.5dvh",
+                  md: "4dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="Kalo"
@@ -1304,19 +1304,19 @@ export default function Index() {
                 textAlign="right"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport="11/2022 - 01/2023"
               />
             </Flex>
-            <Flex optimizedWidth gap="2vw">
+            <Flex optimizedWidth gap="2dvw">
               <Icon
                 iconType="starFill"
                 sizeRaw={{
-                  base: "2vh",
-                  md: "3vh",
+                  base: "2dvh",
+                  md: "3dvh",
                 }}
               />
               <StyledText
@@ -1324,8 +1324,8 @@ export default function Index() {
                 textAlign="left"
                 fontWeights={["500"]}
                 fontSizeRaw={{
-                  base: "2.5vh",
-                  md: "3vh",
+                  base: "2.5dvh",
+                  md: "3dvh",
                 }}
                 colors={["white", "teal", "white", "indigo"]}
                 multiLanguageSupport={{

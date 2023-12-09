@@ -2,11 +2,11 @@ import {
   Ticon,
   Block,
   Flex,
+  Image,
   NextLink,
   StyledText,
   Icon,
 } from "@robust-ui/nextjs-components";
-import { Image } from "./image";
 
 export function Project({
   id,

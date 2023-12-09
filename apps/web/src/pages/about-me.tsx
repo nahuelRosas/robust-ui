@@ -21,7 +21,7 @@ export default function Index() {
         }}
       />
       <Card
-        mt="10vh"
+        mt="10dvh"
         label={{
           text: {
             en: "Summary",
@@ -36,7 +36,7 @@ export default function Index() {
         }}
       />
       <Card
-        mt="10vh"
+        mt="10dvh"
         label={{
           text: {
             en: "Background story",
@@ -51,7 +51,7 @@ export default function Index() {
         }}
       />
       <Card
-        my="10vh"
+        my="10dvh"
         label={{
           text: {
             en: "Why Development?",

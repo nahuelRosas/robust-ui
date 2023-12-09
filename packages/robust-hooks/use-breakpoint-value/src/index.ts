@@ -9,16 +9,16 @@ export function useBreakpointValue({
 }: {
   values?: Record<string, unknown>;
   breakPoints?: Record<string, number>;
-}): unknown {
+} = {}): unknown {
   const devData = useGlobalContext({ key: "devData" });
 
   if (!devData && !breakPoints)
     throw new Error(
-      "[useBreakPointValue] - You should use this hook within the provider.",
+      "[useBreakPointValue] - You should use this hook within the provider."
     );
 
   const [currentBreakpoint, setCurrentBreakpoint] = useState<string | null>(
-    null,
+    null
   );
 
   const mediaBreakpoints = breakPoints || devData.mediaBreakpoints;
@@ -31,7 +31,7 @@ export function useBreakpointValue({
         currentBreakpoint,
       });
     },
-    [mediaBreakpoints, currentBreakpoint],
+    [mediaBreakpoints, currentBreakpoint]
   );
 
   const debouncedHandleResize = useMemo(
@@ -41,7 +41,7 @@ export function useBreakpointValue({
         delay: 0,
         immediate: true,
       }),
-    [handleResizeCallback],
+    [handleResizeCallback]
   );
 
   const memoizedResult = useMemo(() => {

@@ -14,15 +14,15 @@ export default function BreakingRobust() {
     optimizedWidth: true,
     alignSelf: "center",
     py: "0",
-    mb: "2vh",
-    mt: "2vh",
+    mb: "2dvh",
+    mt: "2dvh",
     px: {
-      base: "6vw",
-      md: "3vw",
+      base: "6dvw",
+      md: "3dvw",
     },
     fontSizeRaw: {
-      base: "2.5vh",
-      md: "3vh",
+      base: "2.5dvh",
+      md: "3dvh",
     },
     textAlign: {
       base: "left",
@@ -36,15 +36,15 @@ export default function BreakingRobust() {
     optimizedWidth: true,
     alignSelf: "center",
     py: "0",
-    mb: "2vh",
-    mt: "2vh",
+    mb: "2dvh",
+    mt: "2dvh",
     px: {
-      base: "6vw",
-      md: "3vw",
+      base: "6dvw",
+      md: "3dvw",
     },
     fontSizeRaw: {
-      base: "3.5vh",
-      md: "4vh",
+      base: "3.5dvh",
+      md: "4dvh",
     },
     textAlign: {
       base: "left",
@@ -58,15 +58,15 @@ export default function BreakingRobust() {
     optimizedWidth: true,
     alignSelf: "center",
     py: "0",
-    mb: "2vh",
-    mt: "2vh",
+    mb: "2dvh",
+    mt: "2dvh",
     px: {
-      base: "6vw",
-      md: "3vw",
+      base: "6dvw",
+      md: "3dvw",
     },
     fontSizeRaw: {
-      base: "2.5vh",
-      md: "3vh",
+      base: "2.5dvh",
+      md: "3dvh",
     },
     textAlign: {
       base: "left",
@@ -84,8 +84,8 @@ export default function BreakingRobust() {
         }}
       />
       <Card
-        mt="15vh"
-        mb="10vh"
+        mt="15dvh"
+        mb="10dvh"
         tabIndex={-1}
         id={"breaking-robust"}
         header={{
@@ -99,9 +99,14 @@ export default function BreakingRobust() {
           en: "Breaking down Robust: | How to create your own React component library inspired by Styled Components, Tailwind, and Chakra UI ",
           es: "Desglosando Robust: | Cómo crear tu propia biblioteca de componentes de React inspirada en Styled Components, Tailwind y Chakra UI",
         }}
-        images={[
-          "https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386733005_l48rgz.png",
-        ]}>
+        images={{
+          src: [
+            "https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386733005_l48rgz.png",
+          ],
+          imagesProps: {
+            isSlider: true,
+          },
+        }}>
         <StyledText
           {...titleTextStyle}
           multiLanguageSupport={{
@@ -165,9 +170,9 @@ export default function BreakingRobust() {
           isSlider
           alt="Eacces error"
           alignSelf="center"
-          borderRadius="2.5vh"
-          height="50vh"
-          m="3vh"
+          borderRadius="2.5dvh"
+          height="50dvh"
+          m="3dvh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685385868929_yvkze4.png"
         />
         <StyledText
@@ -199,13 +204,13 @@ export default function BreakingRobust() {
           }}
         />
 
-        <Flex my="0.5vh" mx="6vw" gap="1vh" optimizedWidth>
+        <Flex my="0.5dvh" mx="6dvw" gap="1dvh" optimizedWidth>
           <Icon
             color="teal"
             iconType="starFill"
             sizeRaw={{
-              base: "2vh",
-              md: "3vh",
+              base: "2dvh",
+              md: "3dvh",
             }}
           />
           <StyledText
@@ -213,8 +218,8 @@ export default function BreakingRobust() {
             optimizedWidth
             alignSelf="center"
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             textAlign={{
               base: "left",
@@ -222,8 +227,8 @@ export default function BreakingRobust() {
             }}
             fontWeights={["400", "900", "400", "900"]}
             px={{
-              base: "6vw",
-              md: "3vw",
+              base: "6dvw",
+              md: "3dvw",
             }}
             colors={["white", "teal"]}
             multiLanguageSupport={{
@@ -232,13 +237,13 @@ export default function BreakingRobust() {
             }}
           />
         </Flex>
-        <Flex my="0.5vh" mx="6vw" gap="1vh" optimizedWidth>
+        <Flex my="0.5dvh" mx="6dvw" gap="1dvh" optimizedWidth>
           <Icon
             iconType="starFill"
             color="teal"
             sizeRaw={{
-              base: "2vh",
-              md: "3vh",
+              base: "2dvh",
+              md: "3dvh",
             }}
           />
           <StyledText
@@ -246,8 +251,8 @@ export default function BreakingRobust() {
             optimizedWidth
             alignSelf="center"
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             textAlign={{
               base: "left",
@@ -255,8 +260,8 @@ export default function BreakingRobust() {
             }}
             fontWeights={["400", "900", "400", "900"]}
             px={{
-              base: "6vw",
-              md: "3vw",
+              base: "6dvw",
+              md: "3dvw",
             }}
             colors={["white", "teal"]}
             multiLanguageSupport={{
@@ -265,13 +270,13 @@ export default function BreakingRobust() {
             }}
           />
         </Flex>
-        <Flex my="0.5vh" mx="6vw" gap="1vh" optimizedWidth>
+        <Flex my="0.5dvh" mx="6dvw" gap="1dvh" optimizedWidth>
           <Icon
             iconType="starFill"
             color="teal"
             sizeRaw={{
-              base: "2vh",
-              md: "3vh",
+              base: "2dvh",
+              md: "3dvh",
             }}
           />
           <StyledText
@@ -279,8 +284,8 @@ export default function BreakingRobust() {
             optimizedWidth
             alignSelf="center"
             fontSizeRaw={{
-              base: "2.5vh",
-              md: "3vh",
+              base: "2.5dvh",
+              md: "3dvh",
             }}
             textAlign={{
               base: "left",
@@ -288,8 +293,8 @@ export default function BreakingRobust() {
             }}
             fontWeights={["400", "900", "400", "900"]}
             px={{
-              base: "6vw",
-              md: "3vw",
+              base: "6dvw",
+              md: "3dvw",
             }}
             colors={["white", "teal"]}
             multiLanguageSupport={{
@@ -302,9 +307,9 @@ export default function BreakingRobust() {
           isSlider
           alt="Eacces error"
           alignSelf="center"
-          borderRadius="2.5vh"
-          m="3vh"
-          height="50vh"
+          borderRadius="2.5dvh"
+          m="3dvh"
+          height="50dvh"
           src="https://res.cloudinary.com/dpd5v5wnr/image/upload/v1693169733/portfolio/Articles/Breaking%20down%20Robust:%20How%20to%20create%20your%20own%20React%20component%20library%20inspired%20by%20Styled%20Components%2C%20Tailwind%2C%20and%20Chakra%20UI%20%28Advanced%20TypeScript%29/1685386484533_pfjweq.png"
         />
         <StyledText

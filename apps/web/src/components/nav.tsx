@@ -13,14 +13,18 @@ export default function Nav() {
   const [language, setLanguage] = useLanguage();
   return (
     <Header
+      p={{
+        base: "1.5dvh",
+        md: "2.5dvh",
+      }}
       colorScheme="black"
       zIndex="2"
-      boxShadowRaw="0 0 1.5vh 0 rgba(255, 255, 255, 0.3)">
+      boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)">
       <NextLink direction="rowReverse" href="/">
         <StyledText
           fontWeights={["400", "700"]}
           colors={["white", "teal"]}
-          fontSizeRaw="3vh">
+          fontSizeRaw="3dvh">
           Nahuel|Rosas
         </StyledText>
       </NextLink>
@@ -29,7 +33,7 @@ export default function Nav() {
           base: "none",
           md: "flex",
         }}
-        mx="6vw"
+        mx="6dvw"
         justifyContent="spaceBetween"
         optimizedWidth>
         <NextLink
@@ -61,19 +65,19 @@ export default function Nav() {
             fontWeight: "700",
             variant: "linkLight",
           }}
-          gap="2vh">
+          gap="2dvh">
           <Button
             variant="linkLight"
             onClick={() => setLanguage("en")}
             fontWeight="900"
-            px="2vw">
+            px="2dvw">
             ENGLISH
           </Button>
           <Button
             variant="linkLight"
             onClick={() => setLanguage("es")}
             fontWeight="900"
-            px="2vw">
+            px="2dvw">
             ESPAÑOL
           </Button>
         </Menu>

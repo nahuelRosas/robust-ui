@@ -46,7 +46,7 @@ export default function Sub() {
         duration: 3000,
         isClosable: true,
       });
-    } else if (res.status === 200) {
+    } else if (res.status === 200 || !res) {
       setName("");
       setEmail("");
       setText("");

@@ -214,4 +214,7 @@ template {
 }
 [hidden] {
   display: none;
+}
+* {
+    -webkit-tap-highlight-color: transparent;
 }`;

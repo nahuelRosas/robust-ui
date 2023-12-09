@@ -40,6 +40,7 @@ export function useCleanValue({
         ) {
           return { ...acc, [key]: value };
         }
+
         const recoveredProp = ValueRecoverer({
           currentGlobalLanguage,
           inputProp: key,
@@ -51,12 +52,13 @@ export function useCleanValue({
           darkMode: isDarkModeActive,
           theme,
         });
+
         return {
           ...acc,
           [key]: recoveredProp,
         };
       },
-      {},
+      {}
     );
     return cleanProps as object;
   }, [

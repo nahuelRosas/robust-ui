@@ -28,17 +28,17 @@ export function attributeCompleter({
 
       if (value && typeof value === "object" && !Array.isArray(value)) {
         const hasValidBreakpoints = Object.keys(value).some((attrKey) =>
-          mediaBreakpoints.hasOwnProperty(attrKey),
+          mediaBreakpoints.hasOwnProperty(attrKey)
         );
         const hasValidDarkMode = ["dark", "light"].some((darkModeKey) =>
-          value.hasOwnProperty(darkModeKey),
+          value.hasOwnProperty(darkModeKey)
         );
 
         if (hasValidBreakpoints && hasValidDarkMode) {
           throw new Error(
             `Invalid inputAttributes format: Cannot have both breakpoints and dark mode in the same object: ${JSON.stringify(
-              key,
-            )} - ${JSON.stringify(value)}`,
+              key
+            )} - ${JSON.stringify(value)}`
           );
         }
 
@@ -94,7 +94,30 @@ export function attributeCompleter({
           }
           completedAttributes[key] = darkModeCompleted;
         } else {
-          completedAttributes[key] = value;
+          const preValue: PartialRecord<
+            keyof typeof mediaBreakpoints,
+            unknown
+          > = {};
+
+          for (const [_key, _value] of Object.entries(
+            value as Record<string, unknown>
+          )) {
+            if (
+              _value &&
+              typeof _value === "object" &&
+              !Array.isArray(_value)
+            ) {
+              const partialValue = attributeCompleter({
+                inputAttributes: { [key]: _value },
+                mediaBreakpoints,
+              });
+              preValue[_key] = partialValue ? partialValue[key] : undefined;
+            } else {
+              preValue[_key] = _value;
+            }
+          }
+
+          completedAttributes[key] = preValue;
         }
       } else {
         completedAttributes[key] = value;

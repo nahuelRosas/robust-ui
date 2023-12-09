@@ -38,7 +38,7 @@ export default function Index() {
       />
 
       <Card
-        my="10vh"
+        my="10dvh"
         header={{
           en: "My Projects",
           es: "Mis Proyectos",

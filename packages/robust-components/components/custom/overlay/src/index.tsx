@@ -23,11 +23,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
       iconOpenProps,
       paragraphCard,
       cardProps,
-      labelCard,
       children,
       ...props
     },
-    ref,
+    ref
   ): React.JSX.Element {
     const {
       closeOnOverlayClick = true,
@@ -36,6 +35,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
       colorSchemeRaw,
       colorScheme,
       isDisabled,
+      labelCard,
       ...cleanedProps
     } = useCleanValue({ props }) as OverlayPropsNoGeneric;
     const [isOpen, setIsOpen] = useState(false);
@@ -71,10 +71,20 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
                   "black",
               }}
               paragraph={paragraphCard}
-              label={labelCard}
+              label={{
+                text:
+                  typeof labelCard === "string" ? labelCard : labelCard?.text,
+                labelProps: {
+                  widthRaw: {
+                    base: "80%",
+                    md: "100%",
+                  },
+
+                  ...(typeof labelCard === "object" && labelCard?.labelProps),
+                },
+              }}
               {...cleanedProps}
-              {...cardProps}
-            >
+              {...cardProps}>
               <Button
                 pointerEvents="inherit"
                 onClick={
@@ -125,7 +135,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         iconCloseProps,
         buttonCloseProps,
         otherComponents,
-      ],
+      ]
     );
 
     return (
@@ -213,8 +223,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
           height="100dvh"
           width="100dvw"
           left="0"
-          top="0"
-        >
+          top="0">
           {stopProgationChildren}
         </Flex>
       </Flex>

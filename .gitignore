@@ -13,3 +13,5 @@ public/dist
 storybook-static/
 pnpm-lock.yaml
 apps/*
+./apps/**/
+apps

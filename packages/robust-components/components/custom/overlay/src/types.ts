@@ -1,3 +1,4 @@
+import { StyledTextProps } from "@robust-ui/nested-styled-text";
 import { ButtonProps } from "@robust-ui/button";
 import { CardProps } from "@robust-ui/card";
 import {
@@ -22,4 +23,10 @@ export interface OverlayPropsNoGeneric
   extends EnhancedElementPropsNoGeneric<HTMLDivElement> {
   closeOnOverlayClick?: boolean;
   isDisabled?: boolean;
+  labelCard?:
+    | string
+    | {
+        text?: string;
+        labelProps?: StyledTextProps;
+      };
 }

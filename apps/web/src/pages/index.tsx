@@ -27,7 +27,7 @@ function Index() {
         position="fixed"
         bottom="10"
         pointerEvents={!isVisible ? "none" : "inherit"}
-        width="100vw"
+        width="100dvw"
         flexDirection="row"
         alignItems="center"
         justifyContent="center"
@@ -59,13 +59,13 @@ function Index() {
         <Flex
           flexDirection="row"
           alignItems="center"
-          padding="1vh"
+          padding="1dvh"
           colorSchemeProperty={{
             baseColor: "indigo600",
             opacity: 0.4,
             props: { hover: true },
           }}
-          borderRadius="2vh"
+          borderRadius="2dvh"
           justifyContent="center">
           <StyledText
             multiLanguageSupport={{
@@ -73,14 +73,14 @@ function Index() {
               en: "Scroll for more content",
             }}
             fontWeights={["900"]}
-            fontSize="2.5vh"
+            fontSize="2.5dvh"
           />
           <Flex
             flexDirection="column"
             alignItems="center"
             justifyContent="center">
-            <Icon iconType="mouseFill" size="4vh" />
-            <Icon iconType="arrowBigDownFilled" size="2vh" />
+            <Icon iconType="mouseFill" size="4dvh" />
+            <Icon iconType="arrowBigDownFilled" size="2dvh" />
           </Flex>
         </Flex>
       </Flex>
@@ -95,7 +95,7 @@ function Index() {
         }}
       />
       <Card
-        mt="10vh"
+        mt="10dvh"
         data={[
           {
             label: {
@@ -149,7 +149,7 @@ function Index() {
         }}
       />
       <Card
-        mt="10vh"
+        mt="10dvh"
         label={{
           text: {
             es: "Desarrollo web integral con tecnologías de punta",
@@ -203,7 +203,7 @@ function Index() {
         ]}
       />
       <Card
-        mt="10vh"
+        mt="10dvh"
         data={[
           {
             label: {
@@ -235,7 +235,7 @@ function Index() {
         }}
       />
       <Card
-        my="10vh"
+        my="10dvh"
         label={{
           text: {
             en: "Hi there, I'm Nahuel",
@@ -256,25 +256,25 @@ function Index() {
           },
         }}>
         <Flex
-          gap="2vh"
+          gap="2dvh"
           flexWrap="wrap"
-          minW="70vw"
+          minW="70dvw"
           mx="auto"
-          mt="3vh"
+          mt="3dvh"
           justifyContent="center">
           <NextLink
             href="https://www.linkedin.com/in/nahuelrosas/"
             fontSizeRaw={{
-              base: "3vh",
-              md: "4vh",
+              base: "3dvh",
+              md: "4dvh",
             }}
             iconType="linkedinFill">
             LinkedIn
           </NextLink>
           <NextLink
             fontSizeRaw={{
-              base: "3vh",
-              md: "4vh",
+              base: "3dvh",
+              md: "4dvh",
             }}
             href="https://twitter.com/_rosasnahuel_"
             iconType="twitterXFill">
@@ -282,8 +282,8 @@ function Index() {
           </NextLink>
           <NextLink
             fontSizeRaw={{
-              base: "3vh",
-              md: "4vh",
+              base: "3dvh",
+              md: "4dvh",
             }}
             href="https://github.com/nahuelrosas/"
             iconType="githubFill">

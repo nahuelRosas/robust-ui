@@ -412,9 +412,9 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                   cursorRaw={calcCursorZoom}
                   style={{
                     transform: `scale(${zoom})`,
-                    transformOrigin: `${mousePosition.x * 0.5}px ${
-                      mousePosition.y
-                    }px`,
+                    transformOrigin: isZoomActive
+                      ? `${mousePosition.x * 0.5}px ${mousePosition.y}px`
+                      : "center center",
                     transition: "transform 0.2s ease-out",
                   }}>
                   <Component
@@ -455,6 +455,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         handleDivClick,
         iconCloseProps,
         isRounded,
+        isZoomActive,
         mousePosition.x,
         mousePosition.y,
         ref,

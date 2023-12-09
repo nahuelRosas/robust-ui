@@ -39,8 +39,7 @@ export function atRulesProcessor({
   });
 
   if (typeof paramValue === "undefined") return cssStyles;
-  else if (typeof paramValue === "string")
-    result += `@${inputProp} ${paramValue};`;
+  else if (typeof paramValue === "string") result += `${paramValue};`;
   else if (typeof paramValue === "object" && !Array.isArray(paramValue)) {
     Object.entries(paramValue as { [s: string]: unknown }).forEach(
       ([key, value]) => {
@@ -79,15 +78,15 @@ export function atRulesProcessor({
                     theme,
                   });
                   result += `\n\t\t${propFunction(paramValue)}`;
-                },
+                }
               );
               result += "\n\t}";
             }
-          },
+          }
         );
 
         result += "\n}\n";
-      },
+      }
     );
   }
 
