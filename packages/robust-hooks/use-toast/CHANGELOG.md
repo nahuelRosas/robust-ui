@@ -1,5 +1,12 @@
 # @robust-ui/use-toast
 
+## 0.5.5
+
+### Patch Changes
+
+- @robust-ui/nested-styled-text@0.7.3
+- @robust-ui/constructor@0.5.5
+
 ## 0.5.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @robust-ui/use-breakpoint-value
 
+## 0.6.0
+
+### Minor Changes
+
+- 515fa6e: fix, refactor
+
 ## 0.5.3
 
 ### Patch Changes

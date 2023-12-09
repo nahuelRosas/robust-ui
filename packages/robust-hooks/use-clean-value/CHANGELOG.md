@@ -1,5 +1,16 @@
 # @robust-ui/use-clean-value
 
+## 0.7.0
+
+### Minor Changes
+
+- 515fa6e: fix, refactor
+
+### Patch Changes
+
+- Updated dependencies [515fa6e]
+  - @robust-ui/css-utils@0.9.0
+
 ## 0.6.0
 
 ### Minor Changes
