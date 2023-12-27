@@ -52,8 +52,8 @@ jobs:
       - name: Format Code
         run: pnpm run format:write
 
-      - name: Lint and Build Packages
-        run: pnpm run lint && pnpm run build:packages
+      - name: Lint Packages
+        run: pnpm run lint
 
       - name: DepCheck
         run: pnpm run depCheck
