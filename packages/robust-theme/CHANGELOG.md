@@ -1,5 +1,11 @@
 # @robust-ui/theme
 
+## 0.9.0
+
+### Minor Changes
+
+- 133d959: Modifications were made to the code of all properties so that SSR can be used, Robust UI supports SSR only in Next.js
+
 ## 0.8.0
 
 ### Minor Changes

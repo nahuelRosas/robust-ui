@@ -1,5 +1,26 @@
 # @robust-ui/provider
 
+## 0.9.0
+
+### Minor Changes
+
+- 133d959: Modifications were made to the code of all properties so that SSR can be used, Robust UI supports SSR only in Next.js
+
+### Patch Changes
+
+- Updated dependencies [133d959]
+  - @robust-ui/toast-manager@0.6.0
+  - @robust-ui/global-state-reducer@0.6.0
+  - @robust-ui/use-breakpoint-value@0.7.0
+  - @robust-ui/use-global-context@0.6.0
+  - @robust-ui/use-clean-value@0.8.0
+  - @robust-ui/css-utils@0.10.0
+  - @robust-ui/use-ssr@0.6.0
+  - @robust-ui/constructor@0.6.0
+  - @robust-ui/utils@0.7.0
+  - @robust-ui/theme@0.9.0
+  - @robust-ui/loader-style@0.1.1
+
 ## 0.8.0
 
 ### Minor Changes

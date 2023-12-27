@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/nested-styled-text",
   "description": "Text component with multi style support for Robust UI",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {
