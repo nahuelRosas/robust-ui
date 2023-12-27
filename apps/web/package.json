@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
   "name": "web",
   "version": "0.4.0",
+=======
+  "name": "portfolio",
+  "version": "0.1.0",
+>>>>>>> 2ff8e60 (fix dependencies)
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,20 +14,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^14.0.4",
     "@react-three/fiber": "^8.15.12",
-    "@robust-ui/nextjs-components": "workspace:*",
-    "@vercel/analytics": "^1.1.1",
+    "@robust-ui/nextjs-components": "workspace: *",
+    "@vercel/analytics": "^1.1.0",
+    "@vercel/speed-insights": "^1.0.2",
     "chroma-js": "^2.4.2",
     "logrocket": "^7.0.0",
-    "next": "link:@vercel/speed-insights/next",
+    "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-pdf": "^7.6.0",
-    "resend": "^2.1.0",
-    "three": "^0.160.0"
+    "resend": "^2.0.0",
+    "terser-webpack-plugin": "^5.3.9",
+    "three": "^0.159.0"
   },
   "devDependencies": {
-    "@robust-ui/tsconfig": "workspace:*",
     "@types/chroma-js": "^2.4.3",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
@@ -30,7 +36,6 @@
     "@types/three": "^0.160.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
-    "eslint-config-robust": "workspace:*",
     "typescript": "^5.3.3"
   }
 }

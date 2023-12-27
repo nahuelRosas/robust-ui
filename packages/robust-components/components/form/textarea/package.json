@@ -24,23 +24,17 @@
     "build:fast": "tsup-node src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "depCheck": "depcheck"
+    "depCheck": "depcheck --quiet"
   },
   "dependencies": {
-    "@robust-ui/nested-styled-text": "workspace:*",
-    "@robust-ui/use-global-context": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/constructor": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
-    "@robust-ui/button": "workspace:*",
     "@robust-ui/label": "workspace:*",
     "@robust-ui/utils": "workspace:*",
-    "@robust-ui/theme": "workspace:*",
-    "@robust-ui/span": "workspace:*",
     "@robust-ui/flex": "workspace:*",
-    "@robust-ui/grid": "workspace:*",
-    "@robust-ui/icon": "workspace:*",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "tsup": "^8.0.1"
   },
   "devDependencies": {
     "eslint-config-robust": "workspace:*",

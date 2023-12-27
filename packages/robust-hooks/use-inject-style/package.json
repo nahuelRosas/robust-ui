@@ -24,12 +24,14 @@
     "build:fast": "tsup-node src",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "depCheck": "depcheck"
+    "depCheck": "depcheck --quiet"
   },
   "dependencies": {
     "@robust-ui/css-utils": "workspace:*",
     "@robust-ui/purging": "workspace:*",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "next": "14.0.4",
+    "tsup": "^8.0.1"
   },
   "devDependencies": {
     "eslint-config-robust": "workspace:*",

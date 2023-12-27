@@ -1,6 +1,6 @@
 import { access, readFile, writeFile } from "node:fs/promises";
-import path from "node:path";
 import { defineConfig } from "tsup";
+import path from "node:path";
 
 async function removeDirective(fileName: string) {
   const filePath = path.resolve(__dirname, "dist", fileName);
@@ -23,7 +23,7 @@ async function removeDirective(fileName: string) {
 
 export default defineConfig({
   format: ["cjs", "esm"],
-  target: "es2022",
+  target: "es5",
   sourcemap: true,
   minify: "terser",
   external: ["react"],

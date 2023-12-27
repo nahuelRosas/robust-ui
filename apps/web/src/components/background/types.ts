@@ -1,4 +1,4 @@
-import { Vector3, IUniform } from "three";
+import { Vector3 } from "three";
 
 export interface Instance {
   position: Vector3;
@@ -6,8 +6,4 @@ export interface Instance {
   velocity: Vector3;
   attraction: number;
   vlimit: number;
-}
-
-export interface CustomUniforms {
-  [uniform: string]: IUniform<any>;
 }

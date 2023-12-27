@@ -5,7 +5,6 @@ import {
   Color,
 } from "three";
 import SubsurfaceScatteringShader from "./SubsurfaceScatteringShader";
-import { CustomUniforms } from "../types";
 export interface SubSurfaceMaterialUniformsInterface {
   diffuse?: string | number;
   thicknessColor?: string | number;
@@ -22,7 +21,7 @@ export const defaultUniforms = UniformsUtils.clone(
 
 export const DodecahedronGeometryInstance = new DodecahedronGeometry(5, 0);
 
-export const customUniforms: CustomUniforms = {
+export const customUniforms = {
   diffuse: { value: new Color(0xff00ff) },
   thicknessColor: { value: new Color(0xff00ff) },
   thicknessDistortion: { value: 0.4 },
@@ -31,7 +30,6 @@ export const customUniforms: CustomUniforms = {
   thicknessPower: { value: 2 },
   thicknessScale: { value: 4 },
 };
-
 const params = SubsurfaceScatteringShader;
 const uniforms = UniformsUtils.clone(params.uniforms);
 
