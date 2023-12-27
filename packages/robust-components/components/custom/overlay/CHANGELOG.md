@@ -1,5 +1,12 @@
 # @robust-ui/cover
 
+## 0.11.1
+
+### Patch Changes
+
+- @robust-ui/button@0.10.1
+- @robust-ui/card@0.7.1
+
 ## 0.11.0
 
 ### Minor Changes

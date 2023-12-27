@@ -1,5 +1,11 @@
 # @robust-ui/toast-manager
 
+## 0.7.1
+
+### Patch Changes
+
+- @robust-ui/toast@0.9.1
+
 ## 0.7.0
 
 ### Minor Changes

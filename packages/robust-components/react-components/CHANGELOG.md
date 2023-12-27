@@ -1,5 +1,16 @@
 # @robust-ui/react-components
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [6cf46db]
+  - @robust-ui/icon@0.10.0
+  - @robust-ui/cover@0.9.1
+  - @robust-ui/image@0.12.1
+  - @robust-ui/aside@0.9.1
+  - @robust-ui/provider@0.10.1
+
 ## 0.7.0
 
 ### Minor Changes
