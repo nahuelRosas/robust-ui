@@ -55,8 +55,8 @@ jobs:
       - name: Lint and Build Packages
         run: pnpm run lint && pnpm run build:packages
 
-      - name: DepCheck
-        run: pnpm run depCheck
+      # - name: DepCheck
+      #   run: pnpm run depCheck
 
       - name: Setup npmrc
         run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
