@@ -1,0 +1,3 @@
+{
+  "extends": "@robust-ui/tsconfig/base.json"
+}

@@ -37,7 +37,7 @@ const Factory: React.ForwardRefExoticComponent<
             !nameFile[nameFile.length - 1]
               ? "root"
               : nameFile[nameFile.length - 1]
-          }-document.css`
+          }-document.css`,
         );
 
         if (fs.existsSync(cssFile)) {
@@ -47,7 +47,7 @@ const Factory: React.ForwardRefExoticComponent<
             {
               className: "robust-ui",
             },
-            cssFileContent
+            cssFileContent,
           );
         }
       } catch (error) {

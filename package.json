@@ -1,13 +1,14 @@
 {
+  "name": "@robust-ui/core",
   "private": false,
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "license": "MIT",
   "scripts": {
     "build": "turbo run build",
-    "depCheck": "turbo run depCheck",
     "build:packages": "turbo run build --filter=!./apps/* ",
-    "dev": "turbo run dev --no-cache --continue --filter=!./packages/*",
-    "lint": "turbo run lint --filter=!./apps/*",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "depCheck": "turbo run depCheck",
     "clean": "turbo run clean && rimraf dist .turbo node_modules pnpm-lock.yaml",
     "format:write": "prettier --write \"**/*.{ts,tsx,md}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\" --cache",
@@ -20,22 +21,26 @@
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
-    "eslint-config-robust": "workspace:*",
     "@changesets/cli": "^2.26.2",
     "@types/react": "^18.2.39",
     "clean-package": "^2.2.0",
     "@types/node": "^20.10.0",
     "@swc/core": "^1.3.99",
     "typescript": "5.3.2",
-    "prettier": "^3.1.0",
     "terser": "^5.24.0",
     "eslint": "^8.54.0",
-    "turbo": "^1.10.16",
     "rimraf": "^5.0.5",
     "next": "^14.0.3",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.1",
+    "eslint-config-robust": "workspace:*",
+    "@robust-ui/tsconfig": "workspace:*",
+    "prettier": "^3.1.0",
+    "turbo": "latest"
   },
-  "packageManager": "pnpm@7.15.0",
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=18"
+  },
   "repository": "https://github.com/nahuelrosas/robust-ui",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
