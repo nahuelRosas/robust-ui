@@ -24,7 +24,7 @@
     "build:fast": "tsup-node src",
     "typecheck": "tsc --noEmit",
     "prepack": "clean-package",
-    "depCheck": "depcheck --quiet"
+    "depCheck": "depcheck"
   },
   "dependencies": {
     "@robust-ui/use-clean-value": "workspace:*",

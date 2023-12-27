@@ -55,7 +55,8 @@ function Index() {
         }}
         animationRaw={
           isVisible ? "animation 2s infinite" : "hidden 2s ease-in-out forwards"
-        }>
+        }
+      >
         <Flex
           flexDirection="row"
           alignItems="center"
@@ -66,7 +67,8 @@ function Index() {
             props: { hover: true },
           }}
           borderRadius="2dvh"
-          justifyContent="center">
+          justifyContent="center"
+        >
           <StyledText
             multiLanguageSupport={{
               es: "Haz scroll para más contenido",
@@ -78,7 +80,8 @@ function Index() {
           <Flex
             flexDirection="column"
             alignItems="center"
-            justifyContent="center">
+            justifyContent="center"
+          >
             <Icon iconType="mouseFill" size="4dvh" />
             <Icon iconType="arrowBigDownFilled" size="2dvh" />
           </Flex>
@@ -254,21 +257,24 @@ function Index() {
             es: `Soy un |desarrollador web full stack| apasionado por la tecnología y la innovación. Creo código |limpio, reutilizable y eficiente|, y soluciones innovadoras como Robust-UI. Me he formado en bootcamps y aprendizaje autodirigido. He trabajado en una startup y dirijo un emprendimiento. Estoy comprometido en evolucionar y hacer un impacto en proyectos desafiantes. Mi objetivo es que Robust-UI sea adoptado por la comunidad de código abierto y el desarrollo web.`,
             en: `I am a |full stack web developer| passionate about technology and innovation. I create |clean, reusable and efficient| code, and innovative solutions like Robust-UI. I have trained in bootcamps and self-directed learning. I have worked in a startup and run an entrepreneurship. I am committed to evolving and making an impact on challenging projects. My goal is for Robust-UI to be adopted by the open source community and web development.`,
           },
-        }}>
+        }}
+      >
         <Flex
           gap="2dvh"
           flexWrap="wrap"
           minW="70dvw"
           mx="auto"
           mt="3dvh"
-          justifyContent="center">
+          justifyContent="center"
+        >
           <NextLink
             href="https://www.linkedin.com/in/nahuelrosas/"
             fontSizeRaw={{
               base: "3dvh",
               md: "4dvh",
             }}
-            iconType="linkedinFill">
+            iconType="linkedinFill"
+          >
             LinkedIn
           </NextLink>
           <NextLink
@@ -277,7 +283,8 @@ function Index() {
               md: "4dvh",
             }}
             href="https://twitter.com/_rosasnahuel_"
-            iconType="twitterXFill">
+            iconType="twitterXFill"
+          >
             Twitter
           </NextLink>
           <NextLink
@@ -286,7 +293,8 @@ function Index() {
               md: "4dvh",
             }}
             href="https://github.com/nahuelrosas/"
-            iconType="githubFill">
+            iconType="githubFill"
+          >
             Github
           </NextLink>
         </Flex>

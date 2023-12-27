@@ -1,0 +1,53 @@
+---
+"@robust-ui/button": minor
+"@robust-ui/block": minor
+"@robust-ui/nested-styled-text": minor
+"@robust-ui/flex": minor
+"@robust-ui/grid": minor
+"@robust-ui/image": minor
+"@robust-ui/provider": minor
+"@robust-ui/menu": minor
+"@robust-ui/toast-manager": minor
+"@robust-ui/icon": minor
+"@robust-ui/loader-style": minor
+"@robust-ui/text": minor
+"@robust-ui/code-text": minor
+"@robust-ui/next-link": minor
+"@robust-ui/footer": minor
+"@robust-ui/header": minor
+"@robust-ui/use-recovery-global-state-value": minor
+"@robust-ui/overlay": minor
+"@robust-ui/spinner": minor
+"@robust-ui/aside": minor
+"@robust-ui/nextjs-components": minor
+"@robust-ui/textarea": minor
+"@robust-ui/span": minor
+"@robust-ui/cover": minor
+"@robust-ui/toast": minor
+"@robust-ui/card": minor
+"@robust-ui/input": minor
+"@robust-ui/label": minor
+"@robust-ui/use-global-state-updater": minor
+"@robust-ui/global-state-reducer": minor
+"@robust-ui/react-components": minor
+"@robust-ui/use-breakpoint-value": minor
+"@robust-ui/use-resize-listener": minor
+"@robust-ui/use-global-context": minor
+"@robust-ui/use-server-effect": minor
+"@robust-ui/use-global-state": minor
+"@robust-ui/use-image-status": minor
+"@robust-ui/use-inject-style": minor
+"@robust-ui/use-clean-value": minor
+"@robust-ui/use-language": minor
+"@robust-ui/cryptography": minor
+"@robust-ui/use-toast": minor
+"@robust-ui/css-utils": minor
+"@robust-ui/use-ssr": minor
+"@robust-ui/purging": minor
+"@robust-ui/constructor": minor
+"@robust-ui/utils": minor
+"@robust-ui/theme": minor
+"web": minor
+---
+
+depcheck script update, turbo repo update, devops review

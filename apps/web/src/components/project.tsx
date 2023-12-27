@@ -73,7 +73,8 @@ export function Project({
         }}
         pb="3dvh"
         overflow="hidden"
-        flexDirection="column">
+        flexDirection="column"
+      >
         <NextLink
           href="/projects"
           px={{
@@ -82,7 +83,8 @@ export function Project({
           }}
           pt="3dvh"
           cursor="pointer"
-          alignSelf="flexStart">
+          alignSelf="flexStart"
+        >
           <StyledText
             p="0"
             optimizedWidth
@@ -319,7 +321,8 @@ export function Project({
                     my="0.5dvh"
                     mx="6dvw"
                     gap="2dvh"
-                    optimizedWidth>
+                    optimizedWidth
+                  >
                     <Icon
                       key={index}
                       color={color}
@@ -387,14 +390,16 @@ export function Project({
               flexWrap="wrap"
               justifyContent="center"
               mt="3dvh"
-              gap="3dvh">
+              gap="3dvh"
+            >
               {technologies.map((technology, index) => {
                 return (
                   <Flex
                     key={index}
                     flexDirection="column"
                     flexWrap="wrap"
-                    alignItems="center">
+                    alignItems="center"
+                  >
                     {technology.iconType && (
                       <Icon
                         iconType={technology.iconType}
@@ -432,7 +437,8 @@ export function Project({
           flexDirection="row"
           mt="4dvh"
           flexWrap="wrap"
-          optimizedWidth>
+          optimizedWidth
+        >
           {url?.npm && (
             <NextLink
               fontSizeRaw={{

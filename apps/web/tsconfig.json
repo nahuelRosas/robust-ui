@@ -1,12 +1,16 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@robust-ui/tsconfig/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
+
   "include": [
     "next-env.d.ts",
     "next.config.js",

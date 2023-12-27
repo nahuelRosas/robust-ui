@@ -106,7 +106,8 @@ export default function EaccesError() {
           imagesProps: {
             isSlider: true,
           },
-        }}>
+        }}
+      >
         <StyledText
           {...commonTextStyle}
           multiLanguageSupport={{
@@ -215,7 +216,8 @@ La razón detrás de este error se encuentra en la sólida y precisa estructura 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           mkdir ~/npm-global
         </CodeText>
         <StyledText
@@ -230,7 +232,8 @@ La razón detrás de este error se encuentra en la sólida y precisa estructura 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           npm config set prefix ~/npm-global
         </CodeText>
         <StyledText
@@ -252,7 +255,8 @@ La razón detrás de este error se encuentra en la sólida y precisa estructura 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           {`echo 'export PATH=~/npm-global/bin:$PATH' >> ~/.bashrc`}
         </CodeText>
         <StyledText
@@ -267,7 +271,8 @@ La razón detrás de este error se encuentra en la sólida y precisa estructura 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           {`echo 'export PATH=~/npm-global/bin:$PATH' >> ~/.zshrc`}
         </CodeText>
         <StyledText
@@ -337,7 +342,8 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           curl -o-
           https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
         </CodeText>
@@ -353,7 +359,8 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           {`wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash`}
         </CodeText>
         <StyledText
@@ -391,7 +398,8 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           nvm install node
         </CodeText>
         <StyledText
@@ -406,7 +414,8 @@ Finally, after you have completed these steps, the "~/npm-global/bin" directory 
             base: "6dvw",
             md: "3dvw",
           }}
-          my="1dvh">
+          my="1dvh"
+        >
           nvm use node
         </CodeText>
         <StyledText

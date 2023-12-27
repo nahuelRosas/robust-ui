@@ -19,12 +19,14 @@ export default function Nav() {
       }}
       colorScheme="black"
       zIndex="2"
-      boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)">
+      boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)"
+    >
       <NextLink direction="rowReverse" href="/">
         <StyledText
           fontWeights={["400", "700"]}
           colors={["white", "teal"]}
-          fontSizeRaw="3dvh">
+          fontSizeRaw="3dvh"
+        >
           Nahuel|Rosas
         </StyledText>
       </NextLink>
@@ -35,7 +37,8 @@ export default function Nav() {
         }}
         mx="6dvw"
         justifyContent="spaceBetween"
-        optimizedWidth>
+        optimizedWidth
+      >
         <NextLink
           href="/projects"
           multiLanguageSupport={{
@@ -65,19 +68,22 @@ export default function Nav() {
             fontWeight: "700",
             variant: "linkLight",
           }}
-          gap="2dvh">
+          gap="2dvh"
+        >
           <Button
             variant="linkLight"
             onClick={() => setLanguage("en")}
             fontWeight="900"
-            px="2dvw">
+            px="2dvw"
+          >
             ENGLISH
           </Button>
           <Button
             variant="linkLight"
             onClick={() => setLanguage("es")}
             fontWeight="900"
-            px="2dvw">
+            px="2dvw"
+          >
             ESPAÑOL
           </Button>
         </Menu>
@@ -101,21 +107,25 @@ export default function Nav() {
               textTransform: "uppercase",
               variant: "linkLight",
             }}
-            flexDirection="column">
+            flexDirection="column"
+          >
             <Button
               variant="linkLight"
               onClick={() => setLanguage("en")}
-              fontWeight="900">
+              fontWeight="900"
+            >
               ENGLISH
             </Button>
             <Button
               variant="linkLight"
               onClick={() => setLanguage("es")}
-              fontWeight="900">
+              fontWeight="900"
+            >
               ESPAÑOL
             </Button>
           </Menu>
-        }>
+        }
+      >
         <NextLink
           href="/"
           multiLanguageSupport={{

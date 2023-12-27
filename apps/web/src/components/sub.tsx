@@ -80,7 +80,8 @@ export default function Sub() {
     <Footer
       boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)"
       flexDirection="column"
-      colorScheme="black">
+      colorScheme="black"
+    >
       <StyledText
         fontSizeRaw="3dvh"
         colors={["white"]}
@@ -141,7 +142,8 @@ export default function Sub() {
         paragraphCard={{
           es: "Puedes enviarme un mail, o contactarme por mis redes sociales.",
           en: "You can send me an email, or contact me through my social networks.",
-        }}>
+        }}
+      >
         <Input
           placeholder={{
             es: "Nombre",
@@ -199,7 +201,8 @@ export default function Sub() {
           minW="70dvw"
           mx="auto"
           mt="3dvh"
-          justifyContent="center">
+          justifyContent="center"
+        >
           <NextLink
             href="/projects"
             isDisabled={isLoading}
@@ -207,7 +210,8 @@ export default function Sub() {
               base: "2dvh",
               md: "2.5dvh",
             }}
-            iconType="linkedinFill">
+            iconType="linkedinFill"
+          >
             LinkedIn
           </NextLink>
           <NextLink
@@ -217,7 +221,8 @@ export default function Sub() {
               md: "2.5dvh",
             }}
             href="https://twitter.com/_rosasnahuel_"
-            iconType="twitterXFill">
+            iconType="twitterXFill"
+          >
             Twitter
           </NextLink>
           <NextLink
@@ -227,7 +232,8 @@ export default function Sub() {
               md: "2.5dvh",
             }}
             href="https://github.com/nahuelrosas/"
-            iconType="githubFill">
+            iconType="githubFill"
+          >
             Github
           </NextLink>
           <Button

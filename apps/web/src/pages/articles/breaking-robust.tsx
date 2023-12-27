@@ -106,7 +106,8 @@ export default function BreakingRobust() {
           imagesProps: {
             isSlider: true,
           },
-        }}>
+        }}
+      >
         <StyledText
           {...titleTextStyle}
           multiLanguageSupport={{
