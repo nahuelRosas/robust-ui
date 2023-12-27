@@ -1,5 +1,21 @@
 # @robust-ui/cover
 
+## 0.9.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/label@0.6.0
+  - @robust-ui/flex@0.7.0
+  - @robust-ui/constructor@0.7.0
+  - @robust-ui/use-clean-value@0.9.0
+  - @robust-ui/css-utils@0.11.0
+  - @robust-ui/utils@0.8.0
+
 ## 0.8.0
 
 ### Minor Changes

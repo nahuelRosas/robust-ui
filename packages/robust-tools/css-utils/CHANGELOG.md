@@ -1,5 +1,17 @@
 # @robust-ui/css-utils
 
+## 0.11.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/theme@0.10.0
+  - @robust-ui/cryptography@0.7.0
+
 ## 0.10.0
 
 ### Minor Changes

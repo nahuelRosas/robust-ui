@@ -1,5 +1,19 @@
 # @robust-ui/toast-manager
 
+## 0.7.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/toast@0.9.0
+  - @robust-ui/flex@0.7.0
+  - @robust-ui/constructor@0.7.0
+  - @robust-ui/use-global-context@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes

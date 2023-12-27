@@ -1,5 +1,16 @@
 # @robust-ui/utils
 
+## 0.8.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/use-global-context@0.7.0
+
 ## 0.7.0
 
 ### Minor Changes

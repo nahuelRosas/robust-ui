@@ -1,5 +1,11 @@
 # @robust-ui/icons
 
+## 0.7.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
 ## 0.6.0
 
 ### Minor Changes

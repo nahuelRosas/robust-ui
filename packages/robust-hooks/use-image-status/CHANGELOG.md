@@ -1,5 +1,16 @@
 # @robust-ui/use-image-status
 
+## 0.7.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/use-global-state@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes
