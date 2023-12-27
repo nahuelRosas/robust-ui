@@ -1,5 +1,16 @@
 # @robust-ui/icon
 
+## 0.10.0
+
+### Minor Changes
+
+- 6cf46db: change default export
+
+### Patch Changes
+
+- Updated dependencies [6cf46db]
+  - @robust-ui/icons@0.8.0
+
 ## 0.9.0
 
 ### Minor Changes

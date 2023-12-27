@@ -1,5 +1,12 @@
 # @robust-ui/card
 
+## 0.7.1
+
+### Patch Changes
+
+- @robust-ui/image@0.12.1
+- @robust-ui/next-link@0.9.1
+
 ## 0.7.0
 
 ### Minor Changes

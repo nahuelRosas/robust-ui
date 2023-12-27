@@ -1,5 +1,23 @@
 # @robust-ui/nextjs-components
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [6cf46db]
+  - @robust-ui/icons@0.8.0
+  - @robust-ui/icon@0.10.0
+  - @robust-ui/cover@0.9.1
+  - @robust-ui/image@0.12.1
+  - @robust-ui/button@0.10.1
+  - @robust-ui/next-link@0.9.1
+  - @robust-ui/card@0.7.1
+  - @robust-ui/code-text@0.9.1
+  - @robust-ui/overlay@0.11.1
+  - @robust-ui/menu@0.9.1
+  - @robust-ui/aside@0.9.1
+  - @robust-ui/provider@0.10.1
+
 ## 0.9.0
 
 ### Minor Changes

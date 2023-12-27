@@ -1,5 +1,13 @@
 # @robust-ui/image
 
+## 0.12.1
+
+### Patch Changes
+
+- Updated dependencies [6cf46db]
+  - @robust-ui/icon@0.10.0
+  - @robust-ui/button@0.10.1
+
 ## 0.12.0
 
 ### Minor Changes

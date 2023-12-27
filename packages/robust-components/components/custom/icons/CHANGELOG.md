@@ -1,5 +1,11 @@
 # @robust-ui/icons
 
+## 0.8.0
+
+### Minor Changes
+
+- 6cf46db: change default export
+
 ## 0.7.0
 
 ### Minor Changes

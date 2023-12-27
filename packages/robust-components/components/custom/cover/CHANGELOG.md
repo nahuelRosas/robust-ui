@@ -1,5 +1,12 @@
 # @robust-ui/cover
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [6cf46db]
+  - @robust-ui/icon@0.10.0
+
 ## 0.9.0
 
 ### Minor Changes
