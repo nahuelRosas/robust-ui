@@ -1,4 +1,4 @@
-export function useSsr() {
+export function useSSR() {
   const isDOM =
     typeof window !== "undefined" &&
     window.document &&

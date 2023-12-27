@@ -25,11 +25,12 @@ export default defineConfig({
   format: ["cjs", "esm"],
   target: "es2022",
   sourcemap: true,
-  banner: {
-    js: "'use client'",
-  },
   minify: "terser",
   external: ["react"],
+  terserOptions: {
+    compress: true,
+  },
+
   async onSuccess() {
     try {
       await Promise.all([

@@ -2,19 +2,11 @@
   "extends": "@robust-ui/tsconfig/robust.json",
   "compilerOptions": {
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"],
+      "@/public/*": ["./public/*"]
     },
     "jsx": "preserve"
   },
-  "include": [
-    ".",
-    "../../scripts/newPages"
-  ],
-  "exclude": [
-    "dist",
-    "build",
-    "node_modules"
-  ]
+  "include": [".", "./**/*"],
+  "exclude": ["dist", "build", "node_modules"]
 }

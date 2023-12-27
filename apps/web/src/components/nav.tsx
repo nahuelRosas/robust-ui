@@ -14,7 +14,7 @@ export default function Nav() {
   return (
     <Header
       p={{
-        base: "1.5dvh",
+        base: "0.5dvh",
         md: "2.5dvh",
       }}
       colorScheme="black"

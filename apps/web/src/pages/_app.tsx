@@ -4,14 +4,16 @@ import React, { lazy, Suspense } from "react";
 import type { AppProps } from "next/app";
 import Nav from "@/components/nav";
 import Sub from "@/components/sub";
+import LogRocket from "logrocket";
 const Background = lazy(() => import("@/components/background"));
+LogRocket.init("zenwcu/portfolio");
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Analytics />
-      {/* <Suspense>
+      <Suspense>
         <Background />
-      </Suspense> */}
+      </Suspense>
       <Provider bg="transparent">
         <Nav />
         <Component {...pageProps} />

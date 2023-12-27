@@ -63,6 +63,8 @@ export default function HeadNext({
           language.currentLanguage === "es" ? descriptionEs : descriptionEn
         }
       />
+      <link rel="canonical" href="https://nahuelrosas.ar/" />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <meta name="keywords" content={keywords.join(" ")} />
       <meta name="author" content={author} />
       <meta name="robots" content={robots} />
@@ -85,7 +87,6 @@ export default function HeadNext({
         />
       )}
       {twitter && <meta name="twitter:image" content={twitter} />}
-
       {github && <link rel="icon" href={github} />}
       {github && <meta name="github:card" content="summary" />}
       {github && <meta name="github:site" content={github} />}

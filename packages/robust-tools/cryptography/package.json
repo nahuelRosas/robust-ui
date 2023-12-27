@@ -32,8 +32,7 @@
   },
   "devDependencies": {
     "eslint-config-robust": "workspace:*",
-    "@robust-ui/tsconfig": "workspace:*",
-    "@types/node": "^16.11.17"
+    "@robust-ui/tsconfig": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

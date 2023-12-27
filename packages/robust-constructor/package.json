@@ -28,10 +28,12 @@
   },
   "dependencies": {
     "@robust-ui/use-global-context": "workspace:*",
+    "@robust-ui/use-inject-style": "workspace:*",
     "@robust-ui/use-clean-value": "workspace:*",
     "@robust-ui/cryptography": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
     "@robust-ui/purging": "workspace:*",
+    "@robust-ui/use-ssr": "workspace:*",
     "@robust-ui/utils": "workspace:*",
     "@robust-ui/theme": "workspace:*",
     "react": "^18.2.0"

@@ -3,6 +3,7 @@ import { GlobalStateReducer } from "@robust-ui/global-state-reducer";
 import { useBreakpointValue } from "@robust-ui/use-breakpoint-value";
 import { useCleanValue } from "@robust-ui/use-clean-value";
 import { ToastManager } from "@robust-ui/toast-manager";
+import { LoaderStyle } from "@robust-ui/loader-style";
 import { ProviderProps } from "./types";
 import {
   GlobalContextValues,
@@ -25,8 +26,8 @@ import React, {
   useEffect,
   useState,
   useMemo,
-  ReactNode,
 } from "react";
+
 export * from "./types";
 
 const Factory: React.ForwardRefExoticComponent<
@@ -248,6 +249,7 @@ const Factory: React.ForwardRefExoticComponent<
         {children}
         <ToastManager notificationPlacement={notificationPlacement} />
       </Component>
+      <LoaderStyle />
     </GlobalContext.Provider>
   );
 });

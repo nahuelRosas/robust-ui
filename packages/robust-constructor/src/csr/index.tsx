@@ -1,11 +1,10 @@
+/* eslint-disable @next/next/no-css-tags */
 import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import { generateUniqueClassName, propsSplitter } from "@robust-ui/css-utils";
 import { EnhancedElementProps, ComponentConstructorProps } from "./types";
 import { useGlobalContext } from "@robust-ui/use-global-context";
-import {
-  generateUniqueClassName,
-  propsSplitter,
-  injectCSS,
-} from "@robust-ui/css-utils";
+import { useInjectStyle } from "@robust-ui/use-inject-style";
+import { useSSR } from "@robust-ui/use-ssr";
 export * from "./types";
 
 export function CreateComponent<T>({
@@ -19,6 +18,7 @@ export function CreateComponent<T>({
             ? componentType.toString()
             : "UnknownComponent",
           ElementType = componentType as React.ElementType,
+          children,
           style,
           ...props
         }: EnhancedElementProps<T>,
@@ -35,6 +35,7 @@ export function CreateComponent<T>({
             }),
           [elementName, props, style],
         );
+        const { isServer } = useSSR();
 
         const combinedClassName = useRef<string>(
           [uniqueClassName, props.className].join(" ").trim(),
@@ -54,34 +55,6 @@ export function CreateComponent<T>({
             }),
           [globalContext.selectors, props],
         );
-        const [isCSSInjected, setCSSInjected] = useState(false);
-
-        useEffect(() => {
-          if (!isCSSInjected) {
-            injectCSS({
-              breakPoints: {
-                current: globalContext.currentBreakpoint as string,
-                context: globalContext.mediaBreakpoints,
-              },
-              inputProps: styleProps,
-              classNameSelector: combinedClassName.current,
-              commands: globalContext.commands,
-              darkMode: globalContext.isDarkModeActive,
-              theme: globalContext.theme,
-              cssReset: globalContext.cssReset,
-            });
-            setCSSInjected(true);
-          }
-        }, [
-          globalContext.commands,
-          globalContext.cssReset,
-          globalContext.currentBreakpoint,
-          globalContext.isDarkModeActive,
-          globalContext.mediaBreakpoints,
-          globalContext.theme,
-          isCSSInjected,
-          styleProps,
-        ]);
 
         const computedStyle = useRef<{
           [x: string]:
@@ -92,33 +65,24 @@ export function CreateComponent<T>({
             | undefined;
         }>();
 
+        const styleInjected = useInjectStyle({
+          breakPoints: {
+            current: globalContext.currentBreakpoint as string,
+            context: globalContext.mediaBreakpoints,
+          },
+          inputProps: styleProps,
+          classNameSelector: combinedClassName.current,
+          commands: globalContext.commands,
+          darkMode: globalContext.isDarkModeActive,
+          theme: globalContext.theme,
+          partialComputedStyles: computedStyle.current,
+          cssReset: globalContext.cssReset,
+          isServer,
+        });
+
         computedStyle.current = {
           ...computedStyle.current,
-          [globalContext.currentBreakpoint as string]: useMemo(
-            () =>
-              injectCSS({
-                breakPoints: {
-                  current: globalContext.currentBreakpoint as string,
-                  context: globalContext.mediaBreakpoints,
-                },
-                inputProps: styleProps,
-                classNameSelector: combinedClassName.current,
-                commands: globalContext.commands,
-                darkMode: globalContext.isDarkModeActive,
-                theme: globalContext.theme,
-                partialComputedStyles: computedStyle.current,
-                cssReset: globalContext.cssReset,
-              }),
-            [
-              globalContext.commands,
-              globalContext.cssReset,
-              globalContext.currentBreakpoint,
-              globalContext.isDarkModeActive,
-              globalContext.mediaBreakpoints,
-              globalContext.theme,
-              styleProps,
-            ],
-          ),
+          [globalContext.currentBreakpoint as string]: styleInjected,
         };
 
         useEffect(() => {
@@ -129,7 +93,7 @@ export function CreateComponent<T>({
           }
         }, [globalContext.isProviderActive]);
 
-        if (!isCSSInjected) return null;
+        // if (!isCSSInjected || !isServer) return null;
 
         return (
           <ElementType
@@ -138,7 +102,7 @@ export function CreateComponent<T>({
             style={style}
             {...htmlProps}
           >
-            {props.children}
+            {children}
           </ElementType>
         );
       }),

@@ -11,6 +11,7 @@ export * from "@robust-ui/constructor";
 export * from "@robust-ui/next-link";
 export * from "@robust-ui/use-toast";
 export * from "@robust-ui/code-text";
+export * from "@robust-ui/css-utils";
 export * from "@robust-ui/provider";
 export * from "@robust-ui/textarea";
 export * from "@robust-ui/overlay";

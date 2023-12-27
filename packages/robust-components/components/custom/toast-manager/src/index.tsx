@@ -51,6 +51,7 @@ const Factory: React.ForwardRefExoticComponent<
 
   return (
     <Flex
+      elementName="ToastManager"
       display={notificationArray.length > 0 ? "flex" : "none"}
       justifyContent="flexEnd"
       flexDirection="column"

@@ -34,8 +34,8 @@
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "eslint-config-robust": "workspace:*",
-    "@robust-ui/tsconfig": "workspace:*"
+    "@robust-ui/tsconfig": "workspace:*",
+    "eslint-config-robust": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
