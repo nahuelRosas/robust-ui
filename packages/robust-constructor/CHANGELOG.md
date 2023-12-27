@@ -1,5 +1,20 @@
 # @robust-ui/constructor
 
+## 0.7.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/use-global-context@0.7.0
+  - @robust-ui/use-inject-style@0.2.0
+  - @robust-ui/use-ssr@0.7.0
+  - @robust-ui/theme@0.10.0
+  - @robust-ui/css-utils@0.11.0
+
 ## 0.6.0
 
 ### Minor Changes

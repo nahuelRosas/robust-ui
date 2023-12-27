@@ -1,5 +1,11 @@
 # @robust-ui/theme
 
+## 0.10.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
 ## 0.9.0
 
 ### Minor Changes

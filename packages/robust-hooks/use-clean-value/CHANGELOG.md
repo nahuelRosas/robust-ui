@@ -1,5 +1,17 @@
 # @robust-ui/use-clean-value
 
+## 0.9.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/use-global-context@0.7.0
+  - @robust-ui/css-utils@0.11.0
+
 ## 0.8.0
 
 ### Minor Changes

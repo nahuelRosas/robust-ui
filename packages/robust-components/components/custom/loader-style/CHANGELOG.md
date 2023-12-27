@@ -1,5 +1,17 @@
 # @robust-ui/provider
 
+## 0.2.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/constructor@0.7.0
+  - @robust-ui/use-ssr@0.7.0
+
 ## 0.1.1
 
 ### Patch Changes

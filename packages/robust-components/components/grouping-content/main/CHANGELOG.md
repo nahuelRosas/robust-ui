@@ -1,5 +1,23 @@
 # @robust-ui/provider
 
+## 0.10.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/loader-style@0.2.0
+  - @robust-ui/toast-manager@0.7.0
+  - @robust-ui/constructor@0.7.0
+  - @robust-ui/use-breakpoint-value@0.8.0
+  - @robust-ui/use-clean-value@0.9.0
+  - @robust-ui/use-global-context@0.7.0
+  - @robust-ui/global-state-reducer@0.7.0
+  - @robust-ui/theme@0.10.0
+
 ## 0.9.0
 
 ### Minor Changes

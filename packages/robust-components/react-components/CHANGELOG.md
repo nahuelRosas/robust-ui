@@ -1,5 +1,32 @@
 # @robust-ui/react-components
 
+## 0.7.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/cover@0.9.0
+  - @robust-ui/nested-styled-text@0.9.0
+  - @robust-ui/image@0.12.0
+  - @robust-ui/icon@0.9.0
+  - @robust-ui/block@0.7.0
+  - @robust-ui/flex@0.7.0
+  - @robust-ui/grid@0.7.0
+  - @robust-ui/provider@0.10.0
+  - @robust-ui/text@0.7.0
+  - @robust-ui/aside@0.9.0
+  - @robust-ui/header@0.9.0
+  - @robust-ui/span@0.7.0
+  - @robust-ui/constructor@0.7.0
+  - @robust-ui/use-clean-value@0.9.0
+  - @robust-ui/use-global-context@0.7.0
+  - @robust-ui/use-toast@0.7.0
+  - @robust-ui/theme@0.10.0
+
 ## 0.6.0
 
 ### Minor Changes

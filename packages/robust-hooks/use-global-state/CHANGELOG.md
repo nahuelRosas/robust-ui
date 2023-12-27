@@ -1,5 +1,19 @@
 # @robust-ui/use-global-state
 
+## 0.7.0
+
+### Minor Changes
+
+- 62026eb: update dependencies
+
+### Patch Changes
+
+- Updated dependencies [62026eb]
+  - @robust-ui/use-global-context@0.7.0
+  - @robust-ui/use-global-state-updater@0.7.0
+  - @robust-ui/use-recovery-global-state-value@0.7.0
+  - @robust-ui/cryptography@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes
