@@ -9,8 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^3.1.14",
-    "@react-three/fiber": "^8.15.11",
+    "@react-three/fiber": "^8.15.12",
     "@robust-ui/nextjs-components": "workspace:*",
     "@vercel/analytics": "^1.1.1",
     "chroma-js": "^2.4.2",
@@ -18,20 +17,20 @@
     "next": "link:@vercel/speed-insights/next",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-pdf": "^7.5.1",
-    "resend": "^2.0.0",
-    "three": "^0.158.0"
+    "react-pdf": "^7.6.0",
+    "resend": "^2.1.0",
+    "three": "^0.160.0"
   },
   "devDependencies": {
     "@robust-ui/tsconfig": "workspace:*",
     "@types/chroma-js": "^2.4.3",
-    "@types/node": "^20.10.0",
-    "@types/react": "^18.2.39",
-    "@types/react-dom": "^18.2.17",
-    "@types/three": "^0.157.2",
-    "eslint": "^8.54.0",
-    "eslint-config-next": "14.0.3",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@types/three": "^0.160.0",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
     "eslint-config-robust": "workspace:*",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   }
 }

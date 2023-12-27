@@ -1,4 +1,4 @@
-import { Vector3, Color } from "three";
+import { Vector3, IUniform } from "three";
 
 export interface Instance {
   position: Vector3;
@@ -9,11 +9,5 @@ export interface Instance {
 }
 
 export interface CustomUniforms {
-  diffuse: Color;
-  thicknessColor: Color;
-  thicknessDistortion: number;
-  thicknessAmbient: number;
-  thicknessAttenuation: number;
-  thicknessPower: number;
-  thicknessScale: number;
+  [uniform: string]: IUniform<any>;
 }
