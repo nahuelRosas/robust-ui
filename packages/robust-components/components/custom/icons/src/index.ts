@@ -99,9 +99,3 @@ export const Icons = {
 };
 
 export type Ticons = keyof typeof Icons;
-
-export function getIcon(icon: string) {
-  return Icons[icon as Ticons];
-}
-
-export default Icons;
