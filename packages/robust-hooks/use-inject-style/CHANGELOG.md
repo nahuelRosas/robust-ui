@@ -1,5 +1,13 @@
 # @robust-ui/use-breakpoint-value
 
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [133d959]
+  - @robust-ui/css-utils@0.10.0
+  - @robust-ui/purging@0.6.0
+
 ## 0.6.0
 
 ### Minor Changes

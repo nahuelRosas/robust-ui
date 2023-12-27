@@ -1,5 +1,18 @@
 # @robust-ui/use-breakpoint-value
 
+## 0.7.0
+
+### Minor Changes
+
+- 133d959: Modifications were made to the code of all properties so that SSR can be used, Robust UI supports SSR only in Next.js
+
+### Patch Changes
+
+- Updated dependencies [133d959]
+  - @robust-ui/use-resize-listener@0.6.0
+  - @robust-ui/use-global-context@0.6.0
+  - @robust-ui/utils@0.7.0
+
 ## 0.6.0
 
 ### Minor Changes

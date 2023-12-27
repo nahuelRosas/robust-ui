@@ -1,5 +1,19 @@
 # @robust-ui/use-global-state
 
+## 0.6.0
+
+### Minor Changes
+
+- 133d959: Modifications were made to the code of all properties so that SSR can be used, Robust UI supports SSR only in Next.js
+
+### Patch Changes
+
+- Updated dependencies [133d959]
+  - @robust-ui/use-recovery-global-state-value@0.6.0
+  - @robust-ui/use-global-state-updater@0.6.0
+  - @robust-ui/use-global-context@0.6.0
+  - @robust-ui/cryptography@0.6.0
+
 ## 0.5.3
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @robust-ui/use-toast
 
+## 0.6.0
+
+### Minor Changes
+
+- 133d959: Modifications were made to the code of all properties so that SSR can be used, Robust UI supports SSR only in Next.js
+
+### Patch Changes
+
+- Updated dependencies [133d959]
+  - @robust-ui/nested-styled-text@0.8.0
+  - @robust-ui/use-recovery-global-state-value@0.6.0
+  - @robust-ui/use-global-state-updater@0.6.0
+  - @robust-ui/use-global-context@0.6.0
+  - @robust-ui/cryptography@0.6.0
+  - @robust-ui/constructor@0.6.0
+  - @robust-ui/theme@0.9.0
+
 ## 0.5.5
 
 ### Patch Changes
