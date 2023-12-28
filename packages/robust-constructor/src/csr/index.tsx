@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-css-tags */
-import React, { forwardRef, useEffect, useMemo, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef } from "react";
 import { generateUniqueClassName, propsSplitter } from "@robust-ui/css-utils";
 import { EnhancedElementProps, ComponentConstructorProps } from "./types";
 import { useGlobalContext } from "@robust-ui/use-global-context";
@@ -22,7 +22,7 @@ export function CreateComponent<T>({
           style,
           ...props
         }: EnhancedElementProps<T>,
-        ref,
+        ref
       ): JSX.Element | null {
         const uniqueClassName = useMemo(
           () =>
@@ -33,12 +33,12 @@ export function CreateComponent<T>({
                 ...props,
               },
             }),
-          [elementName, props, style],
+          [elementName, props, style]
         );
         const { isServer } = useSSR();
 
         const combinedClassName = useRef<string>(
-          [uniqueClassName, props.className].join(" ").trim(),
+          [uniqueClassName, props.className].join(" ").trim()
         );
 
         const globalContext = useGlobalContext({
@@ -53,7 +53,7 @@ export function CreateComponent<T>({
                 ...globalContext.selectors,
               },
             }),
-          [globalContext.selectors, props],
+          [globalContext.selectors, props]
         );
 
         const computedStyle = useRef<{
@@ -88,7 +88,7 @@ export function CreateComponent<T>({
         useEffect(() => {
           if (!globalContext.isProviderActive) {
             throw new Error(
-              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`,
+              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`
             );
           }
         }, [globalContext.isProviderActive]);
@@ -100,12 +100,11 @@ export function CreateComponent<T>({
             className={combinedClassName.current}
             ref={ref}
             style={style}
-            {...htmlProps}
-          >
+            {...htmlProps}>
             {children}
           </ElementType>
         );
       }),
-    [componentType],
+    [componentType]
   );
 }

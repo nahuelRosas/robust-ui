@@ -46,13 +46,13 @@ const Factory: React.ForwardRefExoticComponent<
     children,
     ...props
   },
-  ref,
+  ref
 ): React.JSX.Element {
   const [globalStateDev, dispatchDev] = useReducer(GlobalStateReducer, {});
   const [globalStateUser, dispatchUser] = useReducer(GlobalStateReducer, {});
   const [globalNotification, dispatchNotification] = useReducer(
     GlobalStateReducer,
-    {},
+    {}
   );
   const [isDarkModeActive, setIsDarkModeActive] = useState<boolean>(false);
   const [currentGlobalLanguage, setCurrentGlobalLanguage] =
@@ -67,13 +67,13 @@ const Factory: React.ForwardRefExoticComponent<
   });
 
   const changeLanguage = useCallback(function (
-    language: keyof typeof Language,
+    language: keyof typeof Language
   ): void {
     startTransition(() => setCurrentGlobalLanguage(language));
   }, []);
 
   const toggleDarkMode = useCallback(function (
-    darkMode: boolean | ((prevState: boolean) => boolean),
+    darkMode: boolean | ((prevState: boolean) => boolean)
   ): void {
     startTransition(() => setIsDarkModeActive(darkMode));
   }, []);
@@ -81,15 +81,15 @@ const Factory: React.ForwardRefExoticComponent<
   const setAppState = useCallback(function (
     key: string,
     value: unknown,
-    isDev: boolean = false,
+    isDev: boolean = false
   ): void {
     if (isDev) {
       startTransition(() =>
-        dispatchDev({ type: "SET_GLOBAL_STATE_VALUE", key, value }),
+        dispatchDev({ type: "SET_GLOBAL_STATE_VALUE", key, value })
       );
     }
     startTransition(() =>
-      dispatchUser({ type: "SET_GLOBAL_STATE_VALUE", key, value }),
+      dispatchUser({ type: "SET_GLOBAL_STATE_VALUE", key, value })
     );
   }, []);
 
@@ -97,7 +97,7 @@ const Factory: React.ForwardRefExoticComponent<
     function (isDev: boolean = false) {
       return isDev ? globalStateDev : globalStateUser;
     },
-    [globalStateDev, globalStateUser],
+    [globalStateDev, globalStateUser]
   );
   const resetAppState = useCallback((isDev: boolean = false) => {
     if (isDev) {
@@ -107,14 +107,14 @@ const Factory: React.ForwardRefExoticComponent<
   }, []);
 
   const setNotificationState = useCallback(function (
-    notification: notification,
+    notification: notification
   ): void {
     startTransition(() =>
       dispatchNotification({
         type: "SET_GLOBAL_STATE_VALUE",
         key: notification.id,
         value: notification,
-      }),
+      })
     );
   }, []);
 
@@ -123,13 +123,13 @@ const Factory: React.ForwardRefExoticComponent<
   }, []);
 
   const removeNotificationState = useCallback(function (
-    notificationId: string,
+    notificationId: string
   ): void {
     startTransition(() =>
       dispatchNotification({
         type: "REMOVE_GLOBAL_STATE_VALUE",
         key: notificationId,
-      }),
+      })
     );
   }, []);
 
@@ -244,12 +244,11 @@ const Factory: React.ForwardRefExoticComponent<
           zIndexRaw: 99999,
         }}
         scrollbarColorRaw={scrollBarColorCustom}
-        {...cleanedProps}
-      >
+        {...cleanedProps}>
         {children}
         <ToastManager notificationPlacement={notificationPlacement} />
       </Component>
-      <LoaderStyle />
+      {/* <LoaderStyle /> */}
     </GlobalContext.Provider>
   );
 });
