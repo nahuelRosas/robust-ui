@@ -1,5 +1,12 @@
 # @robust-ui/cover
 
+## 0.12.1
+
+### Patch Changes
+
+- Updated dependencies [f79202a]
+  - @robust-ui/card@0.9.0
+
 ## 0.12.0
 
 ### Minor Changes
