@@ -1,5 +1,11 @@
 # @robust-ui/use-recovery-global-state-value
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
 ## 0.7.0
 
 ### Minor Changes

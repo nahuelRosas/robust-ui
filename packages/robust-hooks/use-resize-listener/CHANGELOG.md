@@ -1,5 +1,16 @@
 # @robust-ui/use-resize-listener
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
+### Patch Changes
+
+- Updated dependencies [676ef07]
+  - @robust-ui/utils@0.9.0
+
 ## 0.7.0
 
 ### Minor Changes

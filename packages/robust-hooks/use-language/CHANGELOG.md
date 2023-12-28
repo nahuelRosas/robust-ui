@@ -1,5 +1,17 @@
 # @robust-ui/use-language
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
+### Patch Changes
+
+- Updated dependencies [676ef07]
+  - @robust-ui/use-global-context@0.8.0
+  - @robust-ui/theme@0.11.0
+
 ## 0.7.0
 
 ### Minor Changes

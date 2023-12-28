@@ -1,5 +1,32 @@
 # @robust-ui/react-components
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
+### Patch Changes
+
+- Updated dependencies [676ef07]
+  - @robust-ui/block@0.8.0
+  - @robust-ui/nested-styled-text@0.10.0
+  - @robust-ui/flex@0.8.0
+  - @robust-ui/grid@0.8.0
+  - @robust-ui/image@0.13.0
+  - @robust-ui/provider@0.11.0
+  - @robust-ui/icon@0.11.0
+  - @robust-ui/text@0.8.0
+  - @robust-ui/header@0.10.0
+  - @robust-ui/aside@0.10.0
+  - @robust-ui/span@0.8.0
+  - @robust-ui/cover@0.10.0
+  - @robust-ui/use-global-context@0.8.0
+  - @robust-ui/use-clean-value@0.10.0
+  - @robust-ui/use-toast@0.8.0
+  - @robust-ui/constructor@0.8.0
+  - @robust-ui/theme@0.11.0
+
 ## 0.7.1
 
 ### Patch Changes

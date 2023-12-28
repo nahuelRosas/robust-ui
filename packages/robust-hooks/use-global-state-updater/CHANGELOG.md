@@ -1,5 +1,16 @@
 # @robust-ui/use-global-state-updater
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
+### Patch Changes
+
+- Updated dependencies [676ef07]
+  - @robust-ui/purging@0.8.0
+
 ## 0.7.0
 
 ### Minor Changes
