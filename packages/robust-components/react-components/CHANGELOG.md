@@ -1,5 +1,24 @@
 # @robust-ui/react-components
 
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/provider@0.12.0
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/cover@0.10.1
+  - @robust-ui/nested-styled-text@0.10.1
+  - @robust-ui/image@0.13.1
+  - @robust-ui/icon@0.11.1
+  - @robust-ui/block@0.8.1
+  - @robust-ui/flex@0.8.1
+  - @robust-ui/grid@0.8.1
+  - @robust-ui/text@0.8.1
+  - @robust-ui/aside@0.10.1
+  - @robust-ui/header@0.10.1
+  - @robust-ui/span@0.8.1
+
 ## 0.8.0
 
 ### Minor Changes

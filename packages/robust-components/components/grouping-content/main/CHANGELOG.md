@@ -1,5 +1,18 @@
 # @robust-ui/provider
 
+## 0.12.0
+
+### Minor Changes
+
+- ede67fe: Refactor components and fix linting issues
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/loader-style@0.3.1
+  - @robust-ui/toast-manager@0.8.1
+
 ## 0.11.0
 
 ### Minor Changes

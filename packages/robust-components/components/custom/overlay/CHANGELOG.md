@@ -1,5 +1,16 @@
 # @robust-ui/cover
 
+## 0.12.2
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/card@0.9.1
+  - @robust-ui/nested-styled-text@0.10.1
+  - @robust-ui/flex@0.8.1
+  - @robust-ui/button@0.11.1
+
 ## 0.12.1
 
 ### Patch Changes
