@@ -1,5 +1,11 @@
 # @robust-ui/card
 
+## 0.9.0
+
+### Minor Changes
+
+- f79202a: Update ESLint and TypeScript configurations
+
 ## 0.8.0
 
 ### Minor Changes

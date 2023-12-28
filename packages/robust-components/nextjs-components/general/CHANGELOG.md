@@ -1,5 +1,13 @@
 # @robust-ui/nextjs-components
 
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [f79202a]
+  - @robust-ui/card@0.9.0
+  - @robust-ui/overlay@0.12.1
+
 ## 0.10.0
 
 ### Minor Changes
