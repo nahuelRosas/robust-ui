@@ -1,5 +1,19 @@
 # @robust-ui/toast-manager
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
+### Patch Changes
+
+- Updated dependencies [676ef07]
+  - @robust-ui/flex@0.8.0
+  - @robust-ui/toast@0.10.0
+  - @robust-ui/use-global-context@0.8.0
+  - @robust-ui/constructor@0.8.0
+
 ## 0.7.1
 
 ### Patch Changes

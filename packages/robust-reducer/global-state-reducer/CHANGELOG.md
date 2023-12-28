@@ -1,5 +1,11 @@
 # @robust-ui/global-state-reducer
 
+## 0.8.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
 ## 0.7.0
 
 ### Minor Changes

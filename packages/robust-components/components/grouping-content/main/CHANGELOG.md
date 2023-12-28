@@ -1,5 +1,23 @@
 # @robust-ui/provider
 
+## 0.11.0
+
+### Minor Changes
+
+- 676ef07: depcheck script update, turbo repo update, devops review
+
+### Patch Changes
+
+- Updated dependencies [676ef07]
+  - @robust-ui/toast-manager@0.8.0
+  - @robust-ui/loader-style@0.3.0
+  - @robust-ui/global-state-reducer@0.8.0
+  - @robust-ui/use-breakpoint-value@0.9.0
+  - @robust-ui/use-global-context@0.8.0
+  - @robust-ui/use-clean-value@0.10.0
+  - @robust-ui/constructor@0.8.0
+  - @robust-ui/theme@0.11.0
+
 ## 0.10.1
 
 ### Patch Changes
