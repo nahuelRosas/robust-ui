@@ -20,7 +20,7 @@ async function removeDirective(fileName: string) {
 
 export default defineConfig({
   format: ["cjs", "esm"],
-  target: "es5",
+  target: "es2022",
   sourcemap: true,
   minify: "terser",
   external: ["react"],

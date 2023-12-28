@@ -1,10 +1,15 @@
 /** @type {import("eslint").Linter.Config} */
 
 module.exports = {
-  ignorePatterns: ["apps/**", "packages/**"],
-  extends: ["eslint-config-robust",],
+  extends: ["robust",],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
   },
+  settings: {
+    next: {
+      rootDir: ["apps/*/"],
+    },
+  },
+  root: true,
 };

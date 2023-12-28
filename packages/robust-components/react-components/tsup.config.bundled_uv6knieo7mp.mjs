@@ -21,7 +21,7 @@ async function removeDirective(fileName) {
 }
 var tsup_config_default = defineConfig({
   format: ["cjs", "esm"],
-  target: "es5",
+  target: "es2022",
   sourcemap: true,
   minify: "terser",
   external: ["react"],
