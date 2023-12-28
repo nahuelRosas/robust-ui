@@ -1,5 +1,5 @@
 {
-  "extends": "@robust-ui/tsconfig/nextjs.json",
+  "extends": "@robust-ui/tsconfig/robust.json",
   "compilerOptions": {
     "plugins": [
       {
