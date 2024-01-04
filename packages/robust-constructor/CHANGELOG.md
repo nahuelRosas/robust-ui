@@ -1,5 +1,11 @@
 # @robust-ui/constructor
 
+## 0.9.0
+
+### Minor Changes
+
+- ede67fe: Refactor components and fix linting issues
+
 ## 0.8.0
 
 ### Minor Changes

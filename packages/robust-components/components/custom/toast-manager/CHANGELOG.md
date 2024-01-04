@@ -1,5 +1,14 @@
 # @robust-ui/toast-manager
 
+## 0.8.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/toast@0.10.1
+  - @robust-ui/flex@0.8.1
+
 ## 0.8.0
 
 ### Minor Changes

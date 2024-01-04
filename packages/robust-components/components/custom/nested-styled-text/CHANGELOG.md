@@ -1,5 +1,15 @@
 # @robust-ui/nested-styled-text
 
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/block@0.8.1
+  - @robust-ui/text@0.8.1
+  - @robust-ui/span@0.8.1
+
 ## 0.10.0
 
 ### Minor Changes
