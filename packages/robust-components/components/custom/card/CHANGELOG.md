@@ -1,5 +1,16 @@
 # @robust-ui/card
 
+## 0.9.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/nested-styled-text@0.10.1
+  - @robust-ui/image@0.13.1
+  - @robust-ui/flex@0.8.1
+  - @robust-ui/next-link@0.10.1
+
 ## 0.9.0
 
 ### Minor Changes

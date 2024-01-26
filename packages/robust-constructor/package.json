@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/constructor",
   "description": "A constructor for creating robust components",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

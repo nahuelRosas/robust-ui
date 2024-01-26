@@ -1,5 +1,16 @@
 # @robust-ui/image
 
+## 0.13.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/spinner@0.10.1
+  - @robust-ui/icon@0.11.1
+  - @robust-ui/flex@0.8.1
+  - @robust-ui/button@0.11.1
+
 ## 0.13.0
 
 ### Minor Changes

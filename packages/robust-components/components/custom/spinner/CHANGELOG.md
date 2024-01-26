@@ -1,5 +1,13 @@
 # @robust-ui/spinner
 
+## 0.10.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/flex@0.8.1
+
 ## 0.10.0
 
 ### Minor Changes

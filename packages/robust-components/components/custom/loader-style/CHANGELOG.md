@@ -1,5 +1,12 @@
 # @robust-ui/provider
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+
 ## 0.3.0
 
 ### Minor Changes

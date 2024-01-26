@@ -1,5 +1,12 @@
 # @robust-ui/header
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+
 ## 0.7.0
 
 ### Minor Changes

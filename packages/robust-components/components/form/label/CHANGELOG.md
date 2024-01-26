@@ -1,5 +1,14 @@
 # @robust-ui/cover
 
+## 0.7.1
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+  - @robust-ui/constructor@0.9.0
+  - @robust-ui/flex@0.8.1
+  - @robust-ui/span@0.8.1
+
 ## 0.7.0
 
 ### Minor Changes
