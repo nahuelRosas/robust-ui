@@ -2,6 +2,9 @@
 
 Robust is a system for generating React components with real-time CSS injection. It is programmed in TypeScript, providing type safety and enhanced developer experience.
 
+## Project Stats
+![Alt](https://repobeats.axiom.co/api/embed/57761159b119284992a2370b719d8f8fe9c07e34.svg "Repobeats analytics image")
+
 # Installation
 
 You can install Robust using either npm or pnpm. To do this, run one of the following commands:
