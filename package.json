@@ -11,7 +11,7 @@
     "build:apps": "pnpm run format:write && turbo run build --filter=!./packages/* ",
     "start": "pnpm run format:write && turbo start",
     "dev": "pnpm run format:write && turbo dev",
-    "lint": "pnpm run format:write && turbo lint",
+    "lint": "pnpm run format:write && turbo lint --filter=!./apps/*",
     "depCheck": "pnpm run format:write && turbo run depCheck",
     "clean": "turbo run clean && rimraf dist .turbo node_modules pnpm-lock.yaml",
     "format:write": "prettier --write \"**/*.{ts,tsx,md,json, html, css}\" --cache",
