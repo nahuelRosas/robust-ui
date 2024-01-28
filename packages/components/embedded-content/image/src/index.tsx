@@ -515,7 +515,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
             ref={ref}
           />
         )}
-        {/* {generalStatus === "loading" && (
+        {generalStatus === "loading" && (
           <Spinner
             colorSchemeRaw={colorSchemeRaw || colorScheme}
             sizeRaw={
@@ -523,8 +523,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
             }
             {...spinnerProps}
           />
-        )} */}
-
+        )}
         {isSliderVisible && isSlider && currentImageSrc && (
           <Flex
             display="flex"
