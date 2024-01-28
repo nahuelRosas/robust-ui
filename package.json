@@ -27,11 +27,12 @@
     "@robust-ui/tsconfig": "workspace:*",
     "@types/react": "latest",
     "@types/node": "latest",
+    "changeset": "latest",
     "prettier": "latest",
     "rimraf": "latest",
     "terser": "latest",
-    "turbo": "latest",
-    "tsup": "latest"
+    "tsup": "latest",
+    "turbo": "latest"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
