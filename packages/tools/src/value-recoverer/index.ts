@@ -7,9 +7,9 @@ import { isNullOrUndefined } from "@/validation-input";
  * @param inputValue - The input value.
  * @param breakPoints - The breakpoints.
  * @param currentGlobalLanguage - The current global language.
- * @param darkMode - A boolean indicating whether dark mode is enabled.
+ * @param darkMode - Indicates whether dark mode is enabled.
  * @param theme - The theme.
- * @param isRaw - A boolean indicating whether the value is raw.
+ * @param isRaw - Indicates whether the value should be processed as raw.
  * @returns The recovered value.
  */
 export function valueRecoverer({
@@ -60,16 +60,16 @@ export function valueRecoverer({
   }
 
   const hasValidBreakpoints = Object.keys(inputValueChecked).some((attrKey) =>
-    Object.prototype.hasOwnProperty.call(breakPoints.context, attrKey),
+    Object.prototype.hasOwnProperty.call(breakPoints.context, attrKey)
   );
   const hasValidDarkMode = ["dark", "light"].some((key) =>
-    Object.prototype.hasOwnProperty.call(inputValueChecked, key),
+    Object.prototype.hasOwnProperty.call(inputValueChecked, key)
   );
   const hasValidLanguage =
     currentGlobalLanguage &&
     Object.prototype.hasOwnProperty.call(
       inputValueChecked,
-      currentGlobalLanguage,
+      currentGlobalLanguage
     );
 
   if (!hasValidBreakpoints && !hasValidDarkMode && !hasValidLanguage) {
@@ -121,14 +121,12 @@ export function valueRecoverer({
 
 /**
  * Processes a single value using a glossary to recover its corresponding value.
- * If the value is marked as raw, it is returned as is.
- * If the value is found in the glossary, the corresponding value is returned.
- * If the value is not found in the glossary, the original value is returned.
+ * If the value is found in the glossary, it is returned. Otherwise, the original value is returned.
  *
  * @param value - The value to be processed.
- * @param glossary - The glossary containing the mappings of values.
- * @param isRaw - Optional flag indicating if the value should be returned as is.
- * @returns The processed value.
+ * @param glossary - A record containing key-value pairs for recovery.
+ * @param isRaw - Optional flag indicating whether the value should be returned as is, without recovery.
+ * @returns The recovered value or the original value if not found in the glossary.
  */
 function processSingleValue({
   value,
@@ -147,14 +145,14 @@ function processSingleValue({
 }
 
 /**
- * Processes the values of an input object and returns a new object with the processed values.
+ * Processes the values of an object recursively, applying value recovery logic.
  *
  * @param inputValue - The input object whose values need to be processed.
  * @param breakPoints - The breakpoints object containing current and context values.
  * @param currentGlobalLanguage - The current global language (optional).
  * @param darkMode - The dark mode flag (optional).
  * @param theme - The theme object (optional).
- * @returns A new object with the processed values.
+ * @returns The processed object with recovered values.
  */
 function processObjectValues({
   inputValue,
@@ -184,20 +182,24 @@ function processObjectValues({
 
       return acc;
     },
-    {},
+    {}
   );
   return acc;
 }
 
 /**
- * Processes an array of values and applies value recovery to each item.
+ * Processes an array of values, recursively recovering any nested values.
  *
- * @param inputValue - The array of values to be processed.
- * @param breakPoints - The breakpoints and context information.
- * @param currentGlobalLanguage - The current global language (optional).
- * @param darkMode - Indicates if dark mode is enabled (optional).
- * @param theme - The theme configuration (optional).
- * @returns The processed array of values.
+ * @param {Object} options - The options for processing the array values.
+ * @param {unknown[]} options.inputValue - The input array of values.
+ * @param {Object} options.breakPoints - The breakpoints object.
+ * @param {string} options.breakPoints.current - The current breakpoint.
+ * @param {Record<string, unknown>} options.breakPoints.context - The context for the breakpoints.
+ * @param {string} [options.currentGlobalLanguage] - The current global language.
+ * @param {boolean} [options.darkMode] - Indicates whether dark mode is enabled.
+ * @param {Record<string, { [key: string | number]: unknown }>} [options.theme] - The theme object.
+ *
+ * @returns {unknown[]} - The processed array of values.
  */
 function processArrayValues({
   inputValue,

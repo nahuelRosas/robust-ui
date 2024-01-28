@@ -1,12 +1,12 @@
+
 /**
  * Safely converts an object to a JSON string representation.
- * Circular references are replaced with '[Circular]'.
  *
- * @param replacerFunction - Optional function to customize the serialization of each object property.
+ * @param replacerFunction - Optional function to customize the transformation of values.
  * @param indentation - Optional string or number specifying the indentation level.
  * @param object - The object to be converted to JSON.
  * @returns The JSON string representation of the object, or undefined if an error occurs.
- * @throws Error if unable to stringify the object due to a TypeError.
+ * @throws Error if unable to stringify the object.
  */
 export function safeJSON({
   replacerFunction,

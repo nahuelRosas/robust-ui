@@ -3,11 +3,15 @@ import { safeJSON } from "@/safe-json";
 
 /**
  * Generates a unique ID based on the provided object, prefix, and options.
- * @param object - The object used to generate the ID. Can be a string or an object.
- * @param prefix - The prefix to prepend to the generated ID.
- * @param options - The options for generating the ID, including the hash algorithm, digest, and iterations.
+ * If the object is a string, it will be used directly. Otherwise, it will be converted to a JSON string.
+ * The generated ID is a hash of the input string using the specified hash algorithm and digest.
+ * If a prefix is provided, it will be prepended to the generated ID.
+ *
+ * @param object - The object, string, or unknown value used to generate the ID.
+ * @param prefix - An optional prefix to prepend to the generated ID.
+ * @param options - An optional configuration object for customizing the ID generation process.
  * @returns The generated unique ID.
- * @throws If unable to generate an ID from the input or if an error occurs during the generation process.
+ * @throws Error if unable to generate an ID from the input.
  */
 export function generateUniqueId({
   object,

@@ -38,7 +38,9 @@
     "@robust-ui/tsconfig": "workspace:*",
     "eslint-plugin-only-warn": "latest",
     "eslint-config-prettier": "latest",
-    "eslint-config-turbo": "latest"
+    "eslint-config-turbo": "latest",
+    "@types/react": "latest",
+    "@types/node": "latest"
   },
   "publishConfig": {
     "access": "public"

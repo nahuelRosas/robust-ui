@@ -13,7 +13,7 @@ export interface IOptions {
  *
  * @param inputString - The string to be hashed.
  * @param options - The options for generating the hash (optional).
- * @returns The generated hash.
+ * @returns The generated hash as a string.
  * @throws Error if an invalid hash algorithm or digest format is provided.
  */
 export function generateHash({

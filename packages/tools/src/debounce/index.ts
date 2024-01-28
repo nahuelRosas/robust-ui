@@ -1,14 +1,13 @@
+
 /**
  * Creates a debounced function that delays invoking the provided function until after a specified delay.
- * The debounced function will only execute once during the delay period, even if it is called multiple times.
  *
- * @template T - The type of the debounced function.
+ * @template T - The type of the function to debounce.
  * @param {Object} options - The options for the debounced function.
  * @param {T} options.fn - The function to debounce.
  * @param {number} [options.delay=0] - The delay in milliseconds before invoking the debounced function.
  * @param {boolean} [options.immediate=false] - Specifies whether the debounced function should be invoked immediately on the leading edge.
- * @returns {Function & { cancel: () => void }} - The debounced function with a cancel method to cancel the delayed invocation.
- * @throws {Error} - If the provided function is not a valid function.
+ * @returns {Function} - The debounced function.
  */
 export function debounce<T extends (...args: unknown[]) => void>({
   fn,

@@ -3,9 +3,9 @@
  * Throws an error if the input key is invalid or no valid prop name is found.
  *
  * @param inputKey - The input key to be normalized.
- * @param keyword - The keyword to be removed from the input key. Default is 'raw'.
- * @param outputKey - The desired output format. Can be 'camelCase', 'snakeCase', or 'kebabCase'. Default is 'camelCase'.
- * @returns An object containing the boolean flag indicating whether the keyword is present in the input key and the normalized output key.
+ * @param keyword - The keyword to be removed from the input key. Default is "raw".
+ * @param outputKey - The desired output format for the normalized key. Default is "camelCase".
+ * @returns An object containing the information about whether the keyword is present in the input key and the normalized output key.
  * @throws Error if the input key is invalid or no valid prop name is found.
  */
 export function normalizeInputKey({

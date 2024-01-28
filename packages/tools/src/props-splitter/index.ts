@@ -6,11 +6,11 @@ interface IpropsSplitterProps {
 }
 
 /**
- * Splits the props object into htmlProps and styleProps based on the provided commands.
+ * Splits the props into HTML props and style props based on the provided commands.
  *
- * @param props - The props object to be split.
- * @param commands - The commands object used to determine which props should be considered as styleProps.
- * @returns An object containing the htmlProps and styleProps.
+ * @param props - The props to be split.
+ * @param commands - The commands used to determine which props are style props.
+ * @returns An object containing the HTML props and style props.
  */
 export function propsSplitter({ props, commands }: IpropsSplitterProps): {
   htmlProps: Record<string, unknown>;
@@ -47,6 +47,6 @@ export function propsSplitter({ props, commands }: IpropsSplitterProps): {
     { htmlProps: {}, styleProps: {} } as {
       htmlProps: Record<string, unknown>;
       styleProps: Record<string, unknown>;
-    },
+    }
   );
 }

@@ -8,11 +8,11 @@ import {
 } from "react";
 
 /**
- * Propagates HTML attributes to child components.
+ * Propagates HTML attributes to all valid React elements in the children tree.
  *
- * @param children - The child components to propagate attributes to.
- * @param props - The HTML attributes to propagate.
- * @returns The updated child components with propagated attributes.
+ * @param children - The ReactNode representing the children tree.
+ * @param props - The HTML attributes to be propagated.
+ * @returns The updated ReactNode with the propagated attributes.
  */
 export function propagation({
   children,
@@ -20,7 +20,7 @@ export function propagation({
 }: {
   children: ReactNode;
   props: HTMLAttributes<HTMLElement>;
-}) {
+}): ReactNode[] | null | undefined {
   const updatedChildren = Children.map(children, (child) => {
     if (isValidElement(child)) {
       if (child.type === Fragment) {

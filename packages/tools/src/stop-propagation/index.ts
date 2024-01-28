@@ -1,16 +1,29 @@
-import { Children, isValidElement, cloneElement } from "react";
+import {
+  Children,
+  isValidElement,
+  cloneElement,
+  MouseEvent,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 
-export function stopPropagation({ children }: { children: React.ReactNode }) {
+/**
+ * Stops the propagation of click events on the provided React children elements.
+ *
+ * @param children - The React children elements.
+ * @returns The modified React children elements with click event propagation stopped.
+ */
+export function stopPropagation({ children }: { children: ReactNode }) {
   return Children.map(children, (child) => {
     if (isValidElement(child)) {
       return cloneElement(child, {
-        onClick: (e: React.MouseEvent<HTMLElement>) => {
+        onClick: (e: MouseEvent<HTMLElement>) => {
           e.stopPropagation();
           if (child.props.onClick) {
             child.props.onClick(e);
           }
         },
-      } as React.HTMLAttributes<HTMLElement>);
+      } as HTMLAttributes<HTMLElement>);
     }
     return child;
   });
