@@ -28,7 +28,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
       children,
       ...props
     },
-    ref
+    ref,
   ): React.JSX.Element {
     const {
       closeOnOverlayClick = true,
@@ -138,7 +138,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
         iconCloseProps,
         buttonCloseProps,
         otherComponents,
-      ]
+      ],
     );
 
     return (

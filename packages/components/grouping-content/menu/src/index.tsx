@@ -18,7 +18,7 @@ import {
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<MenuProps>> =
   forwardRef(function MenuComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLMenuElement>({
       componentType: "menu",

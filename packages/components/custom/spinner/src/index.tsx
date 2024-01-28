@@ -82,7 +82,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<SpinnerProps>> =
         colorsRaw,
         colors,
         model,
-      ]
+      ],
     );
 
     return (

@@ -1,4 +1,3 @@
-
 /**
  * Safely converts an object to a JSON string representation.
  *

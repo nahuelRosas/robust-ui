@@ -13,7 +13,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<CodeTextProps>
 > = forwardRef(function CodeTextComponent(
   { copyButtonProps, textProps, children, ...props },
-  ref
+  ref,
 ): React.JSX.Element {
   const {
     multiLanguageSupport,

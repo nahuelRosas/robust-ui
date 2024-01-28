@@ -26,7 +26,7 @@ const Factory: React.ForwardRefExoticComponent<
         !lastElementName || lastElementName.length === 0
           ? "root"
           : nameFile[nameFile.length - 1]
-      }-document.css`
+      }-document.css`,
     );
     try {
       content = fs.readFileSync(cssFile, "utf8");
@@ -34,7 +34,7 @@ const Factory: React.ForwardRefExoticComponent<
         createElement("style", {
           key: "robust-ui-style",
           dangerouslySetInnerHTML: { __html: content },
-        })
+        }),
       );
     } catch (e) {
       if (e instanceof Error) {

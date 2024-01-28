@@ -33,17 +33,17 @@ export function attributeCompleter({
         }
         if (value && typeof value === "object" && !Array.isArray(value)) {
           const hasValidBreakpoints = Object.keys(value).some((attrKey) =>
-            Object.prototype.hasOwnProperty.call(mediaBreakpoints, attrKey)
+            Object.prototype.hasOwnProperty.call(mediaBreakpoints, attrKey),
           );
           const hasValidDarkMode = ["dark", "light"].some((darkModeKey) =>
-            Object.prototype.hasOwnProperty.call(value, darkModeKey)
+            Object.prototype.hasOwnProperty.call(value, darkModeKey),
           );
 
           if (hasValidBreakpoints && hasValidDarkMode) {
             throw new Error(
               `Invalid inputAttributes format: Cannot have both breakpoints and dark mode in the same object: ${JSON.stringify(
-                key
-              )} - ${JSON.stringify(value)}`
+                key,
+              )} - ${JSON.stringify(value)}`,
             );
           }
 
@@ -76,7 +76,7 @@ export function attributeCompleter({
                 breakpointsCompleted[breakpointKey] = lastValue;
                 return breakpointsCompleted;
               },
-              {} as PartialRecord<keyof typeof mediaBreakpoints, unknown>
+              {} as PartialRecord<keyof typeof mediaBreakpoints, unknown>,
             );
           } else if (hasValidDarkMode) {
             completedAttributes[key] = ["dark", "light"].reduce(
@@ -96,7 +96,7 @@ export function attributeCompleter({
                 }
                 return darkModeCompleted;
               },
-              {} as PartialRecord<"dark" | "light", unknown>
+              {} as PartialRecord<"dark" | "light", unknown>,
             );
           } else {
             const preValue: PartialRecord<
@@ -105,7 +105,7 @@ export function attributeCompleter({
             > = {};
 
             for (const [_key, _value] of Object.entries(
-              value as Record<string, unknown>
+              value as Record<string, unknown>,
             )) {
               const partialValue =
                 _value && typeof _value === "object" && !Array.isArray(_value)
@@ -125,7 +125,7 @@ export function attributeCompleter({
         }
         return completedAttributes;
       },
-      {} as PartialRecord<keyof typeof mediaBreakpoints, unknown>
+      {} as PartialRecord<keyof typeof mediaBreakpoints, unknown>,
     );
   } catch (error) {
     if (error instanceof Error) {

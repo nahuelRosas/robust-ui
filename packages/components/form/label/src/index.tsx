@@ -11,7 +11,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<LabelProps>> =
   forwardRef(function LabelComponent(
     { textProps, children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLLabelElement>({
       componentType: "label",

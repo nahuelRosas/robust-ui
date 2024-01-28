@@ -60,16 +60,16 @@ export function valueRecoverer({
   }
 
   const hasValidBreakpoints = Object.keys(inputValueChecked).some((attrKey) =>
-    Object.prototype.hasOwnProperty.call(breakPoints.context, attrKey)
+    Object.prototype.hasOwnProperty.call(breakPoints.context, attrKey),
   );
   const hasValidDarkMode = ["dark", "light"].some((key) =>
-    Object.prototype.hasOwnProperty.call(inputValueChecked, key)
+    Object.prototype.hasOwnProperty.call(inputValueChecked, key),
   );
   const hasValidLanguage =
     currentGlobalLanguage &&
     Object.prototype.hasOwnProperty.call(
       inputValueChecked,
-      currentGlobalLanguage
+      currentGlobalLanguage,
     );
 
   if (!hasValidBreakpoints && !hasValidDarkMode && !hasValidLanguage) {
@@ -182,7 +182,7 @@ function processObjectValues({
 
       return acc;
     },
-    {}
+    {},
   );
   return acc;
 }

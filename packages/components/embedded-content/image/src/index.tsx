@@ -34,7 +34,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
       spinnerProps,
       ...props
     },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLImageElement>({
       componentType: "img",
@@ -101,10 +101,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
     const changeImageIndex = useCallback(
       (newIndex: number) => {
         startTransition(() =>
-          setCurrentImageIndex((newIndex + imageCount) % imageCount)
+          setCurrentImageIndex((newIndex + imageCount) % imageCount),
         );
       },
-      [imageCount]
+      [imageCount],
     );
 
     const handleTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
@@ -174,7 +174,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
           return;
         setMousePosition({ x: e.clientX, y: e.clientY });
       },
-      [currentBreakpoint]
+      [currentBreakpoint],
     );
 
     const handleWheel = useCallback(
@@ -188,10 +188,10 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         const delta = e.deltaY;
         setZoomPrev(zoom);
         setZoom((prevZoom) =>
-          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001))
+          Math.max(0.1, Math.min(10, prevZoom + delta * 0.001)),
         );
       },
-      [currentBreakpoint, zoom]
+      [currentBreakpoint, zoom],
     );
 
     const handleDivClick = useCallback(() => {
@@ -465,7 +465,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
         spinnerProps,
         srcArray,
         zoom,
-      ]
+      ],
     );
 
     return (

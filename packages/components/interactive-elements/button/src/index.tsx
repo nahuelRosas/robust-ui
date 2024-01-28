@@ -13,7 +13,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
   forwardRef(function ButtonComponent(
     { children, textProps, iconProps, spinnerProps, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLButtonElement>({
       componentType: "button",

@@ -13,7 +13,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CardProps>> =
   forwardRef(function CardComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const {
       colorSchemeProperty,

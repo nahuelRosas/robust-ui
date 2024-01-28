@@ -27,7 +27,7 @@ export function pseudoRulesProcessor({
       breakPoints,
       darkMode,
       theme,
-    }) as { [s: string]: unknown }
+    }) as { [s: string]: unknown },
   ).reduce(
     (acc, [key, value]) => {
       if (!value) return acc;
@@ -52,6 +52,6 @@ export function pseudoRulesProcessor({
 
       return acc;
     },
-    { ...cssStyles }
+    { ...cssStyles },
   );
 }

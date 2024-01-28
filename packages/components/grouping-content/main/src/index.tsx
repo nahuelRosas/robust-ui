@@ -49,13 +49,13 @@ const Factory: ForwardRefExoticComponent<ForwardRefExotic<MainProps>> =
       children,
       ...props
     },
-    ref
+    ref,
   ): React.JSX.Element {
     const [globalStateDev, dispatchDev] = useReducer(GlobalStateReducer, {});
     const [globalStateUser, dispatchUser] = useReducer(GlobalStateReducer, {});
     const [globalNotification, dispatchNotification] = useReducer(
       GlobalStateReducer,
-      {}
+      {},
     );
     const [isDarkModeActive, setIsDarkModeActive] = useState<boolean>(false);
 
@@ -85,7 +85,7 @@ const Factory: ForwardRefExoticComponent<ForwardRefExotic<MainProps>> =
     // eslint-disable-next-line no-unused-vars
     type functionDarkMode = (prevState: boolean) => boolean;
     const toggleDarkMode = useCallback(function (
-      darkMode: boolean | functionDarkMode
+      darkMode: boolean | functionDarkMode,
     ): void {
       startTransition(() => setIsDarkModeActive(darkMode));
     }, []);
@@ -93,15 +93,15 @@ const Factory: ForwardRefExoticComponent<ForwardRefExotic<MainProps>> =
     const setAppState = useCallback(function (
       key: string,
       value: unknown,
-      isDev: boolean = false
+      isDev: boolean = false,
     ): void {
       if (isDev) {
         startTransition(() =>
-          dispatchDev({ type: "SET_GLOBAL_STATE_VALUE", key, value })
+          dispatchDev({ type: "SET_GLOBAL_STATE_VALUE", key, value }),
         );
       }
       startTransition(() =>
-        dispatchUser({ type: "SET_GLOBAL_STATE_VALUE", key, value })
+        dispatchUser({ type: "SET_GLOBAL_STATE_VALUE", key, value }),
       );
     }, []);
 
@@ -109,7 +109,7 @@ const Factory: ForwardRefExoticComponent<ForwardRefExotic<MainProps>> =
       function (isDev: boolean = false) {
         return isDev ? globalStateDev : globalStateUser;
       },
-      [globalStateDev, globalStateUser]
+      [globalStateDev, globalStateUser],
     );
     const resetAppState = useCallback((isDev: boolean = false) => {
       if (isDev) {
@@ -119,31 +119,31 @@ const Factory: ForwardRefExoticComponent<ForwardRefExotic<MainProps>> =
     }, []);
 
     const setNotificationState = useCallback(function (
-      notification: notification
+      notification: notification,
     ): void {
       startTransition(() =>
         dispatchNotification({
           type: "SET_GLOBAL_STATE_VALUE",
           key: notification.id,
           value: notification,
-        })
+        }),
       );
     }, []);
 
     const resetNotificationState = useCallback(function (): void {
       startTransition(() =>
-        dispatchNotification({ type: "RESET_GLOBAL_STATE" })
+        dispatchNotification({ type: "RESET_GLOBAL_STATE" }),
       );
     }, []);
 
     const removeNotificationState = useCallback(function (
-      notificationId: string
+      notificationId: string,
     ): void {
       startTransition(() =>
         dispatchNotification({
           type: "REMOVE_GLOBAL_STATE_VALUE",
           key: notificationId,
-        })
+        }),
       );
     }, []);
 

@@ -47,6 +47,6 @@ export function propsSplitter({ props, commands }: IpropsSplitterProps): {
     { htmlProps: {}, styleProps: {} } as {
       htmlProps: Record<string, unknown>;
       styleProps: Record<string, unknown>;
-    }
+    },
   );
 }

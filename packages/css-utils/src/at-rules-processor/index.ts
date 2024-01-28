@@ -50,7 +50,7 @@ export function atRulesProcessor({
       (accumulator, [key, value]) => {
         let partialResult = `${key} {`;
         partialResult += Object.entries(
-          value as { [s: string]: unknown }
+          value as { [s: string]: unknown },
         ).reduce((innerAccumulator, [subKey, subValue]) => {
           if (isNullOrUndefined(subValue)) return innerAccumulator;
           const subValueChecked = subValue as string | Record<string, unknown>;
@@ -70,7 +70,7 @@ export function atRulesProcessor({
             return `${innerAccumulator}${propFunction(paramValueChecked)}`;
           } else if (typeof subValueChecked === "object") {
             return `${innerAccumulator}${subKey} {${Object.entries(
-              subValueChecked
+              subValueChecked,
             ).reduce((subInnerAccumulator, [prop, propValue]) => {
               const { propFunction, functionRaw } = functionRecoverer({
                 inputProp: prop,
@@ -95,7 +95,7 @@ export function atRulesProcessor({
         }
         return accumulator;
       },
-      [] as string[]
+      [] as string[],
     );
     result.forEach((element) => {
       if (!atRulesElement.includes(element)) {

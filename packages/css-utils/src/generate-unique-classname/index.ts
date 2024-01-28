@@ -22,7 +22,7 @@ export function generateUniqueClassName({
       throw new Error(
         `Error while generating unique class name for ${
           JSON.stringify(object, null, 2) || "undefined"
-        }: ${error.message}`
+        }: ${error.message}`,
       );
     }
   }

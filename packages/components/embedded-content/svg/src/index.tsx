@@ -12,7 +12,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
   forwardRef(function IconComponent(
     { children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const Component = CreateComponent<SVGElement>({
       componentType: "svg",

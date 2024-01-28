@@ -20,7 +20,7 @@ export * from "./types";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
   forwardRef(function InputComponent(
     { labelProps, children, ...props },
-    ref: Ref<unknown>
+    ref: Ref<unknown>,
   ): React.JSX.Element {
     const Component = CreateComponent<HTMLInputElement>({
       componentType: "input",
@@ -89,7 +89,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
         }
         setInputValue(event.target.value);
       },
-      [onChange]
+      [onChange],
     );
     const idString = id ? id : strings.length ? strings.join(" ") : placeholder;
 

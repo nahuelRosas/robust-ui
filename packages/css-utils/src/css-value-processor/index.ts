@@ -83,7 +83,7 @@ export function cssValueProcessor({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[cssValueProcessor] - An unexpected error occurred while processing the ${inputProp} property. ${error.message}`
+        `[cssValueProcessor] - An unexpected error occurred while processing the ${inputProp} property. ${error.message}`,
       );
     }
     return cssStyles;

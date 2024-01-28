@@ -43,7 +43,7 @@ export function inyectServerStyle({
         !lastElementName || lastElementName.length === 0
           ? "root"
           : nameFile[nameFile.length - 1]
-      }-document.css`
+      }-document.css`,
     );
 
     const cssFileContent = fs.existsSync(cssFile)
@@ -74,7 +74,7 @@ export function inyectServerStyle({
         pseudoClasses: {},
         pseudoElements: {},
         base: [],
-      } as ICSSRulesSet
+      } as ICSSRulesSet,
     );
 
     const styledCSSMap = generateStyledCSSMap({
@@ -110,7 +110,7 @@ export function inyectServerStyle({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[inyectServerStyle] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`
+        `[inyectServerStyle] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`,
       );
     }
   }

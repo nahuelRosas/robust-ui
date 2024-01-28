@@ -15,7 +15,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<NextLinkProps>
 > = forwardRef(function NextLinkComponent(
   { textProps, iconProps, spinnerProps, children, ...props },
-  ref
+  ref,
 ): React.JSX.Element {
   const Component = CreateComponent<LinkProps>({
     componentType: "a",

@@ -11,7 +11,7 @@ import { Icon } from "@robust-ui/icon";
 const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<CoverProps>> =
   forwardRef(function CoverComponent(
     { labelProps, iconProps, paragraphProps, children, ...props },
-    ref
+    ref,
   ): React.JSX.Element {
     const {
       multiLanguageSupport,

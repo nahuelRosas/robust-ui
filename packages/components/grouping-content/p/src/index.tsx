@@ -38,7 +38,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<TextProps>> =
     const composeChildren = useMemo(() => {
       if (multiLanguageSupport && children)
         console.error(
-          "Warning: multiLanguageSupport and children are not compatible, please use one or the other"
+          "Warning: multiLanguageSupport and children are not compatible, please use one or the other",
         );
       return multiLanguageSupport || children;
     }, [multiLanguageSupport, children]);
