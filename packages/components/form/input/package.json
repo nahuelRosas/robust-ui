@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/input",
   "description": "A input component for React",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

@@ -1,5 +1,17 @@
 # @robust-ui/use-clean-value
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [3feeb76]
+  - @robust-ui/use-global-context@1.0.0
+  - @robust-ui/tools@1.0.0
+
 ## 0.10.0
 
 ### Minor Changes

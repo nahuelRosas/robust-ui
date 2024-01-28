@@ -1,5 +1,23 @@
 # @robust-ui/constructor
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Minor Changes
+
+- ede67fe: Refactor components and fix linting issues
+
+### Patch Changes
+
+- Updated dependencies [3feeb76]
+  - @robust-ui/css-utils@1.0.0
+  - @robust-ui/use-global-context@1.0.0
+  - @robust-ui/theme@1.0.0
+  - @robust-ui/tools@1.0.0
+
 ## 0.8.0
 
 ### Minor Changes

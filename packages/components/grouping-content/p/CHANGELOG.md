@@ -1,5 +1,19 @@
 # @robust-ui/paragraph
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+- Updated dependencies [3feeb76]
+  - @robust-ui/constructor@1.0.0
+  - @robust-ui/css-utils@1.0.0
+  - @robust-ui/use-clean-value@1.0.0
+
 ## 0.8.0
 
 ### Minor Changes

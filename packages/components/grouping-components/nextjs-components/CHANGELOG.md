@@ -1,5 +1,47 @@
 # @robust-ui/nextjs-components
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+- Updated dependencies [3feeb76]
+  - @robust-ui/constructor@1.0.0
+  - @robust-ui/card@1.0.0
+  - @robust-ui/code-text@1.0.0
+  - @robust-ui/cover@1.0.0
+  - @robust-ui/overlay@1.0.0
+  - @robust-ui/spinner@1.0.0
+  - @robust-ui/styled-text@1.0.0
+  - @robust-ui/image@1.0.0
+  - @robust-ui/icon@1.0.0
+  - @robust-ui/input@1.0.0
+  - @robust-ui/label@1.0.0
+  - @robust-ui/textarea@1.0.0
+  - @robust-ui/block@1.0.0
+  - @robust-ui/flex@1.0.0
+  - @robust-ui/main@1.0.0
+  - @robust-ui/menu@1.0.0
+  - @robust-ui/paragraph@1.0.0
+  - @robust-ui/button@1.0.0
+  - @robust-ui/aside@1.0.0
+  - @robust-ui/footer@1.0.0
+  - @robust-ui/header@1.0.0
+  - @robust-ui/span@1.0.0
+  - @robust-ui/next-link@1.0.0
+  - @robust-ui/use-clean-value@1.0.0
+  - @robust-ui/use-extract-string@1.0.0
+  - @robust-ui/use-global-context@1.0.0
+  - @robust-ui/use-image-status@1.0.0
+  - @robust-ui/use-language@1.0.0
+  - @robust-ui/use-toast@1.0.0
+  - @robust-ui/theme@1.0.0
+  - @robust-ui/tools@1.0.0
+
 ## 0.10.1
 
 ### Patch Changes
