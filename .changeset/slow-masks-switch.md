@@ -1,0 +1,49 @@
+---
+"web": major
+"@robust-ui/card": major
+"@robust-ui/code-text": major
+"@robust-ui/cover": major
+"@robust-ui/icons": major
+"@robust-ui/loader-style": major
+"@robust-ui/overlay": major
+"@robust-ui/spinner": major
+"@robust-ui/styled-text": major
+"@robust-ui/image": major
+"@robust-ui/icon": major
+"@robust-ui/input": major
+"@robust-ui/label": major
+"@robust-ui/textarea": major
+"@robust-ui/nextjs-components": major
+"@robust-ui/block": major
+"@robust-ui/flex": major
+"@robust-ui/main": major
+"@robust-ui/menu": major
+"@robust-ui/paragraph": major
+"@robust-ui/button": major
+"@robust-ui/aside": major
+"@robust-ui/footer": major
+"@robust-ui/header": major
+"@robust-ui/span": major
+"@robust-ui/next-link": major
+"@robust-ui/constructor": major
+"@robust-ui/css-utils": major
+"@robust-ui/eslint-config": major
+"@robust-ui/use-breakpoint-value": major
+"@robust-ui/use-clean-value": major
+"@robust-ui/use-extract-string": major
+"@robust-ui/use-global-context": major
+"@robust-ui/use-global-state": major
+"@robust-ui/use-global-state-updater": major
+"@robust-ui/use-image-status": major
+"@robust-ui/use-language": major
+"@robust-ui/use-recovery-global-state-value": major
+"@robust-ui/use-resize-listener": major
+"@robust-ui/use-ssr": major
+"@robust-ui/use-toast": major
+"@robust-ui/global-state-reducer": major
+"@robust-ui/theme": major
+"@robust-ui/tools": major
+"@robust-ui/tsconfig": major
+---
+
+Refactor code & add SSR for NextJs Pages & optimization code
