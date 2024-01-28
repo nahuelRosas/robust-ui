@@ -1,5 +1,5 @@
 import { Cover, Card } from "@robust-ui/nextjs-components";
-import HeadNext from "../components/headNext";
+import HeadNext from "@/components/headNext";
 
 export default function Index() {
   return (

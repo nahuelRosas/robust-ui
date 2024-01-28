@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import HeadNext from "../components/headNext";
 import {
   Flex,
   StyledText,
   Icon,
-  Cover,
   Card,
+  Cover,
   NextLink,
 } from "@robust-ui/nextjs-components";
 function Index() {
@@ -97,6 +97,7 @@ function Index() {
           en: "I am a |Full Stack Developer| passionate about web technologies. My specialty is |React and TypeScript|, with which I can create innovative and high-quality web applications. If you have a digital project that you want to make happen, count on me! Together we can create precise and creative solutions for your needs.",
         }}
       />
+
       <Card
         mt="10dvh"
         data={[
@@ -151,6 +152,7 @@ function Index() {
           href: "/projects",
         }}
       />
+
       <Card
         mt="10dvh"
         label={{

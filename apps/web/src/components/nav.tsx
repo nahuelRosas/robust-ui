@@ -1,12 +1,12 @@
 import {
-  Aside,
-  Button,
-  Flex,
-  Header,
-  Menu,
-  NextLink,
-  StyledText,
   useLanguage,
+  StyledText,
+  NextLink,
+  Header,
+  Button,
+  Aside,
+  Flex,
+  Menu,
 } from "@robust-ui/nextjs-components";
 
 export default function Nav() {

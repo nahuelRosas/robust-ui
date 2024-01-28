@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import {
-  Button,
-  Flex,
-  Footer,
-  Input,
-  NextLink,
-  Overlay,
   StyledText,
+  NextLink,
   TextArea,
   useToast,
+  Button,
+  Footer,
+  Input,
+  Flex,
+  Overlay,
 } from "@robust-ui/nextjs-components";
+// import { Overlay } from "./overlay";
 
 export default function Sub() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [text, setText] = useState<string>("");
   const [validEmail, setValidEmail] = useState(true);
-  const [hidden, setHidden] = useState<boolean>(true);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -70,17 +70,12 @@ export default function Sub() {
     setValidEmail(validateEmail(inputValue));
   };
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHidden(false);
-    }
-  }, [hidden]);
-
   return (
     <Footer
       boxShadowRaw="0 0 1.5dvh 0 rgba(255, 255, 255, 0.3)"
       flexDirection="column"
       colorScheme="black"
+      mt="10dvh"
     >
       <StyledText
         fontSizeRaw="3dvh"
@@ -122,7 +117,6 @@ export default function Sub() {
         }}
       />
       <Overlay
-        display={hidden ? "none" : "flex"}
         my="3dvh"
         isDisabled={isLoading}
         buttonOpenProps={{

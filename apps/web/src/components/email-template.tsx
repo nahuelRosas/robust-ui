@@ -6,11 +6,7 @@ interface EmailTemplateProps {
   text: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  name,
-  email,
-  text,
-}) => {
+export function EmailTemplate({ name, email, text }: EmailTemplateProps) {
   return (
     <div>
       <span>Hola Nahuel,</span>
@@ -31,4 +27,4 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
       <span>{text}</span>
     </div>
   );
-};
+}

@@ -77,6 +77,8 @@ export default function Index() {
               }}
               fontWeight="500"
               color="white"
+              whiteSpace="breakSpaces"
+              textAlign="center"
               mx="3dvh"
               mt="2dvh"
               iconType="mailFill"
@@ -132,22 +134,23 @@ export default function Index() {
               mt="2dvh"
               p="0"
             />
-          </Flex>
-          <Flex gap="0.5dvw" my="2dvh">
-            <Icon iconType="location" height="fitContent" />
-            <StyledText
+            <NextLink
+              href="#"
+              iconType="location"
               height="fitContent"
+              whiteSpace="breakSpaces"
               textAlign="center"
-              elementName="CVLabel"
-              fontWeights={["500"]}
               fontSizeRaw={{
                 base: "2.5dvh",
                 md: "3dvh",
               }}
-              colors={["white", "teal", "white", "indigo"]}
-            >
-              Córdoba, CBA X5000 - Argentina
-            </StyledText>
+              fontWeight="500"
+              color="white"
+              multiLanguageSupport="Córdoba, CBA X5000 - Argentina"
+              mx="3dvh"
+              mt="2dvh"
+              p="0"
+            />
           </Flex>
         </Flex>
         <Flex
@@ -190,7 +193,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -284,7 +287,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -375,7 +378,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -471,7 +474,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -605,7 +608,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -783,7 +786,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -1021,7 +1024,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -1110,7 +1113,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -1199,7 +1202,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth
@@ -1285,7 +1288,7 @@ export default function Index() {
           <Flex
             my="2dvh"
             mx="2dvw"
-            p="4dvh"
+            p="2dvh"
             borderRadius="2.5dvh"
             flexDirection="column"
             optimizedWidth

@@ -8,7 +8,7 @@ import {
   DodecahedronGeometryInstance,
   subsurfaceMaterial,
 } from "../materialGeometry";
-import {
+import THREE, {
   Color,
   InstancedMesh,
   Vector3,
@@ -20,7 +20,7 @@ import {
   MathUtils,
   InstancedBufferAttribute,
 } from "three";
-import React, {
+import {
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -29,11 +29,17 @@ import React, {
 } from "react";
 import chroma from "chroma-js";
 import { Instance } from "../types";
+
 const NUM_INSTANCES = 500;
 
-function debounce<T extends (...args: any[]) => any>(fn: T, delay: number) {
+// eslint-disable-next-line no-unused-vars
+function debounce<T extends (...args: unknown[]) => unknown>(
+  fn: T,
+  delay: number,
+) {
+  // eslint-disable-next-line no-undef
   let timeoutId: NodeJS.Timeout;
-  return function (this: any, ...args: Parameters<T>) {
+  return function (this: unknown, ...args: Parameters<T>) {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => fn.apply(this, args), delay);
   } as T;
@@ -46,7 +52,7 @@ export function updateInstanceColors({
   mesh: InstancedMesh;
   scale?: chroma.Scale<chroma.Color>;
 }): void {
-  let colorScale = scale || chroma.scale(["#10B981", "#6366F1"]);
+  const colorScale = scale || chroma.scale(["#10B981", "#6366F1"]);
   const randFloat = MathUtils.randFloat;
   const colors: number[] = [];
   for (let i = 0; i < NUM_INSTANCES; i++) {
