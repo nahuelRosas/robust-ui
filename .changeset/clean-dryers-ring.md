@@ -1,5 +1,4 @@
 ---
-"@robust-ui/provider": minor
 "@robust-ui/constructor": minor
 ---
 
