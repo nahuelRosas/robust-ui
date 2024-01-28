@@ -1,9 +1,9 @@
 /** @type {import("eslint").Linter.Config} */
 
 module.exports = {
-  extends: ["robust"],
+  extends: ["@robust-ui/eslint-config/library.js"],
   parser: "@typescript-eslint/parser",
-  ignorePatterns: [".eslintrc.js"],
+  ignorePatterns: ["*.js"],
   parserOptions: {
     project: true,
   },
