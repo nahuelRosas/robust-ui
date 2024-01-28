@@ -1,0 +1,10 @@
+{
+  "extends": "@robust-ui/tsconfig/react-library.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"],
+    },
+  },
+  "include": [".", "tsup.config.ts"],
+  "exclude": ["dist", "build", "node_modules"],
+}
