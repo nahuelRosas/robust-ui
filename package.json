@@ -20,19 +20,28 @@
     "version-packages": "changeset version",
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
-    "release:dev": "changeset publish --tag dev"
+    "release:dev": "changeset publish --tag dev",
+    "postinstall": "pnpm run build:packages"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "latest",
+    "@changesets/cli": "latest",
     "@robust-ui/eslint-config": "workspace:*",
     "@robust-ui/tsconfig": "workspace:*",
-    "@types/react": "latest",
+    "@swc/core": "latest",
     "@types/node": "latest",
+    "@types/react": "latest",
     "changeset": "latest",
+    "clean-package": "latest",
+    "eslint": "latest",
+    "next": "latest",
     "prettier": "latest",
     "rimraf": "latest",
     "terser": "latest",
     "tsup": "latest",
-    "turbo": "latest"
+    "turbo": "latest",
+    "depcheck": "latest",
+    "typescript": "latest"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
