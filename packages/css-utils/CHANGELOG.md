@@ -1,5 +1,17 @@
 # @robust-ui/cryptography
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [3feeb76]
+  - @robust-ui/theme@1.0.0
+  - @robust-ui/tools@1.0.0
+
 ## 0.8.0
 
 ### Minor Changes

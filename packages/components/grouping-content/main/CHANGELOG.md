@@ -1,5 +1,24 @@
 # @robust-ui/provider
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+- Updated dependencies [3feeb76]
+  - @robust-ui/constructor@1.0.0
+  - @robust-ui/loader-style@1.0.0
+  - @robust-ui/use-breakpoint-value@1.0.0
+  - @robust-ui/use-clean-value@1.0.0
+  - @robust-ui/use-global-context@1.0.0
+  - @robust-ui/use-ssr@1.0.0
+  - @robust-ui/global-state-reducer@1.0.0
+  - @robust-ui/theme@1.0.0
+
 ## 0.11.0
 
 ### Minor Changes

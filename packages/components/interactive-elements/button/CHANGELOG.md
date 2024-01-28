@@ -1,5 +1,24 @@
 # @robust-ui/cover
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+- Updated dependencies [3feeb76]
+  - @robust-ui/constructor@1.0.0
+  - @robust-ui/spinner@1.0.0
+  - @robust-ui/icon@1.0.0
+  - @robust-ui/flex@1.0.0
+  - @robust-ui/span@1.0.0
+  - @robust-ui/css-utils@1.0.0
+  - @robust-ui/use-clean-value@1.0.0
+  - @robust-ui/use-extract-string@1.0.0
+
 ## 0.11.0
 
 ### Minor Changes

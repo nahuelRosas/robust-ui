@@ -1,5 +1,11 @@
 # @robust-ui/spinner
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
 ## 0.10.0
 
 ### Minor Changes

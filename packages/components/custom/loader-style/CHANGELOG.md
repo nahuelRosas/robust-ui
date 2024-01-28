@@ -1,5 +1,18 @@
 # @robust-ui/provider
 
+## 1.0.0
+
+### Major Changes
+
+- 3feeb76: Refactor code & add SSR for NextJs Pages & optimization code
+
+### Patch Changes
+
+- Updated dependencies [ede67fe]
+- Updated dependencies [3feeb76]
+  - @robust-ui/constructor@1.0.0
+  - @robust-ui/use-ssr@1.0.0
+
 ## 0.3.0
 
 ### Minor Changes
