@@ -1,0 +1,26 @@
+{
+  "name": "@robust-ui/eslint-config",
+  "description": "ESLint config for Robust",
+  "version": "0.1.0",
+  "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist .turbo .next node_modules"
+  },
+  "private": false,
+  "files": [
+    "react-internal.js",
+    "library.js",
+    "next.js"
+  ],
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint-plugin-only-warn": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-config-turbo": "latest",
+    "@vercel/style-guide": "latest",
+    "typescript": "latest"
+  }
+}
