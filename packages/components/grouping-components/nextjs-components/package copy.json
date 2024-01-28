@@ -1,0 +1,64 @@
+{
+  "name": "@robust-ui/nextjs-components",
+  "description": "Robust UI components for Next.js",
+  "version": "0.10.1",
+  "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
+  "bugs": {
+    "url": "https://github.com/nahuelRosas/robust-ui/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist/**"],
+  "scripts": {
+    "build": "tsup-node --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .next .turbo node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.ts*\" --fix",
+
+    "build:fast": "tsup-node",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "depCheck": "depcheck"
+  },
+  "dependencies": {
+    "@robust-ui/use-language": "workspace:*",
+    "@robust-ui/styled-text": "workspace:*",
+    "@robust-ui/use-toast": "workspace:*",
+    "@robust-ui/next-link": "workspace:*",
+    "@robust-ui/textarea": "workspace:*",
+    "@robust-ui/overlay": "workspace:*",
+    "@robust-ui/spinner": "workspace:*",
+    "@robust-ui/header": "workspace:*",
+    "@robust-ui/button": "workspace:*",
+    "@robust-ui/footer": "workspace:*",
+    "@robust-ui/image": "workspace:*",
+    "@robust-ui/cover": "workspace:*",
+    "@robust-ui/label": "workspace:*",
+    "@robust-ui/aside": "workspace:*",
+    "@robust-ui/input": "workspace:*",
+    "@robust-ui/block": "workspace:*",
+    "@robust-ui/card": "workspace:*",
+    "@robust-ui/text": "workspace:*",
+    "@robust-ui/menu": "workspace:*",
+    "@robust-ui/icon": "workspace:*",
+    "@robust-ui/span": "workspace:*",
+    "@robust-ui/flex": "workspace:*",
+    "@robust-ui/main": "workspace:*",
+    "react": "latest",
+    "tsup": "latest"
+  },
+  "devDependencies": {
+    "@robust-ui/eslint-config": "workspace:*",
+    "@robust-ui/tsconfig": "workspace:*",
+    "@types/react": "latest",
+    "@types/node": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
