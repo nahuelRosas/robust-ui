@@ -16,18 +16,20 @@ type NestedRecordPartial<T> = Partial<Record<Partial<string>, T>>;
 type NestedRecord<T> = Partial<
   Record<Partial<string>, T | NestedRecordPartial<T>>
 >;
-export type GenericProperty<T> = Partial<T> | NestedRecord<T>;
+export type PartialOrNestedPartial<T> = Partial<T> | NestedRecord<T>;
 
-export type GenericPropertyArray<T> =
+export type PartialOrNestedPartialArray<T> =
   | T[]
-  | GenericProperty<T>
-  | GenericProperty<T>[];
+  | PartialOrNestedPartial<T>
+  | PartialOrNestedPartial<T>[];
 
 export type MappedCssProperties<T extends keyof ThemeType = keyof ThemeType> = {
   [Selector in keyof typeof selectors]?: Selector extends T
     ?
-        | GenericProperty<keyof ThemeType[Selector & keyof ThemeType]>
-        | GenericPropertyArray<keyof ThemeType[Selector & keyof ThemeType]>
+        | PartialOrNestedPartial<keyof ThemeType[Selector & keyof ThemeType]>
+        | PartialOrNestedPartialArray<
+            keyof ThemeType[Selector & keyof ThemeType]
+          >
     : unknown;
 };
 
@@ -44,8 +46,8 @@ export type MappedCSSPropertiesWithRawOrHtml = {
     | object
     | number
     | unknown
-    | GenericProperty<string | boolean | object | number | unknown>
-    | GenericPropertyArray<string | boolean | object | number | unknown>;
+    | PartialOrNestedPartial<string | boolean | object | number | unknown>
+    | PartialOrNestedPartialArray<string | boolean | object | number | unknown>;
 };
 
 export type FullCSSProperties = {
@@ -64,7 +66,7 @@ export type ElementPropertiesSubType<T> = {
 
 export type CustomHTMLAttributes<T> = {
   [K in keyof Omit<ElementPropertiesSubType<T>, keyof FullCSSProperties>]?:
-    | GenericProperty<ElementPropertiesSubType<T>[K]>
+    | PartialOrNestedPartial<ElementPropertiesSubType<T>[K]>
     | ElementPropertiesSubType<T>[K];
 } & {
   [K in keyof FullCSSProperties]?: FullCSSProperties[K];
@@ -79,12 +81,12 @@ export type CustomHTMLAttributesNoGeneric<T> = {
   [K in keyof FullCSSProperties]?: FullCSSProperties[K];
 };
 
-export type EnhancedElementProps<T> = CustomHTMLAttributes<T> & {
-  multiLanguageSupport?: GenericProperty<React.ReactNode>;
+export type EnhancedProps<T> = CustomHTMLAttributes<T> & {
+  multiLanguageSupport?: PartialOrNestedPartial<React.ReactNode>;
   ElementType?: React.ElementType | keyof JSX.IntrinsicElements;
-  colorScheme?: GenericProperty<keyof typeof colors>;
-  colorSchemeRaw?: GenericProperty<string>;
-  variant?: GenericProperty<
+  colorScheme?: PartialOrNestedPartial<keyof typeof colors>;
+  colorSchemeRaw?: PartialOrNestedPartial<string>;
+  variant?: PartialOrNestedPartial<
     | "solid"
     | "solidLight"
     | "solidDark"
@@ -96,7 +98,7 @@ export type EnhancedElementProps<T> = CustomHTMLAttributes<T> & {
     | "linkLight"
     | "linkDark"
   >;
-  colorSchemeProperty?: GenericProperty<{
+  colorSchemeProperty?: PartialOrNestedPartial<{
     variant?:
       | "solid"
       | "solidLight"
@@ -127,15 +129,25 @@ export type EnhancedElementProps<T> = CustomHTMLAttributes<T> & {
     complementaryColor?: boolean;
   }>;
   children?: React.ReactNode;
-  elementName?: string;
 };
 
-export type EnhancedElementPropsNoGeneric<T> =
-  CustomHTMLAttributesNoGeneric<T> & {
-    ElementType?: React.ElementType | keyof JSX.IntrinsicElements;
-    colorScheme?: keyof typeof colors;
-    multiLanguageSupport?: React.ReactNode;
-    colorSchemeRaw?: string;
+export type EnhancedPropsNoGeneric<T> = CustomHTMLAttributesNoGeneric<T> & {
+  ElementType?: React.ElementType | keyof JSX.IntrinsicElements;
+  colorScheme?: keyof typeof colors;
+  multiLanguageSupport?: React.ReactNode;
+  colorSchemeRaw?: string;
+  variant?:
+    | "solid"
+    | "solidLight"
+    | "solidDark"
+    | "outline"
+    | "outlineLight"
+    | "outlineDark"
+    | "ghost"
+    | "link"
+    | "linkLight"
+    | "linkDark";
+  colorSchemeProperty?: {
     variant?:
       | "solid"
       | "solidLight"
@@ -147,39 +159,26 @@ export type EnhancedElementPropsNoGeneric<T> =
       | "link"
       | "linkLight"
       | "linkDark";
-    colorSchemeProperty?: {
-      variant?:
-        | "solid"
-        | "solidLight"
-        | "solidDark"
-        | "outline"
-        | "outlineLight"
-        | "outlineDark"
-        | "ghost"
-        | "link"
-        | "linkLight"
-        | "linkDark";
-      baseColor?: keyof typeof colors | string;
-      baseColorRaw?: string;
-      opacity?: number;
-      props?: {
-        monochromeText?: boolean;
-        highContrast?: boolean;
-        border?: boolean;
-        hover?: boolean;
-        focus?: boolean;
-        active?: boolean;
-        background?: boolean;
-      };
-      isDisabled?: boolean;
-      isInvalid?: boolean;
-      isValid?: boolean;
-      isActivated?: boolean;
-      complementaryColor?: boolean;
+    baseColor?: keyof typeof colors | string;
+    baseColorRaw?: string;
+    opacity?: number;
+    props?: {
+      monochromeText?: boolean;
+      highContrast?: boolean;
+      border?: boolean;
+      hover?: boolean;
+      focus?: boolean;
+      active?: boolean;
+      background?: boolean;
     };
-    children?: React.ReactNode;
-    elementName?: string;
+    isDisabled?: boolean;
+    isInvalid?: boolean;
+    isValid?: boolean;
+    isActivated?: boolean;
+    complementaryColor?: boolean;
   };
+  children?: React.ReactNode;
+};
 
 export interface ComponentConstructorProps<T> {
   componentType: keyof JSX.IntrinsicElements | React.ComponentType<T>;

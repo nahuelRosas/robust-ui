@@ -16,28 +16,32 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node src --dts",
+    "build": "tsup-node --dts",
     "dev": "pnpm build:fast -- --watch",
-    "clean": "rimraf dist .turbo node_modules",
+    "clean": "rimraf dist .next .turbo node_modules",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint \"src/**/*.ts*\"",
-    "build:fast": "tsup-node src",
+    "lint": "eslint \"src/**/*.ts*\" --fix",
+    "build:fast": "tsup-node",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
     "depCheck": "depcheck"
   },
   "dependencies": {
     "@robust-ui/use-global-context": "workspace:*",
-    "@robust-ui/use-inject-style": "workspace:*",
     "@robust-ui/css-utils": "workspace:*",
-    "@robust-ui/use-ssr": "workspace:*",
+    "@robust-ui/tools": "workspace:*",
     "@robust-ui/theme": "workspace:*",
-    "react": "^18.2.0",
-    "tsup": "^8.0.1"
+    "react": "latest",
+    "tsup": "latest"
   },
   "devDependencies": {
-    "eslint-config-robust": "workspace:*",
-    "@robust-ui/tsconfig": "workspace:*"
+    "eslint-import-resolver-typescript": "latest",
+    "@robust-ui/eslint-config": "workspace:*",
+    "@typescript-eslint/parser": "latest",
+    "@robust-ui/tsconfig": "workspace:*",
+    "eslint-plugin-only-warn": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-config-turbo": "latest"
   },
   "publishConfig": {
     "access": "public"
