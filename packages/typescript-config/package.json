@@ -1,0 +1,13 @@
+{
+  "name": "@robust-ui/tsconfig",
+  "description": "Robust TypeScript configuration for Node.js and Browser projects",
+  "version": "0.1.1",
+  "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist .turbo .next node_modules"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

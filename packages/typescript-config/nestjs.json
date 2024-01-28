@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Nest.js",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": false,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictBindCallApply": false,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "declaration": true,
+    "incremental": true,
+    "target": "ES2022",
+    "outDir": "./dist",
+    "sourceMap": true,
+    "baseUrl": "./"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
