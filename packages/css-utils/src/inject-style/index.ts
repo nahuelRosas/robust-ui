@@ -8,7 +8,6 @@ import { InjectCSSTOptions } from "./types";
  * @param options - The options for injecting CSS styles.
  * @returns An object containing the styled CSS map and input props, or undefined.
  */
-
 export function injectStyle({
   classNameSelector,
   breakPoints,

@@ -48,7 +48,7 @@ export function inyectBrowserStyle({
         pseudoClasses: {},
         pseudoElements: {},
         base: [],
-      } as ICSSRulesSet,
+      } as ICSSRulesSet
     );
 
     const styledCSSMap = generateStyledCSSMap({
@@ -90,7 +90,7 @@ export function inyectBrowserStyle({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[inyectBrowserStyle] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`,
+        `[inyectBrowserStyle] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`
       );
     }
   }

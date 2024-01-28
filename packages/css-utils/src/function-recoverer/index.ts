@@ -2,9 +2,9 @@ import { normalizeInputKey } from "@robust-ui/tools";
 type CommandFunction = (arg: unknown) => string;
 
 /**
- * Recovers a function based on the input property and a set of commands.
+ * Recovers a function based on the input property and commands.
  * @param inputProp The input property.
- * @param commands The commands to recover the function from.
+ * @param commands The commands.
  * @returns An object containing the recovered function, a flag indicating if the function is raw, and the correct property name.
  */
 export function functionRecoverer({

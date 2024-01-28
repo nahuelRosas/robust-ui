@@ -9,10 +9,9 @@ import { ICSSRulesSet } from "@/types";
  * Injects server-side styles based on the provided options.
  *
  * @param options - The options for injecting server-side styles.
- * @returns An object containing the styled CSS map and input props, or undefined if the input props or pathname are empty.
- * @throws If there is an error injecting the server style.
+ * @returns An object containing the styled CSS map and input props, or undefined.
+ * @throws If an unexpected error occurs while processing the classNameSelector property.
  */
-
 export function inyectServerStyle({
   classNameSelector,
   breakPoints,
@@ -44,7 +43,7 @@ export function inyectServerStyle({
         !lastElementName || lastElementName.length === 0
           ? "root"
           : nameFile[nameFile.length - 1]
-      }-document.css`,
+      }-document.css`
     );
 
     const cssFileContent = fs.existsSync(cssFile)
@@ -75,7 +74,7 @@ export function inyectServerStyle({
         pseudoClasses: {},
         pseudoElements: {},
         base: [],
-      } as ICSSRulesSet,
+      } as ICSSRulesSet
     );
 
     const styledCSSMap = generateStyledCSSMap({
@@ -111,7 +110,7 @@ export function inyectServerStyle({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[inyectServerStyle] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`,
+        `[inyectServerStyle] - An unexpected error occurred while processing the ${classNameSelector} property. ${error}`
       );
     }
   }

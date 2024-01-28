@@ -4,8 +4,7 @@ import { ICSSRulesSet, Processor } from "@/types";
 
 /**
  * Processes the at-rules based on the provided parameters and updates the CSS styles accordingly.
- *
- * @param {Processor} options - The options object containing the inputProp, inputValue, cssStyles, darkMode, breakPoints, theme, and commands.
+ * @param {Processor} options - The options for processing the at-rules.
  * @returns {ICSSRulesSet} - The updated CSS rules set.
  */
 export function atRulesProcessor({
@@ -51,7 +50,7 @@ export function atRulesProcessor({
       (accumulator, [key, value]) => {
         let partialResult = `${key} {`;
         partialResult += Object.entries(
-          value as { [s: string]: unknown },
+          value as { [s: string]: unknown }
         ).reduce((innerAccumulator, [subKey, subValue]) => {
           if (isNullOrUndefined(subValue)) return innerAccumulator;
           const subValueChecked = subValue as string | Record<string, unknown>;
@@ -71,7 +70,7 @@ export function atRulesProcessor({
             return `${innerAccumulator}${propFunction(paramValueChecked)}`;
           } else if (typeof subValueChecked === "object") {
             return `${innerAccumulator}${subKey} {${Object.entries(
-              subValueChecked,
+              subValueChecked
             ).reduce((subInnerAccumulator, [prop, propValue]) => {
               const { propFunction, functionRaw } = functionRecoverer({
                 inputProp: prop,
@@ -96,7 +95,7 @@ export function atRulesProcessor({
         }
         return accumulator;
       },
-      [] as string[],
+      [] as string[]
     );
     result.forEach((element) => {
       if (!atRulesElement.includes(element)) {

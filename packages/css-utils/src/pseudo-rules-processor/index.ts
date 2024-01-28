@@ -3,10 +3,10 @@ import { valueRecoverer } from "@robust-ui/tools";
 import { ICSSRulesSet, Processor } from "@/types";
 
 /**
- * Processes pseudo rules based on the provided input and returns an updated CSS rules set.
+ * Processes pseudo rules based on the provided parameters.
  *
- * @param options - The processor options.
- * @returns The updated CSS rules set.
+ * @param {Processor} options - The options for the pseudo rules processor.
+ * @returns {ICSSRulesSet} - The processed CSS rules set.
  */
 export function pseudoRulesProcessor({
   breakPoints,
@@ -27,7 +27,7 @@ export function pseudoRulesProcessor({
       breakPoints,
       darkMode,
       theme,
-    }) as { [s: string]: unknown },
+    }) as { [s: string]: unknown }
   ).reduce(
     (acc, [key, value]) => {
       if (!value) return acc;
@@ -52,6 +52,6 @@ export function pseudoRulesProcessor({
 
       return acc;
     },
-    { ...cssStyles },
+    { ...cssStyles }
   );
 }

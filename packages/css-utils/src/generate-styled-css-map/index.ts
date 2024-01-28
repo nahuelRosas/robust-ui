@@ -7,13 +7,12 @@ import { ICSSRulesSet } from "@/types";
  *
  * @param {Object} options - The options for generating the CSS map.
  * @param {string} options.classNameSelector - The class name selector for the CSS map.
- * @param {ICSSRulesSet} options.cssStyles - The CSS rules set for the CSS map.
- * @param {Record<string, Record<string | number, unknown>>} options.theme - The theme object for the CSS map.
+ * @param {ICSSRulesSet} options.cssStyles - The CSS styles for the CSS map.
+ * @param {Record<string, Record<string | number, unknown>>} options.theme - The theme for the CSS map.
  *
- * @returns {Map<string, string[]> | undefined} - The generated styled CSS map.
+ * @returns {Map<string, string[]> | undefined} - The generated CSS map.
  * @throws {Error} - If there is an error generating the CSS code.
  */
-
 export function generateStyledCSSMap({
   classNameSelector,
   cssStyles,

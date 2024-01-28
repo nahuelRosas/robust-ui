@@ -6,16 +6,17 @@ import { ICSSRulesSet, Processor } from "@/types";
 import { CSSRulesSet } from "@robust-ui/theme";
 
 /**
- * Processes a CSS value based on the provided parameters.
+ * Processes a CSS value based on the provided input and returns the updated CSS rules set.
+ *
  * @param inputProp - The input property to process.
- * @param inputValue - The input value to process.
+ * @param inputValue - The value of the input property.
  * @param breakPoints - The breakpoints for responsive styling.
- * @param cssStyles - The CSS styles to apply the processed value to.
+ * @param cssStyles - The current CSS rules set.
  * @param commands - The commands for customizing the processing behavior.
  * @param darkMode - A flag indicating whether dark mode is enabled.
  * @param theme - The theme for styling.
- * @returns The updated CSS rules set after processing the value.
- * @throws If an unexpected error occurs during processing.
+ * @returns The updated CSS rules set.
+ * @throws If an unexpected error occurs while processing the input property.
  */
 export function cssValueProcessor({
   inputProp,
@@ -82,7 +83,7 @@ export function cssValueProcessor({
   } catch (error) {
     if (error instanceof Error) {
       throw new Error(
-        `[cssValueProcessor] - An unexpected error occurred while processing the ${inputProp} property. ${error.message}`,
+        `[cssValueProcessor] - An unexpected error occurred while processing the ${inputProp} property. ${error.message}`
       );
     }
     return cssStyles;
