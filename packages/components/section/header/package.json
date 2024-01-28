@@ -1,0 +1,48 @@
+{
+  "name": "@robust-ui/header",
+  "description": "Header component for Robust UI",
+  "version": "0.10.0",
+  "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
+  "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
+  "bugs": {
+    "url": "https://github.com/nahuelRosas/robust-ui/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup-node --dts",
+    "dev": "pnpm build:fast -- --watch",
+    "clean": "rimraf dist .turbo node_modules",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.ts*\" --fix",
+    "build:fast": "tsup-node",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore",
+    "depCheck": "depcheck"
+  },
+  "dependencies": {
+    "@robust-ui/use-clean-value": "workspace:*",
+    "@robust-ui/constructor": "workspace:*",
+    "@robust-ui/css-utils": "workspace:*",
+    "react": "latest",
+    "tsup": "latest"
+  },
+  "devDependencies": {
+    "@robust-ui/eslint-config": "workspace:*",
+    "@robust-ui/tsconfig": "workspace:*",
+    "@typescript-eslint/parser": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-config-turbo": "latest",
+    "eslint-import-resolver-typescript": "latest",
+    "eslint-plugin-only-warn": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
