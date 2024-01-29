@@ -14,6 +14,7 @@
     "lint": "pnpm run format:write && turbo lint --filter=!./apps/*",
     "depCheck": "pnpm run format:write && turbo run depCheck",
     "clean": "turbo run clean && rimraf dist .turbo node_modules pnpm-lock.yaml",
+    "clean:docs": "turbo run clean:docs",
     "format:write": "prettier --write \"**/*.{ts,tsx,md,json, html, css}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,md,json, html, css}\" --cache",
     "changeset": "changeset",
@@ -21,7 +22,8 @@
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
-    "postinstall": "pnpm run build:packages"
+    "postinstall": "pnpm run build:packages",
+    "generateDocs": "turbo generateDocs"
   },
   "devDependencies": {
     "@changesets/changelog-github": "latest",
@@ -33,14 +35,18 @@
     "@types/react": "latest",
     "changeset": "latest",
     "clean-package": "latest",
+    "concat-md": "^0.5.1",
+    "depcheck": "latest",
     "eslint": "latest",
     "next": "latest",
     "prettier": "latest",
     "rimraf": "latest",
+    "showdown": "^2.1.0",
     "terser": "latest",
     "tsup": "latest",
     "turbo": "latest",
-    "depcheck": "latest",
+    "typedoc": "^0.25.7",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "latest"
   },
   "packageManager": "pnpm@8.9.0",

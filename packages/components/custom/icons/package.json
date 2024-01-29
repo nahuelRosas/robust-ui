@@ -16,7 +16,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node --dts",
+    "build": "tsup-node --dts && pnpm generateDocs",
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo node_modules",
     "typecheck": "tsc --noEmit",
@@ -24,7 +24,12 @@
     "build:fast": "tsup-node",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "depCheck": "depcheck"
+    "depCheck": "depcheck",
+    "clean:docs": "rimraf temp-docs README.html README.md",
+    "generateTempDocs": "typedoc src/index.ts* --plugin typedoc-plugin-markdown --theme markdown --out temp-docs",
+    "concatTempDocs": "concat-md --toc --decrease-title-levels --dir-name-as-title temp-docs > README.md",
+    "makeHtmlDocs": "showdown makehtml -i README.md -o README.html",
+    "generateDocs": "pnpm run clean:docs && pnpm generateTempDocs && pnpm concatTempDocs && pnpm makeHtmlDocs"
   },
   "dependencies": {
     "tsup": "latest"

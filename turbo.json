@@ -16,11 +16,15 @@
     "clean": {
       "persistent": false
     },
+    "clean:docs": {
+      "persistent": false
+    },
     "depCheck": {
       "persistent": false
     },
     "start": {
       "persistent": false
-    }
+    },
+    "generateDocs": {}
   }
 }
