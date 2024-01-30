@@ -49,8 +49,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<TextProps>> =
         lineHeight="normal"
         whiteSpace="normal"
         fontStyle="normal"
-        padding="0.5rem"
-        fontSize="1rem"
+        padding="1dvh"
+        fontSize="2dvh"
         ref={ref}
         {...structureStyle}
         {...cleanedProps}

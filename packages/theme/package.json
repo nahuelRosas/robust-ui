@@ -16,7 +16,8 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node --dts",    "dev": "pnpm build:fast -- --watch",
+    "build": "tsup-node --dts",
+    "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .next .turbo node_modules",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.ts*\" --fix",
