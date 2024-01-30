@@ -16,7 +16,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup-node --dts && pnpm generateDocs",
+    "build": "tsup-node --dts",
     "dev": "pnpm build:fast -- --watch",
     "clean": "rimraf dist .turbo node_modules",
     "typecheck": "tsc --noEmit",
