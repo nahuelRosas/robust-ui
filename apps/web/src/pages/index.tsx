@@ -40,7 +40,7 @@ function Index() {
             "50%": {
               transform: "scale(1.1)",
             },
-            "100%": {
+            full: {
               transform: "scale(1)",
             },
           },
@@ -48,7 +48,7 @@ function Index() {
             "0%": {
               opacity: 1,
             },
-            "100%": {
+            full: {
               opacity: 0,
             },
           },

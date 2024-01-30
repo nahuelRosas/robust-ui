@@ -392,6 +392,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                   />
                 </>
               )}
+              2
               {generalStatus === "loading" && (
                 <Spinner
                   colorSchemeRaw={colorSchemeRaw || colorScheme}
@@ -401,7 +402,6 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                   {...spinnerProps}
                 />
               )}
-
               {generalStatus === "loaded" && (
                 <Flex
                   width="100%"
@@ -535,7 +535,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                 "50%": {
                   opacity: 0,
                 },
-                "100%": {
+                full: {
                   opacity: 1,
                 },
               },
@@ -546,7 +546,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ImageProps>> =
                 "50%": {
                   opacity: 1,
                 },
-                "100%": {
+                full: {
                   opacity: 0,
                 },
               },

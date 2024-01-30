@@ -158,8 +158,8 @@ const Factory: React.ForwardRefExoticComponent<
         onChange={handleOnChange}
         fontWeight="500"
         cursor="inherit"
-        height="full"
-        width="full"
+        height="100%"
+        width="100%"
         minH="20dvh"
         ref={ref}
         {...structureStyle}

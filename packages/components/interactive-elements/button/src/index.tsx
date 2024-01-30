@@ -77,7 +77,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
             "50%": {
               transform: "scale(1.025)",
             },
-            "100%": {
+            full: {
               transform: "scale(1.05)",
             },
           },
@@ -88,7 +88,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<ButtonProps>> =
             "50%": {
               transform: "scale(1.025)",
             },
-            "100%": {
+            full: {
               transform: "scale(1)",
             },
           },

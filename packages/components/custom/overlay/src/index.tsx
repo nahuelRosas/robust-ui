@@ -195,7 +195,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
                 "50%": {
                   opacity: 0,
                 },
-                "100%": {
+                full: {
                   opacity: 1,
                 },
               },
@@ -206,7 +206,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<OverlayProps>> =
                 "50%": {
                   opacity: 1,
                 },
-                "100%": {
+                full: {
                   opacity: 0,
                 },
               },

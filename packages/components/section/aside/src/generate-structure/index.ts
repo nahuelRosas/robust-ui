@@ -60,7 +60,7 @@ export function generateStructure({
       transformRaw: string;
     } {
   const partialSize = (size: string, orientation: "DVH" | "DVW") => {
-    const sizesArray = ["full", "xl", "lg", "md", "sm", "xs"];
+    const sizesArray = ["100%", "xl", "lg", "md", "sm", "xs"];
     const index = sizesArray.indexOf(size);
     if (index === -1) {
       if (sizes[size as keyof typeof sizes])

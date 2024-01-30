@@ -126,8 +126,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<InputProps>> =
           onChange={handleOnChange}
           fontWeight="500"
           cursor="inherit"
-          height="full"
-          width="full"
+          height="100%"
+          width="100%"
           ref={ref}
           {...structureStyle}
           {...cleanedProps}

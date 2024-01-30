@@ -206,7 +206,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -217,7 +217,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -300,7 +300,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -311,7 +311,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -391,7 +391,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -402,7 +402,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -487,7 +487,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -498,7 +498,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -622,7 +622,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -633,7 +633,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -800,7 +800,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -811,7 +811,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -1038,7 +1038,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -1049,7 +1049,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -1127,7 +1127,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -1138,7 +1138,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -1216,7 +1216,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -1227,7 +1227,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
@@ -1302,7 +1302,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1.025)",
                 },
               },
@@ -1313,7 +1313,7 @@ export default function Index() {
                 "50%": {
                   transform: "scale(1.025)",
                 },
-                "100%": {
+                full: {
                   transform: "scale(1)",
                 },
               },
