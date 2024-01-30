@@ -65,7 +65,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
           minWidthRaw={composeSize}
           heightRaw={composeSize}
           widthRaw={composeSize}
-          lineHeight="1rem"
+          lineHeight="1dvh"
           ref={ref}
           {...structureStyle}
           {...cleanedProps}
