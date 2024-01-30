@@ -1,19 +1,17 @@
 import { AtRules, PseudoClasses, PseudoElements } from "./css-rules-set";
+export type languageType = keyof typeof language;
 import { commands } from "./commands/index";
-export * from "./commands";
-export * from "./css-reset";
-export * from "./css-rules-set";
-export * from "./language";
+import { language } from "./language";
 export * from "./media-breakpoints";
+export * from "./css-rules-set";
+export * from "./css-reset";
+export * from "./commands";
+export * from "./language";
 export * from "./theme";
 
-import { language } from "./language";
-
 export const selectors = {
+  ...PseudoElements,
+  ...PseudoClasses,
   ...commands,
   ...AtRules,
-  ...PseudoClasses,
-  ...PseudoElements,
 };
-
-export type languageType = keyof typeof language;

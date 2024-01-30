@@ -26,7 +26,6 @@ export const colors = {
   raisinBlack: "#1D202F",
   steelPink: "#BC3CD8",
   mulberry: "#C54B8C",
-
   whiteAlpha50: "rgba(255, 255, 255, 0.04)",
   whiteAlpha100: "rgba(255, 255, 255, 0.06)",
   whiteAlpha200: "rgba(255, 255, 255, 0.08)",
@@ -37,7 +36,6 @@ export const colors = {
   whiteAlpha700: "rgba(255, 255, 255, 0.64)",
   whiteAlpha800: "rgba(255, 255, 255, 0.80)",
   whiteAlpha900: "rgba(255, 255, 255, 0.92)",
-
   blackAlpha50: "rgba(0, 0, 0, 0.04)",
   blackAlpha100: "rgba(0, 0, 0, 0.06)",
   blackAlpha200: "rgba(0, 0, 0, 0.08)",
@@ -48,7 +46,6 @@ export const colors = {
   blackAlpha700: "rgba(0, 0, 0, 0.64)",
   blackAlpha800: "rgba(0, 0, 0, 0.80)",
   blackAlpha900: "rgba(0, 0, 0, 0.92)",
-
   gray50: "#F9FAFB",
   gray100: "#F3F4F6",
   gray200: "#E5E7EB",
@@ -59,7 +56,6 @@ export const colors = {
   gray700: "#374151",
   gray800: "#1F2937",
   gray900: "#111827",
-
   red50: "#FEF2F2",
   red100: "#FEE2E2",
   red200: "#FECACA",
@@ -70,7 +66,6 @@ export const colors = {
   red700: "#B91C1C",
   red800: "#991B1B",
   red900: "#7F1D1D",
-
   blueGray50: "#F8FAFC",
   blueGray100: "#F1F5F9",
   blueGray200: "#E2E8F0",
@@ -81,7 +76,6 @@ export const colors = {
   blueGray700: "#334155",
   blueGray800: "#1E293B",
   blueGray900: "#0F172A",
-
   yellow50: "#FFFBEB",
   yellow100: "#FEF3C7",
   yellow200: "#FDE68A",
@@ -92,7 +86,6 @@ export const colors = {
   yellow700: "#B45309",
   yellow800: "#92400E",
   yellow900: "#78350F",
-
   green50: "#ECFDF5",
   green100: "#D1FAE5",
   green200: "#A7F3D0",
@@ -103,7 +96,6 @@ export const colors = {
   green700: "#047857",
   green800: "#065F46",
   green900: "#064E3B",
-
   teal50: "#F0FDFA",
   teal100: "#CCFBF1",
   teal200: "#99F6E4",
@@ -114,7 +106,6 @@ export const colors = {
   teal700: "#0F766E",
   teal800: "#115E59",
   teal900: "#134E4A",
-
   blue50: "#EFF6FF",
   blue100: "#DBEAFE",
   blue200: "#BFDBFE",
@@ -125,7 +116,6 @@ export const colors = {
   blue700: "#1D4ED8",
   blue800: "#1E40AF",
   blue900: "#1E3A8A",
-
   indigo50: "#EEF2FF",
   indigo100: "#E0E7FF",
   indigo200: "#C7D2FE",
@@ -136,7 +126,6 @@ export const colors = {
   indigo700: "#4338CA",
   indigo800: "#3730A3",
   indigo900: "#312E81",
-
   redGray50: "#FDF2F2",
   redGray100: "#FCE7E7",
   redGray200: "#FBCDCD",
@@ -147,7 +136,6 @@ export const colors = {
   redGray700: "#BE185D",
   redGray800: "#9D174D",
   redGray900: "#831843",
-
   purple50: "#F5F3FF",
   purple100: "#EDE9FE",
   purple200: "#DDD6FE",
@@ -158,7 +146,6 @@ export const colors = {
   purple700: "#6D28D9",
   purple800: "#5B21B6",
   purple900: "#4C1D95",
-
   orange50: "#FFF7ED",
   orange100: "#FFEDD5",
   orange200: "#FED7AA",
@@ -169,7 +156,6 @@ export const colors = {
   orange700: "#C2410C",
   orange800: "#9A3412",
   orange900: "#7C2D12",
-
   pink50: "#FDF2F8",
   pink100: "#FCE7F3",
   pink200: "#FBCFE8",
@@ -180,7 +166,6 @@ export const colors = {
   pink700: "#BE185D",
   pink800: "#9D174D",
   pink900: "#831843",
-
   mulberry50: "#FDF4F7",
   mulberry100: "#FAE8F1",
   mulberry200: "#F5C3D9",
@@ -191,55 +176,6 @@ export const colors = {
   mulberry700: "#B11B5D",
   mulberry800: "#94124E",
   mulberry900: "#7C1044",
-
-  linkedin: "#0077B5",
-  facebook: "#1877F2",
-  twitter: "#1DA1F2",
-  whatsapp: "#25D366",
-  telegram: "#0088CC",
-  instagram: "#833AB4",
-  pinterest: "#E60023",
-  youtube: "#FF0000",
-  github: "#333",
-  codepen: "#000",
-  stackoverflow: "#F48024",
-  dribbble: "#EA4C89",
-  behance: "#1769FF",
-  medium: "#00AB6C",
-  google: "#4285F4",
-  discord: "#7289DA",
-  twitch: "#9146FF",
-  spotify: "#1ED760",
-  tumblr: "#35465C",
-  reddit: "#FF4500",
-  quora: "#B92B27",
-  snapchat: "#FFFC00",
-  kickstarter: "#FF5B5B",
-  slack: "#4A154B",
-  dribbble2: "#EA4C89",
-  behance2: "#1769FF",
-  medium2: "#00AB6C",
-  google2: "#4285F4",
-  discord2: "#7289DA",
-  twitch2: "#9146FF",
-  spotify2: "#1ED760",
-  tumblr2: "#35465C",
-  reddit2: "#FF4500",
-  quora2: "#B92B27",
-  snapchat2: "#FFFC00",
-  kickstarter2: "#FF5B5B",
-  slack2: "#4A154B",
-  dribbble3: "#EA4C89",
-  behance3: "#1769FF",
-  medium3: "#00AB6C",
-  google3: "#4285F4",
-  discord3: "#7289DA",
-  twitch3: "#9146FF",
-  spotify3: "#1ED760",
-  tumblr3: "#35465C",
-  reddit3: "#FF4500",
-  quora3: "#B92B27",
-  snapchat3: "#FFFC00",
-  kickstarter3: "#FF5B5B",
-  slack3: "#4A154B",
 };
+
+export type TColor = typeof colors;

@@ -467,3 +467,5 @@ export const sizes = {
   "12.8dvw": "12.8dvw",
   "12.9dvw": "12.9dvw",
 };
+
+export type TSizes = typeof sizes;

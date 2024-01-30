@@ -1,12 +1,13 @@
 export * from "./colors";
 export * from "./numbers";
 export * from "./sizes";
-import { sizes } from "./sizes";
-import { colors } from "./colors";
-import { numbers } from "./numbers";
-const colorProps = { ...colors };
+import { sizes, TSizes } from "./sizes";
+import { colors, TColor } from "./colors";
+import { numbers, TNumbers } from "./numbers";
 
-const numberSizeProps = { ...numbers, ...sizes };
+const numberSizeProps: TNumbers & TSizes = { ...numbers, ...sizes };
+
+type TNumberSizeProps = typeof numberSizeProps;
 
 const commonProps = {
   inherit: "inherit",
@@ -14,7 +15,42 @@ const commonProps = {
   revert: "revert",
   unset: "unset",
 };
-const sizeProps = {
+
+type TCommonProps = typeof commonProps;
+type TDisplay = {
+  block: string;
+  contents: string;
+  flex: string;
+  flowRoot: string;
+  grid: string;
+  inline: string;
+  inlineBlock: string;
+  inlineFlex: string;
+  inlineGrid: string;
+  inlineTable: string;
+  listItem: string;
+  none: string;
+  table: string;
+  tableCaption: string;
+  tableCell: string;
+  tableColumn: string;
+  tableColumnGroup: string;
+  tableFooterGroup: string;
+  tableHeaderGroup: string;
+  tableRow: string;
+  tableRowGroup: string;
+  webkitBox: string;
+  webkitInlineBox: string;
+};
+
+const sizeProps: TCommonProps &
+  TSizes & {
+    fitContent: string;
+    maxContent: string;
+    minContent: string;
+    webkitFillAvailable: string;
+    mozAvailable: string;
+  } = {
   ...commonProps,
   fitContent: "fit-content",
   maxContent: "max-content",
@@ -24,56 +60,651 @@ const sizeProps = {
   ...sizes,
 };
 
-export const defaultTheme = {
-  linearColor: colorProps,
-  colorInterpolation: colorProps,
-  colorRendering: colorProps,
-  textFillColor: colorProps,
-  marginLeft: sizeProps,
-  marginRight: sizeProps,
-  marginTop: sizeProps,
-  marginBottom: sizeProps,
-  paddingLeft: sizeProps,
-  paddingRight: sizeProps,
-  paddingTop: sizeProps,
-  paddingBottom: sizeProps,
-  background: colorProps,
-  fontColor: colorProps,
-  backgroundColor: colorProps,
-  padding: sizeProps,
-  margin: sizeProps,
-  left: numberSizeProps,
-  right: numberSizeProps,
-  top: numberSizeProps,
-  bottom: numberSizeProps,
-  color: colorProps,
-  mx: sizeProps,
-  my: sizeProps,
-  px: sizeProps,
-  py: sizeProps,
-  pb: sizeProps,
-  pr: sizeProps,
-  mb: sizeProps,
-  pl: sizeProps,
-  mr: sizeProps,
-  ml: sizeProps,
-  pt: sizeProps,
-  mt: sizeProps,
-  bg: colorProps,
-  p: sizeProps,
-  m: sizeProps,
-  minW: sizeProps,
-  minH: sizeProps,
-  maxHeight: sizeProps,
-  maxWidth: sizeProps,
-  minHeight: sizeProps,
-  minWidth: sizeProps,
-  maxH: sizeProps,
-  maxW: sizeProps,
-  placeHolderColor: colorProps,
-  borderColor: colorProps,
-  textDecorationColor: colorProps,
-  textEmphasisColor: colorProps,
+type TSizeProps = typeof sizeProps;
+
+type TSizePropsOptimizedIncluded = TSizeProps & {
+  optimizedWidth?: string;
+  optimizedHeight?: string;
+};
+
+export const defaultTheme: {
+  linearColor: TColor;
+  colorInterpolation: TColor;
+  colorRendering: TColor;
+  textFillColor: TColor;
+  marginLeft: TSizeProps;
+  marginRight: TSizeProps;
+  marginTop: TSizeProps;
+  marginBottom: TSizeProps;
+  paddingLeft: TSizeProps;
+  paddingRight: TSizeProps;
+  paddingTop: TSizeProps;
+  paddingBottom: TSizeProps;
+  background: TColor;
+  fontColor: TColor;
+  backgroundColor: TColor;
+  padding: TSizeProps;
+  margin: TSizeProps;
+  left: TNumberSizeProps;
+  right: TNumberSizeProps;
+  top: TNumberSizeProps;
+  bottom: TNumberSizeProps;
+  color: TColor;
+  mx: TSizeProps;
+  my: TSizeProps;
+  px: TSizeProps;
+  py: TSizeProps;
+  pb: TSizeProps;
+  pr: TSizeProps;
+  mb: TSizeProps;
+  pl: TSizeProps;
+  mr: TSizeProps;
+  ml: TSizeProps;
+  pt: TSizeProps;
+  mt: TSizeProps;
+  bg: TColor;
+  p: TSizeProps;
+  m: TSizeProps;
+  minW: TSizeProps;
+  minH: TSizeProps;
+  maxHeight: TSizeProps;
+  maxWidth: TSizeProps;
+  minHeight: TSizeProps;
+  minWidth: TSizeProps;
+  maxH: TSizeProps;
+  maxW: TSizeProps;
+  placeHolderColor: TColor;
+  borderColor: TColor;
+  textDecorationColor: TColor;
+  textEmphasisColor: TColor;
+  borderRadius: TCommonProps & TSizes;
+  gap: TCommonProps & TSizes;
+  scrollbarColor: TColor;
+  boxSizing: TCommonProps & {
+    borderBox: string;
+    contentBox: string;
+  };
+  scrollbarWidth: TCommonProps & {
+    auto: string;
+    thin: string;
+    none: string;
+    revertLayer: string;
+  };
+  objectFit: TCommonProps & {
+    none: string;
+    contain: string;
+    cover: string;
+    fill: string;
+    scaleDown: string;
+  };
+  position: TCommonProps & {
+    absolute: string;
+    fixed: string;
+    relative: string;
+    static: string;
+    sticky: string;
+  };
+  flexDirection: TCommonProps & {
+    row: string;
+    rowReverse: string;
+    column: string;
+    columnReverse: string;
+  };
+  width: TSizePropsOptimizedIncluded;
+  height: TSizePropsOptimizedIncluded;
+  textIndent: TSizeProps & TCommonProps & { revertLayer: string };
+  display: TDisplay;
+  fontSize: TSizeProps & {
+    large: string;
+    medium: string;
+    small: string;
+    smaller: string;
+    xLarge: string;
+    xSmall: string;
+    xxLarge: string;
+    xxSmall: string;
+    xxxLarge: string;
+    webkitXxxLarge: string;
+  };
+  fontWeight: TSizeProps & {
+    "100": string;
+    "200": string;
+    "300": string;
+    "400": string;
+    "500": string;
+    "600": string;
+    "700": string;
+    "800": string;
+    "900": string;
+    bold: string;
+    bolder: string;
+    lighter: string;
+    normal: string;
+  };
+  textAlign: TCommonProps & {
+    center: string;
+    end: string;
+    justify: string;
+    left: string;
+    right: string;
+    start: string;
+    webkitAuto: string;
+    webkitCenter: string;
+    webkitLeft: string;
+    webkitMatchParent: string;
+    webkitRight: string;
+  };
+  flexShrink: TCommonProps & {
+    revertLayer: string;
+  };
+  zIndex: TCommonProps &
+    TNumbers & {
+      auto: string;
+    };
+  fontStyle: TCommonProps & {
+    italic: string;
+    normal: string;
+    oblique: string;
+  };
+  alignContent: TCommonProps & {
+    baseline: string;
+    center: string;
+    end: string;
+    flexEnd: string;
+    flexStart: string;
+    normal: string;
+    spaceAround: string;
+    spaceBetween: string;
+    spaceEvenly: string;
+    start: string;
+    stretch: string;
+  };
+  alignItems: TCommonProps & {
+    baseline: string;
+    center: string;
+    end: string;
+    flexEnd: string;
+    flexStart: string;
+    normal: string;
+    selfEnd: string;
+    selfStart: string;
+    start: string;
+    stretch: string;
+  };
+  overflowY: TCommonProps & {
+    auto: string;
+    clip: string;
+    hidden: string;
+    revertLayer: string;
+    scroll: string;
+    visible: string;
+  };
+  overflowX: TCommonProps & {
+    auto: string;
+    clip: string;
+    hidden: string;
+    revertLayer: string;
+    scroll: string;
+    visible: string;
+  };
+  overflow: TCommonProps & {
+    auto: string;
+    clip: string;
+    hidden: string;
+    revertLayer: string;
+    scroll: string;
+    visible: string;
+  };
+  flexWrap: TCommonProps & {
+    noWrap: string;
+    wrap: string;
+    wrapReverse: string;
+  };
+  gridTemplateColumns: TCommonProps & {
+    auto: string;
+    maxContent: string;
+    minContent: string;
+    none: string;
+  };
+  gridTemplateRows: TCommonProps & {
+    auto: string;
+    maxContent: string;
+    minContent: string;
+    none: string;
+  };
+  cursor: TCommonProps & {
+    alias: string;
+    allScroll: string;
+    auto: string;
+    cell: string;
+    colResize: string;
+    contextMenu: string;
+    copy: string;
+    crosshair: string;
+    default: string;
+    eResize: string;
+    ewResize: string;
+    grab: string;
+    grabbing: string;
+    help: string;
+    move: string;
+    nResize: string;
+    neResize: string;
+    neswResize: string;
+    noDrop: string;
+    none: string;
+    notAllowed: string;
+    nsResize: string;
+    nwResize: string;
+    nwseResize: string;
+    pointer: string;
+    progress: string;
+    rowResize: string;
+    sResize: string;
+    seResize: string;
+    swResize: string;
+    text: string;
+    verticalText: string;
+    wResize: string;
+    wait: string;
+    zoomIn: string;
+    zoomOut: string;
+    webkitGrab: string;
+    webkitGrabbing: string;
+    webkitZoomIn: string;
+    webkitZoomOut: string;
+  };
+  alignSelf: TCommonProps & {
+    auto: string;
+    baseline: string;
+    center: string;
+    end: string;
+    flexEnd: string;
+    flexStart: string;
+    normal: string;
+    selfEnd: string;
+    selfStart: string;
+    start: string;
+    stretch: string;
+  };
+  textWrap: TCommonProps & {
+    balance: string;
+    noWrap: string;
+    pretty: string;
+    wrap: string;
+  };
+  justifyContent: TCommonProps & {
+    center: string;
+    end: string;
+    flexEnd: string;
+    flexStart: string;
+    left: string;
+    normal: string;
+    right: string;
+    spaceAround: string;
+    spaceBetween: string;
+    spaceEvenly: string;
+    start: string;
+    stretch: string;
+  };
+  textTransform: TCommonProps & {
+    capitalize: string;
+    lowercase: string;
+    mathAuto: string;
+    none: string;
+    upset: string;
+    uppercase: string;
+  };
+  objectPosition: TCommonProps & {
+    bottom: string;
+    center: string;
+    left: string;
+    right: string;
+    top: string;
+  };
+  textDecorationStyle: TCommonProps & {
+    solid: string;
+    double: string;
+    dotted: string;
+    dashed: string;
+    wavy: string;
+  };
+  textUnderlineOffset: TCommonProps & {
+    auto: string;
+  };
+  textEmphasis: TCommonProps & {
+    none: string;
+    accent: string;
+    dot: string;
+    circle: string;
+    disc: string;
+  };
+  borderImageOutset: TCommonProps;
+  borderImageRepeat: TCommonProps & {
+    stretch: string;
+    repeat: string;
+    round: string;
+    space: string;
+  };
+  borderImageSlice: TCommonProps;
+  borderImageSource: TCommonProps;
+  borderImageWidth: TCommonProps & {
+    auto: string;
+  };
+  borderBlock: TCommonProps & {
+    start: string;
+    end: string;
+  };
+  textDecorationLine: TCommonProps & {
+    lineThrough: string;
+    overline: string;
+    underline: string;
+    blink: string;
+  };
+  transformStyle: TCommonProps & {
+    flat: string;
+    preserve3d: string;
+  };
+  justifyItems: TCommonProps & {
+    auto: string;
+    baseline: string;
+    center: string;
+    end: string;
+    start: string;
+    stretch: string;
+  };
+  whiteSpace: TCommonProps & {
+    breakSpaces: string;
+    normal: string;
+    nowrap: string;
+    pre: string;
+    preLine: string;
+    preWrap: string;
+    revertLayer: string;
+    mozPreSpace: string;
+  };
+  lineHeight: TCommonProps & {
+    normal: string;
+    revertLayer: string;
+    mozBlockHeight: string;
+  };
+  textRendering: TCommonProps & {
+    auto: string;
+    geometricPrecision: string;
+    optimizeLegibility: string;
+    optimizeSpeed: string;
+    revertLayer: string;
+  };
+  textDecoration: TCommonProps & {
+    auto: string;
+    blink: string;
+    dashed: string;
+    double: string;
+    lineThrough: string;
+    none: string;
+    overline: string;
+    solid: string;
+    underline: string;
+    wavy: string;
+    revertLayer: string;
+  };
+  transition: TCommonProps;
+  opacity: TCommonProps;
+  backgroundClipText: TCommonProps;
+  boxShadow: TCommonProps;
+  backgroundTranslucent: TCommonProps;
+  filter: TCommonProps;
+  bTopRadius: TCommonProps;
+  bBottomRadius: TCommonProps;
+  bRadius: TCommonProps;
+  bLeftRadius: TCommonProps;
+  bRightRadius: TCommonProps;
+  bRadiusTop: TCommonProps;
+  bRadiusBottom: TCommonProps;
+  bRadiusLeft: TCommonProps;
+  bRadiusRight: TCommonProps;
+  bRadiusTopLeft: TCommonProps;
+  bRadiusTopRight: TCommonProps;
+  bRadiusBottomLeft: TCommonProps;
+  bRadiusBottomRight: TCommonProps;
+  flexGrow: TCommonProps;
+  gridColumnGap: TCommonProps;
+  gridRowGap: TCommonProps;
+  gridGap: TCommonProps;
+  gridAutoFlow: TCommonProps;
+  gridAutoColumns: TCommonProps;
+  gridAutoRows: TCommonProps;
+  gridColumnStart: TCommonProps;
+  gridColumnEnd: TCommonProps;
+  gridRowStart: TCommonProps;
+  gridRowEnd: TCommonProps;
+  gridRow: TCommonProps;
+  gridColumn: TCommonProps;
+  gridColumnStartEnd: TCommonProps;
+  gridRowStartEnd: TCommonProps;
+  justifySelf: TCommonProps;
+  placeItems: TCommonProps;
+  placeContent: TCommonProps;
+  placeSelf: TCommonProps;
+  userDrag: TCommonProps;
+  userResize: TCommonProps;
+  transitionProperty: TCommonProps;
+  transitionDuration: TCommonProps;
+  transitionTimingFunction: TCommonProps;
+  transitionDelay: TCommonProps;
+  animation: TCommonProps;
+  transform: TCommonProps;
+  transformOrigin: TCommonProps;
+  perspective: TCommonProps;
+  perspectiveOrigin: TCommonProps;
+  backfaceVisibility: TCommonProps;
+  willChange: TCommonProps;
+  letterSpacing: TCommonProps;
+  wordSpacing: TCommonProps;
+  textOverflow: TCommonProps & {
+    ellipsis: string;
+    clip: string;
+    revertLayer: string;
+  };
+  columnCount: TCommonProps;
+  columnGap: TCommonProps;
+  columnRule: TCommonProps;
+  columnWidth: TCommonProps;
+  scrollSnapType: TCommonProps;
+  scrollBehavior: TCommonProps;
+  scrollSnapAlign: TCommonProps;
+  animationDelay: TCommonProps;
+  animationDirection: TCommonProps;
+  animationDuration: TCommonProps;
+  animationFillMode: TCommonProps;
+  animationIterationCount: TCommonProps;
+  animationName: TCommonProps;
+  animationPlayState: TCommonProps;
+  animationTimingFunction: TCommonProps;
+  boxShadowInset: TCommonProps;
+  userFocus: TCommonProps;
+  userSelectText: TCommonProps;
+  userSelectNone: TCommonProps;
+  userSelectAll: TCommonProps;
+  userSelectAuto: TCommonProps;
+  mixBlendMode: TCommonProps;
+  clipPath: TCommonProps;
+  backdropFilter: TCommonProps;
+  backdropBlur: TCommonProps;
+  backdropBrightness: TCommonProps;
+  backdropContrast: TCommonProps;
+  backdropGrayscale: TCommonProps;
+  backdropHueRotate: TCommonProps;
+  backdropInvert: TCommonProps;
+  backdropOpacity: TCommonProps;
+  backdropSaturate: TCommonProps;
+  backdropSepia: TCommonProps;
+  backdropDropShadow: TCommonProps;
+  borderImage: TCommonProps;
+  textEmphasisStyle: TCommonProps;
+  textEmphasisPosition: TCommonProps;
+  scrollSnapPointsX: TCommonProps;
+  scrollSnapPointsY: TCommonProps;
+  columnSpan: TCommonProps;
+  hyphens: TCommonProps;
+  textAlignLast: TCommonProps;
+  textJustify: TCommonProps;
+  fontVariant: TCommonProps;
+  fontFeatureSettings: TCommonProps;
+  wordBreak: TCommonProps;
+  wordWrap: TCommonProps;
+  overscrollBehavior: TCommonProps;
+  overscrollBehaviorX: TCommonProps;
+  overscrollBehaviorY: TCommonProps;
+  clipRule: TCommonProps;
+  fillRule: TCommonProps;
+  isolation: TCommonProps;
+  pointerEvents: TCommonProps & {
+    all: string;
+    auto: string;
+    boundingBox: string;
+    fill: string;
+    none: string;
+    painted: string;
+    stroke: string;
+    visible: string;
+    visibleFill: string;
+    visiblePainted: string;
+    visibleStroke: string;
+  };
+  resize: TCommonProps;
+  shapeOutside: TCommonProps;
+  listStyleType: TCommonProps;
+  listStylePosition: TCommonProps;
+  listStyleImage: TCommonProps;
+  userZoom: TCommonProps;
+  maxLines: TCommonProps;
+  textDecorationSkipInk: TCommonProps;
+  transitionTiming: TCommonProps;
+  transitionDurationTiming: TCommonProps;
+  scrollMargin: TCommonProps;
+  scrollMarginBlock: TCommonProps;
+  scrollMarginBlockStart: TCommonProps;
+  scrollMarginBlockEnd: TCommonProps;
+  scrollMarginInline: TCommonProps;
+  scrollMarginInlineStart: TCommonProps;
+  scrollMarginInlineEnd: TCommonProps;
+  maskImage: TCommonProps;
+  maskSize: TCommonProps;
+  maskRepeat: TCommonProps;
+  maskPosition: TCommonProps;
+  maskClip: TCommonProps;
+  maskOrigin: TCommonProps;
+  maskComposite: TCommonProps;
+  maskType: TCommonProps;
+  maskBorder: TCommonProps;
+  maskBorderOutset: TCommonProps;
+  maskBorderRepeat: TCommonProps;
+  maskBorderSlice: TCommonProps;
+  maskBorderSource: TCommonProps;
+  maskBorderWidth: TCommonProps;
+  maskBorderRepeatY: TCommonProps;
+  maskBorderRepeatX: TCommonProps;
+  scrollSnapStop: TCommonProps;
+  scrollSnapAlignX: TCommonProps;
+  scrollSnapAlignY: TCommonProps;
+  scrollSnapStopX: TCommonProps;
+  scrollSnapStopY: TCommonProps;
+  boxShadowX: TCommonProps;
+  boxShadowY: TCommonProps;
+  backdropBlendMode: TCommonProps;
+  backdropDropShadowX: TCommonProps;
+  backdropDropShadowY: TCommonProps;
+  backdropDropShadowBlur: TCommonProps;
+  backdropDropShadowSpread: TCommonProps;
+  gridAutoRowsMin: TCommonProps;
+  gridAutoRowsMax: TCommonProps;
+  gridAutoColumnsMin: TCommonProps;
+  gridAutoColumnsMax: TCommonProps;
+  gridColumnStartMin: TCommonProps;
+  gridColumnStartMax: TCommonProps;
+  gridColumnEndMin: TCommonProps;
+  gridColumnEndMax: TCommonProps;
+  gridRowStartMin: TCommonProps;
+  gridRowStartMax: TCommonProps;
+  gridRowEndMin: TCommonProps;
+  gridRowEndMax: TCommonProps;
+  shapeMargin: TCommonProps;
+  shapeImageThreshold: TCommonProps;
+  filterBlur: TCommonProps;
+  filterBrightness: TCommonProps;
+  filterContrast: TCommonProps;
+  filterGrayscale: TCommonProps;
+  filterHueRotate: TCommonProps;
+  filterInvert: TCommonProps;
+  filterOpacity: TCommonProps;
+  filterSaturate: TCommonProps;
+  filterSepia: TCommonProps;
+  filterDropShadow: TCommonProps;
+  willChangeProperty: TCommonProps;
+  backgroundClip: TCommonProps;
+  imageRendering: TCommonProps;
+  shapeRendering: TCommonProps;
+  userSelect: TCommonProps & {
+    all: string;
+    auto: string;
+    none: string;
+    text: string;
+    contain: string;
+    revertLayer: string;
+  };
+  border: TCommonProps;
+  textShadow: TCommonProps;
+} = {
+  linearColor: Object.assign({}, colors),
+  colorInterpolation: Object.assign({}, colors),
+  colorRendering: Object.assign({}, colors),
+  textFillColor: Object.assign({}, colors),
+  marginLeft: Object.assign({}, sizeProps),
+  marginRight: Object.assign({}, sizeProps),
+  marginTop: Object.assign({}, sizeProps),
+  marginBottom: Object.assign({}, sizeProps),
+  paddingLeft: Object.assign({}, sizeProps),
+  paddingRight: Object.assign({}, sizeProps),
+  paddingTop: Object.assign({}, sizeProps),
+  paddingBottom: Object.assign({}, sizeProps),
+  background: Object.assign({}, colors),
+  fontColor: Object.assign({}, colors),
+  backgroundColor: Object.assign({}, colors),
+  padding: Object.assign({}, sizeProps),
+  margin: Object.assign({}, sizeProps),
+  left: Object.assign({}, numberSizeProps),
+  right: Object.assign({}, numberSizeProps),
+  top: Object.assign({}, numberSizeProps),
+  bottom: Object.assign({}, numberSizeProps),
+  color: Object.assign({}, colors),
+  mx: Object.assign({}, sizeProps),
+  my: Object.assign({}, sizeProps),
+  px: Object.assign({}, sizeProps),
+  py: Object.assign({}, sizeProps),
+  pb: Object.assign({}, sizeProps),
+  pr: Object.assign({}, sizeProps),
+  mb: Object.assign({}, sizeProps),
+  pl: Object.assign({}, sizeProps),
+  mr: Object.assign({}, sizeProps),
+  ml: Object.assign({}, sizeProps),
+  pt: Object.assign({}, sizeProps),
+  mt: Object.assign({}, sizeProps),
+  bg: Object.assign({}, colors),
+  p: Object.assign({}, sizeProps),
+  m: Object.assign({}, sizeProps),
+  minW: Object.assign({}, sizeProps),
+  minH: Object.assign({}, sizeProps),
+  maxHeight: Object.assign({}, sizeProps),
+  maxWidth: Object.assign({}, sizeProps),
+  minHeight: Object.assign({}, sizeProps),
+  minWidth: Object.assign({}, sizeProps),
+  maxH: Object.assign({}, sizeProps),
+  maxW: Object.assign({}, sizeProps),
+  placeHolderColor: Object.assign({}, colors),
+  borderColor: Object.assign({}, colors),
+  textDecorationColor: Object.assign({}, colors),
+  textEmphasisColor: Object.assign({}, colors),
   borderRadius: {
     ...commonProps,
     ...sizes,
@@ -129,7 +760,6 @@ export const defaultTheme = {
     webkitFillAvailable: "-webkit-fill-available",
     mozAvailable: "-moz-available",
     optimizedWidth: `-moz-available;width: -webkit-fill-available`,
-    opimizedHeight: `-moz-available;height: -webkit-fill-available`,
     ...sizes,
   },
   height: {
@@ -143,9 +773,8 @@ export const defaultTheme = {
     ...sizes,
   },
   textIndent: {
-    ...commonProps,
+    ...sizeProps,
     revertLayer: "revert-layer",
-    ...sizes,
   },
   display: {
     ...commonProps,
@@ -174,7 +803,7 @@ export const defaultTheme = {
     webkitInlineBox: "-webkit-inline-box",
   },
   fontSize: {
-    ...commonProps,
+    ...sizeProps,
     large: "large",
     medium: "medium",
     small: "small",
@@ -185,10 +814,9 @@ export const defaultTheme = {
     xxSmall: "xx-small",
     xxxLarge: "xxx-large",
     webkitXxxLarge: "-webkit-xxx-large",
-    ...sizes,
   },
   fontWeight: {
-    ...commonProps,
+    ...sizeProps,
     "100": "100",
     "200": "200",
     "300": "300",
@@ -508,118 +1136,118 @@ export const defaultTheme = {
     revertLayer: "revert-layer",
     ...commonProps,
   },
-  transition: { ...commonProps },
-  opacity: { ...commonProps },
-  backgroundClipText: { ...commonProps },
-  boxShadow: { ...commonProps },
-  backgroundTranslucent: { ...commonProps },
-  filter: { ...commonProps },
-  bTopRadius: { ...commonProps },
-  bBottomRadius: { ...commonProps },
-  bRadius: { ...commonProps },
-  bLeftRadius: { ...commonProps },
-  bRightRadius: { ...commonProps },
-  bRadiusTop: { ...commonProps },
-  bRadiusBottom: { ...commonProps },
-  bRadiusLeft: { ...commonProps },
-  bRadiusRight: { ...commonProps },
-  bRadiusTopLeft: { ...commonProps },
-  bRadiusTopRight: { ...commonProps },
-  bRadiusBottomLeft: { ...commonProps },
-  bRadiusBottomRight: { ...commonProps },
-  flexGrow: { ...commonProps },
-  gridColumnGap: { ...commonProps },
-  gridRowGap: { ...commonProps },
-  gridGap: { ...commonProps },
-  gridAutoFlow: { ...commonProps },
-  gridAutoColumns: { ...commonProps },
-  gridAutoRows: { ...commonProps },
-  gridColumnStart: { ...commonProps },
-  gridColumnEnd: { ...commonProps },
-  gridRowStart: { ...commonProps },
-  gridRowEnd: { ...commonProps },
-  gridRow: { ...commonProps },
-  gridColumn: { ...commonProps },
-  gridColumnStartEnd: { ...commonProps },
-  gridRowStartEnd: { ...commonProps },
-  justifySelf: { ...commonProps },
-  placeItems: { ...commonProps },
-  placeContent: { ...commonProps },
-  placeSelf: { ...commonProps },
-  userDrag: { ...commonProps },
-  userResize: { ...commonProps },
-  transitionProperty: { ...commonProps },
-  transitionDuration: { ...commonProps },
-  transitionTimingFunction: { ...commonProps },
-  transitionDelay: { ...commonProps },
-  animation: { ...commonProps },
-  transform: { ...commonProps },
-  transformOrigin: { ...commonProps },
-  perspective: { ...commonProps },
-  perspectiveOrigin: { ...commonProps },
-  backfaceVisibility: { ...commonProps },
-  willChange: { ...commonProps },
-  letterSpacing: { ...commonProps },
-  wordSpacing: { ...commonProps },
+  transition: Object.assign({}, commonProps),
+  opacity: Object.assign({}, commonProps),
+  backgroundClipText: Object.assign({}, commonProps),
+  boxShadow: Object.assign({}, commonProps),
+  backgroundTranslucent: Object.assign({}, commonProps),
+  filter: Object.assign({}, commonProps),
+  bTopRadius: Object.assign({}, commonProps),
+  bBottomRadius: Object.assign({}, commonProps),
+  bRadius: Object.assign({}, commonProps),
+  bLeftRadius: Object.assign({}, commonProps),
+  bRightRadius: Object.assign({}, commonProps),
+  bRadiusTop: Object.assign({}, commonProps),
+  bRadiusBottom: Object.assign({}, commonProps),
+  bRadiusLeft: Object.assign({}, commonProps),
+  bRadiusRight: Object.assign({}, commonProps),
+  bRadiusTopLeft: Object.assign({}, commonProps),
+  bRadiusTopRight: Object.assign({}, commonProps),
+  bRadiusBottomLeft: Object.assign({}, commonProps),
+  bRadiusBottomRight: Object.assign({}, commonProps),
+  flexGrow: Object.assign({}, commonProps),
+  gridColumnGap: Object.assign({}, commonProps),
+  gridRowGap: Object.assign({}, commonProps),
+  gridGap: Object.assign({}, commonProps),
+  gridAutoFlow: Object.assign({}, commonProps),
+  gridAutoColumns: Object.assign({}, commonProps),
+  gridAutoRows: Object.assign({}, commonProps),
+  gridColumnStart: Object.assign({}, commonProps),
+  gridColumnEnd: Object.assign({}, commonProps),
+  gridRowStart: Object.assign({}, commonProps),
+  gridRowEnd: Object.assign({}, commonProps),
+  gridRow: Object.assign({}, commonProps),
+  gridColumn: Object.assign({}, commonProps),
+  gridColumnStartEnd: Object.assign({}, commonProps),
+  gridRowStartEnd: Object.assign({}, commonProps),
+  justifySelf: Object.assign({}, commonProps),
+  placeItems: Object.assign({}, commonProps),
+  placeContent: Object.assign({}, commonProps),
+  placeSelf: Object.assign({}, commonProps),
+  userDrag: Object.assign({}, commonProps),
+  userResize: Object.assign({}, commonProps),
+  transitionProperty: Object.assign({}, commonProps),
+  transitionDuration: Object.assign({}, commonProps),
+  transitionTimingFunction: Object.assign({}, commonProps),
+  transitionDelay: Object.assign({}, commonProps),
+  animation: Object.assign({}, commonProps),
+  transform: Object.assign({}, commonProps),
+  transformOrigin: Object.assign({}, commonProps),
+  perspective: Object.assign({}, commonProps),
+  perspectiveOrigin: Object.assign({}, commonProps),
+  backfaceVisibility: Object.assign({}, commonProps),
+  willChange: Object.assign({}, commonProps),
+  letterSpacing: Object.assign({}, commonProps),
+  wordSpacing: Object.assign({}, commonProps),
   textOverflow: {
     ellipsis: "ellipsis",
     clip: "clip",
     revertLayer: "revert-layer",
     ...commonProps,
   },
-  columnCount: { ...commonProps },
-  columnGap: { ...commonProps },
-  columnRule: { ...commonProps },
-  columnWidth: { ...commonProps },
-  scrollSnapType: { ...commonProps },
-  scrollBehavior: { ...commonProps },
-  scrollSnapAlign: { ...commonProps },
-  animationDelay: { ...commonProps },
-  animationDirection: { ...commonProps },
-  animationDuration: { ...commonProps },
-  animationFillMode: { ...commonProps },
-  animationIterationCount: { ...commonProps },
-  animationName: { ...commonProps },
-  animationPlayState: { ...commonProps },
-  animationTimingFunction: { ...commonProps },
-  boxShadowInset: { ...commonProps },
-  userFocus: { ...commonProps },
-  userSelectText: { ...commonProps },
-  userSelectNone: { ...commonProps },
-  userSelectAll: { ...commonProps },
-  userSelectAuto: { ...commonProps },
-  mixBlendMode: { ...commonProps },
-  clipPath: { ...commonProps },
-  backdropFilter: { ...commonProps },
-  backdropBlur: { ...commonProps },
-  backdropBrightness: { ...commonProps },
-  backdropContrast: { ...commonProps },
-  backdropGrayscale: { ...commonProps },
-  backdropHueRotate: { ...commonProps },
-  backdropInvert: { ...commonProps },
-  backdropOpacity: { ...commonProps },
-  backdropSaturate: { ...commonProps },
-  backdropSepia: { ...commonProps },
-  backdropDropShadow: { ...commonProps },
-  borderImage: { ...commonProps },
-  textEmphasisStyle: { ...commonProps },
-  textEmphasisPosition: { ...commonProps },
-  scrollSnapPointsX: { ...commonProps },
-  scrollSnapPointsY: { ...commonProps },
-  columnSpan: { ...commonProps },
-  hyphens: { ...commonProps },
-  textAlignLast: { ...commonProps },
-  textJustify: { ...commonProps },
-  fontVariant: { ...commonProps },
-  fontFeatureSettings: { ...commonProps },
-  wordBreak: { ...commonProps },
-  wordWrap: { ...commonProps },
-  overscrollBehavior: { ...commonProps },
-  overscrollBehaviorX: { ...commonProps },
-  overscrollBehaviorY: { ...commonProps },
-  clipRule: { ...commonProps },
-  fillRule: { ...commonProps },
-  isolation: { ...commonProps },
+  columnCount: Object.assign({}, commonProps),
+  columnGap: Object.assign({}, commonProps),
+  columnRule: Object.assign({}, commonProps),
+  columnWidth: Object.assign({}, commonProps),
+  scrollSnapType: Object.assign({}, commonProps),
+  scrollBehavior: Object.assign({}, commonProps),
+  scrollSnapAlign: Object.assign({}, commonProps),
+  animationDelay: Object.assign({}, commonProps),
+  animationDirection: Object.assign({}, commonProps),
+  animationDuration: Object.assign({}, commonProps),
+  animationFillMode: Object.assign({}, commonProps),
+  animationIterationCount: Object.assign({}, commonProps),
+  animationName: Object.assign({}, commonProps),
+  animationPlayState: Object.assign({}, commonProps),
+  animationTimingFunction: Object.assign({}, commonProps),
+  boxShadowInset: Object.assign({}, commonProps),
+  userFocus: Object.assign({}, commonProps),
+  userSelectText: Object.assign({}, commonProps),
+  userSelectNone: Object.assign({}, commonProps),
+  userSelectAll: Object.assign({}, commonProps),
+  userSelectAuto: Object.assign({}, commonProps),
+  mixBlendMode: Object.assign({}, commonProps),
+  clipPath: Object.assign({}, commonProps),
+  backdropFilter: Object.assign({}, commonProps),
+  backdropBlur: Object.assign({}, commonProps),
+  backdropBrightness: Object.assign({}, commonProps),
+  backdropContrast: Object.assign({}, commonProps),
+  backdropGrayscale: Object.assign({}, commonProps),
+  backdropHueRotate: Object.assign({}, commonProps),
+  backdropInvert: Object.assign({}, commonProps),
+  backdropOpacity: Object.assign({}, commonProps),
+  backdropSaturate: Object.assign({}, commonProps),
+  backdropSepia: Object.assign({}, commonProps),
+  backdropDropShadow: Object.assign({}, commonProps),
+  borderImage: Object.assign({}, commonProps),
+  textEmphasisStyle: Object.assign({}, commonProps),
+  textEmphasisPosition: Object.assign({}, commonProps),
+  scrollSnapPointsX: Object.assign({}, commonProps),
+  scrollSnapPointsY: Object.assign({}, commonProps),
+  columnSpan: Object.assign({}, commonProps),
+  hyphens: Object.assign({}, commonProps),
+  textAlignLast: Object.assign({}, commonProps),
+  textJustify: Object.assign({}, commonProps),
+  fontVariant: Object.assign({}, commonProps),
+  fontFeatureSettings: Object.assign({}, commonProps),
+  wordBreak: Object.assign({}, commonProps),
+  wordWrap: Object.assign({}, commonProps),
+  overscrollBehavior: Object.assign({}, commonProps),
+  overscrollBehaviorX: Object.assign({}, commonProps),
+  overscrollBehaviorY: Object.assign({}, commonProps),
+  clipRule: Object.assign({}, commonProps),
+  fillRule: Object.assign({}, commonProps),
+  isolation: Object.assign({}, commonProps),
   pointerEvents: {
     ...commonProps,
     all: "all",
@@ -634,79 +1262,79 @@ export const defaultTheme = {
     visiblePainted: "visiblepainted",
     visibleStroke: "visiblestroke",
   },
-  resize: { ...commonProps },
-  shapeOutside: { ...commonProps },
-  listStyleType: { ...commonProps },
-  listStylePosition: { ...commonProps },
-  listStyleImage: { ...commonProps },
-  userZoom: { ...commonProps },
-  maxLines: { ...commonProps },
-  textDecorationSkipInk: { ...commonProps },
-  transitionTiming: { ...commonProps },
-  transitionDurationTiming: { ...commonProps },
-  scrollMargin: { ...commonProps },
-  scrollMarginBlock: { ...commonProps },
-  scrollMarginBlockStart: { ...commonProps },
-  scrollMarginBlockEnd: { ...commonProps },
-  scrollMarginInline: { ...commonProps },
-  scrollMarginInlineStart: { ...commonProps },
-  scrollMarginInlineEnd: { ...commonProps },
-  maskImage: { ...commonProps },
-  maskSize: { ...commonProps },
-  maskRepeat: { ...commonProps },
-  maskPosition: { ...commonProps },
-  maskClip: { ...commonProps },
-  maskOrigin: { ...commonProps },
-  maskComposite: { ...commonProps },
-  maskType: { ...commonProps },
-  maskBorder: { ...commonProps },
-  maskBorderOutset: { ...commonProps },
-  maskBorderRepeat: { ...commonProps },
-  maskBorderSlice: { ...commonProps },
-  maskBorderSource: { ...commonProps },
-  maskBorderWidth: { ...commonProps },
-  maskBorderRepeatX: { ...commonProps },
-  maskBorderRepeatY: { ...commonProps },
-  scrollSnapStop: { ...commonProps },
-  scrollSnapAlignY: { ...commonProps },
-  scrollSnapAlignX: { ...commonProps },
-  scrollSnapStopX: { ...commonProps },
-  scrollSnapStopY: { ...commonProps },
-  boxShadowX: { ...commonProps },
-  boxShadowY: { ...commonProps },
-  backdropBlendMode: { ...commonProps },
-  backdropDropShadowX: { ...commonProps },
-  backdropDropShadowY: { ...commonProps },
-  backdropDropShadowBlur: { ...commonProps },
-  backdropDropShadowSpread: { ...commonProps },
-  gridAutoRowsMin: { ...commonProps },
-  gridAutoRowsMax: { ...commonProps },
-  gridAutoColumnsMin: { ...commonProps },
-  gridAutoColumnsMax: { ...commonProps },
-  gridColumnStartMin: { ...commonProps },
-  gridColumnStartMax: { ...commonProps },
-  gridColumnEndMin: { ...commonProps },
-  gridColumnEndMax: { ...commonProps },
-  gridRowStartMin: { ...commonProps },
-  gridRowStartMax: { ...commonProps },
-  gridRowEndMin: { ...commonProps },
-  gridRowEndMax: { ...commonProps },
-  shapeMargin: { ...commonProps },
-  shapeImageThreshold: { ...commonProps },
-  filterBlur: { ...commonProps },
-  filterBrightness: { ...commonProps },
-  filterContrast: { ...commonProps },
-  filterGrayscale: { ...commonProps },
-  filterHueRotate: { ...commonProps },
-  filterInvert: { ...commonProps },
-  filterOpacity: { ...commonProps },
-  filterSaturate: { ...commonProps },
-  filterSepia: { ...commonProps },
-  filterDropShadow: { ...commonProps },
-  willChangeProperty: { ...commonProps },
-  backgroundClip: { ...commonProps },
-  imageRendering: { ...commonProps },
-  shapeRendering: { ...commonProps },
+  resize: Object.assign({}, commonProps),
+  shapeOutside: Object.assign({}, commonProps),
+  listStyleType: Object.assign({}, commonProps),
+  listStylePosition: Object.assign({}, commonProps),
+  listStyleImage: Object.assign({}, commonProps),
+  userZoom: Object.assign({}, commonProps),
+  maxLines: Object.assign({}, commonProps),
+  textDecorationSkipInk: Object.assign({}, commonProps),
+  transitionTiming: Object.assign({}, commonProps),
+  transitionDurationTiming: Object.assign({}, commonProps),
+  scrollMargin: Object.assign({}, commonProps),
+  scrollMarginBlock: Object.assign({}, commonProps),
+  scrollMarginBlockStart: Object.assign({}, commonProps),
+  scrollMarginBlockEnd: Object.assign({}, commonProps),
+  scrollMarginInline: Object.assign({}, commonProps),
+  scrollMarginInlineStart: Object.assign({}, commonProps),
+  scrollMarginInlineEnd: Object.assign({}, commonProps),
+  maskImage: Object.assign({}, commonProps),
+  maskSize: Object.assign({}, commonProps),
+  maskRepeat: Object.assign({}, commonProps),
+  maskPosition: Object.assign({}, commonProps),
+  maskClip: Object.assign({}, commonProps),
+  maskOrigin: Object.assign({}, commonProps),
+  maskComposite: Object.assign({}, commonProps),
+  maskType: Object.assign({}, commonProps),
+  maskBorder: Object.assign({}, commonProps),
+  maskBorderOutset: Object.assign({}, commonProps),
+  maskBorderRepeat: Object.assign({}, commonProps),
+  maskBorderSlice: Object.assign({}, commonProps),
+  maskBorderSource: Object.assign({}, commonProps),
+  maskBorderWidth: Object.assign({}, commonProps),
+  maskBorderRepeatX: Object.assign({}, commonProps),
+  maskBorderRepeatY: Object.assign({}, commonProps),
+  scrollSnapStop: Object.assign({}, commonProps),
+  scrollSnapAlignY: Object.assign({}, commonProps),
+  scrollSnapAlignX: Object.assign({}, commonProps),
+  scrollSnapStopX: Object.assign({}, commonProps),
+  scrollSnapStopY: Object.assign({}, commonProps),
+  boxShadowX: Object.assign({}, commonProps),
+  boxShadowY: Object.assign({}, commonProps),
+  backdropBlendMode: Object.assign({}, commonProps),
+  backdropDropShadowX: Object.assign({}, commonProps),
+  backdropDropShadowY: Object.assign({}, commonProps),
+  backdropDropShadowBlur: Object.assign({}, commonProps),
+  backdropDropShadowSpread: Object.assign({}, commonProps),
+  gridAutoRowsMin: Object.assign({}, commonProps),
+  gridAutoRowsMax: Object.assign({}, commonProps),
+  gridAutoColumnsMin: Object.assign({}, commonProps),
+  gridAutoColumnsMax: Object.assign({}, commonProps),
+  gridColumnStartMin: Object.assign({}, commonProps),
+  gridColumnStartMax: Object.assign({}, commonProps),
+  gridColumnEndMin: Object.assign({}, commonProps),
+  gridColumnEndMax: Object.assign({}, commonProps),
+  gridRowStartMin: Object.assign({}, commonProps),
+  gridRowStartMax: Object.assign({}, commonProps),
+  gridRowEndMin: Object.assign({}, commonProps),
+  gridRowEndMax: Object.assign({}, commonProps),
+  shapeMargin: Object.assign({}, commonProps),
+  shapeImageThreshold: Object.assign({}, commonProps),
+  filterBlur: Object.assign({}, commonProps),
+  filterBrightness: Object.assign({}, commonProps),
+  filterContrast: Object.assign({}, commonProps),
+  filterGrayscale: Object.assign({}, commonProps),
+  filterHueRotate: Object.assign({}, commonProps),
+  filterInvert: Object.assign({}, commonProps),
+  filterOpacity: Object.assign({}, commonProps),
+  filterSaturate: Object.assign({}, commonProps),
+  filterSepia: Object.assign({}, commonProps),
+  filterDropShadow: Object.assign({}, commonProps),
+  willChangeProperty: Object.assign({}, commonProps),
+  backgroundClip: Object.assign({}, commonProps),
+  imageRendering: Object.assign({}, commonProps),
+  shapeRendering: Object.assign({}, commonProps),
   userSelect: {
     all: "all",
     auto: "auto",
@@ -716,7 +1344,6 @@ export const defaultTheme = {
     revertLayer: "revert-layer",
     ...commonProps,
   },
-  border: { ...commonProps },
-
-  textShadow: { ...commonProps },
+  border: Object.assign({}, commonProps),
+  textShadow: Object.assign({}, commonProps),
 };
