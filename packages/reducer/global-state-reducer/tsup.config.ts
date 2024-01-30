@@ -12,4 +12,8 @@ export default defineConfig({
   entry: {
     index: "./src/index.ts",
   },
+  minifySyntax: true,
+  minifyWhitespace: true,
+  minifyIdentifiers: true,
+  bundle: true,
 });

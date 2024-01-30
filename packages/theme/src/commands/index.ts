@@ -21,6 +21,7 @@ export type Arguments =
   | Record<string, unknown>
   | Record<string, unknown>[]
   | unknown;
+
 export const commands = {
   optimizedWidth: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
