@@ -1,10 +1,10 @@
 import { CreateComponent, ForwardRefExotic } from "@robust-ui/constructor";
+import { forwardRef, useMemo, memo, useState, useEffect } from "react";
 import { generateColorScheme } from "@robust-ui/css-utils";
 import { useCleanValue } from "@robust-ui/use-clean-value";
 import { IconProps, IconPropsNoGeneric } from "./types";
-import { forwardRef, useMemo, memo } from "react";
 import { isSVGElement } from "./is-svg-element";
-import { Icons } from "@robust-ui/icons";
+import { importIcon } from "@robust-ui/icons";
 import { Flex } from "@robust-ui/flex";
 import { Path } from "./path";
 export * from "./types";
@@ -14,6 +14,8 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
     { children, ...props },
     ref,
   ): React.JSX.Element {
+    const [icon, seTIcons] = useState<string | undefined>(undefined);
+
     const Component = CreateComponent<SVGElement>({
       componentType: "svg",
     });
@@ -45,12 +47,22 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
       });
     }, [colorSchemeRaw, colorScheme, colorSchemeProperty]);
 
-    const IconEvaluated =
-      Icons[iconType as keyof typeof Icons] || Icons["errorWarningFill"];
+    useEffect(() => {
+      if (iconType) {
+        importIcon({ key: iconType })
+          .then((icon) => {
+            seTIcons(icon);
+          })
+          .catch((error) => {
+            console.error({ error });
+          });
+      }
+    }, [iconType]);
 
     const includeFillLine =
       !iconType?.toString().includes("Fill") &&
       !iconType?.toString().includes("Line");
+
     const childrenEvaluated = children
       ? isSVGElement({ element: children })
       : false;
@@ -65,7 +77,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
           minWidthRaw={composeSize}
           heightRaw={composeSize}
           widthRaw={composeSize}
-          lineHeight="1dvh"
+          lineHeight="2dvh"
           ref={ref}
           {...structureStyle}
           {...cleanedProps}
@@ -98,7 +110,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
               <Path
                 strokeLinecap="round"
                 stroke="currentColor"
-                d={IconEvaluated}
+                d={icon}
                 strokeWidth="1.5"
                 fill="none"
               />
@@ -108,7 +120,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<IconProps>> =
               strokeLinecap="round"
               stroke="currentColor"
               fill="currentColor"
-              d={IconEvaluated}
+              d={icon}
               strokeWidth="0"
             />
           )}

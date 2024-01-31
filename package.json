@@ -6,10 +6,10 @@
   "license": "MIT",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "scripts": {
-    "build": "pnpm run format:write && turbo build",
+    "build": "pnpm install && pnpm run format:write && turbo build",
     "build:packages": "pnpm run format:write && turbo run build --filter=!./apps/* ",
     "build:apps": "pnpm run format:write && turbo run build --filter=!./packages/* ",
-    "start": "pnpm run format:write && turbo start",
+    "start": "turbo start",
     "dev": "pnpm run format:write && turbo dev",
     "lint": "pnpm run format:write && turbo lint --filter=!./apps/*",
     "depCheck": "pnpm run format:write && turbo run depCheck",
@@ -22,7 +22,6 @@
     "release": "changeset publish",
     "version:dev": "changeset version --snapshot dev",
     "release:dev": "changeset publish --tag dev",
-    "postinstall": "pnpm run build:packages",
     "generateDocs": "turbo generateDocs"
   },
   "devDependencies": {

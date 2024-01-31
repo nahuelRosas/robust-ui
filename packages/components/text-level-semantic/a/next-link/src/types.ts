@@ -1,4 +1,4 @@
-import { Ticon, IconProps } from "@robust-ui/icon";
+import { TIcons, IconProps } from "@robust-ui/icon";
 import { SpinnerProps } from "@robust-ui/spinner";
 import { SpanProps } from "@robust-ui/span";
 import { FlexProps } from "@robust-ui/flex";
@@ -15,7 +15,7 @@ export interface NextLinkProps extends EnhancedProps<LinkProps> {
   hoverHelp?: PartialOrNestedPartial<boolean>;
   isLoading?: PartialOrNestedPartial<boolean>;
   hoverText?: PartialOrNestedPartial<string>;
-  iconType?: PartialOrNestedPartial<Ticon>;
+  iconType?: PartialOrNestedPartial<keyof TIcons>;
   hoverTextProps?: PartialOrNestedPartial<{
     containerProps?: FlexProps;
     textProps?: SpanProps;
@@ -36,5 +36,5 @@ export interface NextLinkPropsNoGeneric
   hoverHelp?: boolean;
   isLoading?: boolean;
   hoverText?: string;
-  iconType?: Ticon;
+  iconType?: keyof TIcons;
 }

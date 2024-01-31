@@ -1,4 +1,4 @@
-import { IconProps, Ticon } from "@robust-ui/icon";
+import { IconProps, TIcons } from "@robust-ui/icon";
 import { SpinnerProps } from "@robust-ui/spinner";
 import { SpanProps } from "@robust-ui/span";
 import { FlexProps } from "@robust-ui/flex";
@@ -14,7 +14,7 @@ export interface ButtonProps extends EnhancedProps<HTMLButtonElement> {
   hoverHelp?: PartialOrNestedPartial<boolean>;
   isLoading?: PartialOrNestedPartial<boolean>;
   hoverText?: PartialOrNestedPartial<string>;
-  iconType?: PartialOrNestedPartial<Ticon>;
+  iconType?: PartialOrNestedPartial<keyof TIcons>;
   hoverTextProps?: PartialOrNestedPartial<{
     containerProps?: FlexProps;
     textProps?: SpanProps;
@@ -35,5 +35,5 @@ export interface ButtonPropsNoGeneric
   hoverHelp?: boolean;
   isLoading?: boolean;
   hoverText?: string;
-  iconType?: Ticon;
+  iconType?: keyof TIcons;
 }
