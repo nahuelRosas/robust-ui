@@ -25,7 +25,7 @@ function Index() {
         color="white"
         zIndexRaw="1"
         position="fixed"
-        bottom="10"
+        bottom="4dvh"
         pointerEvents={!isVisible ? "none" : "inherit"}
         width="100dvw"
         flexDirection="row"
@@ -48,7 +48,7 @@ function Index() {
             "0%": {
               opacity: 1,
             },
-            full: {
+            "100%": {
               opacity: 0,
             },
           },

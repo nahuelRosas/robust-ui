@@ -1,5 +1,5 @@
 import {
-  Ticon,
+  TIcons,
   Block,
   Flex,
   Image,
@@ -48,7 +48,7 @@ export function Project({
     text: {
       [key: string]: string;
     };
-    iconType: Ticon;
+    iconType: keyof TIcons;
   }[];
   images?: string[];
 }) {

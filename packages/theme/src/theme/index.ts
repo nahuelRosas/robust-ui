@@ -5,10 +5,6 @@ import { sizes, TSizes } from "./sizes";
 import { colors, TColor } from "./colors";
 import { numbers, TNumbers } from "./numbers";
 
-const numberSizeProps: TNumbers & TSizes = { ...numbers, ...sizes };
-
-type TNumberSizeProps = typeof numberSizeProps;
-
 const commonProps = {
   inherit: "inherit",
   initial: "initial",
@@ -85,10 +81,10 @@ export const defaultTheme: {
   backgroundColor: TColor;
   padding: TSizeProps;
   margin: TSizeProps;
-  left: TNumberSizeProps;
-  right: TNumberSizeProps;
-  top: TNumberSizeProps;
-  bottom: TNumberSizeProps;
+  left: TSizeProps;
+  right: TSizeProps;
+  top: TSizeProps;
+  bottom: TSizeProps;
   color: TColor;
   mx: TSizeProps;
   my: TSizeProps;
@@ -427,7 +423,7 @@ export const defaultTheme: {
     normal: string;
     revertLayer: string;
     mozBlockHeight: string;
-  };
+  } & TSizes;
   textRendering: TCommonProps & {
     auto: string;
     geometricPrecision: string;
@@ -673,10 +669,10 @@ export const defaultTheme: {
   backgroundColor: Object.assign({}, colors),
   padding: Object.assign({}, sizeProps),
   margin: Object.assign({}, sizeProps),
-  left: Object.assign({}, numberSizeProps),
-  right: Object.assign({}, numberSizeProps),
-  top: Object.assign({}, numberSizeProps),
-  bottom: Object.assign({}, numberSizeProps),
+  left: Object.assign({}, sizeProps),
+  right: Object.assign({}, sizeProps),
+  top: Object.assign({}, sizeProps),
+  bottom: Object.assign({}, sizeProps),
   color: Object.assign({}, colors),
   mx: Object.assign({}, sizeProps),
   my: Object.assign({}, sizeProps),
