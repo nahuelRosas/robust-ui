@@ -1,5 +1,5 @@
 import { StyledTextProps } from "@robust-ui/styled-text";
-import { Ticon, IconProps } from "@robust-ui/icon";
+import { TIcons, IconProps } from "@robust-ui/icon";
 import { colors } from "@robust-ui/theme";
 import {
   EnhancedPropsNoGeneric,
@@ -17,9 +17,9 @@ export interface CoverProps extends EnhancedProps<HTMLElement> {
     | {
         color?: keyof typeof colors;
         colorRaw?: string;
-        type: Ticon;
+        type: keyof TIcons;
       }
-    | Ticon
+    | keyof TIcons
   >;
   iconProps?: IconProps;
 }
@@ -32,7 +32,7 @@ export interface CoverPropsNoGeneric
     | {
         color?: keyof typeof colors;
         colorRaw?: string;
-        type: Ticon;
+        type: keyof TIcons;
       }[]
-    | Ticon[];
+    | (keyof TIcons)[];
 }
