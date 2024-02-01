@@ -4,6 +4,13 @@ import { useGlobalContext } from "@robust-ui/use-global-context";
 import { generateUniqueClassName, injectStyle } from "@robust-ui/css-utils";
 import { propsSplitter } from "@robust-ui/tools";
 export * from "./types";
+/**
+ * Creates a component with enhanced props and styling capabilities.
+ *
+ * @template T - The type of component.
+ * @param {ComponentConstructorProps<T>} componentType - The component type.
+ * @returns {React.MemoExoticComponent<React.ForwardRefExoticComponent<EnhancedProps<T> & React.RefAttributes<unknown>>>} The generated component.
+ */
 
 export function CreateComponent<T>({
   componentType,
@@ -16,7 +23,7 @@ export function CreateComponent<T>({
           style,
           ...props
         }: EnhancedProps<T>,
-        ref,
+        ref
       ): JSX.Element | null {
         const {
           currentBreakpoint,
@@ -41,7 +48,7 @@ export function CreateComponent<T>({
                 ...selectors,
               },
             }),
-          [selectors, props],
+          [selectors, props]
         );
 
         const uniqueClassName = useMemo(
@@ -52,7 +59,7 @@ export function CreateComponent<T>({
                 ...styleProps,
               },
             }),
-          [styleProps, style],
+          [styleProps, style]
         );
 
         const combinedClassName = [uniqueClassName, props.className]
@@ -90,7 +97,7 @@ export function CreateComponent<T>({
         useEffect(() => {
           if (!isProviderActive) {
             throw new Error(
-              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`,
+              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`
             );
           }
         }, [isProviderActive]);
@@ -106,6 +113,6 @@ export function CreateComponent<T>({
           </ElementType>
         );
       }),
-    [componentType],
+    [componentType]
   );
 }
