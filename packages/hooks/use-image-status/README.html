@@ -1,0 +1,89 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li><a href="#robust-uiuse-image-status">@robust-ui/use-image-status</a></li>
+<li><a href="#table-of-contents">Table of contents</a><ul>
+<li><a href="#type-aliases">Type Aliases</a></li>
+<li><a href="#functions">Functions</a></li></ul></li>
+<li><a href="#type-aliases-1">Type Aliases</a><ul>
+<li><a href="#imageerrorevent">ImageErrorEvent</a></li>
+<li><a href="#imageloadevent">ImageLoadEvent</a></li>
+<li><a href="#imageloaderprops">ImageLoaderProps</a></li></ul></li>
+<li><a href="#functions-1">Functions</a><ul>
+<li><a href="#useimagestatus">useImageStatus</a></li></ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/use-image-status / <a href="#modulesmd">Exports</a></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#robust-uicore">@robust-ui/core</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/core / <a href="#modulesmd">Exports</a></p>
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/core</a> / Exports</p>
+<h1 id="robustuicore">@robust-ui/core</h1>
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/use-image-status</a> / Exports</p>
+<h1 id="robustuiuseimagestatus">@robust-ui/use-image-status</h1>
+<h2 id="tableofcontents">Table of contents</h2>
+<h3 id="typealiases">Type Aliases</h3>
+<ul>
+<li><a href="#imageerrorevent">ImageErrorEvent</a></li>
+<li><a href="#imageloadevent">ImageLoadEvent</a></li>
+<li><a href="#imageloaderprops">ImageLoaderProps</a></li>
+</ul>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><a href="#useimagestatus">useImageStatus</a></li>
+</ul>
+<h2 id="typealiases-1">Type Aliases</h2>
+<h3 id="imageerrorevent">ImageErrorEvent</h3>
+<p>Ƭ <strong>ImageErrorEvent</strong>: <code>SyntheticEvent</code>\&lt;<code>HTMLImageElement</code>, <code>Event</code>></p>
+<p>Represents an error event that occurs when an image fails to load.</p>
+<h4 id="definedin">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-image-status/src/types.ts#L12">types.ts:12</a></p>
+<hr />
+<h3 id="imageloadevent">ImageLoadEvent</h3>
+<p>Ƭ <strong>ImageLoadEvent</strong>: <code>SyntheticEvent</code>\&lt;<code>HTMLImageElement</code>, <code>Event</code>></p>
+<p>Represents an event that is triggered when an image is loaded.</p>
+<p><strong><code>Template</code></strong></p>
+<p>The type of the event target.</p>
+<p><strong><code>Template</code></strong></p>
+<p>The type of the event.</p>
+<h4 id="definedin-1">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-image-status/src/types.ts#L8">types.ts:8</a></p>
+<hr />
+<h3 id="imageloaderprops">ImageLoaderProps</h3>
+<p>Ƭ <strong>ImageLoaderProps</strong>: <code>Object</code></p>
+<p>Props for the ImageLoader component.</p>
+<h4 id="typedeclaration">Type declaration</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>crossOrigin?</code> | <code>string</code> | <code>null</code> | - |
+| <code>delay?</code> | <code>number</code> | - |
+| <code>ignoreFallback?</code> | <code>boolean</code> | - |
+| <code>onError?</code> | <code>ReactEventHandler</code>\<<code>HTMLImageElement</code>> | - |
+| <code>onLoad?</code> | (<code>event</code>: <a href="#imageloadevent"><code>ImageLoadEvent</code></a>) => <code>void</code> | Callback function called when the image has finished loading. |
+| <code>sizes?</code> | <code>string</code> | - |
+| <code>src?</code> | <code>string</code> | - |
+| <code>srcSet?</code> | { <code>size</code>: <code>string</code> ; <code>url</code>: <code>string</code>  }[] | - |</p>
+<h4 id="definedin-2">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-image-status/src/types.ts#L17">types.ts:17</a></p>
+<h2 id="functions-1">Functions</h2>
+<h3 id="useimagestatus">useImageStatus</h3>
+<p>▸ <strong>useImageStatus</strong>(<code>options</code>): <code>"failed"</code> | <code>"loaded"</code> | <code>"loading"</code> | <code>"pending"</code></p>
+<p>Custom hook that tracks the loading status of an image.</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>options</code> | <a href="#imageloaderprops"><code>ImageLoaderProps</code></a> | The options for the image loader. |</p>
+<h4 id="returns">Returns</h4>
+<p><code>"failed"</code> | <code>"loaded"</code> | <code>"loading"</code> | <code>"pending"</code></p>
+<p>The current status of the image loading process.</p>
+<h4 id="definedin-3">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-image-status/src/index.ts#L18">index.ts:18</a></p>

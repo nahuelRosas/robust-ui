@@ -50,6 +50,9 @@ export function useImageStatus({
     }
   }, [src, imagesLoadedState, shouldIgnoreFallback, isDelayed]);
 
+  /**
+   * Cleans up the image by removing event listeners and resetting the image reference.
+   */
   const cleanupImage = useCallback(() => {
     const image = imageRef.current;
     if (image) {
@@ -59,6 +62,13 @@ export function useImageStatus({
     }
   }, []);
 
+  /**
+   * Loads the image specified by the `src` prop and updates the status accordingly.
+   * If the image is already loaded, it sets the status to "loaded" immediately.
+   * If the image fails to load, it sets the status to "failed".
+   *
+   * @returns {void}
+   */
   const load = useCallback(() => {
     if (!src) return;
 
@@ -85,10 +95,10 @@ export function useImageStatus({
       image.sizes = sizes;
     }
 
-    image.onload = (event) => {
+    image.onload = function (event): void {
       startTransition(() => setStatus("loaded"));
       setImagesLoadedState((loadedImages: string[]) =>
-        loadedImages.includes(src) ? loadedImages : [...loadedImages, src],
+        loadedImages.includes(src) ? loadedImages : [...loadedImages, src]
       );
       cleanupImage();
       if (onLoad) {
