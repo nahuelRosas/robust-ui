@@ -1,5 +1,17 @@
 # @robust-ui/cryptography
 
+## 1.1.0
+
+### Minor Changes
+
+- d7ccbd9: fix code and refactor, add docs
+
+### Patch Changes
+
+- Updated dependencies [d7ccbd9]
+  - @robust-ui/theme@1.1.0
+  - @robust-ui/tools@1.1.0
+
 ## 1.0.0
 
 ### Major Changes
