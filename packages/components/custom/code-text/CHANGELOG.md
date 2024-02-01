@@ -1,5 +1,23 @@
 # @robust-ui/card
 
+## 1.1.0
+
+### Minor Changes
+
+- d7ccbd9: fix code and refactor, add docs
+
+### Patch Changes
+
+- Updated dependencies [d7ccbd9]
+  - @robust-ui/flex@1.1.0
+  - @robust-ui/button@1.1.0
+  - @robust-ui/span@1.1.0
+  - @robust-ui/constructor@1.1.0
+  - @robust-ui/css-utils@1.1.0
+  - @robust-ui/use-clean-value@1.1.0
+  - @robust-ui/use-extract-string@1.1.0
+  - @robust-ui/use-toast@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

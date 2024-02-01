@@ -1,5 +1,23 @@
 # @robust-ui/nested-styled-text
 
+## 1.1.0
+
+### Minor Changes
+
+- d7ccbd9: fix code and refactor, add docs
+
+### Patch Changes
+
+- Updated dependencies [d7ccbd9]
+  - @robust-ui/block@1.1.0
+  - @robust-ui/paragraph@1.1.0
+  - @robust-ui/span@1.1.0
+  - @robust-ui/constructor@1.1.0
+  - @robust-ui/css-utils@1.1.0
+  - @robust-ui/use-clean-value@1.1.0
+  - @robust-ui/use-extract-string@1.1.0
+  - @robust-ui/theme@1.1.0
+
 ## 1.0.0
 
 ### Major Changes

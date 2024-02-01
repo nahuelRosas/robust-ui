@@ -1,5 +1,19 @@
 # @robust-ui/use-global-state
 
+## 1.1.0
+
+### Minor Changes
+
+- d7ccbd9: fix code and refactor, add docs
+
+### Patch Changes
+
+- Updated dependencies [d7ccbd9]
+  - @robust-ui/use-global-context@1.1.0
+  - @robust-ui/use-global-state-updater@1.1.0
+  - @robust-ui/use-recovery-global-state-value@1.1.0
+  - @robust-ui/tools@1.1.0
+
 ## 1.0.0
 
 ### Major Changes
