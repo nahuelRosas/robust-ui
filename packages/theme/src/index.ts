@@ -9,6 +9,9 @@ export * from "./commands";
 export * from "./language";
 export * from "./theme";
 
+/**
+ * Object containing selectors for styling elements.
+ *  */
 export const selectors = {
   ...PseudoElements,
   ...PseudoClasses,

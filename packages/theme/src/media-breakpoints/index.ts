@@ -1,3 +1,7 @@
+/**
+ * Defines the media breakpoints for responsive design.
+
+ *  */
 export const mediaBreakpoints = {
   base: 0,
   xxs: 280,

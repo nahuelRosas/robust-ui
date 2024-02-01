@@ -1,3 +1,7 @@
+/**
+ * Defines a collection of color values.
+
+ *  */
 export const colors = {
   inherit: "inherit",
   transparent: "transparent",
@@ -178,4 +182,7 @@ export const colors = {
   mulberry900: "#7C1044",
 };
 
+/**
+ * Represents the type for colors in the theme.
+ */
 export type TColor = typeof colors;

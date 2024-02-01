@@ -1,4 +1,6 @@
-import { TColor, TNumbers, TSizes } from "./index";
+import { TNumbers } from "@/numbers";
+import { TColor } from "./colors";
+import { TSizes } from "@/sizes";
 
 /**
  * Common props for the theme.

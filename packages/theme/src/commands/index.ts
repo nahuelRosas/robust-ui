@@ -5,6 +5,10 @@ import {
   LinearColorArguments,
 } from "./types";
 
+/**
+ * An object containing various commands for generating CSS styles.
+ */
+
 export const commands = {
   optimizedWidth: (propValue: Arguments) => {
     if (typeof propValue === "boolean" && propValue)
@@ -170,7 +174,7 @@ export const commands = {
     const { colors, deg } = propValue as LinearColorArguments;
     if (colors && colors.length)
       return `background:linear-gradient(${deg || "90deg"},${colors.join(
-        ", ",
+        ", "
       )});`;
     else if (typeof propValue === "string") return `background:${propValue};`;
     return "";
@@ -618,4 +622,8 @@ export const commands = {
   colorRendering: (propValue: Arguments) =>
     typeof propValue === "string" ? `color-rendering:${propValue};` : "",
 };
+
+/**
+ * Represents the type of commands available.
+ */
 export type TCommands = typeof commands;

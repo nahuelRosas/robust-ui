@@ -1,3 +1,7 @@
+/**
+ * Represents a collection of CSS at-rules.
+
+ *  */
 export const AtRules = {
   charset: "@charset",
   import: "@import",
@@ -20,6 +24,10 @@ export const AtRules = {
   container: "@container",
 };
 
+/**
+ * Represents a collection of pseudo-elements used in CSS rules.
+
+ *  */
 export const PseudoElements = {
   mozSelection: "::moz-selection",
   mozPlaceholder: "::moz-placeholder",
@@ -69,6 +77,10 @@ export const PseudoElements = {
   cueRegion: "::cue-region",
 };
 
+/**
+ * Represents a collection of pseudo classes used in CSS rules.
+
+ *  */
 export const PseudoClasses = {
   mozPlaceholder: ":-moz-placeholder",
   mozFullScreen: ":-moz-full-screen",
@@ -146,6 +158,10 @@ export const PseudoClasses = {
   autoFill: ":-webkit-autofill",
 };
 
+/**
+ * Represents a set of CSS rules.
+ * @internal
+ *  */
 export const CSSRulesSet = {
   AtRules,
   PseudoElements,

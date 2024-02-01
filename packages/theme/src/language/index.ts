@@ -1,3 +1,7 @@
+/**
+ * Represents a mapping of language codes to their corresponding display names.
+
+ *  */
 export const language = {
   "es-AR": "Español (AR)",
   "es-ES": "Español (ES)",
