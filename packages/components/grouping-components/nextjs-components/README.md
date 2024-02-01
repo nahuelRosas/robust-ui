@@ -13,19 +13,19 @@ You can install Robust using either npm or pnpm. To do this, run one of the foll
 Using npm:
 
 ```bash
-npm install @robust-ui/core
+npm install @robust-ui/nextjs-components
 ```
 
 Using pnpm:
 
 ```bash
-pnpm install @robust-ui/core
+pnpm install @robust-ui/nextjs-components
 ```
 
 using yarn:
 
 ```bash
-yarn add @robust-ui/core
+yarn add @robust-ui/nextjs-components
 ```
 
 Alternatively, you can also download Robust from the GitHub repository and manually install the dependencies. The prepare script defined in the package.json file will automatically build all the files within the packages folder.
