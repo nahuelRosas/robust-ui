@@ -1,17 +1,26 @@
 import { colors } from "@robust-ui/theme";
 
+/**
+ * Represents an RGB color.
+ */
 interface RGBColor {
   r: number;
   g: number;
   b: number;
 }
 
+/**
+ * Represents a color in the HSL (Hue, Saturation, Lightness) color model.
+ */
 interface HSLColor {
   h: number;
   s: number;
   l: number;
 }
 
+/**
+ * Represents the variant options for colors.
+ */
 type Variant =
   | "solid"
   | "solidLight"
@@ -45,7 +54,7 @@ function componentToHex(c: number): string {
 function rgbaToHex(rgb: RGBColor, a?: number): string {
   const alphaHex = a !== undefined ? componentToHex(Math.round(a * 255)) : "";
   return `#${componentToHex(rgb.r)}${componentToHex(rgb.g)}${componentToHex(
-    rgb.b,
+    rgb.b
   )}${alphaHex}`;
 }
 
@@ -92,7 +101,7 @@ function hslToHex(hsl: HSLColor): string {
   }
 
   return `#${componentToHex(Math.round((r + m) * 255))}${componentToHex(
-    Math.round((g + m) * 255),
+    Math.round((g + m) * 255)
   )}${componentToHex(Math.round((b + m) * 255))}`;
 }
 
@@ -107,7 +116,7 @@ function cssColorToHex(color: string): string | undefined {
     return color;
   } else if (color.startsWith("rgb")) {
     const match = color.match(
-      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/,
+      /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/
     );
 
     if (match) {
@@ -116,12 +125,12 @@ function cssColorToHex(color: string): string | undefined {
 
       return rgbaToHex(
         { r: rgbColor.r, g: rgbColor.g, b: rgbColor.b },
-        a !== undefined ? a : 1,
+        a !== undefined ? a : 1
       );
     }
   } else if (color.startsWith("hsl")) {
     const match = color.match(
-      /hsla?\((\d+),\s*(\d+)%,\s*(\d+)%(?:,\s*([\d.]+))?\)/,
+      /hsla?\((\d+),\s*(\d+)%,\s*(\d+)%(?:,\s*([\d.]+))?\)/
     );
 
     if (match) {
@@ -187,7 +196,7 @@ export function addOpacity({
 export function generateContrastingColor(baseColor: string): string {
   // Regex for matching RGBA format
   const rgbaMatch = baseColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
   );
 
   // Check if the input color is in the expected format
@@ -226,7 +235,7 @@ export function generateContrastingColor(baseColor: string): string {
  */
 function calculateComplementaryColor(rgbaColor: string): string {
   const match = rgbaColor.match(
-    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/,
+    /^rgba\((\d+),\s*(\d+),\s*(\d+),\s*([\d.]+)\)$/
   );
 
   if (!match) {
@@ -356,7 +365,7 @@ export function generateColorScheme({
 
   if (isInvalid && isValid && !isDisabled) {
     throw new Error(
-      "Input can't be invalid and valid at the same time. Please check your code.",
+      "Input can't be invalid and valid at the same time. Please check your code."
     );
   }
 

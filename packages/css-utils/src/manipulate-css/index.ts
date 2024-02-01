@@ -1,6 +1,21 @@
+/**
+ * Options for manipulating CSS.
+ */
 export type CSSManipulationOptions = {
+  /**
+   * The original CSS string.
+   */
   originalCSS: string;
+  /**
+   * A map of CSS selectors to replacement strings.
+   */
   replacementMap: Map<string, string[]>;
+  /**
+   * The action to perform on the CSS.
+   * - "add": Add the replacement strings to the original CSS.
+   * - "replace": Replace the original CSS with the replacement strings.
+   * - "remove": Remove the CSS selectors from the original CSS.
+   */
   action?: "add" | "replace" | "remove";
 };
 
@@ -32,11 +47,11 @@ export function manipulateCSS({
       if (!validation) {
         if (selector.includes("import")) {
           manipulatedCSS = `${selector}${replacementValues.join(
-            "",
+            ""
           )};${manipulatedCSS}`;
         } else {
           manipulatedCSS = `${manipulatedCSS}${selector}${replacementValues.join(
-            "",
+            ""
           )}`;
         }
       }
@@ -48,7 +63,7 @@ export function manipulateCSS({
         const currentValues = manipulatedCSS.match(selectorRegex);
         const valueRegex = new RegExp(
           `${replacementValues.join("").replace(/ /g, "")}`,
-          "ismg",
+          "ismg"
         );
 
         if (selector.includes("import")) return;
@@ -60,14 +75,14 @@ export function manipulateCSS({
         if (!cleanCurrentValues.match(valueRegex)) {
           manipulatedCSS = manipulatedCSS.replace(
             selectorRegex,
-            `${selector}{${cleanCurrentValues} ${replacementValues.join(" ")}}`,
+            `${selector}{${cleanCurrentValues} ${replacementValues.join(" ")}}`
           );
         }
       } else if (actionRaw === "replace") {
         const replacementString = replacementValues.join("");
         manipulatedCSS = manipulatedCSS.replace(
           selectorRegex,
-          `${selector}${replacementString}`,
+          `${selector}${replacementString}`
         );
       } else if (actionRaw === "remove") {
         const currentValues = manipulatedCSS.match(selectorRegex);
@@ -77,12 +92,12 @@ export function manipulateCSS({
           .join("");
         manipulatedCSS = manipulatedCSS.replace(
           selectorRegex,
-          `${cleanValues}`,
+          `${cleanValues}`
         );
       }
     } else if (!manipulatedCSS.includes(selector)) {
       manipulatedCSS = `${manipulatedCSS}${selector}${replacementValues.join(
-        "",
+        ""
       )}`;
     }
   });

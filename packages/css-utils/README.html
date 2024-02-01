@@ -1,0 +1,144 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li><a href="#robust-uicss-utils">@robust-ui/css-utils</a></li>
+<li><a href="#table-of-contents">Table of contents</a><ul>
+<li><a href="#functions">Functions</a></li></ul></li>
+<li><a href="#functions-1">Functions</a><ul>
+<li><a href="#addopacity">addOpacity</a></li>
+<li><a href="#generatecolorscheme">generateColorScheme</a></li>
+<li><a href="#generatecontrastingcolor">generateContrastingColor</a></li>
+<li><a href="#generateuniqueclassname">generateUniqueClassName</a></li>
+<li><a href="#getrandomhexcolor">getRandomHexColor</a></li>
+<li><a href="#injectstyle">injectStyle</a></li></ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/css-utils / <a href="#modulesmd">Exports</a></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#robust-uicore">@robust-ui/core</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/core / <a href="#modulesmd">Exports</a></p>
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/core</a> / Exports</p>
+<h1 id="robustuicore">@robust-ui/core</h1>
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/css-utils</a> / Exports</p>
+<h1 id="robustuicssutils">@robust-ui/css-utils</h1>
+<h2 id="tableofcontents">Table of contents</h2>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><a href="#addopacity">addOpacity</a></li>
+<li><a href="#generatecolorscheme">generateColorScheme</a></li>
+<li><a href="#generatecontrastingcolor">generateContrastingColor</a></li>
+<li><a href="#generateuniqueclassname">generateUniqueClassName</a></li>
+<li><a href="#getrandomhexcolor">getRandomHexColor</a></li>
+<li><a href="#injectstyle">injectStyle</a></li>
+</ul>
+<h2 id="functions-1">Functions</h2>
+<h3 id="addopacity">addOpacity</h3>
+<p>▸ <strong>addOpacity</strong>(<code>options</code>): <code>string</code></p>
+<p>Adds opacity to a given color.</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>options</code> | <code>Object</code> | The options for adding opacity. |
+| <code>options.color</code> | <code>string</code> | The color to add opacity to. |
+| <code>options.opacity</code> | <code>number</code> | The opacity value (between 0 and 1). |</p>
+<h4 id="returns">Returns</h4>
+<p><code>string</code></p>
+<p>The color with added opacity in the RGBA format.</p>
+<p><strong><code>Throws</code></strong></p>
+<p>If the color format is invalid.</p>
+<h4 id="definedin">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L165">colors-functions/index.ts:165</a></p>
+<hr />
+<h3 id="generatecolorscheme">generateColorScheme</h3>
+<p>▸ <strong>generateColorScheme</strong>(<code>options</code>): <code>Object</code></p>
+<p>Generates a color scheme based on the provided options.</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| <code>options</code> | <code>Object</code> | <code>undefined</code> | The options for generating the color scheme. |
+| <code>options.baseColor?</code> | <code>string</code> | <code>"teal"</code> | - |
+| <code>options.complementaryColor?</code> | <code>boolean</code> | <code>false</code> | - |
+| <code>options.isActivated?</code> | <code>boolean</code> | <code>true</code> | - |
+| <code>options.isDisabled?</code> | <code>boolean</code> | <code>false</code> | - |
+| <code>options.isInvalid?</code> | <code>boolean</code> | <code>false</code> | - |
+| <code>options.isValid?</code> | <code>boolean</code> | <code>false</code> | - |
+| <code>options.opacity?</code> | <code>number</code> | <code>0.7</code> | - |
+| <code>options.props?</code> | <code>Object</code> | <code>undefined</code> | - |
+| <code>options.props.active?</code> | <code>boolean</code> | <code>undefined</code> | - |
+| <code>options.props.background?</code> | <code>boolean</code> | <code>undefined</code> | - |
+| <code>options.props.border?</code> | <code>boolean</code> | <code>undefined</code> | - |
+| <code>options.props.focus?</code> | <code>boolean</code> | <code>undefined</code> | - |
+| <code>options.props.hover?</code> | <code>boolean</code> | <code>undefined</code> | - |
+| <code>options.variant</code> | <code>Variant</code> | <code>"solid"</code> | - |</p>
+<h4 id="returns-1">Returns</h4>
+<p><code>Object</code></p>
+<p>The generated color scheme.</p>
+<h4 id="definedin-1">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L282">colors-functions/index.ts:282</a></p>
+<hr />
+<h3 id="generatecontrastingcolor">generateContrastingColor</h3>
+<p>▸ <strong>generateContrastingColor</strong>(<code>baseColor</code>): <code>string</code></p>
+<p>Generates a contrasting color based on the provided base color.
+The base color should be in the RGBA format.
+If the base color is not in the expected format, an error will be thrown.
+The contrast color is calculated by determining the grayscale value of the base color,
+and then setting the brightness to either 0 or 255 based on the grayscale value.
+The contrast alpha is calculated by multiplying the base alpha by 2.5, with a maximum value of 1.</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>baseColor</code> | <code>string</code> | The base color in the RGBA format. |</p>
+<h4 id="returns-2">Returns</h4>
+<p><code>string</code></p>
+<p>The contrasting color in the RGBA format.</p>
+<p><strong><code>Throws</code></strong></p>
+<p>Error if the base color is not in the expected format.</p>
+<h4 id="definedin-2">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L196">colors-functions/index.ts:196</a></p>
+<hr />
+<h3 id="generateuniqueclassname">generateUniqueClassName</h3>
+<p>▸ <strong>generateUniqueClassName</strong>(<code>object</code>): <code>string</code> | <code>undefined</code></p>
+<p>Generates a unique class name based on the provided object.</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>object</code> | <code>Object</code> | The object used to generate the unique class name. |
+| <code>object.object</code> | <code>Object</code> | - |</p>
+<h4 id="returns-3">Returns</h4>
+<p><code>string</code> | <code>undefined</code></p>
+<p>The generated unique class name.</p>
+<p><strong><code>Throws</code></strong></p>
+<p>If an error occurs while generating the unique class name.</p>
+<h4 id="definedin-3">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/generate-unique-classname/index.ts#L10">generate-unique-classname/index.ts:10</a></p>
+<hr />
+<h3 id="getrandomhexcolor">getRandomHexColor</h3>
+<p>▸ <strong>getRandomHexColor</strong>(): <code>string</code></p>
+<p>Generates a random hexadecimal color code.</p>
+<h4 id="returns-4">Returns</h4>
+<p><code>string</code></p>
+<p>A string representing a random hexadecimal color code.</p>
+<h4 id="definedin-4">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L269">colors-functions/index.ts:269</a></p>
+<hr />
+<h3 id="injectstyle">injectStyle</h3>
+<p>▸ <strong>injectStyle</strong>(<code>options</code>): { <code>inputProps</code>: <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>> ; <code>styledCSSMap</code>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>[]>  } | <code>undefined</code></p>
+<p>Injects CSS styles based on the provided options.</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>options</code> | <code>InjectCSSTOptions</code> | The options for injecting CSS styles. |</p>
+<h4 id="returns-5">Returns</h4>
+<p>{ <code>inputProps</code>: <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>> ; <code>styledCSSMap</code>: <code>Map</code>\&lt;<code>string</code>, <code>string</code>[]>  } | <code>undefined</code></p>
+<p>An object containing the styled CSS map and input props, or undefined.</p>
+<h4 id="definedin-5">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/inject-style/index.ts#L11">inject-style/index.ts:11</a></p>

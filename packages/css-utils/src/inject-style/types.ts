@@ -1,3 +1,6 @@
+/**
+ * Options for injecting CSS styles.
+ */
 export type InjectCSSTOptions = {
   inputProps: Record<string, unknown>;
   classNameSelector: string;
