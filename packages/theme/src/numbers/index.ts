@@ -1,16 +1,16 @@
-import { TypeNumbersIntegerRange } from "./types";
+import { generateEntries } from "@/utils";
+import { RangeStrings } from "./types";
 export * from "./types";
 
 /**
- * Represents a collection of numbers.
+ * A record that maps range strings to range strings.
  */
-export const Numbers: Record<TypeNumbersIntegerRange, TypeNumbersIntegerRange> =
-  Object.fromEntries(
-    (Array(300) as TypeNumbersIntegerRange[]).map((_, i) => [
-      `${i + 1}`,
-      `${i + 1}`,
-    ]),
-  ) as unknown as Record<TypeNumbersIntegerRange, TypeNumbersIntegerRange>;
+
+export const Numbers = generateEntries({
+  length: 101,
+  prefix: "",
+  integer: true,
+}) as Record<RangeStrings, RangeStrings>;
 
 /**
  * Represents the type of the Numbers object.

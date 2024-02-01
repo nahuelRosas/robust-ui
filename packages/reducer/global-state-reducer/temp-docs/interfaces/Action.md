@@ -24,4 +24,4 @@ Represents an action in the application.
 
 #### Defined in
 
-[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/4beab69/packages/reducer/global-state-reducer/src/index.ts#L5)
+[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L5)

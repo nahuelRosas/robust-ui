@@ -1,3 +1,5 @@
+@robust-ui/constructor / [Exports](modules.md)
+
 # Robust
 
 Robust is a system for generating React components with real-time CSS injection. It is programmed in TypeScript, providing type safety and enhanced developer experience.
@@ -13,19 +15,19 @@ You can install Robust using either npm or pnpm. To do this, run one of the foll
 Using npm:
 
 ```bash
-npm install @robust-ui/nextjs-components
+npm install @robust-ui/core
 ```
 
 Using pnpm:
 
 ```bash
-pnpm install @robust-ui/nextjs-components
+pnpm install @robust-ui/core
 ```
 
 using yarn:
 
 ```bash
-yarn add @robust-ui/nextjs-components
+yarn add @robust-ui/core
 ```
 
 Alternatively, you can also download Robust from the GitHub repository and manually install the dependencies. The prepare script defined in the package.json file will automatically build all the files within the packages folder.
@@ -81,12 +83,11 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
-- 
+-
 
 ## Contributing
 
 Contributions to Robust are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.
-
 
 ## License
 

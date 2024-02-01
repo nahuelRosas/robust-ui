@@ -1,57 +1,36 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <ul>
-<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li><a href="#robust">Robust</a></li>
+<li><a href="#project-stats">Project Stats</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
 <li><a href="#robust-uitheme">@robust-ui/theme</a></li>
 <li><a href="#table-of-contents">Table of contents</a><ul>
 <li><a href="#type-aliases">Type Aliases</a></li>
 <li><a href="#variables">Variables</a></li></ul></li>
 <li><a href="#type-aliases-1">Type Aliases</a><ul>
+<li><a href="#rangestrings">RangeStrings</a></li>
+<li><a href="#tcolor">TColor</a></li>
 <li><a href="#tcommands">TCommands</a></li>
+<li><a href="#tcommonprops">TCommonProps</a></li>
+<li><a href="#tdefaulttheme">TDefaultTheme</a></li>
+<li><a href="#tdisplay">TDisplay</a></li>
+<li><a href="#tnumbers">TNumbers</a></li>
+<li><a href="#tsizeprops">TSizeProps</a></li>
+<li><a href="#tsizepropsoptimizedincluded">TSizePropsOptimizedIncluded</a></li>
+<li><a href="#tsizes">TSizes</a></li>
 <li><a href="#languagetype">languageType</a></li></ul></li>
 <li><a href="#variables-1">Variables</a><ul>
 <li><a href="#atrules">AtRules</a></li>
 <li><a href="#cssrulesset">CSSRulesSet</a></li>
+<li><a href="#numbers">Numbers</a></li>
 <li><a href="#pseudoclasses">PseudoClasses</a></li>
 <li><a href="#pseudoelements">PseudoElements</a></li>
-<li><a href="#commands">commands</a></li>
-<li><a href="#commonprops">commonProps</a></li>
-<li><a href="#cssreset">cssReset</a></li>
-<li><a href="#defaulttheme">defaultTheme</a></li>
-<li><a href="#language">language</a></li>
-<li><a href="#mediabreakpoints">mediaBreakpoints</a></li>
-<li><a href="#selectors">selectors</a></li>
-<li><a href="#sizeprops">sizeProps</a></li></ul></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<p><a name="readmemd"></a></p>
-<p>@robust-ui/theme / <a href="#modulesmd">Exports</a></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-<ul>
-<li><a href="#robust-uicore">@robust-ui/core</a></li>
-</ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<p><a name="readmemd"></a></p>
-<p>@robust-ui/core / <a href="#modulesmd">Exports</a></p>
-<p><a name="modulesmd"></a></p>
-<p><a href="#readmemd">@robust-ui/core</a> / Exports</p>
-<h1 id="robustuicore">@robust-ui/core</h1>
-<p><a name="modulesmd"></a></p>
-<p><a href="#readmemd">@robust-ui/theme</a> / Exports</p>
-<h1 id="robustuitheme">@robust-ui/theme</h1>
-<h2 id="tableofcontents">Table of contents</h2>
-<h3 id="typealiases">Type Aliases</h3>
-<ul>
-<li><a href="#tcommands">TCommands</a></li>
-<li><a href="#languagetype">languageType</a></li>
-</ul>
-<h3 id="variables">Variables</h3>
-<ul>
-<li><a href="#atrules">AtRules</a></li>
-<li><a href="#cssrulesset">CSSRulesSet</a></li>
-<li><a href="#pseudoclasses">PseudoClasses</a></li>
-<li><a href="#pseudoelements">PseudoElements</a></li>
+<li><a href="#colors">colors</a></li>
 <li><a href="#commands">commands</a></li>
 <li><a href="#commonprops">commonProps</a></li>
 <li><a href="#cssreset">cssReset</a></li>
@@ -60,23 +39,499 @@
 <li><a href="#mediabreakpoints">mediaBreakpoints</a></li>
 <li><a href="#selectors">selectors</a></li>
 <li><a href="#sizeprops">sizeProps</a></li>
+<li><a href="#sizes">sizes</a></li></ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/theme / <a href="#modulesmd">Exports</a></p>
+<h1 id="robust">Robust</h1>
+<p>Robust is a system for generating React components with real-time CSS injection. It is programmed in TypeScript, providing type safety and enhanced developer experience.</p>
+<h2 id="projectstats">Project Stats</h2>
+<p><img src="https://repobeats.axiom.co/api/embed/57761159b119284992a2370b719d8f8fe9c07e34.svg" alt="Alt" title="Repobeats analytics image" /></p>
+<h1 id="installation">Installation</h1>
+<p>You can install Robust using either npm or pnpm. To do this, run one of the following commands:</p>
+<p>Using npm:</p>
+<pre><code class="bash language-bash">npm install @robust-ui/core
+</code></pre>
+<p>Using pnpm:</p>
+<pre><code class="bash language-bash">pnpm install @robust-ui/core
+</code></pre>
+<p>using yarn:</p>
+<pre><code class="bash language-bash">yarn add @robust-ui/core
+</code></pre>
+<p>Alternatively, you can also download Robust from the GitHub repository and manually install the dependencies. The prepare script defined in the package.json file will automatically build all the files within the packages folder.</p>
+<h2 id="usage">Usage</h2>
+<p>To use Robust, you need to make use of the <code>Main</code> component from the <code>@robust-ui/nextjs-components</code> repository. Note that the functionality has only been tested with Next.js and may not work in other React environments.</p>
+<p>Here's an example of how to use Robust in a Next.js application:</p>
+<pre><code class="tsx language-tsx">import { Main, Header, Text, Icon, Flex } from "@robust-ui/nextjs-components";
+import { SideMenu } from "@/components/drawer";
+import type { AppProps } from "next/app";
+import React from "react";
+
+export default function App({ Component, pageProps }: AppProps) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    &lt;Main color="white" fontFamily="Fira Code"&gt;
+      &lt;Header backgroundColor="gunMetal"&gt;
+        &lt;Flex&gt;
+          &lt;Text fontWeight="700" fontSize="1.5rem"&gt;
+            Nahuel
+          &lt;/Text&gt;
+        &lt;/Flex&gt;
+        &lt;Icon type="menu" onClick={() =&gt; setOpen(!open)} /&gt;
+      &lt;/Header&gt;
+      &lt;SideMenu open={open} setOpen={setOpen} /&gt;
+      &lt;Component {...pageProps} /&gt;
+    &lt;/Main&gt;
+  );
+}
+</code></pre>
+<p>In the above example, we import the necessary components from Robust and use them to create a basic application structure. The <code>Main</code> component sets the color and font family for the components. The <code>Header</code> component represents the application header, including a title and a menu icon that toggles the <code>open</code> state. The <code>SideMenu</code> component displays a side drawer with links and language options. Finally, we render the <code>Component</code> with the <code>pageProps</code>.</p>
+<p>Please note that this usage example is specific to Next.js, and the functionality may not be tested or supported in other React environments. Make sure to customize the components and their properties based on your specific requirements.</p>
+<h2 id="features">Features</h2>
+<p>Robust includes the following features:</p>
+<ul>
+<li>Automatic responsiveness: The components are designed to adapt to different screen sizes and orientations.</li>
+<li>Quick language switching: Easily switch between different languages using the language options provided.</li>
+<li>Dark mode: The system supports a dark mode theme that can be enabled or disabled.</li>
+<li>Global states: Robust provides mechanisms for managing global states and sharing data between components.</li>
+<li>Real-time CSS injection: The system injects CSS in real time, allowing for dynamic styling and theming.</li>
+<li>TypeScript support: Robust is programmed in TypeScript, providing type safety and enhanced developer experience.</li>
+<li>Customizable components: The components can be customized using various properties to suit your specific requirements.</li>
+<li>Easy to use: Robust is designed to be easy to use and integrate with existing React applications.</li>
+<li>Extensible: The system can be extended with additional components and functionality as needed.</li>
+<li>Well-documented: The codebase is well-documented, making it easy to understand and contribute to.</li>
+</ul>
+<h2 id="activedevelopmentrobustisactivelydevelopedandmaintainedwithregularupdatesandimprovements">- Active development: Robust is actively developed and maintained, with regular updates and improvements.</h2>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions to Robust are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.</p>
+<h2 id="license">License</h2>
+<p>Robust is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+<hr />
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/theme</a> / Exports</p>
+<h1 id="robustuitheme">@robust-ui/theme</h1>
+<h2 id="tableofcontents">Table of contents</h2>
+<h3 id="typealiases">Type Aliases</h3>
+<ul>
+<li><a href="#rangestrings">RangeStrings</a></li>
+<li><a href="#tcolor">TColor</a></li>
+<li><a href="#tcommands">TCommands</a></li>
+<li><a href="#tcommonprops">TCommonProps</a></li>
+<li><a href="#tdefaulttheme">TDefaultTheme</a></li>
+<li><a href="#tdisplay">TDisplay</a></li>
+<li><a href="#tnumbers">TNumbers</a></li>
+<li><a href="#tsizeprops">TSizeProps</a></li>
+<li><a href="#tsizepropsoptimizedincluded">TSizePropsOptimizedIncluded</a></li>
+<li><a href="#tsizes">TSizes</a></li>
+<li><a href="#languagetype">languageType</a></li>
+</ul>
+<h3 id="variables">Variables</h3>
+<ul>
+<li><a href="#atrules">AtRules</a></li>
+<li><a href="#cssrulesset">CSSRulesSet</a></li>
+<li><a href="#numbers">Numbers</a></li>
+<li><a href="#pseudoclasses">PseudoClasses</a></li>
+<li><a href="#pseudoelements">PseudoElements</a></li>
+<li><a href="#colors">colors</a></li>
+<li><a href="#commands">commands</a></li>
+<li><a href="#commonprops">commonProps</a></li>
+<li><a href="#cssreset">cssReset</a></li>
+<li><a href="#defaulttheme">defaultTheme</a></li>
+<li><a href="#language">language</a></li>
+<li><a href="#mediabreakpoints">mediaBreakpoints</a></li>
+<li><a href="#selectors">selectors</a></li>
+<li><a href="#sizeprops">sizeProps</a></li>
+<li><a href="#sizes">sizes</a></li>
 </ul>
 <h2 id="typealiases-1">Type Aliases</h2>
+<h3 id="rangestrings">RangeStrings</h3>
+<p>Ƭ <strong>RangeStrings</strong>: <code>EnumerateRangeStrings</code>\&lt;<code>300</code>></p>
+<h4 id="definedin">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/numbers/types.ts#L16">numbers/types.ts:16</a></p>
+<hr />
+<h3 id="tcolor">TColor</h3>
+<p>Ƭ <strong>TColor</strong>: typeof <a href="#colors"><code>colors</code></a></p>
+<p>Represents the type for colors in the theme.</p>
+<h4 id="definedin-1">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/colors.ts#L188">theme/colors.ts:188</a></p>
+<hr />
 <h3 id="tcommands">TCommands</h3>
 <p>Ƭ <strong>TCommands</strong>: typeof <a href="#commands"><code>commands</code></a></p>
 <p>Represents the type of commands available.</p>
-<h4 id="definedin">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/commands/index.ts#L628">commands/index.ts:628</a></p>
+<h4 id="definedin-2">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/commands/index.ts#L629">commands/index.ts:629</a></p>
+<hr />
+<h3 id="tcommonprops">TCommonProps</h3>
+<p>Ƭ <strong>TCommonProps</strong>: <code>Object</code></p>
+<p>Common props for the theme.</p>
+<h4 id="typedeclaration">Type declaration</h4>
+<p>| Name | Type |
+| :------ | :------ |
+| <code>inherit</code> | <code>string</code> |
+| <code>initial</code> | <code>string</code> |
+| <code>revert</code> | <code>string</code> |
+| <code>unset</code> | <code>string</code> |</p>
+<h4 id="definedin-3">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/types.ts#L8">theme/types.ts:8</a></p>
+<hr />
+<h3 id="tdefaulttheme">TDefaultTheme</h3>
+<p>Ƭ <strong>TDefaultTheme</strong>: <code>Object</code></p>
+<p>Represents the default theme for the application.</p>
+<h4 id="typedeclaration-1">Type declaration</h4>
+<p>| Name | Type |
+| :------ | :------ |
+| <code>alignContent</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>baseline</code>: <code>string</code> ; <code>center</code>: <code>string</code> ; <code>end</code>: <code>string</code> ; <code>flexEnd</code>: <code>string</code> ; <code>flexStart</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>spaceAround</code>: <code>string</code> ; <code>spaceBetween</code>: <code>string</code> ; <code>spaceEvenly</code>: <code>string</code> ; <code>start</code>: <code>string</code> ; <code>stretch</code>: <code>string</code>  } |
+| <code>alignItems</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>baseline</code>: <code>string</code> ; <code>center</code>: <code>string</code> ; <code>end</code>: <code>string</code> ; <code>flexEnd</code>: <code>string</code> ; <code>flexStart</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>selfEnd</code>: <code>string</code> ; <code>selfStart</code>: <code>string</code> ; <code>start</code>: <code>string</code> ; <code>stretch</code>: <code>string</code>  } |
+| <code>alignSelf</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>baseline</code>: <code>string</code> ; <code>center</code>: <code>string</code> ; <code>end</code>: <code>string</code> ; <code>flexEnd</code>: <code>string</code> ; <code>flexStart</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>selfEnd</code>: <code>string</code> ; <code>selfStart</code>: <code>string</code> ; <code>start</code>: <code>string</code> ; <code>stretch</code>: <code>string</code>  } |
+| <code>animation</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationDelay</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationDirection</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationDuration</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationFillMode</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationIterationCount</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationName</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationPlayState</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>animationTimingFunction</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bBottomRadius</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bLeftRadius</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadius</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusBottom</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusBottomLeft</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusBottomRight</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusLeft</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusRight</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusTop</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusTopLeft</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRadiusTopRight</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bRightRadius</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bTopRadius</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropBlendMode</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropBlur</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropBrightness</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropContrast</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropDropShadow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropDropShadowBlur</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropDropShadowSpread</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropDropShadowX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropDropShadowY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropFilter</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropGrayscale</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropHueRotate</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropInvert</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropOpacity</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropSaturate</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backdropSepia</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backfaceVisibility</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>background</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>backgroundClip</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backgroundClipText</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>backgroundColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>backgroundTranslucent</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>bg</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>border</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>borderBlock</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>end</code>: <code>string</code> ; <code>start</code>: <code>string</code>  } |
+| <code>borderColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>borderImage</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>borderImageOutset</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>borderImageRepeat</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>repeat</code>: <code>string</code> ; <code>round</code>: <code>string</code> ; <code>space</code>: <code>string</code> ; <code>stretch</code>: <code>string</code>  } |
+| <code>borderImageSlice</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>borderImageSource</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>borderImageWidth</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code>  } |
+| <code>borderRadius</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; <a href="#tsizes"><code>TSizes</code></a> |
+| <code>bottom</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>boxShadow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>boxShadowInset</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>boxShadowX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>boxShadowY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>boxSizing</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>borderBox</code>: <code>string</code> ; <code>contentBox</code>: <code>string</code>  } |
+| <code>clipPath</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>clipRule</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>color</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>colorInterpolation</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>colorRendering</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>columnCount</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>columnGap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>columnRule</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>columnSpan</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>columnWidth</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>cursor</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>alias</code>: <code>string</code> ; <code>allScroll</code>: <code>string</code> ; <code>auto</code>: <code>string</code> ; <code>cell</code>: <code>string</code> ; <code>colResize</code>: <code>string</code> ; <code>contextMenu</code>: <code>string</code> ; <code>copy</code>: <code>string</code> ; <code>crosshair</code>: <code>string</code> ; <code>default</code>: <code>string</code> ; <code>eResize</code>: <code>string</code> ; <code>ewResize</code>: <code>string</code> ; <code>grab</code>: <code>string</code> ; <code>grabbing</code>: <code>string</code> ; <code>help</code>: <code>string</code> ; <code>move</code>: <code>string</code> ; <code>nResize</code>: <code>string</code> ; <code>neResize</code>: <code>string</code> ; <code>neswResize</code>: <code>string</code> ; <code>noDrop</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>notAllowed</code>: <code>string</code> ; <code>nsResize</code>: <code>string</code> ; <code>nwResize</code>: <code>string</code> ; <code>nwseResize</code>: <code>string</code> ; <code>pointer</code>: <code>string</code> ; <code>progress</code>: <code>string</code> ; <code>rowResize</code>: <code>string</code> ; <code>sResize</code>: <code>string</code> ; <code>seResize</code>: <code>string</code> ; <code>swResize</code>: <code>string</code> ; <code>text</code>: <code>string</code> ; <code>verticalText</code>: <code>string</code> ; <code>wResize</code>: <code>string</code> ; <code>wait</code>: <code>string</code> ; <code>webkitGrab</code>: <code>string</code> ; <code>webkitGrabbing</code>: <code>string</code> ; <code>webkitZoomIn</code>: <code>string</code> ; <code>webkitZoomOut</code>: <code>string</code> ; <code>zoomIn</code>: <code>string</code> ; <code>zoomOut</code>: <code>string</code>  } |
+| <code>display</code> | <a href="#tdisplay"><code>TDisplay</code></a> |
+| <code>fillRule</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filter</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterBlur</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterBrightness</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterContrast</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterDropShadow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterGrayscale</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterHueRotate</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterInvert</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterOpacity</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterSaturate</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>filterSepia</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>flexDirection</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>column</code>: <code>string</code> ; <code>columnReverse</code>: <code>string</code> ; <code>row</code>: <code>string</code> ; <code>rowReverse</code>: <code>string</code>  } |
+| <code>flexGrow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>flexShrink</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>revertLayer</code>: <code>string</code>  } |
+| <code>flexWrap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>noWrap</code>: <code>string</code> ; <code>wrap</code>: <code>string</code> ; <code>wrapReverse</code>: <code>string</code>  } |
+| <code>fontColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>fontFeatureSettings</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>fontSize</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> &amp; { <code>large</code>: <code>string</code> ; <code>medium</code>: <code>string</code> ; <code>small</code>: <code>string</code> ; <code>smaller</code>: <code>string</code> ; <code>webkitXxxLarge</code>: <code>string</code> ; <code>xLarge</code>: <code>string</code> ; <code>xSmall</code>: <code>string</code> ; <code>xxLarge</code>: <code>string</code> ; <code>xxSmall</code>: <code>string</code> ; <code>xxxLarge</code>: <code>string</code>  } |
+| <code>fontStyle</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>italic</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>oblique</code>: <code>string</code>  } |
+| <code>fontVariant</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>fontWeight</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> &amp; { <code>100</code>: <code>string</code> ; <code>200</code>: <code>string</code> ; <code>300</code>: <code>string</code> ; <code>400</code>: <code>string</code> ; <code>500</code>: <code>string</code> ; <code>600</code>: <code>string</code> ; <code>700</code>: <code>string</code> ; <code>800</code>: <code>string</code> ; <code>900</code>: <code>string</code> ; <code>bold</code>: <code>string</code> ; <code>bolder</code>: <code>string</code> ; <code>lighter</code>: <code>string</code> ; <code>normal</code>: <code>string</code>  } |
+| <code>gap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; <a href="#tsizes"><code>TSizes</code></a> |
+| <code>gridAutoColumns</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridAutoColumnsMax</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridAutoColumnsMin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridAutoFlow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridAutoRows</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridAutoRowsMax</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridAutoRowsMin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumn</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnEnd</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnEndMax</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnEndMin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnGap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnStart</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnStartEnd</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnStartMax</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridColumnStartMin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridGap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowEnd</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowEndMax</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowEndMin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowGap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowStart</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowStartEnd</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowStartMax</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridRowStartMin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>gridTemplateColumns</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>maxContent</code>: <code>string</code> ; <code>minContent</code>: <code>string</code> ; <code>none</code>: <code>string</code>  } |
+| <code>gridTemplateRows</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>maxContent</code>: <code>string</code> ; <code>minContent</code>: <code>string</code> ; <code>none</code>: <code>string</code>  } |
+| <code>height</code> | <a href="#tsizepropsoptimizedincluded"><code>TSizePropsOptimizedIncluded</code></a> |
+| <code>hyphens</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>imageRendering</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>isolation</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>justifyContent</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>center</code>: <code>string</code> ; <code>end</code>: <code>string</code> ; <code>flexEnd</code>: <code>string</code> ; <code>flexStart</code>: <code>string</code> ; <code>left</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>right</code>: <code>string</code> ; <code>spaceAround</code>: <code>string</code> ; <code>spaceBetween</code>: <code>string</code> ; <code>spaceEvenly</code>: <code>string</code> ; <code>start</code>: <code>string</code> ; <code>stretch</code>: <code>string</code>  } |
+| <code>justifyItems</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>baseline</code>: <code>string</code> ; <code>center</code>: <code>string</code> ; <code>end</code>: <code>string</code> ; <code>start</code>: <code>string</code> ; <code>stretch</code>: <code>string</code>  } |
+| <code>justifySelf</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>left</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>letterSpacing</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>lineHeight</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>mozBlockHeight</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code>  } &amp; <a href="#tsizes"><code>TSizes</code></a> |
+| <code>linearColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>listStyleImage</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>listStylePosition</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>listStyleType</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>m</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>margin</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>marginBottom</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>marginLeft</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>marginRight</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>marginTop</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>maskBorder</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderOutset</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderRepeat</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderRepeatX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderRepeatY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderSlice</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderSource</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskBorderWidth</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskClip</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskComposite</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskImage</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskOrigin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskPosition</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskRepeat</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskSize</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maskType</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maxH</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>maxHeight</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>maxLines</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>maxW</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>maxWidth</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>mb</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>minH</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>minHeight</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>minW</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>minWidth</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>mixBlendMode</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>ml</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>mr</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>mt</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>mx</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>my</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>objectFit</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>contain</code>: <code>string</code> ; <code>cover</code>: <code>string</code> ; <code>fill</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>scaleDown</code>: <code>string</code>  } |
+| <code>objectPosition</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>bottom</code>: <code>string</code> ; <code>center</code>: <code>string</code> ; <code>left</code>: <code>string</code> ; <code>right</code>: <code>string</code> ; <code>top</code>: <code>string</code>  } |
+| <code>opacity</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>overflow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>clip</code>: <code>string</code> ; <code>hidden</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code> ; <code>scroll</code>: <code>string</code> ; <code>visible</code>: <code>string</code>  } |
+| <code>overflowX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>clip</code>: <code>string</code> ; <code>hidden</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code> ; <code>scroll</code>: <code>string</code> ; <code>visible</code>: <code>string</code>  } |
+| <code>overflowY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>clip</code>: <code>string</code> ; <code>hidden</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code> ; <code>scroll</code>: <code>string</code> ; <code>visible</code>: <code>string</code>  } |
+| <code>overscrollBehavior</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>overscrollBehaviorX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>overscrollBehaviorY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>p</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>padding</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>paddingBottom</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>paddingLeft</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>paddingRight</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>paddingTop</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>pb</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>perspective</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>perspectiveOrigin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>pl</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>placeContent</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>placeHolderColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>placeItems</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>placeSelf</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>pointerEvents</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>all</code>: <code>string</code> ; <code>auto</code>: <code>string</code> ; <code>boundingBox</code>: <code>string</code> ; <code>fill</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>painted</code>: <code>string</code> ; <code>stroke</code>: <code>string</code> ; <code>visible</code>: <code>string</code> ; <code>visibleFill</code>: <code>string</code> ; <code>visiblePainted</code>: <code>string</code> ; <code>visibleStroke</code>: <code>string</code>  } |
+| <code>position</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>absolute</code>: <code>string</code> ; <code>fixed</code>: <code>string</code> ; <code>relative</code>: <code>string</code> ; <code>static</code>: <code>string</code> ; <code>sticky</code>: <code>string</code>  } |
+| <code>pr</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>pt</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>px</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>py</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>resize</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>right</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>scrollBehavior</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMargin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMarginBlock</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMarginBlockEnd</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMarginBlockStart</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMarginInline</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMarginInlineEnd</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollMarginInlineStart</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapAlign</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapAlignX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapAlignY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapPointsX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapPointsY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapStop</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapStopX</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapStopY</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollSnapType</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>scrollbarColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>scrollbarWidth</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code> ; <code>thin</code>: <code>string</code>  } |
+| <code>shapeImageThreshold</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>shapeMargin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>shapeOutside</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>shapeRendering</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textAlign</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>center</code>: <code>string</code> ; <code>end</code>: <code>string</code> ; <code>justify</code>: <code>string</code> ; <code>left</code>: <code>string</code> ; <code>right</code>: <code>string</code> ; <code>start</code>: <code>string</code> ; <code>webkitAuto</code>: <code>string</code> ; <code>webkitCenter</code>: <code>string</code> ; <code>webkitLeft</code>: <code>string</code> ; <code>webkitMatchParent</code>: <code>string</code> ; <code>webkitRight</code>: <code>string</code>  } |
+| <code>textAlignLast</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textDecoration</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>blink</code>: <code>string</code> ; <code>dashed</code>: <code>string</code> ; <code>double</code>: <code>string</code> ; <code>lineThrough</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>overline</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code> ; <code>solid</code>: <code>string</code> ; <code>underline</code>: <code>string</code> ; <code>wavy</code>: <code>string</code>  } |
+| <code>textDecorationColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>textDecorationLine</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>blink</code>: <code>string</code> ; <code>lineThrough</code>: <code>string</code> ; <code>overline</code>: <code>string</code> ; <code>underline</code>: <code>string</code>  } |
+| <code>textDecorationSkipInk</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textDecorationStyle</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>dashed</code>: <code>string</code> ; <code>dotted</code>: <code>string</code> ; <code>double</code>: <code>string</code> ; <code>solid</code>: <code>string</code> ; <code>wavy</code>: <code>string</code>  } |
+| <code>textEmphasis</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>accent</code>: <code>string</code> ; <code>circle</code>: <code>string</code> ; <code>disc</code>: <code>string</code> ; <code>dot</code>: <code>string</code> ; <code>none</code>: <code>string</code>  } |
+| <code>textEmphasisColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>textEmphasisPosition</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textEmphasisStyle</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textFillColor</code> | <a href="#tcolor"><code>TColor</code></a> |
+| <code>textIndent</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> &amp; <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>revertLayer</code>: <code>string</code>  } |
+| <code>textJustify</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textOverflow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>clip</code>: <code>string</code> ; <code>ellipsis</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code>  } |
+| <code>textRendering</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code> ; <code>geometricPrecision</code>: <code>string</code> ; <code>optimizeLegibility</code>: <code>string</code> ; <code>optimizeSpeed</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code>  } |
+| <code>textShadow</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>textTransform</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>capitalize</code>: <code>string</code> ; <code>lowercase</code>: <code>string</code> ; <code>mathAuto</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>uppercase</code>: <code>string</code> ; <code>upset</code>: <code>string</code>  } |
+| <code>textUnderlineOffset</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>auto</code>: <code>string</code>  } |
+| <code>textWrap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>balance</code>: <code>string</code> ; <code>noWrap</code>: <code>string</code> ; <code>pretty</code>: <code>string</code> ; <code>wrap</code>: <code>string</code>  } |
+| <code>top</code> | <a href="#tsizeprops"><code>TSizeProps</code></a> |
+| <code>transform</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transformOrigin</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transformStyle</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>flat</code>: <code>string</code> ; <code>preserve3d</code>: <code>string</code>  } |
+| <code>transition</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transitionDelay</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transitionDuration</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transitionDurationTiming</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transitionProperty</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transitionTiming</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>transitionTimingFunction</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userDrag</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userFocus</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userResize</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userSelect</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>all</code>: <code>string</code> ; <code>auto</code>: <code>string</code> ; <code>contain</code>: <code>string</code> ; <code>none</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code> ; <code>text</code>: <code>string</code>  } |
+| <code>userSelectAll</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userSelectAuto</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userSelectNone</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userSelectText</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>userZoom</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>whiteSpace</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; { <code>breakSpaces</code>: <code>string</code> ; <code>mozPreSpace</code>: <code>string</code> ; <code>normal</code>: <code>string</code> ; <code>nowrap</code>: <code>string</code> ; <code>pre</code>: <code>string</code> ; <code>preLine</code>: <code>string</code> ; <code>preWrap</code>: <code>string</code> ; <code>revertLayer</code>: <code>string</code>  } |
+| <code>width</code> | <a href="#tsizepropsoptimizedincluded"><code>TSizePropsOptimizedIncluded</code></a> |
+| <code>willChange</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>willChangeProperty</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>wordBreak</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>wordSpacing</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>wordWrap</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> |
+| <code>zIndex</code> | <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; <a href="#tnumbers"><code>TNumbers</code></a> |</p>
+<h4 id="definedin-4">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/types.ts#L69">theme/types.ts:69</a></p>
+<hr />
+<h3 id="tdisplay">TDisplay</h3>
+<p>Ƭ <strong>TDisplay</strong>: <code>Object</code></p>
+<p>Represents the display values for CSS properties.</p>
+<h4 id="typedeclaration-2">Type declaration</h4>
+<p>| Name | Type |
+| :------ | :------ |
+| <code>block</code> | <code>string</code> |
+| <code>contents</code> | <code>string</code> |
+| <code>flex</code> | <code>string</code> |
+| <code>flowRoot</code> | <code>string</code> |
+| <code>grid</code> | <code>string</code> |
+| <code>inline</code> | <code>string</code> |
+| <code>inlineBlock</code> | <code>string</code> |
+| <code>inlineFlex</code> | <code>string</code> |
+| <code>inlineGrid</code> | <code>string</code> |
+| <code>inlineTable</code> | <code>string</code> |
+| <code>listItem</code> | <code>string</code> |
+| <code>none</code> | <code>string</code> |
+| <code>table</code> | <code>string</code> |
+| <code>tableCaption</code> | <code>string</code> |
+| <code>tableCell</code> | <code>string</code> |
+| <code>tableColumn</code> | <code>string</code> |
+| <code>tableColumnGroup</code> | <code>string</code> |
+| <code>tableFooterGroup</code> | <code>string</code> |
+| <code>tableHeaderGroup</code> | <code>string</code> |
+| <code>tableRow</code> | <code>string</code> |
+| <code>tableRowGroup</code> | <code>string</code> |
+| <code>webkitBox</code> | <code>string</code> |
+| <code>webkitInlineBox</code> | <code>string</code> |</p>
+<h4 id="definedin-5">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/types.ts#L18">theme/types.ts:18</a></p>
+<hr />
+<h3 id="tnumbers">TNumbers</h3>
+<p>Ƭ <strong>TNumbers</strong>: typeof <a href="#numbers"><code>Numbers</code></a></p>
+<p>Represents the type of the Numbers object.</p>
+<h4 id="definedin-6">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/numbers/index.ts#L18">numbers/index.ts:18</a></p>
+<hr />
+<h3 id="tsizeprops">TSizeProps</h3>
+<p>Ƭ <strong>TSizeProps</strong>: <a href="#tcommonprops"><code>TCommonProps</code></a> &amp; <a href="#tsizes"><code>TSizes</code></a> &amp; { <code>0</code>: <code>string</code> ; <code>fitContent</code>: <code>string</code> ; <code>maxContent</code>: <code>string</code> ; <code>minContent</code>: <code>string</code> ; <code>mozAvailable</code>: <code>string</code> ; <code>webkitFillAvailable</code>: <code>string</code>  }</p>
+<p>Represents the size properties for a component.</p>
+<h4 id="definedin-7">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/types.ts#L47">theme/types.ts:47</a></p>
+<hr />
+<h3 id="tsizepropsoptimizedincluded">TSizePropsOptimizedIncluded</h3>
+<p>Ƭ <strong>TSizePropsOptimizedIncluded</strong>: <a href="#tsizeprops"><code>TSizeProps</code></a> &amp; { <code>optimizedHeight?</code>: <code>string</code> ; <code>optimizedWidth?</code>: <code>string</code>  }</p>
+<p>Represents a type that includes additional properties for optimized width and height,
+in addition to the properties defined in TSizeProps.</p>
+<h4 id="definedin-8">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/types.ts#L61">theme/types.ts:61</a></p>
+<hr />
+<h3 id="tsizes">TSizes</h3>
+<p>Ƭ <strong>TSizes</strong>: typeof <a href="#sizes"><code>sizes</code></a></p>
+<p>Represents the type of the <code>sizes</code> object.</p>
+<h4 id="definedin-9">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/sizes/index.ts#L50">sizes/index.ts:50</a></p>
 <hr />
 <h3 id="languagetype">languageType</h3>
 <p>Ƭ <strong>languageType</strong>: keyof typeof <a href="#language"><code>language</code></a></p>
-<h4 id="definedin-1">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/index.ts#L2">index.ts:2</a></p>
+<h4 id="definedin-10">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/index.ts#L2">index.ts:2</a></p>
 <h2 id="variables-1">Variables</h2>
 <h3 id="atrules">AtRules</h3>
 <p>• <code>Const</code> <strong>AtRules</strong>: <code>Object</code></p>
 <p>Represents a collection of CSS at-rules.</p>
-<h4 id="typedeclaration">Type declaration</h4>
+<h4 id="typedeclaration-3">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>annotation</code> | <code>string</code> |
@@ -98,13 +553,13 @@
 | <code>supports</code> | <code>string</code> |
 | <code>swash</code> | <code>string</code> |
 | <code>viewport</code> | <code>string</code> |</p>
-<h4 id="definedin-2">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/css-rules-set/index.ts#L5">css-rules-set/index.ts:5</a></p>
+<h4 id="definedin-11">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/css-rules-set/index.ts#L5">css-rules-set/index.ts:5</a></p>
 <hr />
 <h3 id="cssrulesset">CSSRulesSet</h3>
 <p>• <code>Const</code> <strong>CSSRulesSet</strong>: <code>Object</code></p>
 <p>Represents a set of CSS rules.</p>
-<h4 id="typedeclaration-1">Type declaration</h4>
+<h4 id="typedeclaration-4">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>AtRules</code> | { <code>annotation</code>: <code>string</code> = "@annotation"; <code>characterVariant</code>: <code>string</code> = "@character-variant"; <code>charset</code>: <code>string</code> = "@charset"; <code>container</code>: <code>string</code> = "@container"; <code>counterStyle</code>: <code>string</code> = "@counter-style"; <code>document</code>: <code>string</code> = "@document"; <code>fontFace</code>: <code>string</code> = "@font-face"; <code>fontFeatureValues</code>: <code>string</code> = "@font-feature-values"; <code>import</code>: <code>string</code> = "@import"; <code>keyframes</code>: <code>string</code> = "@keyframes"; <code>media</code>: <code>string</code> = "@media"; <code>namespace</code>: <code>string</code> = "@namespace"; <code>ornaments</code>: <code>string</code> = "@ornaments"; <code>page</code>: <code>string</code> = "@page"; <code>styleset</code>: <code>string</code> = "@styleset"; <code>stylistic</code>: <code>string</code> = "@stylistic"; <code>supports</code>: <code>string</code> = "@supports"; <code>swash</code>: <code>string</code> = "@swash"; <code>viewport</code>: <code>string</code> = "@viewport" } |
@@ -245,13 +700,19 @@
 | <code>PseudoElements.webkitProgressBar</code> | <code>string</code> |
 | <code>PseudoElements.webkitProgressBarValue</code> | <code>string</code> |
 | <code>PseudoElements.webkitProgressValue</code> | <code>string</code> |</p>
-<h4 id="definedin-3">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/css-rules-set/index.ts#L165">css-rules-set/index.ts:165</a></p>
+<h4 id="definedin-12">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/css-rules-set/index.ts#L165">css-rules-set/index.ts:165</a></p>
+<hr />
+<h3 id="numbers">Numbers</h3>
+<p>• <code>Const</code> <strong>Numbers</strong>: <code>Record</code>\&lt;<code>"0"</code> | <code>"1"</code> | <code>"2"</code> | <code>"3"</code> | <code>"4"</code> | <code>"5"</code> | <code>"6"</code> | <code>"7"</code> | <code>"8"</code> | <code>"9"</code> | <code>"10"</code> | <code>"11"</code> | <code>"12"</code> | <code>"13"</code> | <code>"14"</code> | <code>"15"</code> | <code>"16"</code> | <code>"17"</code> | <code>"18"</code> | <code>"19"</code> | <code>"20"</code> | <code>"21"</code> | <code>"22"</code> | <code>"23"</code> | <code>"24"</code> | <code>"25"</code> | <code>"26"</code> | <code>"27"</code> | <code>"28"</code> | <code>"29"</code> | <code>"30"</code> | <code>"31"</code> | <code>"32"</code> | <code>"33"</code> | <code>"34"</code> | <code>"35"</code> | <code>"36"</code> | <code>"37"</code> | <code>"38"</code> | <code>"39"</code> | <code>"40"</code> | <code>"41"</code> | <code>"42"</code> | <code>"43"</code> | <code>"44"</code> | <code>"45"</code> | <code>"46"</code> | <code>"47"</code> | <code>"48"</code> | <code>"49"</code> | <code>"50"</code> | <code>"51"</code> | <code>"52"</code> | <code>"53"</code> | <code>"54"</code> | <code>"55"</code> | <code>"56"</code> | <code>"57"</code> | <code>"58"</code> | <code>"59"</code> | <code>"60"</code> | <code>"61"</code> | <code>"62"</code> | <code>"63"</code> | <code>"64"</code> | <code>"65"</code> | <code>"66"</code> | <code>"67"</code> | <code>"68"</code> | <code>"69"</code> | <code>"70"</code> | <code>"71"</code> | <code>"72"</code> | <code>"73"</code> | <code>"74"</code> | <code>"75"</code> | <code>"76"</code> | <code>"77"</code> | <code>"78"</code> | <code>"79"</code> | <code>"80"</code> | <code>"81"</code> | <code>"82"</code> | <code>"83"</code> | <code>"84"</code> | <code>"85"</code> | <code>"86"</code> | <code>"87"</code> | <code>"88"</code> | <code>"89"</code> | <code>"90"</code> | <code>"91"</code> | <code>"92"</code> | <code>"93"</code> | <code>"94"</code> | <code>"95"</code> | <code>"96"</code> | <code>"97"</code> | <code>"98"</code> | <code>"99"</code> | <code>"100"</code> | <code>"101"</code> | <code>"102"</code> | <code>"103"</code> | <code>"104"</code> | <code>"105"</code> | <code>"106"</code> | <code>"107"</code> | <code>"108"</code> | <code>"109"</code> | <code>"110"</code> | <code>"111"</code> | <code>"112"</code> | <code>"113"</code> | <code>"114"</code> | <code>"115"</code> | <code>"116"</code> | <code>"117"</code> | <code>"118"</code> | <code>"119"</code> | <code>"120"</code> | <code>"121"</code> | <code>"122"</code> | <code>"123"</code> | <code>"124"</code> | <code>"125"</code> | <code>"126"</code> | <code>"127"</code> | <code>"128"</code> | <code>"129"</code> | <code>"130"</code> | <code>"131"</code> | <code>"132"</code> | <code>"133"</code> | <code>"134"</code> | <code>"135"</code> | <code>"136"</code> | <code>"137"</code> | <code>"138"</code> | <code>"139"</code> | <code>"140"</code> | <code>"141"</code> | <code>"142"</code> | <code>"143"</code> | <code>"144"</code> | <code>"145"</code> | <code>"146"</code> | <code>"147"</code> | <code>"148"</code> | <code>"149"</code> | <code>"150"</code> | <code>"151"</code> | <code>"152"</code> | <code>"153"</code> | <code>"154"</code> | <code>"155"</code> | <code>"156"</code> | <code>"157"</code> | <code>"158"</code> | <code>"159"</code> | <code>"160"</code> | <code>"161"</code> | <code>"162"</code> | <code>"163"</code> | <code>"164"</code> | <code>"165"</code> | <code>"166"</code> | <code>"167"</code> | <code>"168"</code> | <code>"169"</code> | <code>"170"</code> | <code>"171"</code> | <code>"172"</code> | <code>"173"</code> | <code>"174"</code> | <code>"175"</code> | <code>"176"</code> | <code>"177"</code> | <code>"178"</code> | <code>"179"</code> | <code>"180"</code> | <code>"181"</code> | <code>"182"</code> | <code>"183"</code> | <code>"184"</code> | <code>"185"</code> | <code>"186"</code> | <code>"187"</code> | <code>"188"</code> | <code>"189"</code> | <code>"190"</code> | <code>"191"</code> | <code>"192"</code> | <code>"193"</code> | <code>"194"</code> | <code>"195"</code> | <code>"196"</code> | <code>"197"</code> | <code>"198"</code> | <code>"199"</code> | <code>"200"</code> | <code>"201"</code> | <code>"202"</code> | <code>"203"</code> | <code>"204"</code> | <code>"205"</code> | <code>"206"</code> | <code>"207"</code> | <code>"208"</code> | <code>"209"</code> | <code>"210"</code> | <code>"211"</code> | <code>"212"</code> | <code>"213"</code> | <code>"214"</code> | <code>"215"</code> | <code>"216"</code> | <code>"217"</code> | <code>"218"</code> | <code>"219"</code> | <code>"220"</code> | <code>"221"</code> | <code>"222"</code> | <code>"223"</code> | <code>"224"</code> | <code>"225"</code> | <code>"226"</code> | <code>"227"</code> | <code>"228"</code> | <code>"229"</code> | <code>"230"</code> | <code>"231"</code> | <code>"232"</code> | <code>"233"</code> | <code>"234"</code> | <code>"235"</code> | <code>"236"</code> | <code>"237"</code> | <code>"238"</code> | <code>"239"</code> | <code>"240"</code> | <code>"241"</code> | <code>"242"</code> | <code>"243"</code> | <code>"244"</code> | <code>"245"</code> | <code>"246"</code> | <code>"247"</code> | <code>"248"</code> | <code>"249"</code> | <code>"250"</code> | <code>"251"</code> | <code>"252"</code> | <code>"253"</code> | <code>"254"</code> | <code>"255"</code> | <code>"256"</code> | <code>"257"</code> | <code>"258"</code> | <code>"259"</code> | <code>"260"</code> | <code>"261"</code> | <code>"262"</code> | <code>"263"</code> | <code>"264"</code> | <code>"265"</code> | <code>"266"</code> | <code>"267"</code> | <code>"268"</code> | <code>"269"</code> | <code>"270"</code> | <code>"271"</code> | <code>"272"</code> | <code>"273"</code> | <code>"274"</code> | <code>"275"</code> | <code>"276"</code> | <code>"277"</code> | <code>"278"</code> | <code>"279"</code> | <code>"280"</code> | <code>"281"</code> | <code>"282"</code> | <code>"283"</code> | <code>"284"</code> | <code>"285"</code> | <code>"286"</code> | <code>"287"</code> | <code>"288"</code> | <code>"289"</code> | <code>"290"</code> | <code>"291"</code> | <code>"292"</code> | <code>"293"</code> | <code>"294"</code> | <code>"295"</code> | <code>"296"</code> | <code>"297"</code> | <code>"298"</code> | <code>"299"</code>, <code>"0"</code> | <code>"1"</code> | <code>"2"</code> | <code>"3"</code> | <code>"4"</code> | <code>"5"</code> | <code>"6"</code> | <code>"7"</code> | <code>"8"</code> | <code>"9"</code> | <code>"10"</code> | <code>"11"</code> | <code>"12"</code> | <code>"13"</code> | <code>"14"</code> | <code>"15"</code> | <code>"16"</code> | <code>"17"</code> | <code>"18"</code> | <code>"19"</code> | <code>"20"</code> | <code>"21"</code> | <code>"22"</code> | <code>"23"</code> | <code>"24"</code> | <code>"25"</code> | <code>"26"</code> | <code>"27"</code> | <code>"28"</code> | <code>"29"</code> | <code>"30"</code> | <code>"31"</code> | <code>"32"</code> | <code>"33"</code> | <code>"34"</code> | <code>"35"</code> | <code>"36"</code> | <code>"37"</code> | <code>"38"</code> | <code>"39"</code> | <code>"40"</code> | <code>"41"</code> | <code>"42"</code> | <code>"43"</code> | <code>"44"</code> | <code>"45"</code> | <code>"46"</code> | <code>"47"</code> | <code>"48"</code> | <code>"49"</code> | <code>"50"</code> | <code>"51"</code> | <code>"52"</code> | <code>"53"</code> | <code>"54"</code> | <code>"55"</code> | <code>"56"</code> | <code>"57"</code> | <code>"58"</code> | <code>"59"</code> | <code>"60"</code> | <code>"61"</code> | <code>"62"</code> | <code>"63"</code> | <code>"64"</code> | <code>"65"</code> | <code>"66"</code> | <code>"67"</code> | <code>"68"</code> | <code>"69"</code> | <code>"70"</code> | <code>"71"</code> | <code>"72"</code> | <code>"73"</code> | <code>"74"</code> | <code>"75"</code> | <code>"76"</code> | <code>"77"</code> | <code>"78"</code> | <code>"79"</code> | <code>"80"</code> | <code>"81"</code> | <code>"82"</code> | <code>"83"</code> | <code>"84"</code> | <code>"85"</code> | <code>"86"</code> | <code>"87"</code> | <code>"88"</code> | <code>"89"</code> | <code>"90"</code> | <code>"91"</code> | <code>"92"</code> | <code>"93"</code> | <code>"94"</code> | <code>"95"</code> | <code>"96"</code> | <code>"97"</code> | <code>"98"</code> | <code>"99"</code> | <code>"100"</code> | <code>"101"</code> | <code>"102"</code> | <code>"103"</code> | <code>"104"</code> | <code>"105"</code> | <code>"106"</code> | <code>"107"</code> | <code>"108"</code> | <code>"109"</code> | <code>"110"</code> | <code>"111"</code> | <code>"112"</code> | <code>"113"</code> | <code>"114"</code> | <code>"115"</code> | <code>"116"</code> | <code>"117"</code> | <code>"118"</code> | <code>"119"</code> | <code>"120"</code> | <code>"121"</code> | <code>"122"</code> | <code>"123"</code> | <code>"124"</code> | <code>"125"</code> | <code>"126"</code> | <code>"127"</code> | <code>"128"</code> | <code>"129"</code> | <code>"130"</code> | <code>"131"</code> | <code>"132"</code> | <code>"133"</code> | <code>"134"</code> | <code>"135"</code> | <code>"136"</code> | <code>"137"</code> | <code>"138"</code> | <code>"139"</code> | <code>"140"</code> | <code>"141"</code> | <code>"142"</code> | <code>"143"</code> | <code>"144"</code> | <code>"145"</code> | <code>"146"</code> | <code>"147"</code> | <code>"148"</code> | <code>"149"</code> | <code>"150"</code> | <code>"151"</code> | <code>"152"</code> | <code>"153"</code> | <code>"154"</code> | <code>"155"</code> | <code>"156"</code> | <code>"157"</code> | <code>"158"</code> | <code>"159"</code> | <code>"160"</code> | <code>"161"</code> | <code>"162"</code> | <code>"163"</code> | <code>"164"</code> | <code>"165"</code> | <code>"166"</code> | <code>"167"</code> | <code>"168"</code> | <code>"169"</code> | <code>"170"</code> | <code>"171"</code> | <code>"172"</code> | <code>"173"</code> | <code>"174"</code> | <code>"175"</code> | <code>"176"</code> | <code>"177"</code> | <code>"178"</code> | <code>"179"</code> | <code>"180"</code> | <code>"181"</code> | <code>"182"</code> | <code>"183"</code> | <code>"184"</code> | <code>"185"</code> | <code>"186"</code> | <code>"187"</code> | <code>"188"</code> | <code>"189"</code> | <code>"190"</code> | <code>"191"</code> | <code>"192"</code> | <code>"193"</code> | <code>"194"</code> | <code>"195"</code> | <code>"196"</code> | <code>"197"</code> | <code>"198"</code> | <code>"199"</code> | <code>"200"</code> | <code>"201"</code> | <code>"202"</code> | <code>"203"</code> | <code>"204"</code> | <code>"205"</code> | <code>"206"</code> | <code>"207"</code> | <code>"208"</code> | <code>"209"</code> | <code>"210"</code> | <code>"211"</code> | <code>"212"</code> | <code>"213"</code> | <code>"214"</code> | <code>"215"</code> | <code>"216"</code> | <code>"217"</code> | <code>"218"</code> | <code>"219"</code> | <code>"220"</code> | <code>"221"</code> | <code>"222"</code> | <code>"223"</code> | <code>"224"</code> | <code>"225"</code> | <code>"226"</code> | <code>"227"</code> | <code>"228"</code> | <code>"229"</code> | <code>"230"</code> | <code>"231"</code> | <code>"232"</code> | <code>"233"</code> | <code>"234"</code> | <code>"235"</code> | <code>"236"</code> | <code>"237"</code> | <code>"238"</code> | <code>"239"</code> | <code>"240"</code> | <code>"241"</code> | <code>"242"</code> | <code>"243"</code> | <code>"244"</code> | <code>"245"</code> | <code>"246"</code> | <code>"247"</code> | <code>"248"</code> | <code>"249"</code> | <code>"250"</code> | <code>"251"</code> | <code>"252"</code> | <code>"253"</code> | <code>"254"</code> | <code>"255"</code> | <code>"256"</code> | <code>"257"</code> | <code>"258"</code> | <code>"259"</code> | <code>"260"</code> | <code>"261"</code> | <code>"262"</code> | <code>"263"</code> | <code>"264"</code> | <code>"265"</code> | <code>"266"</code> | <code>"267"</code> | <code>"268"</code> | <code>"269"</code> | <code>"270"</code> | <code>"271"</code> | <code>"272"</code> | <code>"273"</code> | <code>"274"</code> | <code>"275"</code> | <code>"276"</code> | <code>"277"</code> | <code>"278"</code> | <code>"279"</code> | <code>"280"</code> | <code>"281"</code> | <code>"282"</code> | <code>"283"</code> | <code>"284"</code> | <code>"285"</code> | <code>"286"</code> | <code>"287"</code> | <code>"288"</code> | <code>"289"</code> | <code>"290"</code> | <code>"291"</code> | <code>"292"</code> | <code>"293"</code> | <code>"294"</code> | <code>"295"</code> | <code>"296"</code> | <code>"297"</code> | <code>"298"</code> | <code>"299"</code>></p>
+<p>A record that maps range strings to range strings.</p>
+<h4 id="definedin-13">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/numbers/index.ts#L9">numbers/index.ts:9</a></p>
 <hr />
 <h3 id="pseudoclasses">PseudoClasses</h3>
 <p>• <code>Const</code> <strong>PseudoClasses</strong>: <code>Object</code></p>
 <p>Represents a collection of pseudo classes used in CSS rules.</p>
-<h4 id="typedeclaration-2">Type declaration</h4>
+<h4 id="typedeclaration-5">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>active</code> | <code>string</code> |
@@ -328,13 +789,13 @@
 | <code>webkitScrollbarTrackStart</code> | <code>string</code> |
 | <code>webkitSearchCancelButton</code> | <code>string</code> |
 | <code>webkitSearchDecoration</code> | <code>string</code> |</p>
-<h4 id="definedin-4">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/css-rules-set/index.ts#L84">css-rules-set/index.ts:84</a></p>
+<h4 id="definedin-14">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/css-rules-set/index.ts#L84">css-rules-set/index.ts:84</a></p>
 <hr />
 <h3 id="pseudoelements">PseudoElements</h3>
 <p>• <code>Const</code> <strong>PseudoElements</strong>: <code>Object</code></p>
 <p>Represents a collection of pseudo-elements used in CSS rules.</p>
-<h4 id="typedeclaration-3">Type declaration</h4>
+<h4 id="typedeclaration-6">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>after</code> | <code>string</code> |
@@ -379,13 +840,199 @@
 | <code>webkitProgressBar</code> | <code>string</code> |
 | <code>webkitProgressBarValue</code> | <code>string</code> |
 | <code>webkitProgressValue</code> | <code>string</code> |</p>
-<h4 id="definedin-5">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/css-rules-set/index.ts#L31">css-rules-set/index.ts:31</a></p>
+<h4 id="definedin-15">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/css-rules-set/index.ts#L31">css-rules-set/index.ts:31</a></p>
+<hr />
+<h3 id="colors">colors</h3>
+<p>• <code>Const</code> <strong>colors</strong>: <code>Object</code></p>
+<p>Defines a collection of color values.</p>
+<h4 id="typedeclaration-7">Type declaration</h4>
+<p>| Name | Type |
+| :------ | :------ |
+| <code>black</code> | <code>string</code> |
+| <code>blackAlpha100</code> | <code>string</code> |
+| <code>blackAlpha200</code> | <code>string</code> |
+| <code>blackAlpha300</code> | <code>string</code> |
+| <code>blackAlpha400</code> | <code>string</code> |
+| <code>blackAlpha50</code> | <code>string</code> |
+| <code>blackAlpha500</code> | <code>string</code> |
+| <code>blackAlpha600</code> | <code>string</code> |
+| <code>blackAlpha700</code> | <code>string</code> |
+| <code>blackAlpha800</code> | <code>string</code> |
+| <code>blackAlpha900</code> | <code>string</code> |
+| <code>blue</code> | <code>string</code> |
+| <code>blue100</code> | <code>string</code> |
+| <code>blue200</code> | <code>string</code> |
+| <code>blue300</code> | <code>string</code> |
+| <code>blue400</code> | <code>string</code> |
+| <code>blue50</code> | <code>string</code> |
+| <code>blue500</code> | <code>string</code> |
+| <code>blue600</code> | <code>string</code> |
+| <code>blue700</code> | <code>string</code> |
+| <code>blue800</code> | <code>string</code> |
+| <code>blue900</code> | <code>string</code> |
+| <code>blueGray</code> | <code>string</code> |
+| <code>blueGray100</code> | <code>string</code> |
+| <code>blueGray200</code> | <code>string</code> |
+| <code>blueGray300</code> | <code>string</code> |
+| <code>blueGray400</code> | <code>string</code> |
+| <code>blueGray50</code> | <code>string</code> |
+| <code>blueGray500</code> | <code>string</code> |
+| <code>blueGray600</code> | <code>string</code> |
+| <code>blueGray700</code> | <code>string</code> |
+| <code>blueGray800</code> | <code>string</code> |
+| <code>blueGray900</code> | <code>string</code> |
+| <code>brightPink</code> | <code>string</code> |
+| <code>current</code> | <code>string</code> |
+| <code>currentColor</code> | <code>string</code> |
+| <code>cyan</code> | <code>string</code> |
+| <code>dracula</code> | <code>string</code> |
+| <code>frenchMauve</code> | <code>string</code> |
+| <code>gray</code> | <code>string</code> |
+| <code>gray100</code> | <code>string</code> |
+| <code>gray200</code> | <code>string</code> |
+| <code>gray300</code> | <code>string</code> |
+| <code>gray400</code> | <code>string</code> |
+| <code>gray50</code> | <code>string</code> |
+| <code>gray500</code> | <code>string</code> |
+| <code>gray600</code> | <code>string</code> |
+| <code>gray700</code> | <code>string</code> |
+| <code>gray800</code> | <code>string</code> |
+| <code>gray900</code> | <code>string</code> |
+| <code>green</code> | <code>string</code> |
+| <code>green100</code> | <code>string</code> |
+| <code>green200</code> | <code>string</code> |
+| <code>green300</code> | <code>string</code> |
+| <code>green400</code> | <code>string</code> |
+| <code>green50</code> | <code>string</code> |
+| <code>green500</code> | <code>string</code> |
+| <code>green600</code> | <code>string</code> |
+| <code>green700</code> | <code>string</code> |
+| <code>green800</code> | <code>string</code> |
+| <code>green900</code> | <code>string</code> |
+| <code>gunMetal</code> | <code>string</code> |
+| <code>indigo</code> | <code>string</code> |
+| <code>indigo100</code> | <code>string</code> |
+| <code>indigo200</code> | <code>string</code> |
+| <code>indigo300</code> | <code>string</code> |
+| <code>indigo400</code> | <code>string</code> |
+| <code>indigo50</code> | <code>string</code> |
+| <code>indigo500</code> | <code>string</code> |
+| <code>indigo600</code> | <code>string</code> |
+| <code>indigo700</code> | <code>string</code> |
+| <code>indigo800</code> | <code>string</code> |
+| <code>indigo900</code> | <code>string</code> |
+| <code>inherit</code> | <code>string</code> |
+| <code>mulberry</code> | <code>string</code> |
+| <code>mulberry100</code> | <code>string</code> |
+| <code>mulberry200</code> | <code>string</code> |
+| <code>mulberry300</code> | <code>string</code> |
+| <code>mulberry400</code> | <code>string</code> |
+| <code>mulberry50</code> | <code>string</code> |
+| <code>mulberry500</code> | <code>string</code> |
+| <code>mulberry600</code> | <code>string</code> |
+| <code>mulberry700</code> | <code>string</code> |
+| <code>mulberry800</code> | <code>string</code> |
+| <code>mulberry900</code> | <code>string</code> |
+| <code>orange</code> | <code>string</code> |
+| <code>orange100</code> | <code>string</code> |
+| <code>orange200</code> | <code>string</code> |
+| <code>orange300</code> | <code>string</code> |
+| <code>orange400</code> | <code>string</code> |
+| <code>orange50</code> | <code>string</code> |
+| <code>orange500</code> | <code>string</code> |
+| <code>orange600</code> | <code>string</code> |
+| <code>orange700</code> | <code>string</code> |
+| <code>orange800</code> | <code>string</code> |
+| <code>orange900</code> | <code>string</code> |
+| <code>pink</code> | <code>string</code> |
+| <code>pink100</code> | <code>string</code> |
+| <code>pink200</code> | <code>string</code> |
+| <code>pink300</code> | <code>string</code> |
+| <code>pink400</code> | <code>string</code> |
+| <code>pink50</code> | <code>string</code> |
+| <code>pink500</code> | <code>string</code> |
+| <code>pink600</code> | <code>string</code> |
+| <code>pink700</code> | <code>string</code> |
+| <code>pink800</code> | <code>string</code> |
+| <code>pink900</code> | <code>string</code> |
+| <code>purple</code> | <code>string</code> |
+| <code>purple100</code> | <code>string</code> |
+| <code>purple200</code> | <code>string</code> |
+| <code>purple300</code> | <code>string</code> |
+| <code>purple400</code> | <code>string</code> |
+| <code>purple50</code> | <code>string</code> |
+| <code>purple500</code> | <code>string</code> |
+| <code>purple600</code> | <code>string</code> |
+| <code>purple700</code> | <code>string</code> |
+| <code>purple800</code> | <code>string</code> |
+| <code>purple900</code> | <code>string</code> |
+| <code>raisinBlack</code> | <code>string</code> |
+| <code>red</code> | <code>string</code> |
+| <code>red100</code> | <code>string</code> |
+| <code>red200</code> | <code>string</code> |
+| <code>red300</code> | <code>string</code> |
+| <code>red400</code> | <code>string</code> |
+| <code>red50</code> | <code>string</code> |
+| <code>red500</code> | <code>string</code> |
+| <code>red600</code> | <code>string</code> |
+| <code>red700</code> | <code>string</code> |
+| <code>red800</code> | <code>string</code> |
+| <code>red900</code> | <code>string</code> |
+| <code>redGray</code> | <code>string</code> |
+| <code>redGray100</code> | <code>string</code> |
+| <code>redGray200</code> | <code>string</code> |
+| <code>redGray300</code> | <code>string</code> |
+| <code>redGray400</code> | <code>string</code> |
+| <code>redGray50</code> | <code>string</code> |
+| <code>redGray500</code> | <code>string</code> |
+| <code>redGray600</code> | <code>string</code> |
+| <code>redGray700</code> | <code>string</code> |
+| <code>redGray800</code> | <code>string</code> |
+| <code>redGray900</code> | <code>string</code> |
+| <code>rose</code> | <code>string</code> |
+| <code>steelPink</code> | <code>string</code> |
+| <code>teal</code> | <code>string</code> |
+| <code>teal100</code> | <code>string</code> |
+| <code>teal200</code> | <code>string</code> |
+| <code>teal300</code> | <code>string</code> |
+| <code>teal400</code> | <code>string</code> |
+| <code>teal50</code> | <code>string</code> |
+| <code>teal500</code> | <code>string</code> |
+| <code>teal600</code> | <code>string</code> |
+| <code>teal700</code> | <code>string</code> |
+| <code>teal800</code> | <code>string</code> |
+| <code>teal900</code> | <code>string</code> |
+| <code>transparent</code> | <code>string</code> |
+| <code>white</code> | <code>string</code> |
+| <code>whiteAlpha100</code> | <code>string</code> |
+| <code>whiteAlpha200</code> | <code>string</code> |
+| <code>whiteAlpha300</code> | <code>string</code> |
+| <code>whiteAlpha400</code> | <code>string</code> |
+| <code>whiteAlpha50</code> | <code>string</code> |
+| <code>whiteAlpha500</code> | <code>string</code> |
+| <code>whiteAlpha600</code> | <code>string</code> |
+| <code>whiteAlpha700</code> | <code>string</code> |
+| <code>whiteAlpha800</code> | <code>string</code> |
+| <code>whiteAlpha900</code> | <code>string</code> |
+| <code>yellow</code> | <code>string</code> |
+| <code>yellow100</code> | <code>string</code> |
+| <code>yellow200</code> | <code>string</code> |
+| <code>yellow300</code> | <code>string</code> |
+| <code>yellow400</code> | <code>string</code> |
+| <code>yellow50</code> | <code>string</code> |
+| <code>yellow500</code> | <code>string</code> |
+| <code>yellow600</code> | <code>string</code> |
+| <code>yellow700</code> | <code>string</code> |
+| <code>yellow800</code> | <code>string</code> |
+| <code>yellow900</code> | <code>string</code> |</p>
+<h4 id="definedin-16">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/colors.ts#L5">theme/colors.ts:5</a></p>
 <hr />
 <h3 id="commands">commands</h3>
 <p>• <code>Const</code> <strong>commands</strong>: <code>Object</code></p>
 <p>An object containing various commands for generating CSS styles.</p>
-<h4 id="typedeclaration-4">Type declaration</h4>
+<h4 id="typedeclaration-8">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>alignContent</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |
@@ -635,32 +1282,32 @@
 | <code>wordSpacing</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |
 | <code>wordWrap</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |
 | <code>zIndex</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |</p>
-<h4 id="definedin-6">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/commands/index.ts#L11">commands/index.ts:11</a></p>
+<h4 id="definedin-17">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/commands/index.ts#L12">commands/index.ts:12</a></p>
 <hr />
 <h3 id="commonprops">commonProps</h3>
-<p>• <code>Const</code> <strong>commonProps</strong>: <code>TCommonProps</code></p>
+<p>• <code>Const</code> <strong>commonProps</strong>: <a href="#tcommonprops"><code>TCommonProps</code></a></p>
 <p>Common properties for the theme.</p>
-<h4 id="definedin-7">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/theme/index.ts#L10">theme/index.ts:10</a></p>
+<h4 id="definedin-18">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/index.ts#L12">theme/index.ts:12</a></p>
 <hr />
 <h3 id="cssreset">cssReset</h3>
 <p>• <code>Const</code> <strong>cssReset</strong>: <code>"/*DO NOT EDIT THIS FILE DIRECTLY, IT IS GENERATED BY ROBUST-UI*/html{line-height:1.15;-webkit-text-size-adjust:100%;height:100%;margin:0;padding:0;}body{height:100%;margin:0;padding:0;}main{display:block;}h1{font-size:2em;margin:0;}p{margin:0;}hr{box-sizing:content-box;height:0;overflow:visible;}pre{font-family:monospace,monospace;font-size:1em;}a{background-color:transparent;}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underlinedotted;}b{font-weight:bolder;}strong{font-weight:bolder;}code{font-family:monospace,monospace;font-size:1em;}kbd{font-family:monospace,monospace;font-size:1em;}samp{font-family:monospace,monospace;font-size:1em;}small{font-size:80%;}sub{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sub{bottom:-0.25em;}sup{top:-0.5em;}img{border-style:none;}button{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}input{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}optgroup{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}select{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0;}button{overflow:visible;}input{overflow:visible;}button{text-transform:none;}select{text-transform:none;}button{-webkit-appearance:button;appearance:button;}[type=\"button\"]{-webkit-appearance:button;appearance:button;}[type=\"reset\"]{-webkit-appearance:button;appearance:button;}[type=\"submit\"]{-webkit-appearance:button;appearance:button;}button::-moz-focus-inner{border-style:none;padding:0;}[type=\"button\"]::-moz-focus-inner{border-style:none;padding:0;}[type=\"reset\"]::-moz-focus-inner{border-style:none;padding:0;}[type=\"submit\"]::-moz-focus-inner{border-style:none;padding:0;}button:-moz-focusring{outline:1pxdottedButtonText;}[type=\"button\"]:-moz-focusring{outline:1pxdottedButtonText;}[type=\"reset\"]:-moz-focusring{outline:1pxdottedButtonText;}[type=\"submit\"]:-moz-focusring{outline:1pxdottedButtonText;}fieldset{padding:0.35em0.75em0.625em;}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal;}progress{vertical-align:baseline;}textarea{overflow:auto;}[type=\"checkbox\"]{box-sizing:border-box;padding:0;}[type=\"radio\"]{box-sizing:border-box;padding:0;}[type=\"number\"]::-webkit-inner-spin-button{height:auto;}[type=\"number\"]::-webkit-outer-spin-button{height:auto;}[type=\"search\"]{-webkit-appearance:textfield;appearance:textfield;outline-offset:-2px;}[type=\"search\"]::-webkit-search-decoration{-webkit-appearance:none;}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit;}details{display:block;}summary{display:list-item;}template{display:none;}[hidden]{display:none;}*{-webkit-tap-highlight-color:transparent;}"</code></p>
 <p>CSS reset string.
 This string contains CSS rules to reset the default styles of HTML elements.
 It is generated by ROBUST-UI and should not be edited directly.</p>
-<h4 id="definedin-8">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/css-reset/index.ts#L7">css-reset/index.ts:7</a></p>
+<h4 id="definedin-19">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/css-reset/index.ts#L7">css-reset/index.ts:7</a></p>
 <hr />
 <h3 id="defaulttheme">defaultTheme</h3>
-<p>• <code>Const</code> <strong>defaultTheme</strong>: <code>TDefaultTheme</code></p>
-<h4 id="definedin-9">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/theme/index.ts#L31">theme/index.ts:31</a></p>
+<p>• <code>Const</code> <strong>defaultTheme</strong>: <a href="#tdefaulttheme"><code>TDefaultTheme</code></a></p>
+<h4 id="definedin-20">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/index.ts#L34">theme/index.ts:34</a></p>
 <hr />
 <h3 id="language">language</h3>
 <p>• <code>Const</code> <strong>language</strong>: <code>Object</code></p>
 <p>Represents a mapping of language codes to their corresponding display names.</p>
-<h4 id="typedeclaration-5">Type declaration</h4>
+<h4 id="typedeclaration-9">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>ar</code> | <code>string</code> |
@@ -729,13 +1376,13 @@ It is generated by ROBUST-UI and should not be edited directly.</p>
 | <code>zh-HK</code> | <code>string</code> |
 | <code>zh-TW</code> | <code>string</code> |
 | <code>zu</code> | <code>string</code> |</p>
-<h4 id="definedin-10">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/language/index.ts#L5">language/index.ts:5</a></p>
+<h4 id="definedin-21">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/language/index.ts#L5">language/index.ts:5</a></p>
 <hr />
 <h3 id="mediabreakpoints">mediaBreakpoints</h3>
 <p>• <code>Const</code> <strong>mediaBreakpoints</strong>: <code>Object</code></p>
 <p>Defines the media breakpoints for responsive design.</p>
-<h4 id="typedeclaration-6">Type declaration</h4>
+<h4 id="typedeclaration-10">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>base</code> | <code>number</code> |
@@ -747,13 +1394,13 @@ It is generated by ROBUST-UI and should not be edited directly.</p>
 | <code>xxl</code> | <code>number</code> |
 | <code>xxs</code> | <code>number</code> |
 | <code>xxxl</code> | <code>number</code> |</p>
-<h4 id="definedin-11">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/media-breakpoints/index.ts#L5">media-breakpoints/index.ts:5</a></p>
+<h4 id="definedin-22">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/media-breakpoints/index.ts#L5">media-breakpoints/index.ts:5</a></p>
 <hr />
 <h3 id="selectors">selectors</h3>
 <p>• <code>Const</code> <strong>selectors</strong>: <code>Object</code></p>
 <p>Object containing selectors for styling elements.</p>
-<h4 id="typedeclaration-7">Type declaration</h4>
+<h4 id="typedeclaration-11">Type declaration</h4>
 <p>| Name | Type |
 | :------ | :------ |
 | <code>active</code> | <code>string</code> |
@@ -1135,11 +1782,17 @@ It is generated by ROBUST-UI and should not be edited directly.</p>
 | <code>wordSpacing</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |
 | <code>wordWrap</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |
 | <code>zIndex</code> | (<code>propValue</code>: <code>unknown</code>) =&gt; <code>string</code> |</p>
-<h4 id="definedin-12">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/index.ts#L15">index.ts:15</a></p>
+<h4 id="definedin-23">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/index.ts#L18">index.ts:18</a></p>
 <hr />
 <h3 id="sizeprops">sizeProps</h3>
-<p>• <code>Const</code> <strong>sizeProps</strong>: <code>TSizeProps</code></p>
+<p>• <code>Const</code> <strong>sizeProps</strong>: <a href="#tsizeprops"><code>TSizeProps</code></a></p>
 <p>Size properties for the theme.</p>
-<h4 id="definedin-13">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/fa92ffd/packages/theme/src/theme/index.ts#L21">theme/index.ts:21</a></p>
+<h4 id="definedin-24">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/theme/index.ts#L23">theme/index.ts:23</a></p>
+<hr />
+<h3 id="sizes">sizes</h3>
+<p>• <code>Const</code> <strong>sizes</strong>: <code>TSize</code></p>
+<p>Represents a collection of sizes used in the theme.</p>
+<h4 id="definedin-25">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/theme/src/sizes/index.ts#L22">sizes/index.ts:22</a></p>

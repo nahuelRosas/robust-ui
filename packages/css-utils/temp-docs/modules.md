@@ -23,10 +23,10 @@ Adds opacity to a given color.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `options` | `Object` | The options for adding opacity. |
-| `options.color` | `string` | The color to add opacity to. |
+| Name              | Type     | Description                          |
+| :---------------- | :------- | :----------------------------------- |
+| `options`         | `Object` | The options for adding opacity.      |
+| `options.color`   | `string` | The color to add opacity to.         |
 | `options.opacity` | `number` | The opacity value (between 0 and 1). |
 
 #### Returns
@@ -41,9 +41,9 @@ If the color format is invalid.
 
 #### Defined in
 
-[colors-functions/index.ts:165](https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L165)
+[colors-functions/index.ts:165](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/css-utils/src/colors-functions/index.ts#L165)
 
-___
+---
 
 ### generateColorScheme
 
@@ -53,23 +53,23 @@ Generates a color scheme based on the provided options.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `options` | `Object` | `undefined` | The options for generating the color scheme. |
-| `options.baseColor?` | `string` | `"teal"` | - |
-| `options.complementaryColor?` | `boolean` | `false` | - |
-| `options.isActivated?` | `boolean` | `true` | - |
-| `options.isDisabled?` | `boolean` | `false` | - |
-| `options.isInvalid?` | `boolean` | `false` | - |
-| `options.isValid?` | `boolean` | `false` | - |
-| `options.opacity?` | `number` | `0.7` | - |
-| `options.props?` | `Object` | `undefined` | - |
-| `options.props.active?` | `boolean` | `undefined` | - |
-| `options.props.background?` | `boolean` | `undefined` | - |
-| `options.props.border?` | `boolean` | `undefined` | - |
-| `options.props.focus?` | `boolean` | `undefined` | - |
-| `options.props.hover?` | `boolean` | `undefined` | - |
-| `options.variant` | `Variant` | `"solid"` | - |
+| Name                          | Type      | Default value | Description                                  |
+| :---------------------------- | :-------- | :------------ | :------------------------------------------- |
+| `options`                     | `Object`  | `undefined`   | The options for generating the color scheme. |
+| `options.baseColor?`          | `string`  | `"teal"`      | -                                            |
+| `options.complementaryColor?` | `boolean` | `false`       | -                                            |
+| `options.isActivated?`        | `boolean` | `true`        | -                                            |
+| `options.isDisabled?`         | `boolean` | `false`       | -                                            |
+| `options.isInvalid?`          | `boolean` | `false`       | -                                            |
+| `options.isValid?`            | `boolean` | `false`       | -                                            |
+| `options.opacity?`            | `number`  | `0.7`         | -                                            |
+| `options.props?`              | `Object`  | `undefined`   | -                                            |
+| `options.props.active?`       | `boolean` | `undefined`   | -                                            |
+| `options.props.background?`   | `boolean` | `undefined`   | -                                            |
+| `options.props.border?`       | `boolean` | `undefined`   | -                                            |
+| `options.props.focus?`        | `boolean` | `undefined`   | -                                            |
+| `options.props.hover?`        | `boolean` | `undefined`   | -                                            |
+| `options.variant`             | `Variant` | `"solid"`     | -                                            |
 
 #### Returns
 
@@ -79,9 +79,9 @@ The generated color scheme.
 
 #### Defined in
 
-[colors-functions/index.ts:282](https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L282)
+[colors-functions/index.ts:282](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/css-utils/src/colors-functions/index.ts#L282)
 
-___
+---
 
 ### generateContrastingColor
 
@@ -96,8 +96,8 @@ The contrast alpha is calculated by multiplying the base alpha by 2.5, with a ma
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name        | Type     | Description                        |
+| :---------- | :------- | :--------------------------------- |
 | `baseColor` | `string` | The base color in the RGBA format. |
 
 #### Returns
@@ -112,9 +112,9 @@ Error if the base color is not in the expected format.
 
 #### Defined in
 
-[colors-functions/index.ts:196](https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L196)
+[colors-functions/index.ts:196](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/css-utils/src/colors-functions/index.ts#L196)
 
-___
+---
 
 ### generateUniqueClassName
 
@@ -124,10 +124,10 @@ Generates a unique class name based on the provided object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object` | `Object` | The object used to generate the unique class name. |
-| `object.object` | `Object` | - |
+| Name            | Type     | Description                                        |
+| :-------------- | :------- | :------------------------------------------------- |
+| `object`        | `Object` | The object used to generate the unique class name. |
+| `object.object` | `Object` | -                                                  |
 
 #### Returns
 
@@ -141,9 +141,9 @@ If an error occurs while generating the unique class name.
 
 #### Defined in
 
-[generate-unique-classname/index.ts:10](https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/generate-unique-classname/index.ts#L10)
+[generate-unique-classname/index.ts:10](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/css-utils/src/generate-unique-classname/index.ts#L10)
 
-___
+---
 
 ### getRandomHexColor
 
@@ -159,28 +159,28 @@ A string representing a random hexadecimal color code.
 
 #### Defined in
 
-[colors-functions/index.ts:269](https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/colors-functions/index.ts#L269)
+[colors-functions/index.ts:269](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/css-utils/src/colors-functions/index.ts#L269)
 
-___
+---
 
 ### injectStyle
 
-▸ **injectStyle**(`options`): \{ `inputProps`: `Record`\<`string`, `unknown`\> ; `styledCSSMap`: `Map`\<`string`, `string`[]\>  } \| `undefined`
+▸ **injectStyle**(`options`): \{ `inputProps`: `Record`\<`string`, `unknown`\> ; `styledCSSMap`: `Map`\<`string`, `string`[]\> } \| `undefined`
 
 Injects CSS styles based on the provided options.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name      | Type                | Description                           |
+| :-------- | :------------------ | :------------------------------------ |
 | `options` | `InjectCSSTOptions` | The options for injecting CSS styles. |
 
 #### Returns
 
-\{ `inputProps`: `Record`\<`string`, `unknown`\> ; `styledCSSMap`: `Map`\<`string`, `string`[]\>  } \| `undefined`
+\{ `inputProps`: `Record`\<`string`, `unknown`\> ; `styledCSSMap`: `Map`\<`string`, `string`[]\> } \| `undefined`
 
 An object containing the styled CSS map and input props, or undefined.
 
 #### Defined in
 
-[inject-style/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/0930762/packages/css-utils/src/inject-style/index.ts#L11)
+[inject-style/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/css-utils/src/inject-style/index.ts#L11)

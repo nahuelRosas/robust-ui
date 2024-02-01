@@ -1,21 +1,16 @@
-/**
- * Generates an array of numbers from 0 to the specified end value.
- * @template End - The end value of the range.
- * @template Acc - The accumulated array of numbers.
- * @param {End} End - The end value of the range.
- * @param {Acc} Acc - The accumulated array of numbers.
- * @returns {Acc[number]} - The generated array of numbers.
- */
-type EnumerateRange<
+type EnumerateRangeStrings<
   End extends number,
-  Acc extends number[] = [],
+  Acc extends string[] = [],
 > = Acc["length"] extends End
   ? Acc[number]
-  : EnumerateRange<End, [...Acc, Acc["length"]]>;
+  : EnumerateRangeStrings<End, [...Acc, `${Acc["length"]}`]>;
 
-type IntegerRange<From extends number, To extends number> = Exclude<
-  EnumerateRange<To>,
-  EnumerateRange<From>
->;
+// type EnumerateRange<
+//   End extends number,
+//   Acc extends number[] = [],
+// > = Acc["length"] extends End
+//   ? Acc[number]
+//   : EnumerateRange<End, [...Acc, Acc["length"]]>;
 
-export type TypeNumbersIntegerRange = IntegerRange<1, 300>;
+// type Range = EnumerateRange<300>;
+export type RangeStrings = EnumerateRangeStrings<300>;

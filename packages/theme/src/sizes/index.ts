@@ -1,21 +1,28 @@
-import { TSizeViewport } from "./types";
+import { generateEntries } from "@/utils";
+import { TSize, TSizeViewport, TPercentage } from "./types";
+
+const dvwEntries = generateEntries({
+  length: 700,
+  prefix: "dvw",
+}) as Record<TSizeViewport, TSizeViewport>;
+
+const dvhEntries = generateEntries({
+  length: 700,
+  prefix: "dvh",
+}) as Record<TSizeViewport, TSizeViewport>;
+
+const percentageEntries = generateEntries({
+  length: 101,
+  prefix: "%",
+}) as Record<TPercentage, TPercentage>;
 
 /**
- * Represents a collection of sizes used for viewport calculations.
+ * Represents a collection of sizes used in the theme.
  */
 export const sizes = {
-  ...Object.fromEntries(
-    (Array(300) as TSizeViewport[]).map((_, i) => [
-      `${i + 1}dvw`,
-      `${i + 1}dvw`,
-    ]),
-  ),
-  ...Object.fromEntries(
-    (Array(300) as TSizeViewport[]).map((_, i) => [
-      `${i + 1}dvh`,
-      `${i + 1}dvh`,
-    ]),
-  ),
+  ...percentageEntries,
+  ...dvwEntries,
+  ...dvhEntries,
   fullDVW: "100dvw",
   fullDVH: "100dvh",
   full: "100%",
@@ -35,27 +42,7 @@ export const sizes = {
   xsDVH: "15dvh",
   xsDVW: "15dvw",
   xs: "0.5dvh",
-} as Record<TSizeViewport, TSizeViewport> & {
-  auto: string;
-  fullDVW: string;
-  fullDVH: string;
-  full: string;
-  xlDVH: string;
-  xlDVW: string;
-  xl: string;
-  lgDVH: string;
-  lgDVW: string;
-  lg: string;
-  mdDVH: string;
-  mdDVW: string;
-  md: string;
-  smDVH: string;
-  smDVW: string;
-  sm: string;
-  xsDVH: string;
-  xsDVW: string;
-  xs: string;
-};
+} as TSize;
 
 /**
  * Represents the type of the `sizes` object.

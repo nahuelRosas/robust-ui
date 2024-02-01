@@ -1,7 +1,13 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <ul>
-<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li><a href="#robust">Robust</a></li>
+<li><a href="#project-stats">Project Stats</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
 <li><a href="#robust-uiuse-global-state">@robust-ui/use-global-state</a></li>
 <li><a href="#table-of-contents">Table of contents</a><ul>
 <li><a href="#functions">Functions</a></li></ul></li>
@@ -11,17 +17,71 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <p><a name="readmemd"></a></p>
 <p>@robust-ui/use-global-state / <a href="#modulesmd">Exports</a></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<h1 id="robust">Robust</h1>
+<p>Robust is a system for generating React components with real-time CSS injection. It is programmed in TypeScript, providing type safety and enhanced developer experience.</p>
+<h2 id="projectstats">Project Stats</h2>
+<p><img src="https://repobeats.axiom.co/api/embed/57761159b119284992a2370b719d8f8fe9c07e34.svg" alt="Alt" title="Repobeats analytics image" /></p>
+<h1 id="installation">Installation</h1>
+<p>You can install Robust using either npm or pnpm. To do this, run one of the following commands:</p>
+<p>Using npm:</p>
+<pre><code class="bash language-bash">npm install @robust-ui/core
+</code></pre>
+<p>Using pnpm:</p>
+<pre><code class="bash language-bash">pnpm install @robust-ui/core
+</code></pre>
+<p>using yarn:</p>
+<pre><code class="bash language-bash">yarn add @robust-ui/core
+</code></pre>
+<p>Alternatively, you can also download Robust from the GitHub repository and manually install the dependencies. The prepare script defined in the package.json file will automatically build all the files within the packages folder.</p>
+<h2 id="usage">Usage</h2>
+<p>To use Robust, you need to make use of the <code>Main</code> component from the <code>@robust-ui/nextjs-components</code> repository. Note that the functionality has only been tested with Next.js and may not work in other React environments.</p>
+<p>Here's an example of how to use Robust in a Next.js application:</p>
+<pre><code class="tsx language-tsx">import { Main, Header, Text, Icon, Flex } from "@robust-ui/nextjs-components";
+import { SideMenu } from "@/components/drawer";
+import type { AppProps } from "next/app";
+import React from "react";
+
+export default function App({ Component, pageProps }: AppProps) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    &lt;Main color="white" fontFamily="Fira Code"&gt;
+      &lt;Header backgroundColor="gunMetal"&gt;
+        &lt;Flex&gt;
+          &lt;Text fontWeight="700" fontSize="1.5rem"&gt;
+            Nahuel
+          &lt;/Text&gt;
+        &lt;/Flex&gt;
+        &lt;Icon type="menu" onClick={() =&gt; setOpen(!open)} /&gt;
+      &lt;/Header&gt;
+      &lt;SideMenu open={open} setOpen={setOpen} /&gt;
+      &lt;Component {...pageProps} /&gt;
+    &lt;/Main&gt;
+  );
+}
+</code></pre>
+<p>In the above example, we import the necessary components from Robust and use them to create a basic application structure. The <code>Main</code> component sets the color and font family for the components. The <code>Header</code> component represents the application header, including a title and a menu icon that toggles the <code>open</code> state. The <code>SideMenu</code> component displays a side drawer with links and language options. Finally, we render the <code>Component</code> with the <code>pageProps</code>.</p>
+<p>Please note that this usage example is specific to Next.js, and the functionality may not be tested or supported in other React environments. Make sure to customize the components and their properties based on your specific requirements.</p>
+<h2 id="features">Features</h2>
+<p>Robust includes the following features:</p>
 <ul>
-<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li>Automatic responsiveness: The components are designed to adapt to different screen sizes and orientations.</li>
+<li>Quick language switching: Easily switch between different languages using the language options provided.</li>
+<li>Dark mode: The system supports a dark mode theme that can be enabled or disabled.</li>
+<li>Global states: Robust provides mechanisms for managing global states and sharing data between components.</li>
+<li>Real-time CSS injection: The system injects CSS in real time, allowing for dynamic styling and theming.</li>
+<li>TypeScript support: Robust is programmed in TypeScript, providing type safety and enhanced developer experience.</li>
+<li>Customizable components: The components can be customized using various properties to suit your specific requirements.</li>
+<li>Easy to use: Robust is designed to be easy to use and integrate with existing React applications.</li>
+<li>Extensible: The system can be extended with additional components and functionality as needed.</li>
+<li>Well-documented: The codebase is well-documented, making it easy to understand and contribute to.</li>
 </ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<p><a name="readmemd"></a></p>
-<p>@robust-ui/core / <a href="#modulesmd">Exports</a></p>
-<p><a name="modulesmd"></a></p>
-<p><a href="#readmemd">@robust-ui/core</a> / Exports</p>
-<h1 id="robustuicore">@robust-ui/core</h1>
+<h2 id="activedevelopmentrobustisactivelydevelopedandmaintainedwithregularupdatesandimprovements">- Active development: Robust is actively developed and maintained, with regular updates and improvements.</h2>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions to Robust are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.</p>
+<h2 id="license">License</h2>
+<p>Robust is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+<hr />
 <p><a name="modulesmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-state</a> / Exports</p>
 <h1 id="robustuiuseglobalstate">@robust-ui/use-global-state</h1>
@@ -52,4 +112,4 @@
 <li>If both <code>key</code> and <code>defaultValue</code> are undefined.</li>
 </ul>
 <h4 id="definedin">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-global-state/src/index.ts#L19">index.ts:19</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-state/src/index.ts#L19">index.ts:19</a></p>

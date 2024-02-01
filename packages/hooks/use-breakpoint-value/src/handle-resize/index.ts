@@ -38,7 +38,7 @@ export function handleResize({
             }
             return acc;
           },
-          null as string | null
+          null as string | null,
         )
       : null;
 

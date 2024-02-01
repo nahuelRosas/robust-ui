@@ -21,7 +21,7 @@ Represents a set of developer tools for managing the application state and behav
 
 ### changeLanguage
 
-• **changeLanguage**: (`language`: ``"es-AR"`` \| ``"es-ES"`` \| ``"es-MX"`` \| ``"pt-BR"`` \| ``"pt-PT"`` \| ``"zh-CN"`` \| ``"zh-HK"`` \| ``"zh-TW"`` \| ``"en-GB"`` \| ``"en-US"`` \| ``"en"`` \| ``"zh"`` \| ``"ja"`` \| ``"ko"`` \| ``"ru"`` \| ``"fr"`` \| ``"de"`` \| ``"pt"`` \| ``"es"`` \| ``"nl"`` \| ``"it"`` \| ``"tr"`` \| ``"da"`` \| ``"pl"`` \| ``"cs"`` \| ``"th"`` \| ``"sv"`` \| ``"hu"`` \| ``"fi"`` \| ``"vi"`` \| ``"nb"`` \| ``"el"`` \| ``"bg"`` \| ``"sk"`` \| ``"he"`` \| ``"ro"`` \| ``"hr"`` \| ``"uk"`` \| ``"id"`` \| ``"ms"`` \| ``"hi"`` \| ``"fil"`` \| ``"ar"`` \| ``"bn"`` \| ``"fa"`` \| ``"gu"`` \| ``"ka"`` \| ``"km"`` \| ``"mr"`` \| ``"mn"`` \| ``"ne"`` \| ``"pa"`` \| ``"si"`` \| ``"sw"`` \| ``"ta"`` \| ``"te"`` \| ``"ur"`` \| ``"uz"`` \| ``"zu"`` \| ``"lv"`` \| ``"lt"`` \| ``"sr"`` \| ``"sl"`` \| ``"et"`` \| ``"is"`` \| ``"ms_MY"``) => `void`
+• **changeLanguage**: (`language`: `"es-AR"` \| `"es-ES"` \| `"es-MX"` \| `"pt-BR"` \| `"pt-PT"` \| `"zh-CN"` \| `"zh-HK"` \| `"zh-TW"` \| `"en-GB"` \| `"en-US"` \| `"en"` \| `"zh"` \| `"ja"` \| `"ko"` \| `"ru"` \| `"fr"` \| `"de"` \| `"pt"` \| `"es"` \| `"nl"` \| `"it"` \| `"tr"` \| `"da"` \| `"pl"` \| `"cs"` \| `"th"` \| `"sv"` \| `"hu"` \| `"fi"` \| `"vi"` \| `"nb"` \| `"el"` \| `"bg"` \| `"sk"` \| `"he"` \| `"ro"` \| `"hr"` \| `"uk"` \| `"id"` \| `"ms"` \| `"hi"` \| `"fil"` \| `"ar"` \| `"bn"` \| `"fa"` \| `"gu"` \| `"ka"` \| `"km"` \| `"mr"` \| `"mn"` \| `"ne"` \| `"pa"` \| `"si"` \| `"sw"` \| `"ta"` \| `"te"` \| `"ur"` \| `"uz"` \| `"zu"` \| `"lv"` \| `"lt"` \| `"sr"` \| `"sl"` \| `"et"` \| `"is"` \| `"ms_MY"`) => `void`
 
 Changes the language of the application.
 
@@ -37,9 +37,9 @@ Changes the language of the application.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `language` | ``"es-AR"`` \| ``"es-ES"`` \| ``"es-MX"`` \| ``"pt-BR"`` \| ``"pt-PT"`` \| ``"zh-CN"`` \| ``"zh-HK"`` \| ``"zh-TW"`` \| ``"en-GB"`` \| ``"en-US"`` \| ``"en"`` \| ``"zh"`` \| ``"ja"`` \| ``"ko"`` \| ``"ru"`` \| ``"fr"`` \| ``"de"`` \| ``"pt"`` \| ``"es"`` \| ``"nl"`` \| ``"it"`` \| ``"tr"`` \| ``"da"`` \| ``"pl"`` \| ``"cs"`` \| ``"th"`` \| ``"sv"`` \| ``"hu"`` \| ``"fi"`` \| ``"vi"`` \| ``"nb"`` \| ``"el"`` \| ``"bg"`` \| ``"sk"`` \| ``"he"`` \| ``"ro"`` \| ``"hr"`` \| ``"uk"`` \| ``"id"`` \| ``"ms"`` \| ``"hi"`` \| ``"fil"`` \| ``"ar"`` \| ``"bn"`` \| ``"fa"`` \| ``"gu"`` \| ``"ka"`` \| ``"km"`` \| ``"mr"`` \| ``"mn"`` \| ``"ne"`` \| ``"pa"`` \| ``"si"`` \| ``"sw"`` \| ``"ta"`` \| ``"te"`` \| ``"ur"`` \| ``"uz"`` \| ``"zu"`` \| ``"lv"`` \| ``"lt"`` \| ``"sr"`` \| ``"sl"`` \| ``"et"`` \| ``"is"`` \| ``"ms_MY"`` | The new language to set. |
+| Name       | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description              |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------- |
+| `language` | `"es-AR"` \| `"es-ES"` \| `"es-MX"` \| `"pt-BR"` \| `"pt-PT"` \| `"zh-CN"` \| `"zh-HK"` \| `"zh-TW"` \| `"en-GB"` \| `"en-US"` \| `"en"` \| `"zh"` \| `"ja"` \| `"ko"` \| `"ru"` \| `"fr"` \| `"de"` \| `"pt"` \| `"es"` \| `"nl"` \| `"it"` \| `"tr"` \| `"da"` \| `"pl"` \| `"cs"` \| `"th"` \| `"sv"` \| `"hu"` \| `"fi"` \| `"vi"` \| `"nb"` \| `"el"` \| `"bg"` \| `"sk"` \| `"he"` \| `"ro"` \| `"hr"` \| `"uk"` \| `"id"` \| `"ms"` \| `"hi"` \| `"fil"` \| `"ar"` \| `"bn"` \| `"fa"` \| `"gu"` \| `"ka"` \| `"km"` \| `"mr"` \| `"mn"` \| `"ne"` \| `"pa"` \| `"si"` \| `"sw"` \| `"ta"` \| `"te"` \| `"ur"` \| `"uz"` \| `"zu"` \| `"lv"` \| `"lt"` \| `"sr"` \| `"sl"` \| `"et"` \| `"is"` \| `"ms_MY"` | The new language to set. |
 
 ##### Returns
 
@@ -47,9 +47,9 @@ Changes the language of the application.
 
 #### Defined in
 
-[types.ts:67](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L67)
+[types.ts:67](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L67)
 
-___
+---
 
 ### getAppState
 
@@ -69,8 +69,8 @@ Retrieves the value of a specific key from the application state.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type      | Description                                                                |
+| :------ | :-------- | :------------------------------------------------------------------------- |
 | `isDev` | `boolean` | Indicates whether the operation is performed in a development environment. |
 
 ##### Returns
@@ -81,9 +81,9 @@ The value associated with the specified key.
 
 #### Defined in
 
-[types.ts:55](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L55)
+[types.ts:55](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L55)
 
-___
+---
 
 ### removeNotificationState
 
@@ -103,8 +103,8 @@ Removes a specific notification from the notification state.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name             | Type     | Description                           |
+| :--------------- | :------- | :------------------------------------ |
 | `notificationId` | `string` | The ID of the notification to remove. |
 
 ##### Returns
@@ -113,9 +113,9 @@ Removes a specific notification from the notification state.
 
 #### Defined in
 
-[types.ts:90](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L90)
+[types.ts:90](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L90)
 
-___
+---
 
 ### resetAppState
 
@@ -135,8 +135,8 @@ Resets the application state.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type      | Description                                                                |
+| :------ | :-------- | :------------------------------------------------------------------------- |
 | `isDev` | `boolean` | Indicates whether the operation is performed in a development environment. |
 
 ##### Returns
@@ -145,9 +145,9 @@ Resets the application state.
 
 #### Defined in
 
-[types.ts:61](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L61)
+[types.ts:61](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L61)
 
-___
+---
 
 ### resetNotificationState
 
@@ -167,9 +167,9 @@ Resets the notification state of the application.
 
 #### Defined in
 
-[types.ts:84](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L84)
+[types.ts:84](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L84)
 
-___
+---
 
 ### setAppState
 
@@ -197,10 +197,10 @@ Sets the value of a specific key in the application state.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `string` | The key of the state value to set. |
-| `value` | `unknown` | The value to set for the specified key. |
+| Name    | Type      | Description                                                                |
+| :------ | :-------- | :------------------------------------------------------------------------- |
+| `key`   | `string`  | The key of the state value to set.                                         |
+| `value` | `unknown` | The value to set for the specified key.                                    |
 | `isDev` | `boolean` | Indicates whether the operation is performed in a development environment. |
 
 ##### Returns
@@ -209,9 +209,9 @@ Sets the value of a specific key in the application state.
 
 #### Defined in
 
-[types.ts:48](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L48)
+[types.ts:48](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L48)
 
-___
+---
 
 ### setNotificationState
 
@@ -231,8 +231,8 @@ Sets the notification state of the application.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name           | Type                              | Description                     |
+| :------------- | :-------------------------------- | :------------------------------ |
 | `notification` | [`notification`](notification.md) | The notification object to set. |
 
 ##### Returns
@@ -241,9 +241,9 @@ Sets the notification state of the application.
 
 #### Defined in
 
-[types.ts:79](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L79)
+[types.ts:79](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L79)
 
-___
+---
 
 ### toggleDarkMode
 
@@ -263,8 +263,8 @@ Toggles the dark mode of the application.
 
 ##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name               | Type      | Description                                                         |
+| :----------------- | :-------- | :------------------------------------------------------------------ |
 | `isDarkModeActive` | `boolean` | Indicates whether the dark mode should be activated or deactivated. |
 
 ##### Returns
@@ -273,4 +273,4 @@ Toggles the dark mode of the application.
 
 #### Defined in
 
-[types.ts:73](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L73)
+[types.ts:73](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L73)

@@ -31,9 +31,9 @@ Interface representing the development data.
 
 #### Defined in
 
-[types.ts:102](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L102)
+[types.ts:102](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L102)
 
-___
+---
 
 ### cssReset
 
@@ -41,9 +41,9 @@ ___
 
 #### Defined in
 
-[types.ts:113](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L113)
+[types.ts:113](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L113)
 
-___
+---
 
 ### currentBreakpoint
 
@@ -51,19 +51,19 @@ ___
 
 #### Defined in
 
-[types.ts:106](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L106)
+[types.ts:106](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L106)
 
-___
+---
 
 ### currentGlobalLanguage
 
-• **currentGlobalLanguage**: ``"es-AR"`` \| ``"es-ES"`` \| ``"es-MX"`` \| ``"pt-BR"`` \| ``"pt-PT"`` \| ``"zh-CN"`` \| ``"zh-HK"`` \| ``"zh-TW"`` \| ``"en-GB"`` \| ``"en-US"`` \| ``"en"`` \| ``"zh"`` \| ``"ja"`` \| ``"ko"`` \| ``"ru"`` \| ``"fr"`` \| ``"de"`` \| ``"pt"`` \| ``"es"`` \| ``"nl"`` \| ``"it"`` \| ``"tr"`` \| ``"da"`` \| ``"pl"`` \| ``"cs"`` \| ``"th"`` \| ``"sv"`` \| ``"hu"`` \| ``"fi"`` \| ``"vi"`` \| ``"nb"`` \| ``"el"`` \| ``"bg"`` \| ``"sk"`` \| ``"he"`` \| ``"ro"`` \| ``"hr"`` \| ``"uk"`` \| ``"id"`` \| ``"ms"`` \| ``"hi"`` \| ``"fil"`` \| ``"ar"`` \| ``"bn"`` \| ``"fa"`` \| ``"gu"`` \| ``"ka"`` \| ``"km"`` \| ``"mr"`` \| ``"mn"`` \| ``"ne"`` \| ``"pa"`` \| ``"si"`` \| ``"sw"`` \| ``"ta"`` \| ``"te"`` \| ``"ur"`` \| ``"uz"`` \| ``"zu"`` \| ``"lv"`` \| ``"lt"`` \| ``"sr"`` \| ``"sl"`` \| ``"et"`` \| ``"is"`` \| ``"ms_MY"``
+• **currentGlobalLanguage**: `"es-AR"` \| `"es-ES"` \| `"es-MX"` \| `"pt-BR"` \| `"pt-PT"` \| `"zh-CN"` \| `"zh-HK"` \| `"zh-TW"` \| `"en-GB"` \| `"en-US"` \| `"en"` \| `"zh"` \| `"ja"` \| `"ko"` \| `"ru"` \| `"fr"` \| `"de"` \| `"pt"` \| `"es"` \| `"nl"` \| `"it"` \| `"tr"` \| `"da"` \| `"pl"` \| `"cs"` \| `"th"` \| `"sv"` \| `"hu"` \| `"fi"` \| `"vi"` \| `"nb"` \| `"el"` \| `"bg"` \| `"sk"` \| `"he"` \| `"ro"` \| `"hr"` \| `"uk"` \| `"id"` \| `"ms"` \| `"hi"` \| `"fil"` \| `"ar"` \| `"bn"` \| `"fa"` \| `"gu"` \| `"ka"` \| `"km"` \| `"mr"` \| `"mn"` \| `"ne"` \| `"pa"` \| `"si"` \| `"sw"` \| `"ta"` \| `"te"` \| `"ur"` \| `"uz"` \| `"zu"` \| `"lv"` \| `"lt"` \| `"sr"` \| `"sl"` \| `"et"` \| `"is"` \| `"ms_MY"`
 
 #### Defined in
 
-[types.ts:104](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L104)
+[types.ts:104](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L104)
 
-___
+---
 
 ### eventLogs
 
@@ -71,9 +71,9 @@ ___
 
 #### Defined in
 
-[types.ts:109](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L109)
+[types.ts:109](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L109)
 
-___
+---
 
 ### globalState
 
@@ -81,19 +81,19 @@ ___
 
 #### Defined in
 
-[types.ts:105](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L105)
+[types.ts:105](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L105)
 
-___
+---
 
 ### isBrowser
 
-• **isBrowser**: ``false`` \| `HTMLElement`
+• **isBrowser**: `false` \| `HTMLElement`
 
 #### Defined in
 
-[types.ts:108](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L108)
+[types.ts:108](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L108)
 
-___
+---
 
 ### isDarkModeActive
 
@@ -101,9 +101,9 @@ ___
 
 #### Defined in
 
-[types.ts:110](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L110)
+[types.ts:110](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L110)
 
-___
+---
 
 ### isProviderActive
 
@@ -111,9 +111,9 @@ ___
 
 #### Defined in
 
-[types.ts:111](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L111)
+[types.ts:111](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L111)
 
-___
+---
 
 ### isServer
 
@@ -121,9 +121,9 @@ ___
 
 #### Defined in
 
-[types.ts:112](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L112)
+[types.ts:112](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L112)
 
-___
+---
 
 ### mediaBreakpoints
 
@@ -131,9 +131,9 @@ ___
 
 #### Defined in
 
-[types.ts:103](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L103)
+[types.ts:103](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L103)
 
-___
+---
 
 ### pathname
 
@@ -141,9 +141,9 @@ ___
 
 #### Defined in
 
-[types.ts:120](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L120)
+[types.ts:120](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L120)
 
-___
+---
 
 ### selectors
 
@@ -151,14 +151,14 @@ ___
 
 #### Defined in
 
-[types.ts:107](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L107)
+[types.ts:107](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L107)
 
-___
+---
 
 ### theme
 
-• **theme**: `Record`\<`string`, \{ `[key: string | number]`: `unknown`;  }\>
+• **theme**: `Record`\<`string`, \{ `[key: string | number]`: `unknown`; }\>
 
 #### Defined in
 
-[types.ts:114](https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L114)
+[types.ts:114](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L114)

@@ -1,7 +1,13 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 <ul>
-<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li><a href="#robust">Robust</a></li>
+<li><a href="#project-stats">Project Stats</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
 <li><a href="#interfaces">Interfaces</a></li>
 <li><a href="#interface-devdata">Interface: DevData</a><ul>
 <li><a href="#table-of-contents">Table of contents</a></li>
@@ -34,17 +40,71 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <p><a name="readmemd"></a></p>
 <p>@robust-ui/use-global-context / <a href="#modulesmd">Exports</a></p>
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<h1 id="robust">Robust</h1>
+<p>Robust is a system for generating React components with real-time CSS injection. It is programmed in TypeScript, providing type safety and enhanced developer experience.</p>
+<h2 id="projectstats">Project Stats</h2>
+<p><img src="https://repobeats.axiom.co/api/embed/57761159b119284992a2370b719d8f8fe9c07e34.svg" alt="Alt" title="Repobeats analytics image" /></p>
+<h1 id="installation">Installation</h1>
+<p>You can install Robust using either npm or pnpm. To do this, run one of the following commands:</p>
+<p>Using npm:</p>
+<pre><code class="bash language-bash">npm install @robust-ui/core
+</code></pre>
+<p>Using pnpm:</p>
+<pre><code class="bash language-bash">pnpm install @robust-ui/core
+</code></pre>
+<p>using yarn:</p>
+<pre><code class="bash language-bash">yarn add @robust-ui/core
+</code></pre>
+<p>Alternatively, you can also download Robust from the GitHub repository and manually install the dependencies. The prepare script defined in the package.json file will automatically build all the files within the packages folder.</p>
+<h2 id="usage">Usage</h2>
+<p>To use Robust, you need to make use of the <code>Main</code> component from the <code>@robust-ui/nextjs-components</code> repository. Note that the functionality has only been tested with Next.js and may not work in other React environments.</p>
+<p>Here's an example of how to use Robust in a Next.js application:</p>
+<pre><code class="tsx language-tsx">import { Main, Header, Text, Icon, Flex } from "@robust-ui/nextjs-components";
+import { SideMenu } from "@/components/drawer";
+import type { AppProps } from "next/app";
+import React from "react";
+
+export default function App({ Component, pageProps }: AppProps) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    &lt;Main color="white" fontFamily="Fira Code"&gt;
+      &lt;Header backgroundColor="gunMetal"&gt;
+        &lt;Flex&gt;
+          &lt;Text fontWeight="700" fontSize="1.5rem"&gt;
+            Nahuel
+          &lt;/Text&gt;
+        &lt;/Flex&gt;
+        &lt;Icon type="menu" onClick={() =&gt; setOpen(!open)} /&gt;
+      &lt;/Header&gt;
+      &lt;SideMenu open={open} setOpen={setOpen} /&gt;
+      &lt;Component {...pageProps} /&gt;
+    &lt;/Main&gt;
+  );
+}
+</code></pre>
+<p>In the above example, we import the necessary components from Robust and use them to create a basic application structure. The <code>Main</code> component sets the color and font family for the components. The <code>Header</code> component represents the application header, including a title and a menu icon that toggles the <code>open</code> state. The <code>SideMenu</code> component displays a side drawer with links and language options. Finally, we render the <code>Component</code> with the <code>pageProps</code>.</p>
+<p>Please note that this usage example is specific to Next.js, and the functionality may not be tested or supported in other React environments. Make sure to customize the components and their properties based on your specific requirements.</p>
+<h2 id="features">Features</h2>
+<p>Robust includes the following features:</p>
 <ul>
-<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li>Automatic responsiveness: The components are designed to adapt to different screen sizes and orientations.</li>
+<li>Quick language switching: Easily switch between different languages using the language options provided.</li>
+<li>Dark mode: The system supports a dark mode theme that can be enabled or disabled.</li>
+<li>Global states: Robust provides mechanisms for managing global states and sharing data between components.</li>
+<li>Real-time CSS injection: The system injects CSS in real time, allowing for dynamic styling and theming.</li>
+<li>TypeScript support: Robust is programmed in TypeScript, providing type safety and enhanced developer experience.</li>
+<li>Customizable components: The components can be customized using various properties to suit your specific requirements.</li>
+<li>Easy to use: Robust is designed to be easy to use and integrate with existing React applications.</li>
+<li>Extensible: The system can be extended with additional components and functionality as needed.</li>
+<li>Well-documented: The codebase is well-documented, making it easy to understand and contribute to.</li>
 </ul>
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<p><a name="readmemd"></a></p>
-<p>@robust-ui/core / <a href="#modulesmd">Exports</a></p>
-<p><a name="modulesmd"></a></p>
-<p><a href="#readmemd">@robust-ui/core</a> / Exports</p>
-<h1 id="robustuicore">@robust-ui/core</h1>
+<h2 id="activedevelopmentrobustisactivelydevelopedandmaintainedwithregularupdatesandimprovements">- Active development: Robust is actively developed and maintained, with regular updates and improvements.</h2>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions to Robust are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on the GitHub repository.</p>
+<h2 id="license">License</h2>
+<p>Robust is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+<hr />
 <h1 id="interfaces">Interfaces</h1>
 <p><a name="interfacesdevdatamd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / <a href="#modulesmd">Exports</a> / DevData</p>
@@ -72,72 +132,72 @@
 <h4 id="commands">commands</h4>
 <p>• <strong>commands</strong>: <code>Record</code>\&lt;<code>string</code>, <code>string</code> | <code>CommandFunction</code>></p>
 <h5 id="definedin">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L102">types.ts:102</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L102">types.ts:102</a></p>
 <hr />
 <h4 id="cssreset">cssReset</h4>
 <p>• <strong>cssReset</strong>: <code>string</code></p>
 <h5 id="definedin-1">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L113">types.ts:113</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L113">types.ts:113</a></p>
 <hr />
 <h4 id="currentbreakpoint">currentBreakpoint</h4>
 <p>• <strong>currentBreakpoint</strong>: <code>unknown</code></p>
 <h5 id="definedin-2">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L106">types.ts:106</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L106">types.ts:106</a></p>
 <hr />
 <h4 id="currentgloballanguage">currentGlobalLanguage</h4>
 <p>• <strong>currentGlobalLanguage</strong>: <code>"es-AR"</code> | <code>"es-ES"</code> | <code>"es-MX"</code> | <code>"pt-BR"</code> | <code>"pt-PT"</code> | <code>"zh-CN"</code> | <code>"zh-HK"</code> | <code>"zh-TW"</code> | <code>"en-GB"</code> | <code>"en-US"</code> | <code>"en"</code> | <code>"zh"</code> | <code>"ja"</code> | <code>"ko"</code> | <code>"ru"</code> | <code>"fr"</code> | <code>"de"</code> | <code>"pt"</code> | <code>"es"</code> | <code>"nl"</code> | <code>"it"</code> | <code>"tr"</code> | <code>"da"</code> | <code>"pl"</code> | <code>"cs"</code> | <code>"th"</code> | <code>"sv"</code> | <code>"hu"</code> | <code>"fi"</code> | <code>"vi"</code> | <code>"nb"</code> | <code>"el"</code> | <code>"bg"</code> | <code>"sk"</code> | <code>"he"</code> | <code>"ro"</code> | <code>"hr"</code> | <code>"uk"</code> | <code>"id"</code> | <code>"ms"</code> | <code>"hi"</code> | <code>"fil"</code> | <code>"ar"</code> | <code>"bn"</code> | <code>"fa"</code> | <code>"gu"</code> | <code>"ka"</code> | <code>"km"</code> | <code>"mr"</code> | <code>"mn"</code> | <code>"ne"</code> | <code>"pa"</code> | <code>"si"</code> | <code>"sw"</code> | <code>"ta"</code> | <code>"te"</code> | <code>"ur"</code> | <code>"uz"</code> | <code>"zu"</code> | <code>"lv"</code> | <code>"lt"</code> | <code>"sr"</code> | <code>"sl"</code> | <code>"et"</code> | <code>"is"</code> | <code>"ms_MY"</code></p>
 <h5 id="definedin-3">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L104">types.ts:104</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L104">types.ts:104</a></p>
 <hr />
 <h4 id="eventlogs">eventLogs</h4>
 <p>• <code>Optional</code> <strong>eventLogs</strong>: <code>EventLogEntry</code>[]</p>
 <h5 id="definedin-4">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L109">types.ts:109</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L109">types.ts:109</a></p>
 <hr />
 <h4 id="globalstate">globalState</h4>
 <p>• <strong>globalState</strong>: <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>></p>
 <h5 id="definedin-5">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L105">types.ts:105</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L105">types.ts:105</a></p>
 <hr />
 <h4 id="isbrowser">isBrowser</h4>
 <p>• <strong>isBrowser</strong>: <code>false</code> | <code>HTMLElement</code></p>
 <h5 id="definedin-6">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L108">types.ts:108</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L108">types.ts:108</a></p>
 <hr />
 <h4 id="isdarkmodeactive">isDarkModeActive</h4>
 <p>• <strong>isDarkModeActive</strong>: <code>boolean</code></p>
 <h5 id="definedin-7">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L110">types.ts:110</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L110">types.ts:110</a></p>
 <hr />
 <h4 id="isprovideractive">isProviderActive</h4>
 <p>• <strong>isProviderActive</strong>: <code>boolean</code></p>
 <h5 id="definedin-8">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L111">types.ts:111</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L111">types.ts:111</a></p>
 <hr />
 <h4 id="isserver">isServer</h4>
 <p>• <strong>isServer</strong>: <code>boolean</code></p>
 <h5 id="definedin-9">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L112">types.ts:112</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L112">types.ts:112</a></p>
 <hr />
 <h4 id="mediabreakpoints">mediaBreakpoints</h4>
 <p>• <strong>mediaBreakpoints</strong>: <code>Record</code>\&lt;<code>string</code>, <code>number</code>></p>
 <h5 id="definedin-10">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L103">types.ts:103</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L103">types.ts:103</a></p>
 <hr />
 <h4 id="pathname">pathname</h4>
 <p>• <strong>pathname</strong>: <code>string</code></p>
 <h5 id="definedin-11">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L120">types.ts:120</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L120">types.ts:120</a></p>
 <hr />
 <h4 id="selectors">selectors</h4>
 <p>• <strong>selectors</strong>: <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>></p>
 <h5 id="definedin-12">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L107">types.ts:107</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L107">types.ts:107</a></p>
 <hr />
 <h4 id="theme">theme</h4>
 <p>• <strong>theme</strong>: <code>Record</code>\&lt;<code>string</code>, { <code>[key: string | number]</code>: <code>unknown</code>;  }></p>
 <h5 id="definedin-13">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L114">types.ts:114</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L114">types.ts:114</a></p>
 <p><a name="interfacesdevtoolsmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / <a href="#modulesmd">Exports</a> / DevTools</p>
 <h2 id="interfacedevtools">Interface: DevTools</h2>
@@ -170,7 +230,7 @@
 <h6 id="returns">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-14">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L67">types.ts:67</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L67">types.ts:67</a></p>
 <hr />
 <h4 id="getappstate">getAppState</h4>
 <p>• <strong>getAppState</strong>: (<code>isDev</code>: <code>boolean</code>) =&gt; <code>unknown</code></p>
@@ -188,7 +248,7 @@
 <p><code>unknown</code></p>
 <p>The value associated with the specified key.</p>
 <h5 id="definedin-15">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L55">types.ts:55</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L55">types.ts:55</a></p>
 <hr />
 <h4 id="removenotificationstate">removeNotificationState</h4>
 <p>• <strong>removeNotificationState</strong>: (<code>notificationId</code>: <code>string</code>) =&gt; <code>void</code></p>
@@ -205,7 +265,7 @@
 <h6 id="returns-2">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-16">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L90">types.ts:90</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L90">types.ts:90</a></p>
 <hr />
 <h4 id="resetappstate">resetAppState</h4>
 <p>• <strong>resetAppState</strong>: (<code>isDev</code>: <code>boolean</code>) =&gt; <code>void</code></p>
@@ -222,7 +282,7 @@
 <h6 id="returns-3">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-17">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L61">types.ts:61</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L61">types.ts:61</a></p>
 <hr />
 <h4 id="resetnotificationstate">resetNotificationState</h4>
 <p>• <strong>resetNotificationState</strong>: () =&gt; <code>void</code></p>
@@ -233,7 +293,7 @@
 <h6 id="returns-4">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-18">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L84">types.ts:84</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L84">types.ts:84</a></p>
 <hr />
 <h4 id="setappstate">setAppState</h4>
 <p>• <strong>setAppState</strong>: (<code>key</code>: <code>string</code>, <code>value</code>: <code>unknown</code>, <code>isDev</code>: <code>boolean</code>) =&gt; <code>void</code></p>
@@ -256,7 +316,7 @@
 <h6 id="returns-5">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-19">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L48">types.ts:48</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L48">types.ts:48</a></p>
 <hr />
 <h4 id="setnotificationstate">setNotificationState</h4>
 <p>• <strong>setNotificationState</strong>: (<code>notification</code>: <a href="#interfacesnotificationmd"><code>notification</code></a>) =&gt; <code>void</code></p>
@@ -273,7 +333,7 @@
 <h6 id="returns-6">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-20">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L79">types.ts:79</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L79">types.ts:79</a></p>
 <hr />
 <h4 id="toggledarkmode">toggleDarkMode</h4>
 <p>• <strong>toggleDarkMode</strong>: (<code>isDarkModeActive</code>: <code>boolean</code>) =&gt; <code>void</code></p>
@@ -290,7 +350,7 @@
 <h6 id="returns-7">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-21">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L73">types.ts:73</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L73">types.ts:73</a></p>
 <p><a name="interfacesglobalcontextvaluesmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / <a href="#modulesmd">Exports</a> / GlobalContextValues</p>
 <h2 id="interfaceglobalcontextvalues">Interface: GlobalContextValues</h2>
@@ -307,22 +367,22 @@
 <h4 id="devdata">devData</h4>
 <p>• <strong>devData</strong>: <a href="#interfacesdevdatamd"><code>DevData</code></a></p>
 <h5 id="definedin-22">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L160">types.ts:160</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L160">types.ts:160</a></p>
 <hr />
 <h4 id="devtools">devTools</h4>
 <p>• <strong>devTools</strong>: <a href="#interfacesdevtoolsmd"><code>DevTools</code></a></p>
 <h5 id="definedin-23">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L159">types.ts:159</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L159">types.ts:159</a></p>
 <hr />
 <h4 id="notifications">notifications</h4>
 <p>• <strong>notifications</strong>: <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>></p>
 <h5 id="definedin-24">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L157">types.ts:157</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L157">types.ts:157</a></p>
 <hr />
 <h4 id="usercontext">userContext</h4>
 <p>• <strong>userContext</strong>: <a href="#interfacesusercontextmd"><code>userContext</code></a></p>
 <h5 id="definedin-25">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L158">types.ts:158</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L158">types.ts:158</a></p>
 <p><a name="interfacestoolconfigmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / <a href="#modulesmd">Exports</a> / ToolConfig</p>
 <h2 id="interfacetoolconfig">Interface: ToolConfig</h2>
@@ -339,22 +399,22 @@
 <h4 id="enablefeaturex">enableFeatureX</h4>
 <p>• <code>Optional</code> <strong>enableFeatureX</strong>: <code>boolean</code></p>
 <h5 id="definedin-26">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L33">types.ts:33</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L33">types.ts:33</a></p>
 <hr />
 <h4 id="enablefeaturey">enableFeatureY</h4>
 <p>• <code>Optional</code> <strong>enableFeatureY</strong>: <code>boolean</code></p>
 <h5 id="definedin-27">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L34">types.ts:34</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L34">types.ts:34</a></p>
 <hr />
 <h4 id="language">language</h4>
 <p>• <code>Optional</code> <strong>language</strong>: <code>string</code></p>
 <h5 id="definedin-28">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L32">types.ts:32</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L32">types.ts:32</a></p>
 <hr />
 <h4 id="maxretryattempts">maxRetryAttempts</h4>
 <p>• <code>Optional</code> <strong>maxRetryAttempts</strong>: <code>number</code></p>
 <h5 id="definedin-29">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L35">types.ts:35</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L35">types.ts:35</a></p>
 <p><a name="interfacesnotificationmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / <a href="#modulesmd">Exports</a> / notification</p>
 <h2 id="interfacenotification">Interface: notification</h2>
@@ -379,62 +439,62 @@
 <h4 id="altcolor">altColor</h4>
 <p>• <code>Optional</code> <strong>altColor</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>boolean</code>></p>
 <h5 id="definedin-30">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L147">types.ts:147</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L147">types.ts:147</a></p>
 <hr />
 <h4 id="colorscheme">colorScheme</h4>
 <p>• <code>Optional</code> <strong>colorScheme</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>"inherit"</code> | <code>"transparent"</code> | <code>"current"</code> | <code>"currentColor"</code> | <code>"black"</code> | <code>"white"</code> | <code>"gray"</code> | <code>"red"</code> | <code>"yellow"</code> | <code>"green"</code> | <code>"blue"</code> | <code>"indigo"</code> | <code>"purple"</code> | <code>"pink"</code> | <code>"rose"</code> | <code>"orange"</code> | <code>"teal"</code> | <code>"cyan"</code> | <code>"blueGray"</code> | <code>"redGray"</code> | <code>"gunMetal"</code> | <code>"frenchMauve"</code> | <code>"dracula"</code> | <code>"brightPink"</code> | <code>"raisinBlack"</code> | <code>"steelPink"</code> | <code>"mulberry"</code> | <code>"whiteAlpha50"</code> | <code>"whiteAlpha100"</code> | <code>"whiteAlpha200"</code> | <code>"whiteAlpha300"</code> | <code>"whiteAlpha400"</code> | <code>"whiteAlpha500"</code> | <code>"whiteAlpha600"</code> | <code>"whiteAlpha700"</code> | <code>"whiteAlpha800"</code> | <code>"whiteAlpha900"</code> | <code>"blackAlpha50"</code> | <code>"blackAlpha100"</code> | <code>"blackAlpha200"</code> | <code>"blackAlpha300"</code> | <code>"blackAlpha400"</code> | <code>"blackAlpha500"</code> | <code>"blackAlpha600"</code> | <code>"blackAlpha700"</code> | <code>"blackAlpha800"</code> | <code>"blackAlpha900"</code> | <code>"gray50"</code> | <code>"gray100"</code> | <code>"gray200"</code> | <code>"gray300"</code> | <code>"gray400"</code> | <code>"gray500"</code> | <code>"gray600"</code> | <code>"gray700"</code> | <code>"gray800"</code> | <code>"gray900"</code> | <code>"red50"</code> | <code>"red100"</code> | <code>"red200"</code> | <code>"red300"</code> | <code>"red400"</code> | <code>"red500"</code> | <code>"red600"</code> | <code>"red700"</code> | <code>"red800"</code> | <code>"red900"</code> | <code>"blueGray50"</code> | <code>"blueGray100"</code> | <code>"blueGray200"</code> | <code>"blueGray300"</code> | <code>"blueGray400"</code> | <code>"blueGray500"</code> | <code>"blueGray600"</code> | <code>"blueGray700"</code> | <code>"blueGray800"</code> | <code>"blueGray900"</code> | <code>"yellow50"</code> | <code>"yellow100"</code> | <code>"yellow200"</code> | <code>"yellow300"</code> | <code>"yellow400"</code> | <code>"yellow500"</code> | <code>"yellow600"</code> | <code>"yellow700"</code> | <code>"yellow800"</code> | <code>"yellow900"</code> | <code>"green50"</code> | <code>"green100"</code> | <code>"green200"</code> | <code>"green300"</code> | <code>"green400"</code> | <code>"green500"</code> | <code>"green600"</code> | <code>"green700"</code> | <code>"green800"</code> | <code>"green900"</code> | <code>"teal50"</code> | <code>"teal100"</code> | <code>"teal200"</code> | <code>"teal300"</code> | <code>"teal400"</code> | <code>"teal500"</code> | <code>"teal600"</code> | <code>"teal700"</code> | <code>"teal800"</code> | <code>"teal900"</code> | <code>"blue50"</code> | <code>"blue100"</code> | <code>"blue200"</code> | <code>"blue300"</code> | <code>"blue400"</code> | <code>"blue500"</code> | <code>"blue600"</code> | <code>"blue700"</code> | <code>"blue800"</code> | <code>"blue900"</code> | <code>"indigo50"</code> | <code>"indigo100"</code> | <code>"indigo200"</code> | <code>"indigo300"</code> | <code>"indigo400"</code> | <code>"indigo500"</code> | <code>"indigo600"</code> | <code>"indigo700"</code> | <code>"indigo800"</code> | <code>"indigo900"</code> | <code>"redGray50"</code> | <code>"redGray100"</code> | <code>"redGray200"</code> | <code>"redGray300"</code> | <code>"redGray400"</code> | <code>"redGray500"</code> | <code>"redGray600"</code> | <code>"redGray700"</code> | <code>"redGray800"</code> | <code>"redGray900"</code> | <code>"purple50"</code> | <code>"purple100"</code> | <code>"purple200"</code> | <code>"purple300"</code> | <code>"purple400"</code> | <code>"purple500"</code> | <code>"purple600"</code> | <code>"purple700"</code> | <code>"purple800"</code> | <code>"purple900"</code> | <code>"orange50"</code> | <code>"orange100"</code> | <code>"orange200"</code> | <code>"orange300"</code> | <code>"orange400"</code> | <code>"orange500"</code> | <code>"orange600"</code> | <code>"orange700"</code> | <code>"orange800"</code> | <code>"orange900"</code> | <code>"pink50"</code> | <code>"pink100"</code> | <code>"pink200"</code> | <code>"pink300"</code> | <code>"pink400"</code> | <code>"pink500"</code> | <code>"pink600"</code> | <code>"pink700"</code> | <code>"pink800"</code> | <code>"pink900"</code> | <code>"mulberry50"</code> | <code>"mulberry100"</code> | <code>"mulberry200"</code> | <code>"mulberry300"</code> | <code>"mulberry400"</code> | <code>"mulberry500"</code> | <code>"mulberry600"</code> | <code>"mulberry700"</code> | <code>"mulberry800"</code> | <code>"mulberry900"</code>></p>
 <h5 id="definedin-31">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L138">types.ts:138</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L138">types.ts:138</a></p>
 <hr />
 <h4 id="colorschemeraw">colorSchemeRaw</h4>
 <p>• <code>Optional</code> <strong>colorSchemeRaw</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>string</code>></p>
 <h5 id="definedin-32">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L143">types.ts:143</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L143">types.ts:143</a></p>
 <hr />
 <h4 id="description">description</h4>
 <p>• <code>Optional</code> <strong>description</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>string</code>></p>
 <h5 id="definedin-33">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L146">types.ts:146</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L146">types.ts:146</a></p>
 <hr />
 <h4 id="duration">duration</h4>
 <p>• <code>Optional</code> <strong>duration</strong>: <code>number</code></p>
 <h5 id="definedin-34">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L149">types.ts:149</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L149">types.ts:149</a></p>
 <hr />
 <h4 id="id">id</h4>
 <p>• <code>Optional</code> <strong>id</strong>: <code>string</code></p>
 <h5 id="definedin-35">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L150">types.ts:150</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L150">types.ts:150</a></p>
 <hr />
 <h4 id="isclosable">isClosable</h4>
 <p>• <code>Optional</code> <strong>isClosable</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>boolean</code>></p>
 <h5 id="definedin-36">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L144">types.ts:144</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L144">types.ts:144</a></p>
 <hr />
 <h4 id="label">label</h4>
 <p>• <code>Optional</code> <strong>label</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>string</code>></p>
 <h5 id="definedin-37">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L148">types.ts:148</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L148">types.ts:148</a></p>
 <hr />
 <h4 id="onclose">onClose</h4>
 <p>• <code>Optional</code> <strong>onClose</strong>: <code>PartialOrNestedPartial</code>\<() => <code>void</code>></p>
 <h5 id="definedin-38">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L145">types.ts:145</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L145">types.ts:145</a></p>
 <hr />
 <h4 id="opacitycolorscheme">opacityColorScheme</h4>
 <p>• <code>Optional</code> <strong>opacityColorScheme</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>number</code>></p>
 <h5 id="definedin-39">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L142">types.ts:142</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L142">types.ts:142</a></p>
 <hr />
 <h4 id="status">status</h4>
 <p>• <code>Optional</code> <strong>status</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>"default"</code> | <code>"info"</code> | <code>"warning"</code> | <code>"error"</code> | <code>"success"</code>></p>
 <h5 id="definedin-40">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L139">types.ts:139</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L139">types.ts:139</a></p>
 <hr />
 <h4 id="variant">variant</h4>
 <p>• <code>Optional</code> <strong>variant</strong>: <code>PartialOrNestedPartial</code>\&lt;<code>"ghost"</code> | <code>"solid"</code> | <code>"outline"</code> | <code>"link"</code>></p>
 <h5 id="definedin-41">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L137">types.ts:137</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L137">types.ts:137</a></p>
 <p><a name="interfacesusercontextmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / <a href="#modulesmd">Exports</a> / userContext</p>
 <h2 id="interfaceusercontext">Interface: userContext</h2>
@@ -459,12 +519,12 @@
 <h6 id="returns-8">Returns</h6>
 <p><code>unknown</code></p>
 <h5 id="definedin-42">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L128">types.ts:128</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L128">types.ts:128</a></p>
 <hr />
 <h4 id="globalstate-1">globalState</h4>
 <p>• <strong>globalState</strong>: <code>Record</code>\&lt;<code>string</code>, <code>unknown</code>></p>
 <h5 id="definedin-43">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L130">types.ts:130</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L130">types.ts:130</a></p>
 <hr />
 <h4 id="resetappstate-1">resetAppState</h4>
 <p>• <strong>resetAppState</strong>: (<code>isDev</code>: <code>boolean</code>) =&gt; <code>void</code></p>
@@ -477,7 +537,7 @@
 <h6 id="returns-9">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-44">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L129">types.ts:129</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L129">types.ts:129</a></p>
 <hr />
 <h4 id="setappstate-1">setAppState</h4>
 <p>• <strong>setAppState</strong>: (<code>key</code>: <code>string</code>, <code>value</code>: <code>unknown</code>, <code>isDev</code>: <code>boolean</code>) =&gt; <code>void</code></p>
@@ -492,7 +552,7 @@
 <h6 id="returns-10">Returns</h6>
 <p><code>void</code></p>
 <h5 id="definedin-45">Defined in</h5>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/types.ts#L127">types.ts:127</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L127">types.ts:127</a></p>
 <p><a name="modulesmd"></a></p>
 <p><a href="#readmemd">@robust-ui/use-global-context</a> / Exports</p>
 <h1 id="robustuiuseglobalcontext">@robust-ui/use-global-context</h1>
@@ -519,7 +579,7 @@
 <p>• <code>Const</code> <strong>GlobalContext</strong>: <code>Context</code>\&lt;<a href="#interfacesglobalcontextvaluesmd"><code>GlobalContextValues</code></a>></p>
 <p>The global context for the application.</p>
 <h4 id="definedin-46">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/index.ts#L9">index.ts:9</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/index.ts#L9">index.ts:9</a></p>
 <h2 id="functions-1">Functions</h2>
 <h3 id="useglobalcontext">useGlobalContext</h3>
 <p>▸ <strong>useGlobalContext</strong>\&lt;<code>T</code>>(<code>options?</code>): <a href="#interfacesglobalcontextvaluesmd"><code>GlobalContextValues</code></a>[<code>T</code>]</p>
@@ -539,7 +599,7 @@
 <li>The value of the global context associated with the specified key.</li>
 </ul>
 <h4 id="definedin-47">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/index.ts#L21">index.ts:21</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/index.ts#L21">index.ts:21</a></p>
 <p>▸ <strong>useGlobalContext</strong>\&lt;<code>T</code>, <code>K</code>>(<code>options?</code>): <a href="#interfacesglobalcontextvaluesmd"><code>GlobalContextValues</code></a>[<code>T</code>][<code>K</code>]</p>
 <p>Retrieves a value from the global context based on the provided key and subKey.</p>
 <h4 id="typeparameters-1">Type parameters</h4>
@@ -557,4 +617,4 @@
 <p><a href="#interfacesglobalcontextvaluesmd"><code>GlobalContextValues</code></a>[<code>T</code>][<code>K</code>]</p>
 <p>The value from the global context.</p>
 <h4 id="definedin-48">Defined in</h4>
-<p><a href="https://github.com/nahuelRosas/robust-ui/blob/3f22d4a/packages/hooks/use-global-context/src/index.ts#L34">index.ts:34</a></p>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/index.ts#L34">index.ts:34</a></p>

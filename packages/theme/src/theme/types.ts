@@ -51,6 +51,7 @@ export type TSizeProps = TCommonProps &
     minContent: string;
     webkitFillAvailable: string;
     mozAvailable: string;
+    "0": string;
   };
 
 /**
@@ -195,10 +196,7 @@ export type TDefaultTheme = {
   flexShrink: TCommonProps & {
     revertLayer: string;
   };
-  zIndex: TCommonProps &
-    TNumbers & {
-      auto: string;
-    };
+  zIndex: TCommonProps & TNumbers;
   fontStyle: TCommonProps & {
     italic: string;
     normal: string;

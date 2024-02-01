@@ -2,6 +2,7 @@ import { TCommonProps, TDefaultTheme, TSizeProps } from "./types";
 import { Numbers } from "@/numbers";
 import { colors } from "./colors";
 import { sizes } from "@/sizes";
+
 export * from "./colors";
 export * from "./types";
 /**
@@ -26,6 +27,7 @@ export const sizeProps: TSizeProps = {
   minContent: "min-content",
   webkitFillAvailable: "-webkit-fill-available",
   mozAvailable: "-moz-available",
+  "0": "0",
   ...sizes,
 };
 //HTMLImageElement
@@ -161,6 +163,7 @@ export const defaultTheme: TDefaultTheme = {
   },
   width: {
     ...commonProps,
+    "0": "0",
     fitContent: "fit-content",
     maxContent: "max-content",
     minContent: "min-content",
@@ -171,6 +174,7 @@ export const defaultTheme: TDefaultTheme = {
   },
   height: {
     ...commonProps,
+    "0": "0",
     fitContent: "fit-content",
     maxContent: "max-content",
     minContent: "min-content",
@@ -225,7 +229,6 @@ export const defaultTheme: TDefaultTheme = {
   },
   zIndex: {
     ...commonProps,
-    auto: "auto",
     ...Numbers,
   },
   fontStyle: {

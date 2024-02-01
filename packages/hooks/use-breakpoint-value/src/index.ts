@@ -25,11 +25,11 @@ export function useBreakpointValue({
 
   if (!devData && !breakPoints)
     throw new Error(
-      "[useBreakPointValue] - You should use this hook within the provider."
+      "[useBreakPointValue] - You should use this hook within the provider.",
     );
 
   const [currentBreakpoint, setCurrentBreakpoint] = useState<string | null>(
-    null
+    null,
   );
 
   const mediaBreakpoints = breakPoints || devData.mediaBreakpoints;
@@ -47,7 +47,7 @@ export function useBreakpointValue({
         currentBreakpoint,
       });
     },
-    [mediaBreakpoints, currentBreakpoint]
+    [mediaBreakpoints, currentBreakpoint],
   );
 
   /**
@@ -61,7 +61,7 @@ export function useBreakpointValue({
         delay: 0,
         immediate: true,
       }),
-    [handleResizeCallback]
+    [handleResizeCallback],
   );
 
   /**

@@ -60,7 +60,7 @@ const Factory: React.ForwardRefExoticComponent<ForwardRefExotic<HeaderProps>> =
         position="fixed"
         optimizedWidth
         display="flex"
-        p="2.5dvh"
+        p="3dvh"
         ref={ref}
         left="0"
         top="0"

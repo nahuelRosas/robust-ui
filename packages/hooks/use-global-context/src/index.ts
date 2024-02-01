@@ -7,7 +7,7 @@ export * from "./types";
  * The global context for the application.
  */
 export const GlobalContext = createContext<GlobalContextValues>(
-  {} as GlobalContextValues
+  {} as GlobalContextValues,
 );
 
 /**
@@ -52,7 +52,7 @@ export function useGlobalContext(options?: {
 
   if (!context) {
     throw new Error(
-      "GlobalContext is not available. Make sure to wrap your component in a GlobalContext provider."
+      "GlobalContext is not available. Make sure to wrap your component in a GlobalContext provider.",
     );
   }
 

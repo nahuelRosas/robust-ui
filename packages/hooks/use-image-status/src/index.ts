@@ -98,7 +98,7 @@ export function useImageStatus({
     image.onload = function (event): void {
       startTransition(() => setStatus("loaded"));
       setImagesLoadedState((loadedImages: string[]) =>
-        loadedImages.includes(src) ? loadedImages : [...loadedImages, src]
+        loadedImages.includes(src) ? loadedImages : [...loadedImages, src],
       );
       cleanupImage();
       if (onLoad) {

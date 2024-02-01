@@ -5,9 +5,11 @@ import { language } from "./language";
 export * from "./media-breakpoints";
 export * from "./css-rules-set";
 export * from "./css-reset";
+export * from "./numbers";
 export * from "./commands";
 export * from "./language";
 export * from "./theme";
+export * from "./sizes";
 
 /**
  * Object containing selectors for styling elements.

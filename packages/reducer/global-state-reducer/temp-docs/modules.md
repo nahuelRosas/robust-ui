@@ -24,10 +24,10 @@ Reducer function for managing the global state.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `state` | [`GlobalState`](interfaces/GlobalState.md) | The current global state. |
-| `action` | `unknown` | The action to be performed on the global state. |
+| Name     | Type                                       | Description                                     |
+| :------- | :----------------------------------------- | :---------------------------------------------- |
+| `state`  | [`GlobalState`](interfaces/GlobalState.md) | The current global state.                       |
+| `action` | `unknown`                                  | The action to be performed on the global state. |
 
 #### Returns
 
@@ -37,4 +37,4 @@ The updated global state.
 
 #### Defined in
 
-[index.ts:30](https://github.com/nahuelRosas/robust-ui/blob/4beab69/packages/reducer/global-state-reducer/src/index.ts#L30)
+[index.ts:30](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L30)

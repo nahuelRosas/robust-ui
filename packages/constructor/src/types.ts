@@ -28,7 +28,7 @@ export type NestedRecord<T> = Partial<
  * Represents a type that can be either a partial object of type T or a nested record of type T.
  * @template T - The type of the object.
  */
-type PartialOrNestedPartial<T> = Partial<T> | NestedRecord<T>;
+export type PartialOrNestedPartial<T> = Partial<T> | NestedRecord<T>;
 
 /**
  * Represents an array that can contain either elements of type T, or nested partial objects of type T, or a combination of both.
