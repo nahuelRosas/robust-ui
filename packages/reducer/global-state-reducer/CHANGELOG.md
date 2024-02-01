@@ -1,5 +1,11 @@
 # @robust-ui/global-state-reducer
 
+## 1.1.0
+
+### Minor Changes
+
+- d7ccbd9: fix code and refactor, add docs
+
 ## 1.0.0
 
 ### Major Changes

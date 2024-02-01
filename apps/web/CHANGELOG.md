@@ -1,5 +1,12 @@
 # web
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [d7ccbd9]
+  - @robust-ui/nextjs-components@1.1.0
+
 ## 1.0.0
 
 ### Major Changes
