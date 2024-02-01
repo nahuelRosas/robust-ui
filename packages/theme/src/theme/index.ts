@@ -1,8 +1,9 @@
 import { TCommonProps, TDefaultTheme, TSizeProps } from "./types";
+import { Numbers } from "@/numbers";
 import { colors } from "./colors";
 import { sizes } from "@/sizes";
-import { Numbers } from "@/numbers";
-
+export * from "./colors";
+export * from "./types";
 /**
  * Common properties for the theme.
 

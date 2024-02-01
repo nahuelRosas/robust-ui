@@ -11,6 +11,7 @@ export * from "./theme";
 
 /**
  * Object containing selectors for styling elements.
+ * @internal
  *  */
 export const selectors = {
   ...PseudoElements,
