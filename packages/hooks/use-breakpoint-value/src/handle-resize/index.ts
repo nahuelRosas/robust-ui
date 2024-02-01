@@ -1,7 +1,13 @@
+/**
+ * Represents a collection of breakpoints and their corresponding values.
+ */
 interface BreakPoints {
   [key: string]: number;
 }
 
+/**
+ * Options for handling resize events.
+ */
 type HandleResizeOptions = {
   breakPoints: BreakPoints;
   setCurrentBreakpoint: React.Dispatch<React.SetStateAction<string | null>>;
@@ -32,7 +38,7 @@ export function handleResize({
             }
             return acc;
           },
-          null as string | null,
+          null as string | null
         )
       : null;
 
