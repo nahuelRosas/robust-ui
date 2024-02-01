@@ -8,13 +8,13 @@ export const sizes = {
     (Array(300) as TSizeViewport[]).map((_, i) => [
       `${i + 1}dvw`,
       `${i + 1}dvw`,
-    ])
+    ]),
   ),
   ...Object.fromEntries(
     (Array(300) as TSizeViewport[]).map((_, i) => [
       `${i + 1}dvh`,
       `${i + 1}dvh`,
-    ])
+    ]),
   ),
   fullDVW: "100dvw",
   fullDVH: "100dvh",

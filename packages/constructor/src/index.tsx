@@ -23,7 +23,7 @@ export function CreateComponent<T>({
           style,
           ...props
         }: EnhancedProps<T>,
-        ref
+        ref,
       ): JSX.Element | null {
         const {
           currentBreakpoint,
@@ -48,7 +48,7 @@ export function CreateComponent<T>({
                 ...selectors,
               },
             }),
-          [selectors, props]
+          [selectors, props],
         );
 
         const uniqueClassName = useMemo(
@@ -59,7 +59,7 @@ export function CreateComponent<T>({
                 ...styleProps,
               },
             }),
-          [styleProps, style]
+          [styleProps, style],
         );
 
         const combinedClassName = [uniqueClassName, props.className]
@@ -97,7 +97,7 @@ export function CreateComponent<T>({
         useEffect(() => {
           if (!isProviderActive) {
             throw new Error(
-              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`
+              `The Provider is not currently active or initialized. Please ensure it is properly mounted before use.`,
             );
           }
         }, [isProviderActive]);
@@ -113,6 +113,6 @@ export function CreateComponent<T>({
           </ElementType>
         );
       }),
-    [componentType]
+    [componentType],
   );
 }

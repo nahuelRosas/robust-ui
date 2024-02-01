@@ -30,7 +30,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 <a name="readmemd"></a>
 
 @robust-ui/tools / [Exports](#modulesmd)
@@ -53,7 +52,6 @@
 # @robust-ui/core
 
 # Interfaces
-
 
 <a name="interfacesioptionsmd"></a>
 
@@ -81,7 +79,7 @@
 
 [generate-hash/index.ts:8](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-hash/index.ts#L8)
 
-___
+---
 
 #### hashAlgorithm
 
@@ -91,7 +89,7 @@ ___
 
 [generate-hash/index.ts:4](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-hash/index.ts#L4)
 
-___
+---
 
 #### iterations
 
@@ -101,7 +99,7 @@ ___
 
 [generate-hash/index.ts:7](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-hash/index.ts#L7)
 
-___
+---
 
 #### pepper
 
@@ -111,7 +109,7 @@ ___
 
 [generate-hash/index.ts:6](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-hash/index.ts#L6)
 
-___
+---
 
 #### salt
 
@@ -120,7 +118,6 @@ ___
 ##### Defined in
 
 [generate-hash/index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-hash/index.ts#L5)
-
 
 <a name="modulesmd"></a>
 
@@ -162,10 +159,10 @@ ___
 
 #### Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `string` |
-| `U` | `U` |
+| Name | Type             |
+| :--- | :--------------- |
+| `T`  | extends `string` |
+| `U`  | `U`              |
 
 #### Defined in
 
@@ -182,11 +179,11 @@ Throws an error if the input attributes are invalid.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `inputAttributes` | `Record`\<`string`, `unknown`\> |
-| › `mediaBreakpoints` | `Record`\<`string`, `number`\> |
+| Name                 | Type                            |
+| :------------------- | :------------------------------ |
+| `«destructured»`     | `Object`                        |
+| › `inputAttributes`  | `Record`\<`string`, `unknown`\> |
+| › `mediaBreakpoints` | `Record`\<`string`, `number`\>  |
 
 #### Returns
 
@@ -202,7 +199,7 @@ Error if the input attributes are missing or have an invalid format.
 
 [attribute-completer/index.ts:13](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/attribute-completer/index.ts#L13)
 
-___
+---
 
 ### debounce
 
@@ -212,18 +209,18 @@ Creates a debounced function that delays invoking the provided function until af
 
 #### Type parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `T` | extends (...`args`: `unknown`[]) => `void` | The type of the function to debounce. |
+| Name | Type                                       | Description                           |
+| :--- | :----------------------------------------- | :------------------------------------ |
+| `T`  | extends (...`args`: `unknown`[]) => `void` | The type of the function to debounce. |
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `options` | `Object` | `undefined` | The options for the debounced function. |
-| `options.delay?` | `number` | `0` | The delay in milliseconds before invoking the debounced function. |
-| `options.fn` | `T` | `undefined` | The function to debounce. |
-| `options.immediate?` | `boolean` | `false` | Specifies whether the debounced function should be invoked immediately on the leading edge. |
+| Name                 | Type      | Default value | Description                                                                                 |
+| :------------------- | :-------- | :------------ | :------------------------------------------------------------------------------------------ |
+| `options`            | `Object`  | `undefined`   | The options for the debounced function.                                                     |
+| `options.delay?`     | `number`  | `0`           | The delay in milliseconds before invoking the debounced function.                           |
+| `options.fn`         | `T`       | `undefined`   | The function to debounce.                                                                   |
+| `options.immediate?` | `boolean` | `false`       | Specifies whether the debounced function should be invoked immediately on the leading edge. |
 
 #### Returns
 
@@ -235,7 +232,7 @@ Creates a debounced function that delays invoking the provided function until af
 
 [debounce/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/debounce/index.ts#L11)
 
-___
+---
 
 ### generateHash
 
@@ -245,11 +242,11 @@ Generates a hash for the given input string using the specified options.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `inputString` | `string` |
-| › `options?` | [`IOptions`](#interfacesioptionsmd) |
+| Name             | Type                                |
+| :--------------- | :---------------------------------- |
+| `«destructured»` | `Object`                            |
+| › `inputString`  | `string`                            |
+| › `options?`     | [`IOptions`](#interfacesioptionsmd) |
 
 #### Returns
 
@@ -265,7 +262,7 @@ Error if an invalid hash algorithm or digest format is provided.
 
 [generate-hash/index.ts:19](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-hash/index.ts#L19)
 
-___
+---
 
 ### generateUniqueId
 
@@ -278,12 +275,12 @@ If a prefix is provided, it will be prepended to the generated ID.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `object` | `unknown` |
-| › `options?` | [`IOptions`](#interfacesioptionsmd) |
-| › `prefix?` | `string` |
+| Name             | Type                                |
+| :--------------- | :---------------------------------- |
+| `«destructured»` | `Object`                            |
+| › `object`       | `unknown`                           |
+| › `options?`     | [`IOptions`](#interfacesioptionsmd) |
+| › `prefix?`      | `string`                            |
 
 #### Returns
 
@@ -299,7 +296,7 @@ Error if unable to generate an ID from the input.
 
 [generate-unique-id/index.ts:16](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/generate-unique-id/index.ts#L16)
 
-___
+---
 
 ### isEmptyArray
 
@@ -309,8 +306,8 @@ Checks if an array is empty.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type        | Description         |
+| :---- | :---------- | :------------------ |
 | `arr` | `unknown`[] | The array to check. |
 
 #### Returns
@@ -323,7 +320,7 @@ True if the array is empty, false otherwise.
 
 [validation-input/index.ts:25](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/validation-input/index.ts#L25)
 
-___
+---
 
 ### isEmptyObject
 
@@ -333,8 +330,8 @@ Checks if an object is empty.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name  | Type     | Description          |
+| :---- | :------- | :------------------- |
 | `obj` | `object` | The object to check. |
 
 #### Returns
@@ -347,7 +344,7 @@ True if the object is empty, false otherwise.
 
 [validation-input/index.ts:16](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/validation-input/index.ts#L16)
 
-___
+---
 
 ### isNullOrUndefined
 
@@ -357,8 +354,8 @@ Checks if a value is null or undefined.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name    | Type      | Description         |
+| :------ | :-------- | :------------------ |
 | `value` | `unknown` | The value to check. |
 
 #### Returns
@@ -371,7 +368,7 @@ True if the value is null or undefined, false otherwise.
 
 [validation-input/index.ts:7](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/validation-input/index.ts#L7)
 
-___
+---
 
 ### normalizeInputKey
 
@@ -382,12 +379,12 @@ Throws an error if the input key is invalid or no valid prop name is found.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `«destructured»` | `Object` | `undefined` |
-| › `inputKey` | `string` | `undefined` |
-| › `keyword?` | `string` | `"raw"` |
-| › `outputKey?` | ``"camelCase"`` \| ``"snakeCase"`` \| ``"kebabCase"`` | `"camelCase"` |
+| Name             | Type                                            | Default value |
+| :--------------- | :---------------------------------------------- | :------------ |
+| `«destructured»` | `Object`                                        | `undefined`   |
+| › `inputKey`     | `string`                                        | `undefined`   |
+| › `keyword?`     | `string`                                        | `"raw"`       |
+| › `outputKey?`   | `"camelCase"` \| `"snakeCase"` \| `"kebabCase"` | `"camelCase"` |
 
 #### Returns
 
@@ -395,10 +392,10 @@ Throws an error if the input key is invalid or no valid prop name is found.
 
 An object containing the information about whether the keyword is present in the input key and the normalized output key.
 
-| Name | Type |
-| :------ | :------ |
+| Name               | Type      |
+| :----------------- | :-------- |
 | `isKeywordPresent` | `boolean` |
-| `output` | `string` |
+| `output`           | `string`  |
 
 **`Throws`**
 
@@ -408,25 +405,25 @@ Error if the input key is invalid or no valid prop name is found.
 
 [normalize-input-key/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/normalize-input-key/index.ts#L11)
 
-___
+---
 
 ### propagation
 
-▸ **propagation**(`«destructured»`): `ReactNode`[] \| ``null`` \| `undefined`
+▸ **propagation**(`«destructured»`): `ReactNode`[] \| `null` \| `undefined`
 
 Propagates HTML attributes to all valid React elements in the children tree.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `children` | `ReactNode` |
-| › `props` | `HTMLAttributes`\<`HTMLElement`\> |
+| Name             | Type                              |
+| :--------------- | :-------------------------------- |
+| `«destructured»` | `Object`                          |
+| › `children`     | `ReactNode`                       |
+| › `props`        | `HTMLAttributes`\<`HTMLElement`\> |
 
 #### Returns
 
-`ReactNode`[] \| ``null`` \| `undefined`
+`ReactNode`[] \| `null` \| `undefined`
 
 The updated ReactNode with the propagated attributes.
 
@@ -434,7 +431,7 @@ The updated ReactNode with the propagated attributes.
 
 [propagation/index.ts:17](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/propagation/index.ts#L17)
 
-___
+---
 
 ### propsSplitter
 
@@ -444,8 +441,8 @@ Splits the props into HTML props and style props based on the provided commands.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name             | Type                  |
+| :--------------- | :-------------------- |
 | `«destructured»` | `IpropsSplitterProps` |
 
 #### Returns
@@ -454,16 +451,16 @@ Splits the props into HTML props and style props based on the provided commands.
 
 An object containing the HTML props and style props.
 
-| Name | Type |
-| :------ | :------ |
-| `htmlProps` | `Record`\<`string`, `unknown`\> |
+| Name         | Type                            |
+| :----------- | :------------------------------ |
+| `htmlProps`  | `Record`\<`string`, `unknown`\> |
 | `styleProps` | `Record`\<`string`, `unknown`\> |
 
 #### Defined in
 
 [props-splitter/index.ts:15](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/props-splitter/index.ts#L15)
 
-___
+---
 
 ### safeJSON
 
@@ -473,11 +470,11 @@ Safely converts an object to a JSON string representation.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `indentation?` | `string` \| `number` |
-| › `object` | `unknown` |
+| Name                  | Type                                               |
+| :-------------------- | :------------------------------------------------- |
+| `«destructured»`      | `Object`                                           |
+| › `indentation?`      | `string` \| `number`                               |
+| › `object`            | `unknown`                                          |
 | › `replacerFunction?` | (`key`: `string`, `value`: `unknown`) => `unknown` |
 
 #### Returns
@@ -494,24 +491,24 @@ Error if unable to stringify the object.
 
 [safe-json/index.ts:10](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/safe-json/index.ts#L10)
 
-___
+---
 
 ### stopPropagation
 
-▸ **stopPropagation**(`children`): `undefined` \| ``null`` \| (`string` \| `number` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\> \| `Iterable`\<`ReactNode`\>)[]
+▸ **stopPropagation**(`children`): `undefined` \| `null` \| (`string` \| `number` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\> \| `Iterable`\<`ReactNode`\>)[]
 
 Stops the propagation of click events on the provided React children elements.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `children` | `Object` | The React children elements. |
-| `children.children` | `ReactNode` | - |
+| Name                | Type        | Description                  |
+| :------------------ | :---------- | :--------------------------- |
+| `children`          | `Object`    | The React children elements. |
+| `children.children` | `ReactNode` | -                            |
 
 #### Returns
 
-`undefined` \| ``null`` \| (`string` \| `number` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\> \| `Iterable`\<`ReactNode`\>)[]
+`undefined` \| `null` \| (`string` \| `number` \| `ReactElement`\<`any`, `string` \| `JSXElementConstructor`\<`any`\>\> \| `Iterable`\<`ReactNode`\>)[]
 
 The modified React children elements with click event propagation stopped.
 
@@ -519,7 +516,7 @@ The modified React children elements with click event propagation stopped.
 
 [stop-propagation/index.ts:16](https://github.com/nahuelRosas/robust-ui/blob/233d5ae/packages/tools/src/stop-propagation/index.ts#L16)
 
-___
+---
 
 ### valueRecoverer
 
@@ -529,18 +526,18 @@ Recovers the value based on the provided input properties and values.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `Object` |
-| › `breakPoints` | `Object` |
-| › `breakPoints.context` | `Record`\<`string`, `unknown`\> |
-| › `breakPoints.current` | `string` |
-| › `currentGlobalLanguage?` | `string` |
-| › `darkMode` | `boolean` |
-| › `inputProp` | `string` |
-| › `inputValue` | `unknown` |
-| › `isRaw?` | `boolean` |
-| › `theme` | `Record`\<`string`, \{ `[key: string | number]`: `unknown`;  }\> |
+| Name                       | Type                                 |
+| :------------------------- | :----------------------------------- | ------------------------ |
+| `«destructured»`           | `Object`                             |
+| › `breakPoints`            | `Object`                             |
+| › `breakPoints.context`    | `Record`\<`string`, `unknown`\>      |
+| › `breakPoints.current`    | `string`                             |
+| › `currentGlobalLanguage?` | `string`                             |
+| › `darkMode`               | `boolean`                            |
+| › `inputProp`              | `string`                             |
+| › `inputValue`             | `unknown`                            |
+| › `isRaw?`                 | `boolean`                            |
+| › `theme`                  | `Record`\<`string`, \{ `[key: string | number]`: `unknown`; }\> |
 
 #### Returns
 

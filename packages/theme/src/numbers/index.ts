@@ -9,7 +9,7 @@ export const Numbers: Record<TypeNumbersIntegerRange, TypeNumbersIntegerRange> =
     (Array(300) as TypeNumbersIntegerRange[]).map((_, i) => [
       `${i + 1}`,
       `${i + 1}`,
-    ])
+    ]),
   ) as unknown as Record<TypeNumbersIntegerRange, TypeNumbersIntegerRange>;
 
 /**

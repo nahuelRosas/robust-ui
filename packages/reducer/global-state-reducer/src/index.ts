@@ -1,12 +1,21 @@
+/**
+ * Represents an action in the application.
+ */
 export interface Action {
   type: string;
 }
 
+/**
+ * Represents an action that sets the value of a specific key in the global state.
+ */
 export interface SetValueAction extends Action {
   key: string;
   value: unknown;
 }
 
+/**
+ * Represents the global state object.
+ */
 export interface GlobalState {
   [key: string]: unknown;
 }
@@ -20,7 +29,7 @@ export interface GlobalState {
  */
 export function GlobalStateReducer(
   state: GlobalState,
-  action: unknown,
+  action: unknown
 ): GlobalState {
   switch ((action as Action).type) {
     case "SET_GLOBAL_STATE_VALUE": {
