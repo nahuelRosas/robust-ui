@@ -44,8 +44,8 @@
     "terser": "latest",
     "tsup": "latest",
     "turbo": "latest",
-    "typedoc": "^0.25.7",
-    "typedoc-plugin-markdown": "^3.17.1",
+    "typedoc": "latest",
+    "typedoc-plugin-markdown": "latest",
     "typescript": "latest"
   },
   "packageManager": "pnpm@8.9.0",
