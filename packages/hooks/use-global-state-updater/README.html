@@ -1,0 +1,72 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#robust-uicore">@robust-ui/core</a></li>
+<li><a href="#robust-uiuse-global-state-updater">@robust-ui/use-global-state-updater</a></li>
+<li><a href="#table-of-contents">Table of contents</a><ul>
+<li><a href="#type-aliases">Type Aliases</a></li>
+<li><a href="#functions">Functions</a></li></ul></li>
+<li><a href="#type-aliases-1">Type Aliases</a><ul>
+<li><a href="#functiontype">FunctionType</a></li></ul></li>
+<li><a href="#functions-1">Functions</a><ul>
+<li><a href="#useglobalstateupdater">useGlobalStateUpdater</a></li></ul></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/use-global-state-updater / <a href="#modulesmd">Exports</a></p>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<ul>
+<li><a href="#robust-uicore">@robust-ui/core</a></li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<p><a name="readmemd"></a></p>
+<p>@robust-ui/core / <a href="#modulesmd">Exports</a></p>
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/core</a> / Exports</p>
+<h1 id="robustuicore">@robust-ui/core</h1>
+<p><a name="modulesmd"></a></p>
+<p><a href="#readmemd">@robust-ui/use-global-state-updater</a> / Exports</p>
+<h1 id="robustuiuseglobalstateupdater">@robust-ui/use-global-state-updater</h1>
+<h2 id="tableofcontents">Table of contents</h2>
+<h3 id="typealiases">Type Aliases</h3>
+<ul>
+<li><a href="#functiontype">FunctionType</a></li>
+</ul>
+<h3 id="functions">Functions</h3>
+<ul>
+<li><a href="#useglobalstateupdater">useGlobalStateUpdater</a></li>
+</ul>
+<h2 id="typealiases-1">Type Aliases</h2>
+<h3 id="functiontype">FunctionType</h3>
+<p>Ƭ <strong>FunctionType</strong>\<<code>T</code>>: (<code>prevState</code>: <code>T</code>) => <code>T</code> | <code>T</code></p>
+<h4 id="typeparameters">Type parameters</h4>
+<p>| Name |
+| :------ |
+| <code>T</code> |</p>
+<h4 id="definedin">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-global-state-updater/src/index.ts#L4">index.ts:4</a></p>
+<h2 id="functions-1">Functions</h2>
+<h3 id="useglobalstateupdater">useGlobalStateUpdater</h3>
+<p>▸ <strong>useGlobalStateUpdater</strong>\&lt;<code>T</code>>(<code>options</code>): <code>T</code> | <code>undefined</code></p>
+<p>Updates the global state value and triggers the setter function.</p>
+<h4 id="typeparameters-1">Type parameters</h4>
+<p>| Name | Description |
+| :------ | :------ |
+| <code>T</code> | The type of the global state value. |</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Name | Type | Description |
+| :------ | :------ | :------ |
+| <code>options</code> | <code>Object</code> | The options for updating the global state. |
+| <code>options.SetterGlobalState</code> | (<code>key</code>: <code>string</code>, <code>value</code>: <code>unknown</code>, <code>isDev</code>: <code>boolean</code>) =&gt; <code>void</code> | The setter function for updating the global state. |
+| <code>options.isDev</code> | <code>boolean</code> | Indicates whether the code is running in a development environment. |
+| <code>options.key</code> | <code>string</code> | The key of the global state value. |
+| <code>options.newValue</code> | <a href="#functiontype"><code>FunctionType</code></a>\&lt;<code>T</code>> | The new value or a function that returns the new value. |
+| <code>options.valueRef</code> | <code>MutableRefObject</code>\&lt;<code>T</code>> | The reference to the mutable global state value. |</p>
+<h4 id="returns">Returns</h4>
+<p><code>T</code> | <code>undefined</code></p>
+<ul>
+<li>The previous value of the global state.</li>
+</ul>
+<h4 id="definedin-1">Defined in</h4>
+<p><a href="https://github.com/nahuelRosas/robust-ui/blob/e04771a/packages/hooks/use-global-state-updater/src/index.ts#L18">index.ts:18</a></p>
