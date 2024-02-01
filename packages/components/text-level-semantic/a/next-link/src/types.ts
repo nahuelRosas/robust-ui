@@ -9,7 +9,10 @@ import {
   EnhancedProps,
 } from "@robust-ui/constructor";
 
-export interface NextLinkProps extends EnhancedProps<LinkProps> {
+/**
+ * Represents the props for a component.
+ */
+type ComponentProps = {
   direction?: PartialOrNestedPartial<"row" | "rowReverse">;
   isDisabled?: PartialOrNestedPartial<boolean>;
   hoverHelp?: PartialOrNestedPartial<boolean>;
@@ -23,18 +26,34 @@ export interface NextLinkProps extends EnhancedProps<LinkProps> {
   spinnerProps?: SpinnerProps;
   textProps?: SpanProps;
   iconProps?: IconProps;
-}
+};
 
-export interface NextLinkPropsNoGeneric
-  extends EnhancedPropsNoGeneric<LinkProps> {
+/**
+ * Props for the NextLink component.
+ */
+export type NextLinkProps = EnhancedProps<LinkProps> & ComponentProps;
+
+/**
+ * Props for the component without generics.
+ */
+type ComponentPropsNoGeneric = {
   direction?: "row" | "rowReverse";
-  hoverTextProps?: {
-    containerProps?: FlexProps;
-    textProps?: SpanProps;
-  };
   isDisabled?: boolean;
   hoverHelp?: boolean;
   isLoading?: boolean;
   hoverText?: string;
   iconType?: keyof TIcons;
-}
+  hoverTextProps?: {
+    containerProps?: FlexProps;
+    textProps?: SpanProps;
+  };
+  spinnerProps?: SpinnerProps;
+  textProps?: SpanProps;
+  iconProps?: IconProps;
+};
+
+/**
+ * Props for the NextLink component without generics.
+ */
+export type NextLinkPropsNoGeneric = EnhancedPropsNoGeneric<LinkProps> &
+  ComponentPropsNoGeneric;

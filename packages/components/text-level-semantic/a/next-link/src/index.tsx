@@ -15,7 +15,7 @@ const Factory: React.ForwardRefExoticComponent<
   ForwardRefExotic<NextLinkProps>
 > = forwardRef(function NextLinkComponent(
   { textProps, iconProps, spinnerProps, children, ...props },
-  ref,
+  ref
 ): React.JSX.Element {
   const Component = CreateComponent<LinkProps>({
     componentType: "a",
@@ -95,7 +95,7 @@ const Factory: React.ForwardRefExoticComponent<
       borderRadius={
         colorSchemeProperty?.variant === "link" || !colorSchemeProperty
           ? undefined
-          : "2.5dvw"
+          : "2dvw"
       }
       keyframesRaw={{
         scaleUpLink: {
@@ -143,7 +143,7 @@ const Factory: React.ForwardRefExoticComponent<
       cursor="pointer"
       display="flex"
       role="link"
-      gap="0.5dvw"
+      gap="1dvw"
       ref={ref}
       py="1dvh"
       px="1dvw"
@@ -186,7 +186,7 @@ const Factory: React.ForwardRefExoticComponent<
           pointerEvents="none"
           background="gray900"
           whiteSpace="inherit"
-          borderRadius="1.5dvh"
+          borderRadius="2dvh"
           width="fitContent"
           position="fixed"
           py="1dvh"
