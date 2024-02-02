@@ -16,6 +16,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/use-clean-value / [Exports](#modulesmd)
@@ -103,7 +104,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -114,6 +114,7 @@ Contributions to Robust are welcome! If you find any issues or have suggestions 
 Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
+
 
 <a name="modulesmd"></a>
 
@@ -137,16 +138,16 @@ Custom hook that cleans and recovers the values of the input props based on cert
 
 #### Parameters
 
-| Name                              | Type                                       |
-| :-------------------------------- | :----------------------------------------- |
-| `«destructured»`                  | `Object`                                   |
-| › `context?`                      | `Object`                                   |
-| › `context.currentBreakpoint`     | `unknown`                                  |
-| › `context.currentGlobalLanguage` | `string`                                   |
-| › `context.isDarkModeActive`      | `boolean`                                  |
-| › `context.mediaBreakpoints`      | `Record`\<`string`, `string` \| `number`\> |
-| › `context.theme`                 | `Record`\<`string`, `unknown`\>            |
-| › `props`                         | `Record`\<`string`, `unknown`\>            |
+| Name | Type |
+| :------ | :------ |
+| `«destructured»` | `Object` |
+| › `context?` | `Object` |
+| › `context.currentBreakpoint` | `unknown` |
+| › `context.currentGlobalLanguage` | `string` |
+| › `context.isDarkModeActive` | `boolean` |
+| › `context.mediaBreakpoints` | `Record`\<`string`, `string` \| `number`\> |
+| › `context.theme` | `Record`\<`string`, `unknown`\> |
+| › `props` | `Record`\<`string`, `unknown`\> |
 
 #### Returns
 
@@ -156,4 +157,4 @@ The cleaned and recovered props.
 
 #### Defined in
 
-[index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-clean-value/src/index.ts#L11)
+[index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-clean-value/src/index.ts#L11)

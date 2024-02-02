@@ -18,14 +18,14 @@ A custom hook that provides global state management.
 
 #### Type parameters
 
-| Name | Description                         |
-| :--- | :---------------------------------- |
-| `T`  | The type of the global state value. |
+| Name | Description |
+| :------ | :------ |
+| `T` | The type of the global state value. |
 
 #### Parameters
 
-| Name      | Type                         | Description               |
-| :-------- | :--------------------------- | :------------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `options` | `UseGlobalStateProps`\<`T`\> | The options for the hook. |
 
 #### Returns
@@ -40,4 +40,4 @@ A custom hook that provides global state management.
 
 #### Defined in
 
-[index.ts:19](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-state/src/index.ts#L19)
+[index.ts:19](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-state/src/index.ts#L19)

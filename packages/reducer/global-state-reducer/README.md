@@ -28,6 +28,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/global-state-reducer / [Exports](#modulesmd)
@@ -115,7 +116,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -128,6 +128,7 @@ Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 ---
 
 # Interfaces
+
 
 <a name="interfacesactionmd"></a>
 
@@ -157,7 +158,8 @@ Represents an action in the application.
 
 ##### Defined in
 
-[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L5)
+[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L5)
+
 
 <a name="interfacesglobalstatemd"></a>
 
@@ -170,6 +172,7 @@ Represents the global state object.
 ### Indexable
 
 ▪ [key: `string`]: `unknown`
+
 
 <a name="interfacessetvalueactionmd"></a>
 
@@ -201,9 +204,9 @@ Represents an action that sets the value of a specific key in the global state.
 
 ##### Defined in
 
-[index.ts:12](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L12)
+[index.ts:12](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L12)
 
----
+___
 
 #### type
 
@@ -215,9 +218,9 @@ Represents an action that sets the value of a specific key in the global state.
 
 ##### Defined in
 
-[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L5)
+[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L5)
 
----
+___
 
 #### value
 
@@ -225,7 +228,8 @@ Represents an action that sets the value of a specific key in the global state.
 
 ##### Defined in
 
-[index.ts:13](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L13)
+[index.ts:13](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L13)
+
 
 <a name="modulesmd"></a>
 
@@ -255,10 +259,10 @@ Reducer function for managing the global state.
 
 #### Parameters
 
-| Name     | Type                                      | Description                                     |
-| :------- | :---------------------------------------- | :---------------------------------------------- |
-| `state`  | [`GlobalState`](#interfacesglobalstatemd) | The current global state.                       |
-| `action` | `unknown`                                 | The action to be performed on the global state. |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `state` | [`GlobalState`](#interfacesglobalstatemd) | The current global state. |
+| `action` | `unknown` | The action to be performed on the global state. |
 
 #### Returns
 
@@ -268,4 +272,4 @@ The updated global state.
 
 #### Defined in
 
-[index.ts:30](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L30)
+[index.ts:30](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L30)

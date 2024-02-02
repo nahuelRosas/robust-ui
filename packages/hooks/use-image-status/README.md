@@ -21,6 +21,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/use-image-status / [Exports](#modulesmd)
@@ -108,7 +109,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -119,6 +119,7 @@ Contributions to Robust are welcome! If you find any issues or have suggestions 
 Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
+
 
 <a name="modulesmd"></a>
 
@@ -148,9 +149,9 @@ Represents an error event that occurs when an image fails to load.
 
 #### Defined in
 
-[types.ts:12](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-image-status/src/types.ts#L12)
+[types.ts:12](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-image-status/src/types.ts#L12)
 
----
+___
 
 ### ImageLoadEvent
 
@@ -168,9 +169,9 @@ The type of the event.
 
 #### Defined in
 
-[types.ts:8](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-image-status/src/types.ts#L8)
+[types.ts:8](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-image-status/src/types.ts#L8)
 
----
+___
 
 ### ImageLoaderProps
 
@@ -180,41 +181,41 @@ Props for the ImageLoader component.
 
 #### Type declaration
 
-| Name              | Type                                                     | Description                                                   |
-| :---------------- | :------------------------------------------------------- | :------------------------------------------------------------ |
-| `crossOrigin?`    | `string` \| `null`                                       | -                                                             |
-| `delay?`          | `number`                                                 | -                                                             |
-| `ignoreFallback?` | `boolean`                                                | -                                                             |
-| `onError?`        | `ReactEventHandler`\<`HTMLImageElement`\>                | -                                                             |
-| `onLoad?`         | (`event`: [`ImageLoadEvent`](#imageloadevent)) => `void` | Callback function called when the image has finished loading. |
-| `sizes?`          | `string`                                                 | -                                                             |
-| `src?`            | `string`                                                 | -                                                             |
-| `srcSet?`         | \{ `size`: `string` ; `url`: `string` }[]                | -                                                             |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `crossOrigin?` | `string` \| ``null`` | - |
+| `delay?` | `number` | - |
+| `ignoreFallback?` | `boolean` | - |
+| `onError?` | `ReactEventHandler`\<`HTMLImageElement`\> | - |
+| `onLoad?` | (`event`: [`ImageLoadEvent`](#imageloadevent)) => `void` | Callback function called when the image has finished loading. |
+| `sizes?` | `string` | - |
+| `src?` | `string` | - |
+| `srcSet?` | \{ `size`: `string` ; `url`: `string`  }[] | - |
 
 #### Defined in
 
-[types.ts:17](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-image-status/src/types.ts#L17)
+[types.ts:17](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-image-status/src/types.ts#L17)
 
 ## Functions
 
 ### useImageStatus
 
-▸ **useImageStatus**(`options`): `"failed"` \| `"loaded"` \| `"loading"` \| `"pending"`
+▸ **useImageStatus**(`options`): ``"failed"`` \| ``"loaded"`` \| ``"loading"`` \| ``"pending"``
 
 Custom hook that tracks the loading status of an image.
 
 #### Parameters
 
-| Name      | Type                                    | Description                       |
-| :-------- | :-------------------------------------- | :-------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `options` | [`ImageLoaderProps`](#imageloaderprops) | The options for the image loader. |
 
 #### Returns
 
-`"failed"` \| `"loaded"` \| `"loading"` \| `"pending"`
+``"failed"`` \| ``"loaded"`` \| ``"loading"`` \| ``"pending"``
 
 The current status of the image loading process.
 
 #### Defined in
 
-[index.ts:18](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-image-status/src/index.ts#L18)
+[index.ts:18](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-image-status/src/index.ts#L18)

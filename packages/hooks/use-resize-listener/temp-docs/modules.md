@@ -18,11 +18,11 @@ Attaches a resize listener to the window and invokes the provided callback funct
 
 #### Parameters
 
-| Name                      | Type                                                                 |
-| :------------------------ | :------------------------------------------------------------------- |
-| `«destructured»`          | `Object`                                                             |
+| Name | Type |
+| :------ | :------ |
+| `«destructured»` | `Object` |
 | › `debouncedHandleResize` | `undefined` \| (`this`: `unknown`, ...`args`: `unknown`[]) => `void` |
-| › `handleResize`          | () => `void`                                                         |
+| › `handleResize` | () => `void` |
 
 #### Returns
 
@@ -34,4 +34,4 @@ If the first argument is not a function or if debouncedHandleResize is falsy.
 
 #### Defined in
 
-[hooks/use-resize-listener/src/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-resize-listener/src/index.ts#L11)
+[hooks/use-resize-listener/src/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-resize-listener/src/index.ts#L11)

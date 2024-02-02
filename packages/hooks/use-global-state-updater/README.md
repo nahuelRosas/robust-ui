@@ -19,6 +19,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/use-global-state-updater / [Exports](#modulesmd)
@@ -106,7 +107,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -117,6 +117,7 @@ Contributions to Robust are welcome! If you find any issues or have suggestions 
 Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
+
 
 <a name="modulesmd"></a>
 
@@ -143,12 +144,12 @@ Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Defined in
 
-[index.ts:4](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-state-updater/src/index.ts#L4)
+[index.ts:4](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-state-updater/src/index.ts#L4)
 
 ## Functions
 
@@ -160,20 +161,20 @@ Updates the global state value and triggers the setter function.
 
 #### Type parameters
 
-| Name | Description                         |
-| :--- | :---------------------------------- |
-| `T`  | The type of the global state value. |
+| Name | Description |
+| :------ | :------ |
+| `T` | The type of the global state value. |
 
 #### Parameters
 
-| Name                        | Type                                                                | Description                                                         |
-| :-------------------------- | :------------------------------------------------------------------ | :------------------------------------------------------------------ |
-| `options`                   | `Object`                                                            | The options for updating the global state.                          |
-| `options.SetterGlobalState` | (`key`: `string`, `value`: `unknown`, `isDev`: `boolean`) => `void` | The setter function for updating the global state.                  |
-| `options.isDev`             | `boolean`                                                           | Indicates whether the code is running in a development environment. |
-| `options.key`               | `string`                                                            | The key of the global state value.                                  |
-| `options.newValue`          | [`FunctionType`](#functiontype)\<`T`\>                              | The new value or a function that returns the new value.             |
-| `options.valueRef`          | `MutableRefObject`\<`T`\>                                           | The reference to the mutable global state value.                    |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `options` | `Object` | The options for updating the global state. |
+| `options.SetterGlobalState` | (`key`: `string`, `value`: `unknown`, `isDev`: `boolean`) => `void` | The setter function for updating the global state. |
+| `options.isDev` | `boolean` | Indicates whether the code is running in a development environment. |
+| `options.key` | `string` | The key of the global state value. |
+| `options.newValue` | [`FunctionType`](#functiontype)\<`T`\> | The new value or a function that returns the new value. |
+| `options.valueRef` | `MutableRefObject`\<`T`\> | The reference to the mutable global state value. |
 
 #### Returns
 
@@ -183,4 +184,4 @@ Updates the global state value and triggers the setter function.
 
 #### Defined in
 
-[index.ts:18](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-state-updater/src/index.ts#L18)
+[index.ts:18](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-state-updater/src/index.ts#L18)

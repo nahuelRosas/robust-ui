@@ -21,9 +21,9 @@ Represents the values of the global context.
 
 #### Defined in
 
-[types.ts:160](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L160)
+[types.ts:160](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L160)
 
----
+___
 
 ### devTools
 
@@ -31,9 +31,9 @@ Represents the values of the global context.
 
 #### Defined in
 
-[types.ts:159](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L159)
+[types.ts:159](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L159)
 
----
+___
 
 ### notifications
 
@@ -41,9 +41,9 @@ Represents the values of the global context.
 
 #### Defined in
 
-[types.ts:157](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L157)
+[types.ts:157](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L157)
 
----
+___
 
 ### userContext
 
@@ -51,4 +51,4 @@ Represents the values of the global context.
 
 #### Defined in
 
-[types.ts:158](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L158)
+[types.ts:158](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L158)

@@ -25,8 +25,8 @@ Represents the user context.
 
 ##### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
+| Name | Type |
+| :------ | :------ |
 | `isDev` | `boolean` |
 
 ##### Returns
@@ -35,9 +35,9 @@ Represents the user context.
 
 #### Defined in
 
-[types.ts:128](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L128)
+[types.ts:128](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L128)
 
----
+___
 
 ### globalState
 
@@ -45,9 +45,9 @@ Represents the user context.
 
 #### Defined in
 
-[types.ts:130](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L130)
+[types.ts:130](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L130)
 
----
+___
 
 ### resetAppState
 
@@ -59,8 +59,8 @@ Represents the user context.
 
 ##### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
+| Name | Type |
+| :------ | :------ |
 | `isDev` | `boolean` |
 
 ##### Returns
@@ -69,9 +69,9 @@ Represents the user context.
 
 #### Defined in
 
-[types.ts:129](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L129)
+[types.ts:129](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L129)
 
----
+___
 
 ### setAppState
 
@@ -83,9 +83,9 @@ Represents the user context.
 
 ##### Parameters
 
-| Name    | Type      |
-| :------ | :-------- |
-| `key`   | `string`  |
+| Name | Type |
+| :------ | :------ |
+| `key` | `string` |
 | `value` | `unknown` |
 | `isDev` | `boolean` |
 
@@ -95,4 +95,4 @@ Represents the user context.
 
 #### Defined in
 
-[types.ts:127](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L127)
+[types.ts:127](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L127)

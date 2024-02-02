@@ -21,9 +21,9 @@ Represents the configuration options for a tool.
 
 #### Defined in
 
-[types.ts:33](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L33)
+[types.ts:33](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L33)
 
----
+___
 
 ### enableFeatureY
 
@@ -31,9 +31,9 @@ Represents the configuration options for a tool.
 
 #### Defined in
 
-[types.ts:34](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L34)
+[types.ts:34](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L34)
 
----
+___
 
 ### language
 
@@ -41,9 +41,9 @@ Represents the configuration options for a tool.
 
 #### Defined in
 
-[types.ts:32](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L32)
+[types.ts:32](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L32)
 
----
+___
 
 ### maxRetryAttempts
 
@@ -51,4 +51,4 @@ Represents the configuration options for a tool.
 
 #### Defined in
 
-[types.ts:35](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-context/src/types.ts#L35)
+[types.ts:35](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-context/src/types.ts#L35)

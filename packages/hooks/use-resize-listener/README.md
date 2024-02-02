@@ -16,6 +16,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/use-resize-listener / [Exports](#modulesmd)
@@ -103,7 +104,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -114,6 +114,7 @@ Contributions to Robust are welcome! If you find any issues or have suggestions 
 Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
+
 
 <a name="modulesmd"></a>
 
@@ -137,11 +138,11 @@ Attaches a resize listener to the window and invokes the provided callback funct
 
 #### Parameters
 
-| Name                      | Type                                                                 |
-| :------------------------ | :------------------------------------------------------------------- |
-| `«destructured»`          | `Object`                                                             |
+| Name | Type |
+| :------ | :------ |
+| `«destructured»` | `Object` |
 | › `debouncedHandleResize` | `undefined` \| (`this`: `unknown`, ...`args`: `unknown`[]) => `void` |
-| › `handleResize`          | () => `void`                                                         |
+| › `handleResize` | () => `void` |
 
 #### Returns
 
@@ -153,4 +154,4 @@ If the first argument is not a function or if debouncedHandleResize is falsy.
 
 #### Defined in
 
-[hooks/use-resize-listener/src/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-resize-listener/src/index.ts#L11)
+[hooks/use-resize-listener/src/index.ts:11](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-resize-listener/src/index.ts#L11)

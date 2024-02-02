@@ -16,6 +16,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/use-language / [Exports](#modulesmd)
@@ -103,7 +104,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -114,6 +114,7 @@ Contributions to Robust are welcome! If you find any issues or have suggestions 
 Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
+
 
 <a name="modulesmd"></a>
 
@@ -131,16 +132,16 @@ Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ### useLanguage
 
-▸ **useLanguage**(): [\{ `currentLanguage`: `languageType` ; `fullnameLanguage`: typeof `language`[`languageType`] }, (`language`: `languageType`) => `void`]
+▸ **useLanguage**(): [\{ `currentLanguage`: `languageType` ; `fullnameLanguage`: typeof `language`[`languageType`]  }, (`language`: `languageType`) => `void`]
 
 Custom hook that provides the current language and a function to change the language.
 
 #### Returns
 
-[\{ `currentLanguage`: `languageType` ; `fullnameLanguage`: typeof `language`[`languageType`] }, (`language`: `languageType`) => `void`]
+[\{ `currentLanguage`: `languageType` ; `fullnameLanguage`: typeof `language`[`languageType`]  }, (`language`: `languageType`) => `void`]
 
 An array containing an object with the current language and its full name, and a function to change the language.
 
 #### Defined in
 
-[index.ts:9](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-language/src/index.ts#L9)
+[index.ts:9](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-language/src/index.ts#L9)

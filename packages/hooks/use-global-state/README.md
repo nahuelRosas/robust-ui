@@ -16,6 +16,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+
 <a name="readmemd"></a>
 
 @robust-ui/use-global-state / [Exports](#modulesmd)
@@ -103,7 +104,6 @@ Robust includes the following features:
 - Extensible: The system can be extended with additional components and functionality as needed.
 - Well-documented: The codebase is well-documented, making it easy to understand and contribute to.
 - Active development: Robust is actively developed and maintained, with regular updates and improvements.
--
 
 ## Contributing
 
@@ -114,6 +114,7 @@ Contributions to Robust are welcome! If you find any issues or have suggestions 
 Robust is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 ---
+
 
 <a name="modulesmd"></a>
 
@@ -137,14 +138,14 @@ A custom hook that provides global state management.
 
 #### Type parameters
 
-| Name | Description                         |
-| :--- | :---------------------------------- |
-| `T`  | The type of the global state value. |
+| Name | Description |
+| :------ | :------ |
+| `T` | The type of the global state value. |
 
 #### Parameters
 
-| Name      | Type                         | Description               |
-| :-------- | :--------------------------- | :------------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `options` | `UseGlobalStateProps`\<`T`\> | The options for the hook. |
 
 #### Returns
@@ -159,4 +160,4 @@ A custom hook that provides global state management.
 
 #### Defined in
 
-[index.ts:19](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/hooks/use-global-state/src/index.ts#L19)
+[index.ts:19](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/hooks/use-global-state/src/index.ts#L19)

@@ -26,9 +26,9 @@ Represents an action that sets the value of a specific key in the global state.
 
 #### Defined in
 
-[index.ts:12](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L12)
+[index.ts:12](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L12)
 
----
+___
 
 ### type
 
@@ -40,9 +40,9 @@ Represents an action that sets the value of a specific key in the global state.
 
 #### Defined in
 
-[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L5)
+[index.ts:5](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L5)
 
----
+___
 
 ### value
 
@@ -50,4 +50,4 @@ Represents an action that sets the value of a specific key in the global state.
 
 #### Defined in
 
-[index.ts:13](https://github.com/nahuelRosas/robust-ui/blob/bbc15f2/packages/reducer/global-state-reducer/src/index.ts#L13)
+[index.ts:13](https://github.com/nahuelRosas/robust-ui/blob/148f787/packages/reducer/global-state-reducer/src/index.ts#L13)
