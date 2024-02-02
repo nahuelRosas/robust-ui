@@ -47,7 +47,13 @@ jobs:
           cache: "pnpm"
 
       - name: Install Dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install
+
+      - name: Check Dependencies
+        run: pnpm run depCheck
+
+      - name: Build Code
+        run: pnpm run build
 
       - name: Format Code
         run: pnpm run format:write
