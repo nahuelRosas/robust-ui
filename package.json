@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "scripts": {
-    "build": "pnpm install && pnpm run format:write && turbo build",
+    "build": "pnpm run format:write && turbo run build",
     "build:packages": "pnpm run format:write && turbo run build --filter=!./apps/* ",
     "build:apps": "pnpm run format:write && turbo run build --filter=!./packages/* ",
     "start": "turbo start",
