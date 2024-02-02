@@ -1,5 +1,11 @@
 # @robust-ui/nextjs-components
 
+## 1.2.0
+
+### Minor Changes
+
+- 942cdd1: add readme
+
 ## 1.1.0
 
 ### Minor Changes
