@@ -1,5 +1,21 @@
 # @robust-ui/image
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [5bdc912]
+  - @robust-ui/use-global-context@1.3.0
+  - @robust-ui/use-image-status@1.3.0
+  - @robust-ui/use-clean-value@1.3.0
+  - @robust-ui/constructor@1.3.0
+  - @robust-ui/theme@1.3.0
+  - @robust-ui/tools@1.3.0
+  - @robust-ui/button@1.2.1
+  - @robust-ui/spinner@1.2.1
+  - @robust-ui/icon@1.2.1
+  - @robust-ui/flex@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes

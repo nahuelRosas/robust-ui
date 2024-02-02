@@ -1,5 +1,42 @@
 # @robust-ui/nextjs-components
 
+## 1.3.1
+
+### Patch Changes
+
+- Updated dependencies [5bdc912]
+  - @robust-ui/use-extract-string@1.3.0
+  - @robust-ui/use-global-context@1.3.0
+  - @robust-ui/use-image-status@1.3.0
+  - @robust-ui/use-clean-value@1.3.0
+  - @robust-ui/use-language@1.3.0
+  - @robust-ui/use-toast@1.3.0
+  - @robust-ui/constructor@1.3.0
+  - @robust-ui/theme@1.3.0
+  - @robust-ui/tools@1.3.0
+  - @robust-ui/main@1.2.1
+  - @robust-ui/code-text@1.2.1
+  - @robust-ui/cover@1.2.1
+  - @robust-ui/overlay@1.2.1
+  - @robust-ui/styled-text@1.2.1
+  - @robust-ui/input@1.2.1
+  - @robust-ui/label@1.2.1
+  - @robust-ui/textarea@1.2.1
+  - @robust-ui/menu@1.2.1
+  - @robust-ui/button@1.2.1
+  - @robust-ui/aside@1.2.1
+  - @robust-ui/next-link@1.2.1
+  - @robust-ui/image@1.2.1
+  - @robust-ui/card@1.2.1
+  - @robust-ui/spinner@1.2.1
+  - @robust-ui/icon@1.2.1
+  - @robust-ui/block@1.2.1
+  - @robust-ui/flex@1.2.1
+  - @robust-ui/paragraph@1.2.1
+  - @robust-ui/footer@1.2.1
+  - @robust-ui/header@1.2.1
+  - @robust-ui/span@1.2.1
+
 ## 1.3.0
 
 ### Minor Changes

@@ -1,5 +1,16 @@
 # @robust-ui/icon
 
+## 1.2.1
+
+### Patch Changes
+
+- Updated dependencies [5bdc912]
+  - @robust-ui/use-clean-value@1.3.0
+  - @robust-ui/constructor@1.3.0
+  - @robust-ui/css-utils@1.3.0
+  - @robust-ui/theme@1.3.0
+  - @robust-ui/flex@1.2.1
+
 ## 1.2.0
 
 ### Minor Changes
