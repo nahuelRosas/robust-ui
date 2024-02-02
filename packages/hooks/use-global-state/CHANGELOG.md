@@ -1,5 +1,21 @@
 # @robust-ui/use-global-state
 
+## 1.2.0
+
+### Minor Changes
+
+- 8441a88: Fix problem with pnpm-lock.yaml
+- 5ba16bb: Try fix errors with dependencies and build
+
+### Patch Changes
+
+- Updated dependencies [8441a88]
+- Updated dependencies [5ba16bb]
+  - @robust-ui/use-global-context@1.2.0
+  - @robust-ui/use-global-state-updater@1.2.0
+  - @robust-ui/use-recovery-global-state-value@1.2.0
+  - @robust-ui/tools@1.2.0
+
 ## 1.1.0
 
 ### Minor Changes
