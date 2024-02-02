@@ -1,5 +1,49 @@
 # @robust-ui/nextjs-components
 
+## 1.3.0
+
+### Minor Changes
+
+- 86ecd4d: add doc
+- 8441a88: Fix problem with pnpm-lock.yaml
+- 5ba16bb: Try fix errors with dependencies and build
+
+### Patch Changes
+
+- Updated dependencies [8441a88]
+- Updated dependencies [5ba16bb]
+  - @robust-ui/card@1.2.0
+  - @robust-ui/code-text@1.2.0
+  - @robust-ui/cover@1.2.0
+  - @robust-ui/overlay@1.2.0
+  - @robust-ui/spinner@1.2.0
+  - @robust-ui/styled-text@1.2.0
+  - @robust-ui/image@1.2.0
+  - @robust-ui/icon@1.2.0
+  - @robust-ui/input@1.2.0
+  - @robust-ui/label@1.2.0
+  - @robust-ui/textarea@1.2.0
+  - @robust-ui/block@1.2.0
+  - @robust-ui/flex@1.2.0
+  - @robust-ui/main@1.2.0
+  - @robust-ui/menu@1.2.0
+  - @robust-ui/paragraph@1.2.0
+  - @robust-ui/button@1.2.0
+  - @robust-ui/aside@1.2.0
+  - @robust-ui/footer@1.2.0
+  - @robust-ui/header@1.2.0
+  - @robust-ui/span@1.2.0
+  - @robust-ui/next-link@1.2.0
+  - @robust-ui/constructor@1.2.0
+  - @robust-ui/use-clean-value@1.2.0
+  - @robust-ui/use-extract-string@1.2.0
+  - @robust-ui/use-global-context@1.2.0
+  - @robust-ui/use-image-status@1.2.0
+  - @robust-ui/use-language@1.2.0
+  - @robust-ui/use-toast@1.2.0
+  - @robust-ui/theme@1.2.0
+  - @robust-ui/tools@1.2.0
+
 ## 1.2.0
 
 ### Minor Changes

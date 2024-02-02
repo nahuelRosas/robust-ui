@@ -1,5 +1,19 @@
 # @robust-ui/provider
 
+## 1.2.0
+
+### Minor Changes
+
+- 8441a88: Fix problem with pnpm-lock.yaml
+- 5ba16bb: Try fix errors with dependencies and build
+
+### Patch Changes
+
+- Updated dependencies [8441a88]
+- Updated dependencies [5ba16bb]
+  - @robust-ui/constructor@1.2.0
+  - @robust-ui/use-ssr@1.2.0
+
 ## 1.1.0
 
 ### Minor Changes
