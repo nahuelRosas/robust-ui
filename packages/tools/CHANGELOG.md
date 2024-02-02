@@ -1,5 +1,11 @@
 # @robust-ui/cryptography
 
+## 1.3.0
+
+### Minor Changes
+
+- 5bdc912: Add Documentation
+
 ## 1.2.0
 
 ### Minor Changes
