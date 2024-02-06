@@ -1,7 +1,7 @@
 {
   "name": "@robust-ui/overlay",
   "description": "A overlay component for React",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "author": "Nahuel Rosas <nahuel.rosas@mi.unc.edu.ar>",
   "homepage": "https://github.com/nahuelRosas/robust-ui#readme",
   "bugs": {

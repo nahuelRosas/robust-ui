@@ -1,5 +1,12 @@
 # @robust-ui/card
 
+## 1.2.2
+
+### Patch Changes
+
+- Updated dependencies [11e61e3]
+  - @robust-ui/image@1.3.0
+
 ## 1.2.1
 
 ### Patch Changes
