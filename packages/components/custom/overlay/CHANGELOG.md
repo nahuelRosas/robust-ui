@@ -1,5 +1,11 @@
 # @robust-ui/cover
 
+## 1.2.2
+
+### Patch Changes
+
+- @robust-ui/card@1.2.2
+
 ## 1.2.1
 
 ### Patch Changes

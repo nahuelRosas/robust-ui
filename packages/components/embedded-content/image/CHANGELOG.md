@@ -1,5 +1,11 @@
 # @robust-ui/image
 
+## 1.3.0
+
+### Minor Changes
+
+- 11e61e3: Delete letter in code, included by error
+
 ## 1.2.1
 
 ### Patch Changes
